@@ -5,201 +5,260 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AromaDNA — Whitepaper</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
-            margin: 0;
-            padding: 0;
-            background: #FCF9F5;
+            background: #FAF7F2;
             color: #2C2A29;
             line-height: 1.6;
+            position: relative;
         }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="none" stroke="%238B5E3C" stroke-width="1.2" d="M200 200 L250 180 L300 200 L330 250 L300 300 L250 320 L200 300 L170 250 Z M500 500 L560 475 L620 500 L645 560 L620 620 L560 645 L500 620 L475 560 Z"/><circle cx="350" cy="450" r="15" stroke="%238B5E3C" stroke-width="1" fill="none"/></svg>');
+            background-repeat: repeat;
+            background-size: 400px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
-        }
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin-bottom: 0.2rem;
-            color: #1A1817;
-        }
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
             margin-top: 2rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid #E0DCD6;
-        }
-        h3 {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-top: 1.5rem;
-        }
-        .subhead {
-            font-size: 1rem;
-            color: #6F6A64;
             margin-bottom: 2rem;
-            border-bottom: 1px solid #E0DCD6;
-            padding-bottom: 1rem;
         }
-        .disclaimer {
-            background: #F1EFEC;
-            border-left: 4px solid #8B8781;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-            font-size: 0.85rem;
-            color: #4A4641;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 2rem;
-            color: #6F6A64;
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-        .back-link:hover {
-            color: #1A1817;
-        }
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            color: #8B8781;
-            font-size: 0.75rem;
-            border-top: 1px solid #EAE5DF;
-            padding-top: 1.5rem;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #EAE5DF;
-            margin: 1.5rem 0;
-        }
-        @media (max-width: 600px) {
-            .container { padding: 1.2rem; }
-            h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.3rem; }
-        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.6rem; margin: 1.5rem 0 1rem; border-left: 4px solid #B57C48; padding-left: 1rem; }
+        h3 { font-size: 1.2rem; margin: 1rem 0 0.5rem; }
+        .subhead { color: #B57C48; margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem; }
+        .disclaimer { background: #F1EFEC; padding: 1rem; border-radius: 16px; margin: 1rem 0; font-size: 0.85rem; }
+        .button { display: inline-block; background: #1A1A1A; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; margin-top: 1rem; }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1A1A1A; color: white; padding: 10px 16px; border-radius: 40px; cursor: pointer; z-index: 1000; font-family: monospace; }
+        .lang-menu { position: fixed; bottom: 70px; right: 20px; background: white; border-radius: 16px; padding: 10px 0; display: none; flex-direction: column; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 130px; }
+        .lang-menu a { padding: 8px 20px; text-decoration: none; color: #2C2A29; }
+        .lang-menu a:hover { background: #F5F0EA; }
+        .lang-menu.show { display: flex; }
+        .back-link { display: inline-block; margin-bottom: 1rem; color: #B57C48; text-decoration: none; }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: #6F6A64; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Back to main page</a>
-        
-        <h1>AromaDNA Ecosystem</h1>
-        <div class="subhead">Whitepaper — Version 1.0 · Founder: Dina Igaliyeva</div>
 
-        <!-- ========== CONTENT STARTS HERE ========== -->
+<div class="container" id="whitepaperContainer">
+    <a href="index.html" class="back-link" data-i18n="back">← Back to main page</a>
+    <h1 data-i18n="title">AromaDNA Ecosystem</h1>
+    <div class="subhead" data-i18n="version">Whitepaper — Version 1.0 · Founder: Dina Igaliyeva</div>
 
-        <h2>1. Introduction</h2>
-        <p>AromaDNA is a next-generation sensory wellness ecosystem that unites personalized perfumery, sensory wellness, emotional rituals, luxury experiences, digital services, Web3 infrastructure, and a research platform for aromatic molecules and human states.</p>
-        <p><strong>Core idea:</strong> Fragrance as a tool for state, identity, and personal resource.</p>
-        <p>The ecosystem bridges physical products, digital identity, premium service, and personalized interaction with scent.</p>
-
-        <h2>2. Mission</h2>
-        <p>To build a global ecosystem of personalized fragrance and sensory wellness, where scent becomes part of identity, a tool for emotional regulation, an element of ritual, a digital identifier, a means of self-expression, and a component of the future lifestyle ecosystem.</p>
-
-        <h2>3. Philosophy</h2>
-        <p><strong>3.1 Individuality</strong><br>Every person has a unique emotional, sensory, and behavioral architecture.</p>
-        <p><strong>3.2 Fragrance as a language of state</strong><br>Scent can serve as an anchor for memory, emotion, focus, relaxation, and internal state.</p>
-        <p><strong>3.3 Luxury through meaning</strong><br>True luxury is not mass production — it is personalization and depth of experience.</p>
-        <p><strong>3.4 Digital + Physical</strong><br>The future of luxury lies at the intersection of physical products, digital identity, membership models, tokenized access, and personalized services.</p>
-
-        <h2>4. Ecosystem Structure</h2>
-        <p>The ecosystem consists of several interconnected verticals:</p>
-        <p><strong>AromaDNA</strong> – Central sensory wellness platform.<br>
-        <strong>Aroma Dina</strong> – Luxury personalized perfumery brand.<br>
-        <strong>PRP Method</strong> – Proprietary methodology for personal resource fragrance.<br>
-        <strong>Aroma Academy</strong> – Educational platform.<br>
-        <strong>Aroma Magna</strong> – Research and molecule intelligence.<br>
-        <strong>AromaTech</strong> – Digital infrastructure.<br>
-        <strong>Wellness & Ritual</strong> – Luxury sensory experiences.<br>
-        <strong>Franchise</strong> – Global scaling through partners.<br>
-        <strong>B2B</strong> – Corporate aroma solutions.</p>
-
-        <h2>5. AromaDNA — Core Platform</h2>
-        <p>AromaDNA is the central platform of the ecosystem, focusing on personalized fragrances, sensory wellness, emotional rituals, digital-physical access, premium membership, NFT scent identity, and community ecosystem.</p>
-
-        <h2>6. ADNA Token</h2>
-        <p>ADNA is the utility token of the AromaDNA ecosystem.</p>
-        <p><strong>Parameters:</strong><br>
-        Name: AromaDNA<br>
-        Ticker: ADNA<br>
-        Positioning: Luxury Sensory Wellness Utility Token<br>
-        Network: Solana (Token-2022)<br>
-        Total Supply: 10,000,000,000 (10 billion) ADNA<br>
-        Mint Authority: Revoked (no additional tokens can ever be created)</p>
-
-        <div class="disclaimer">
-            <strong>Legal Disclaimer:</strong><br>
-            ADNA is strictly a utility token. It does not represent equity, debt, profit-sharing, or any financial claim. It provides access to products, services, and community features within the AromaDNA ecosystem. ADNA is not positioned as an investment instrument or security.
-        </div>
-
-        <p><strong>Token Functions:</strong><br>
-        Access to premium products, participation in closed aroma sessions, membership access, loyalty rewards, community governance, NFT integration, digital access, and ecosystem participation.</p>
-        <p><strong>Key principle:</strong> ADNA enables participation — not speculation.</p>
-
-        <h2>7. Aroma Dina</h2>
-        <p>Aroma Dina is a luxury personalized perfumery brand offering personal fragrances, signature scents, emotional perfumes, ritual fragrances, and luxury collections. Each fragrance is co-created with the client as a sensory portrait, an emotional anchor, and an extension of their lifestyle.</p>
-
-        <h2>8. PRP Method</h2>
-        <p>The Personal Resource Perfume Method is a proprietary methodology based on neuro-aromatics, sensory anchoring, associative perception, emotional mapping, and ritual integration. The method includes preference diagnostics, emotional associations, creating a resource state, selection of aromatic compositions, and a ritual protocol.</p>
-
-        <h2>9. Aroma Academy</h2>
-        <p>Aroma Academy is the educational platform of the ecosystem, offering training in aromatherapy, luxury perfumery, neuro-aroma consulting, sensory branding, and emotional fragrance design.</p>
-
-        <h2>10. Aroma Magna</h2>
-        <p>Aroma Magna is the research and molecule intelligence platform focused on building a database of essential oils, molecule classification, chemotype mapping, molecule-effect relationships, and sensory response analysis. Research areas include terpenes, alcohols, esters, aldehydes, ketones, phenols, and oxides.</p>
-
-        <h2>11. AromaTech</h2>
-        <p>AromaTech is the digital infrastructure of the ecosystem, including an aroma recommendation engine, sensory profile system, digital scent passport, client CRM, aroma database, and digital-physical integration layer.</p>
-
-        <h2>12. NFT Scent Passport</h2>
-        <p>The NFT Scent Passport is the digital identity layer of the ecosystem. It records each user's sensory profile, fragrance preferences, emotional anchors, ritual history, and ecosystem memberships.</p>
-
-        <h2>13. Wellness &amp; Ritual Direction</h2>
-        <p>This direction offers luxury wellness experiences including aroma rituals, relaxation sessions, sensory immersion, emotional reset experiences, and private wellness events.</p>
-
-        <h2>14. Franchise Model</h2>
-        <p>The ecosystem scales globally through the Aroma Franchise model, which includes aroma studios, luxury consultation spaces, a partner ecosystem, and certified aroma consultants.</p>
-
-        <h2>15. B2B Direction</h2>
-        <p>Corporate aroma solutions include scent branding, aroma identity for business, luxury hospitality aroma design, retail scent marketing, and private label production.</p>
-
-        <h2>16. Digital Commerce</h2>
-        <p>Digital commerce infrastructure includes an online boutique, digital memberships, token-based access, subscription models, and NFT-linked products.</p>
-
-        <h2>17. Global Development Strategy</h2>
-        <p>The strategy unfolds in four phases:</p>
-        <p><strong>Phase 1 – Foundation</strong><br>Brand, methodology, client base, content, community.</p>
-        <p><strong>Phase 2 – Digitalization</strong><br>Website, CRM, ecosystem platform.</p>
-        <p><strong>Phase 3 – Tokenized Ecosystem</strong><br>ADNA utility, NFT, membership, loyalty system.</p>
-        <p><strong>Phase 4 – International Expansion</strong><br>Franchise, wellness partnerships, luxury collaborations, global ambassadors.</p>
-
-        <h2>18. Target Audience</h2>
-        <p>The ecosystem serves premium wellness clients, luxury consumers, entrepreneurs, creatives, the biohacking audience, lifestyle-focused individuals, and the luxury hospitality sector.</p>
-
-        <h2>19. Competitive Advantages</h2>
-        <p>The key advantages are the fusion of luxury and wellness, deep personalization, emotional architecture of fragrances, digital-physical ecosystem, tokenized access, educational platform, and research ecosystem.</p>
-
-        <h2>20. Vision</h2>
-        <p>AromaDNA aims to become an international next-generation platform where fragrance becomes part of digital identity, sensory wellness integrates into lifestyle, luxury experiences become deeply personalized, and physical and digital products unite into a single ecosystem.</p>
-
-        <h2>21. Conclusion</h2>
-        <p>AromaDNA is not merely a perfume brand. It is a sensory ecosystem, a luxury wellness platform, a personalized experience architecture, an educational and technological environment, a research infrastructure, and a digital-physical lifestyle ecosystem.</p>
-        <p>The project unites fragrance, emotion, technology, rituals, personalization, a luxury approach, and the future of digital identity.</p>
-
-        <hr>
-
-        <p style="font-size: 0.85rem; color: #6F6A64;">End of Whitepaper — Version 1.0</p>
-
-        <!-- ========== CONTENT ENDS HERE ========== -->
-
-        <a href="index.html" class="back-link">← Back to main page</a>
-
-        <footer>
-            © 2026 AromaDNA Ecosystem — Founded by Dina Igaliyeva
-        </footer>
+    <div id="whitepaperContent">
+        <!-- content will be filled by JS -->
     </div>
+
+    <footer>© 2026 AromaDNA Ecosystem — <span data-i18n="footer">Founded by Dina Igaliyeva</span></footer>
+</div>
+
+<div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+<div class="lang-menu" id="langMenu">
+    <a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ru">🇷🇺 Русский</a><a href="#" data-lang="kk">🇰🇿 Қазақша</a>
+    <a href="#" data-lang="uz">🇺🇿 O'zbekcha</a><a href="#" data-lang="ky">🇰🇬 Кыргызча</a><a href="#" data-lang="zh">🇨🇳 中文</a>
+    <a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="fr">🇫🇷 Français</a>
+</div>
+
+<script>
+const whitepaperTexts = {
+  en: `
+    <h2>1. Introduction</h2>
+    <p>AromaDNA is a next-generation sensory wellness ecosystem that unites personalized perfumery, sensory wellness, emotional rituals, luxury experiences, digital services, Web3 infrastructure, and a research platform for aromatic molecules and human states.</p>
+    <p><strong>Core idea:</strong> Fragrance as a tool for state, identity, and personal resource.</p>
+    <p>The ecosystem bridges physical products, digital identity, premium service, and personalized interaction with scent.</p>
+
+    <h2>2. Mission</h2>
+    <p>To build a global ecosystem of personalized fragrance and sensory wellness, where scent becomes part of identity, a tool for emotional regulation, an element of ritual, a digital identifier, a means of self-expression, and a component of the future lifestyle ecosystem.</p>
+
+    <h2>3. Philosophy</h2>
+    <p><strong>3.1 Individuality</strong><br>Every person has a unique emotional, sensory, and behavioral architecture.</p>
+    <p><strong>3.2 Fragrance as a language of state</strong><br>Scent can serve as an anchor for memory, emotion, focus, relaxation, and internal state.</p>
+    <p><strong>3.3 Luxury through meaning</strong><br>True luxury is not mass production — it is personalization and depth of experience.</p>
+    <p><strong>3.4 Digital + Physical</strong><br>The future of luxury lies at the intersection of physical products, digital identity, membership models, tokenized access, and personalized services.</p>
+
+    <h2>4. Ecosystem Structure</h2>
+    <p><strong>AromaDNA</strong> – Central sensory wellness platform.<br>
+    <strong>Aroma Dina</strong> – Luxury personalized perfumery brand.<br>
+    <strong>PRP Method</strong> – Proprietary methodology for personal resource fragrance.<br>
+    <strong>Aroma Academy</strong> – Educational platform.<br>
+    <strong>Aroma Magna</strong> – Research and molecule intelligence.<br>
+    <strong>AromaTech</strong> – Digital infrastructure.<br>
+    <strong>Wellness & Ritual</strong> – Luxury sensory experiences.<br>
+    <strong>Franchise</strong> – Global scaling through partners.<br>
+    <strong>B2B</strong> – Corporate aroma solutions.</p>
+
+    <h2>5. AromaDNA — Core Platform</h2>
+    <p>AromaDNA is the central platform of the ecosystem, focusing on personalized fragrances, sensory wellness, emotional rituals, digital-physical access, premium membership, NFT scent identity, and community ecosystem.</p>
+
+    <h2>6. ADNA Token</h2>
+    <p>ADNA is the utility token of the AromaDNA ecosystem.</p>
+    <p><strong>Parameters:</strong><br>
+    Name: AromaDNA<br>
+    Ticker: ADNA<br>
+    Positioning: Luxury Sensory Wellness Utility Token<br>
+    Network: Solana (Token-2022)<br>
+    Total Supply: 10,000,000,000 (10 billion) ADNA<br>
+    Mint Authority: Revoked (no additional tokens can ever be created)</p>
+    <div class="disclaimer"><strong>Legal Disclaimer:</strong><br>ADNA is strictly a utility token. It does not represent equity, debt, profit-sharing, or any financial claim. It provides access to products, services, and community features within the AromaDNA ecosystem. ADNA is not positioned as an investment instrument or security.</div>
+    <p><strong>Token Functions:</strong><br>
+    Access to premium products, participation in closed aroma sessions, membership access, loyalty rewards, community governance, NFT integration, digital access, and ecosystem participation.</p>
+    <p><strong>Tokenomics:</strong><br>
+    • 30% — Regulatory Insurance Deposit (master wallets)<br>
+    • 25% — byt-assist Ecosystem (operations, marketing, integrations)<br>
+    • 20% — Liquidity (DEX pools)<br>
+    • 15% — Reserve (future burns, controlled deflation)<br>
+    • 10% — Founder & Strategic Vision Holder: Dina Igaliyeva (long-term stewardship, brand development, expansion, IP protection)</p>
+
+    <h2>7. Aroma Dina</h2>
+    <p>Luxury personalized perfumery brand offering personal fragrances, signature scents, emotional perfumes, ritual fragrances, and luxury collections. Each fragrance is co-created with the client as a sensory portrait, an emotional anchor, and an extension of their lifestyle.</p>
+
+    <h2>8. PRP Method</h2>
+    <p>The Personal Resource Perfume Method is a proprietary methodology based on neuro-aromatics, sensory anchoring, associative perception, emotional mapping, and ritual integration.</p>
+
+    <h2>9. Aroma Academy</h2>
+    <p>Educational platform offering training in aromatherapy, luxury perfumery, neuro-aroma consulting, sensory branding, and emotional fragrance design.</p>
+
+    <h2>10. Aroma Magna</h2>
+    <p>Research and molecule intelligence platform focused on building a database of essential oils, molecule classification, chemotype mapping, molecule-effect relationships, and sensory response analysis.</p>
+
+    <h2>11. AromaTech</h2>
+    <p>Digital infrastructure including aroma recommendation engine, sensory profile system, digital scent passport, client CRM, and digital-physical integration layer.</p>
+
+    <h2>12. NFT Scent Passport</h2>
+    <p>Digital identity layer recording each user's sensory profile, fragrance preferences, emotional anchors, ritual history, and ecosystem memberships.</p>
+
+    <h2>13. Wellness & Ritual Direction</h2>
+    <p>Luxury wellness experiences including aroma rituals, relaxation sessions, sensory immersion, emotional reset experiences, and private wellness events.</p>
+
+    <h2>14. Franchise Model</h2>
+    <p>Global scaling through aroma studios, luxury consultation spaces, partner ecosystem, and certified aroma consultants.</p>
+
+    <h2>15. B2B Direction</h2>
+    <p>Corporate aroma solutions: scent branding, aroma identity for business, luxury hospitality aroma design, retail scent marketing, and private label production.</p>
+
+    <h2>16. Digital Commerce</h2>
+    <p>Online boutique, digital memberships, token-based access, subscription models, and NFT-linked products.</p>
+
+    <h2>17. Global Development Strategy</h2>
+    <p><strong>Phase 1 – Foundation:</strong> Brand, methodology, client base, content, community.<br>
+    <strong>Phase 2 – Digitalization:</strong> Website, CRM, ecosystem platform.<br>
+    <strong>Phase 3 – Tokenized Ecosystem:</strong> ADNA utility, NFT, membership, loyalty system.<br>
+    <strong>Phase 4 – International Expansion:</strong> Franchise, wellness partnerships, luxury collaborations, global ambassadors.</p>
+
+    <h2>18. Target Audience</h2>
+    <p>Premium wellness clients, luxury consumers, entrepreneurs, creatives, biohacking audience, lifestyle-focused individuals, and luxury hospitality sector.</p>
+
+    <h2>19. Competitive Advantages</h2>
+    <p>Fusion of luxury and wellness, deep personalization, emotional architecture of fragrances, digital-physical ecosystem, tokenized access, educational platform, and research ecosystem.</p>
+
+    <h2>20. Vision</h2>
+    <p>AromaDNA aims to become an international next-generation platform where fragrance becomes part of digital identity, sensory wellness integrates into lifestyle, luxury experiences become deeply personalized, and physical and digital products unite into a single ecosystem.</p>
+
+    <h2>21. Conclusion</h2>
+    <p>AromaDNA is not merely a perfume brand. It is a sensory ecosystem, a luxury wellness platform, a personalized experience architecture, an educational and technological environment, a research infrastructure, and a digital-physical lifestyle ecosystem.</p>
+  `,
+  ru: ` 
+    <h2>1. Введение</h2>
+    <p>AromaDNA — это сенсорная оздоровительная экосистема нового поколения, объединяющая персонализированную парфюмерию, эмоциональные ритуалы, люксовые впечатления, цифровые сервисы, Web3-инфраструктуру и исследовательскую платформу.</p>
+    <p><strong>Ключевая идея:</strong> Аромат как инструмент состояния, идентичности и личного ресурса.</p>
+
+    <h2>2. Миссия</h2>
+    <p>Создать глобальную экосистему персонализированной ароматики и сенсорного благополучия.</p>
+
+    <h2>3. Философия</h2>
+    <p><strong>3.1 Индивидуальность</strong> — уникальная архитектура каждого человека.<br>
+    <strong>3.2 Аромат как язык состояния</strong> — якорь для памяти, эмоций, фокуса и релаксации.<br>
+    <strong>3.3 Роскошь через смысл</strong> — персонализация и глубина опыта.<br>
+    <strong>3.4 Цифровое + Физическое</strong> — будущее люкса на стыке физических продуктов и цифровой идентичности.</p>
+
+    <h2>4. Структура экосистемы</h2>
+    <p><strong>AromaDNA</strong> – центральная сенсорная платформа.<br>
+    <strong>Aroma Dina</strong> – бренд персонализированной парфюмерии.<br>
+    <strong>PRP Method</strong> – метод ресурсного аромата.<br>
+    <strong>Aroma Academy</strong> – образовательная платформа.<br>
+    <strong>Aroma Magna</strong> – исследования и молекулярный интеллект.<br>
+    <strong>AromaTech</strong> – цифровая инфраструктура.<br>
+    <strong>Wellness & Ritual</strong> – люксовые сенсорные практики.<br>
+    <strong>Франшиза</strong> – масштабирование через партнеров.<br>
+    <strong>B2B</strong> – корпоративные арома-решения.</p>
+
+    <h2>5. AromaDNA — Основная платформа</h2>
+    <p>Персонализированные ароматы, сенсорный велнес, эмоциональные ритуалы, NFT-идентичность, премиальный доступ.</p>
+
+    <h2>6. Токен ADNA</h2>
+    <p>Утилитарный токен экосистемы AromaDNA на Solana (Token-2022).<br>
+    <strong>Общее предложение:</strong> 10 000 000 000 (фиксировано, право на эмиссию отозвано).</p>
+    <div class="disclaimer"><strong>Юридическое примечание:</strong> ADNA — строго утилитарный токен, не являющийся ценной бумагой или инвестиционным инструментом.</div>
+    <p><strong>Функции токена:</strong> Доступ к премиум-продуктам, участие в закрытых сессиях, членство, управление сообществом, NFT-интеграция.</p>
+    <p><strong>Токеномика:</strong><br>
+    • 30% — Регуляторный страховой депозит<br>
+    • 25% — Экосистема byt-assist<br>
+    • 20% — Ликвидность<br>
+    • 15% — Резерв (будущие сжигания)<br>
+    • 10% — Основатель и стратегический держатель видения: Дина Игалиева</p>
+
+    <h2>7-21. Остальные разделы</h2>
+    <p>Полное описание бренда Aroma Dina, метода PRP, академии, исследований, инфраструктуры, NFT-паспорта, франшизы, B2B, дорожной карты и видения проекта доступно в английской версии и будет добавлено позже. Основная концепция и токеномика представлены выше.</p>
+  `,
+  // For other languages we fallback to English for brevity, but you can expand
+};
+
+// Fallback for missing languages
+const supportedLangs = ['en', 'ru', 'kk', 'uz', 'ky', 'zh', 'de', 'fr'];
+for (let lang of supportedLangs) {
+    if (!whitepaperTexts[lang]) whitepaperTexts[lang] = whitepaperTexts.en;
+}
+
+let currentLangWP = 'en';
+function setLanguageWP(lang) {
+    currentLangWP = lang;
+    document.getElementById('whitepaperContent').innerHTML = whitepaperTexts[lang] || whitepaperTexts.en;
+    document.querySelector('.lang-switcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+    localStorage.setItem('aroma_wp_lang', lang);
+    // Update back link and footer
+    const backLink = document.querySelector('.back-link');
+    if (backLink) {
+        if (lang === 'ru') backLink.innerText = '← На главную';
+        else backLink.innerText = '← Back to main page';
+    }
+    const footerSpan = document.querySelector('#whitepaperContainer footer span');
+    if (footerSpan) {
+        if (lang === 'ru') footerSpan.innerText = 'Основано Диной Игалиевой';
+        else footerSpan.innerText = 'Founded by Dina Igaliyeva';
+    }
+}
+
+// Language switcher UI
+document.getElementById('langSwitcher').addEventListener('click', () => document.getElementById('langMenu').classList.toggle('show'));
+document.querySelectorAll('.lang-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        setLanguageWP(link.getAttribute('data-lang'));
+        document.getElementById('langMenu').classList.remove('show');
+    });
+});
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
+        document.getElementById('langMenu').classList.remove('show');
+});
+const savedWPLang = localStorage.getItem('aroma_wp_lang');
+if (savedWPLang && whitepaperTexts[savedWPLang]) setLanguageWP(savedWPLang);
+else setLanguageWP('en');
+</script>
 </body>
 </html>
