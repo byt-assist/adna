@@ -1,67 +1,197 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AromaDNA — Sensory Wellness Ecosystem</title>
     <style>
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
             background: #FCF9F5;
             color: #2C2A29;
             line-height: 1.5;
+            scroll-behavior: smooth;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 0 1.5rem;
         }
-        h1 {
-            font-size: 3rem;
+        
+        /* Header & Navigation */
+        header {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #EAE5DF;
+            background: #FCF9F5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        .logo-placeholder {
+            font-size: 1.8rem;
             font-weight: 400;
             letter-spacing: 2px;
-            margin-bottom: 0;
             color: #1A1817;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2C2A29;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        nav a:hover {
+            color: #8B8781;
+        }
+        
+        /* Language Switcher - Floating */
+        .lang-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1A1A1A;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 14px;
+            font-family: monospace;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: 0.2s;
+        }
+        .lang-switcher:hover {
+            background: #333;
+        }
+        .lang-menu {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: white;
+            border: 1px solid #EAE5DF;
+            border-radius: 20px;
+            padding: 12px 0;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            min-width: 140px;
+        }
+        .lang-menu a {
+            padding: 8px 20px;
+            text-decoration: none;
+            color: #2C2A29;
+            font-size: 14px;
+            transition: 0.1s;
+        }
+        .lang-menu a:hover {
+            background: #F1EFEC;
+        }
+        .lang-menu.show {
+            display: flex;
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #EAE5DF;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #1A1817;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: #1A1817;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1rem 0 0.5rem;
         }
         .subhead {
             font-size: 1.2rem;
             color: #6F6A64;
             margin-top: 0.5rem;
-            border-bottom: 1px solid #E0DCD6;
-            padding-bottom: 1.5rem;
         }
+        .hero {
+            text-align: center;
+            padding: 3rem 0 4rem;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: 1.1rem;
+            color: #4A4641;
+        }
+        
+        /* Cards & Grid */
         .card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 1.8rem;
-            margin: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             border: 1px solid #EAE5DF;
+            height: 100%;
         }
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        
         .token-address {
             background: #F1EFEC;
             padding: 1rem;
             border-radius: 14px;
             font-family: 'Monaco', monospace;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             word-break: break-all;
-            color: #2C2A29;
             margin: 1rem 0;
         }
+        
         .button {
             display: inline-block;
             background: #1A1A1A;
             color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 30px;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
             text-decoration: none;
             font-size: 0.9rem;
-            margin-right: 1rem;
-            margin-top: 0.5rem;
             transition: 0.2s;
             border: none;
+            cursor: pointer;
         }
         .button-outline {
             background: transparent;
@@ -72,52 +202,404 @@
             background: #1A1A1A;
             color: white;
         }
+        .button-group {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Roadmap */
+        .roadmap-step {
+            background: white;
+            border-left: 3px solid #1A1A1A;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 16px 16px 0;
+        }
+        
         footer {
-            margin-top: 3rem;
+            padding: 2rem 0;
             text-align: center;
             color: #8B8781;
             font-size: 0.8rem;
-            border-top: 1px solid #EAE5DF;
-            padding-top: 2rem;
         }
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .container { padding: 1rem; }
+        
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.5rem; }
+            .header-inner { flex-direction: column; text-align: center; }
+            nav { justify-content: center; gap: 1.2rem; }
+            section { padding: 2rem 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>AromaDNA</h1>
-        <div class="subhead">Luxury Sensory Wellness Ecosystem</div>
 
-        <div class="card">
-            <h2 style="font-weight: 400;">🪙 ADNA Token</h2>
-            <p><strong>Utility token of the AromaDNA ecosystem</strong><br>Network: Solana (Token-2022) | Total Supply: 10,000,000,000 (fixed)</p>
-            <div class="token-address">
-                📍 <strong>Contract address:</strong><br>
-                DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E
-            </div>
-            <p><em>ADNA is strictly a utility token — not a security or investment instrument.</em></p>
+<header>
+    <div class="container header-inner">
+        <div class="logo-area">
+            <img src="adna_logo.png" alt="AromaDNA" class="logo" onerror="this.style.display='none'; this.nextSibling.style.display='block';">
+            <div class="logo-placeholder" style="display:none;">AromaDNA</div>
         </div>
-
-        <div class="card">
-            <h2 style="font-weight: 400;">📄 Whitepaper</h2>
-            <p>Read the full vision, ecosystem structure, and token utility of AromaDNA.</p>
-            <a href="whitepaper.html" class="button">📖 Read online</a>
-            <a href="whitepaper.pdf" class="button button-outline">⬇️ Download PDF</a>
-            <p style="font-size: 0.8rem; margin-top: 1rem; color: #6F6A64;">*Если PDF отсутствует, будет доступна только онлайн-версия.</p>
-        </div>
-
-        <div class="card">
-            <h2 style="font-weight: 400;">🌿 Ecosystem</h2>
-            <p>Aroma Dina · PRP Method · Aroma Academy · Aroma Magna · AromaTech · NFT Scent Passport · Wellness Rituals · Franchise · B2B</p>
-            <p style="margin-top: 1rem;"><strong>Mission:</strong> Fragrance as a tool for state, identity, and personal resource.</p>
-        </div>
-
-        <footer>
-            © 2026 AromaDNA Ecosystem — Founded by Dina Igaliyeva
-        </footer>
+        <nav>
+            <a href="#" data-i18n="nav_token">Token</a>
+            <a href="#" data-i18n="nav_ecosystem">Ecosystem</a>
+            <a href="#" data-i18n="nav_roadmap">Roadmap</a>
+            <a href="whitepaper.html" data-i18n="nav_whitepaper">Whitepaper</a>
+        </nav>
     </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>AromaDNA</h1>
+            <div class="subhead" data-i18n="subhead">Luxury Sensory Wellness Ecosystem</div>
+            <p data-i18n="hero_text">Fragrance as a tool for state, identity, and personal resource.<br>Where physical luxury meets digital identity.</p>
+        </div>
+
+        <!-- Token Section -->
+        <section id="token">
+            <h2 data-i18n="token_title">🪙 ADNA Token</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 data-i18n="utility_title">Utility Token</h3>
+                    <p data-i18n="utility_text">ADNA is the utility token of the AromaDNA ecosystem — built on Solana (Token-2022).<br>
+                    <strong>Total Supply:</strong> 10,000,000,000 (fixed, Mint Authority revoked).</p>
+                    <div class="token-address">
+                        📍 <strong>Contract address:</strong><br>
+                        DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E
+                    </div>
+                    <p><em data-i18n="disclaimer">ADNA is strictly a utility token — not a security or investment instrument.</em></p>
+                    <div class="button-group">
+                        <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="button">🔍 View on Solscan</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 data-i18n="functions_title">Token Functions</h3>
+                    <p data-i18n="functions_list">✓ Access to premium products<br>
+                    ✓ Participation in closed aroma sessions<br>
+                    ✓ Membership access & loyalty rewards<br>
+                    ✓ Community governance<br>
+                    ✓ NFT integration & digital access</p>
+                    <p><strong data-i18n="key_principle">Key principle:</strong> <span data-i18n="principle_text">ADNA enables participation — not speculation.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ecosystem Section -->
+        <section id="ecosystem">
+            <h2 data-i18n="ecosystem_title">🌿 Ecosystem Verticals</h2>
+            <div class="grid-3">
+                <div class="card"><strong>AromaDNA</strong><br><span data-i18n="eco1">Central sensory wellness platform</span></div>
+                <div class="card"><strong>Aroma Dina</strong><br><span data-i18n="eco2">Luxury personalized perfumery brand</span></div>
+                <div class="card"><strong>PRP Method</strong><br><span data-i18n="eco3">Personal Resource Perfume Method</span></div>
+                <div class="card"><strong>Aroma Academy</strong><br><span data-i18n="eco4">Educational platform</span></div>
+                <div class="card"><strong>Aroma Magna</strong><br><span data-i18n="eco5">Research & molecule intelligence</span></div>
+                <div class="card"><strong>AromaTech</strong><br><span data-i18n="eco6">Digital infrastructure</span></div>
+                <div class="card"><strong>Wellness & Ritual</strong><br><span data-i18n="eco7">Luxury sensory experiences</span></div>
+                <div class="card"><strong>Franchise</strong><br><span data-i18n="eco8">Global scaling through partners</span></div>
+                <div class="card"><strong>B2B</strong><br><span data-i18n="eco9">Corporate aroma solutions</span></div>
+            </div>
+        </section>
+
+        <!-- Whitepaper Section -->
+        <section id="whitepaper">
+            <h2 data-i18n="wp_title">📄 Whitepaper</h2>
+            <div class="card">
+                <p data-i18n="wp_text">Read the full vision, ecosystem structure, and token utility of AromaDNA.</p>
+                <div class="button-group">
+                    <a href="whitepaper.html" class="button" data-i18n="wp_read">📖 Read online</a>
+                    <a href="whitepaper.pdf" class="button button-outline" data-i18n="wp_download">⬇️ Download PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section id="roadmap">
+            <h2 data-i18n="roadmap_title">🗺️ Roadmap</h2>
+            <div class="roadmap-step"><strong data-i18n="phase1_title">Phase 1 – Foundation</strong><br><span data-i18n="phase1_text">Brand, methodology, client base, content, community.</span></div>
+            <div class="roadmap-step"><strong data-i18n="phase2_title">Phase 2 – Digitalization</strong><br><span data-i18n="phase2_text">Website, CRM, ecosystem platform.</span></div>
+            <div class="roadmap-step"><strong data-i18n="phase3_title">Phase 3 – Tokenized Ecosystem</strong><br><span data-i18n="phase3_text">ADNA utility, NFT, membership, loyalty system.</span></div>
+            <div class="roadmap-step"><strong data-i18n="phase4_title">Phase 4 – International Expansion</strong><br><span data-i18n="phase4_text">Franchise, wellness partnerships, luxury collaborations, global ambassadors.</span></div>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        © 2026 AromaDNA Ecosystem — <span data-i18n="footer">Founded by Dina Igaliyeva</span>
+    </div>
+</footer>
+
+<!-- Language Switcher -->
+<div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+<div class="lang-menu" id="langMenu">
+    <a href="#" data-lang="en">🇬🇧 English</a>
+    <a href="#" data-lang="ru">🇷🇺 Русский</a>
+    <a href="#" data-lang="kk">🇰🇿 Қазақша</a>
+    <a href="#" data-lang="uz">🇺🇿 O'zbekcha</a>
+    <a href="#" data-lang="ky">🇰🇬 Кыргызча</a>
+    <a href="#" data-lang="zh">🇨🇳 中文</a>
+    <a href="#" data-lang="de">🇩🇪 Deutsch</a>
+    <a href="#" data-lang="fr">🇫🇷 Français</a>
+</div>
+
+<script>
+// Translations
+const translations = {
+    en: {
+        nav_token: "Token", nav_ecosystem: "Ecosystem", nav_roadmap: "Roadmap", nav_whitepaper: "Whitepaper",
+        subhead: "Luxury Sensory Wellness Ecosystem",
+        hero_text: "Fragrance as a tool for state, identity, and personal resource.<br>Where physical luxury meets digital identity.",
+        token_title: "🪙 ADNA Token",
+        utility_title: "Utility Token",
+        utility_text: "ADNA is the utility token of the AromaDNA ecosystem — built on Solana (Token-2022).<br><strong>Total Supply:</strong> 10,000,000,000 (fixed, Mint Authority revoked).",
+        disclaimer: "ADNA is strictly a utility token — not a security or investment instrument.",
+        functions_title: "Token Functions",
+        functions_list: "✓ Access to premium products<br>✓ Participation in closed aroma sessions<br>✓ Membership access & loyalty rewards<br>✓ Community governance<br>✓ NFT integration & digital access",
+        key_principle: "Key principle:",
+        principle_text: "ADNA enables participation — not speculation.",
+        ecosystem_title: "🌿 Ecosystem Verticals",
+        eco1: "Central sensory wellness platform", eco2: "Luxury personalized perfumery brand", eco3: "Personal Resource Perfume Method",
+        eco4: "Educational platform", eco5: "Research & molecule intelligence", eco6: "Digital infrastructure",
+        eco7: "Luxury sensory experiences", eco8: "Global scaling through partners", eco9: "Corporate aroma solutions",
+        wp_title: "📄 Whitepaper", wp_text: "Read the full vision, ecosystem structure, and token utility of AromaDNA.",
+        wp_read: "📖 Read online", wp_download: "⬇️ Download PDF",
+        roadmap_title: "🗺️ Roadmap",
+        phase1_title: "Phase 1 – Foundation", phase1_text: "Brand, methodology, client base, content, community.",
+        phase2_title: "Phase 2 – Digitalization", phase2_text: "Website, CRM, ecosystem platform.",
+        phase3_title: "Phase 3 – Tokenized Ecosystem", phase3_text: "ADNA utility, NFT, membership, loyalty system.",
+        phase4_title: "Phase 4 – International Expansion", phase4_text: "Franchise, wellness partnerships, luxury collaborations, global ambassadors.",
+        footer: "Founded by Dina Igaliyeva"
+    },
+    ru: {
+        nav_token: "Токен", nav_ecosystem: "Экосистема", nav_roadmap: "Дорожная карта", nav_whitepaper: "Whitepaper",
+        subhead: "Luxury Сенсорный Оздоровительный Экосистема",
+        hero_text: "Аромат как инструмент состояния, идентичности и личного ресурса.<br>Там, где физическая роскошь встречается с цифровой идентичностью.",
+        token_title: "🪙 Токен ADNA",
+        utility_title: "Утилитарный токен",
+        utility_text: "ADNA — утилитарный токен экосистемы AromaDNA, созданный на Solana (Token-2022).<br><strong>Общее предложение:</strong> 10 000 000 000 (фиксировано, право на эмиссию отозвано).",
+        disclaimer: "ADNA — строго утилитарный токен, не являющийся ценной бумагой или инвестиционным инструментом.",
+        functions_title: "Функции токена",
+        functions_list: "✓ Доступ к премиальным продуктам<br>✓ Участие в закрытых арома-сессиях<br>✓ Членство и программа лояльности<br>✓ Управление сообществом<br>✓ NFT интеграция и цифровой доступ",
+        key_principle: "Ключевой принцип:",
+        principle_text: "ADNA обеспечивает участие, а не спекуляцию.",
+        ecosystem_title: "🌿 Вертикали экосистемы",
+        eco1: "Центральная сенсорная wellness-платформа", eco2: "Премиальный бренд персонализированной парфюмерии", eco3: "Метод персонального ресурсного аромата",
+        eco4: "Образовательная платформа", eco5: "Исследования и молекулярный интеллект", eco6: "Цифровая инфраструктура",
+        eco7: "Luxury сенсорные впечатления", eco8: "Глобальное масштабирование через партнеров", eco9: "Корпоративные арома-решения",
+        wp_title: "📄 Whitepaper", wp_text: "Ознакомьтесь с полным видением, структурой экосистемы и утилитарностью токена AromaDNA.",
+        wp_read: "📖 Читать онлайн", wp_download: "⬇️ Скачать PDF",
+        roadmap_title: "🗺️ Дорожная карта",
+        phase1_title: "Фаза 1 – Основа", phase1_text: "Бренд, методология, клиентская база, контент, сообщество.",
+        phase2_title: "Фаза 2 – Цифровизация", phase2_text: "Сайт, CRM, платформа экосистемы.",
+        phase3_title: "Фаза 3 – Токенизированная экосистема", phase3_text: "Утилитарность ADNA, NFT, членство, система лояльности.",
+        phase4_title: "Фаза 4 – Международная экспансия", phase4_text: "Франшиза, партнерства в сфере wellness, люксовые коллаборации, глобальные послы.",
+        footer: "Основано Диной Игалиевой"
+    },
+    kk: {
+        nav_token: "Токен", nav_ecosystem: "Экожүйе", nav_roadmap: "Жол картасы", nav_whitepaper: "Whitepaper",
+        subhead: "Luxury Сенсорлық Салауаттылық Экожүйесі",
+        hero_text: "Хош иіс — күй, бірегейлік және жеке ресурс құралы.<br>Физикалық люкс цифрлық бірегейлікпен тоғысқан жерде.",
+        token_title: "🪙 ADNA Токені",
+        utility_title: "Утилитарлық токен",
+        utility_text: "ADNA — AromaDNA экожүйесінің утилитарлық токені, Solana (Token-2022) желісінде жасалған.<br><strong>Жалпы ұсыныс:</strong> 10 000 000 000 (бекітілген, эмиссия құқығы өшірілген).",
+        disclaimer: "ADNA — тек утилитарлық токен, бағалы қағаз немесе инвестициялық құрал емес.",
+        functions_title: "Токен функциялары",
+        functions_list: "✓ Премиум өнімдерге қол жеткізу<br>✓ Жабық арома-сессияларға қатысу<br>✓ Мүшелік және лоялдылық бағдарламасы<br>✓ Қоғамды басқару<br>✓ NFT интеграциясы және цифрлық қол жеткізу",
+        key_principle: "Негізгі қағида:",
+        principle_text: "ADNA — қатысу үшін, спекуляция үшін емес.",
+        ecosystem_title: "🌿 Экожүйе вертикалдары",
+        eco1: "Орталық сенсорлық салауаттылық платформасы", eco2: "Luxury дербес парфюмерия бренді", eco3: "Дербес ресурстық хош иіс әдісі",
+        eco4: "Білім беру платформасы", eco5: "Зерттеулер және молекулалық интеллект", eco6: "Цифрлық инфрақұрылым",
+        eco7: "Luxury сенсорлық тәжірибелер", eco8: "Серіктестер арқылы жаһандық масштабтау", eco9: "Корпоративтік арома-шешімдер",
+        wp_title: "📄 Whitepaper", wp_text: "AromaDNA экожүйесінің көзқарасы, құрылымы және токен утилитарлығымен танысыңыз.",
+        wp_read: "📖 Онлайн оқу", wp_download: "⬇️ PDF жүктеу",
+        roadmap_title: "🗺️ Жол картасы",
+        phase1_title: "1-кезең – Негіз", phase1_text: "Бренд, әдіснама, клиенттік база, контент, қоғамдастық.",
+        phase2_title: "2-кезең – Цифрландыру", phase2_text: "Сайт, CRM, экожүйе платформасы.",
+        phase3_title: "3-кезең – Токенизацияланған экожүйе", phase3_text: "ADNA утилитарлығы, NFT, мүшелік, лоялдылық жүйесі.",
+        phase4_title: "4-кезең – Халықаралық экспансия", phase4_text: "Франшиза, салауаттылық серіктестіктері, люкс коллаборациялар, жаһандық елшілер.",
+        footer: "Құрылтайшы: Дина Игалиева"
+    },
+    uz: {
+        nav_token: "Token", nav_ecosystem: "Ekotizim", nav_roadmap: "Yo'l xaritasi", nav_whitepaper: "Whitepaper",
+        subhead: "Luxury Sensorli Sog'lomlashtirish Ekotizimi",
+        hero_text: "Xushbo'ylik — holat, shaxs va shaxsiy resurs vositasi.<br>Fizik hashamat raqamli shaxs bilan uchrashadigan joy.",
+        token_title: "🪙 ADNA Tokeni",
+        utility_title: "Utility token",
+        utility_text: "ADNA — AromaDNA ekotizimining utility tokeni, Solana (Token-2022) tarmog'ida qurilgan.<br><strong>Umumiy taklif:</strong> 10 000 000 000 (belgilangan, emissiya huquqi bekor qilingan).",
+        disclaimer: "ADNA — qat'iy utility token, qimmatli qog'oz yoki investitsiya vositasi emas.",
+        functions_title: "Token funktsiyalari",
+        functions_list: "✓ Premium mahsulotlarga kirish<br>✓ Yopiq aroma-seanslarida ishtirok etish<br>✓ A'zolik va loyalty dasturlari<br>✓ Hamjamiyat boshqaruvi<br>✓ NFT integratsiyasi va raqamli kirish",
+        key_principle: "Asosiy tamoyil:",
+        principle_text: "ADNA ishtirok etish uchun — spekulyatsiya uchun emas.",
+        ecosystem_title: "🌿 Ekotizim vertikallari",
+        eco1: "Markaziy sensorli sog'lomlashtirish platformasi", eco2: "Luxury shaxsiy parfyumeriya brendi", eco3: "Shaxsiy resursli xushbo'ylik usuli",
+        eco4: "Ta'lim platformasi", eco5: "Tadqiqotlar va molekulyar intellekt", eco6: "Raqamli infratuzilma",
+        eco7: "Luxury sensorli tajribalar", eco8: "Hamkorlar orqali global miqyosda kengayish", eco9: "Korporativ aroma-yechimlar",
+        wp_title: "📄 Whitepaper", wp_text: "AromaDNA ekotizimining to'liq qarashlari, tuzilishi va token foydaliligi bilan tanishing.",
+        wp_read: "📖 Onlayn o'qish", wp_download: "⬇️ Yuklab olish (PDF)",
+        roadmap_title: "🗺️ Yo'l xaritasi",
+        phase1_title: "1-bosqich – Asos", phase1_text: "Brend, metodologiya, mijozlar bazasi, kontent, hamjamiyat.",
+        phase2_title: "2-bosqich – Raqamlashtirish", phase2_text: "Veb-sayt, CRM, ekotizim platformasi.",
+        phase3_title: "3-bosqich – Tokenlashtirilgan ekotizim", phase3_text: "ADNA utility, NFT, a'zolik, loyalty tizimi.",
+        phase4_title: "4-bosqich – Xalqaro kengayish", phase4_text: "Franchayzing, sog'lomlashtirish hamkorliklari, hashamatli kollaboratsiyalar, global elchilar.",
+        footer: "Asoschi: Dina Igaliyeva"
+    },
+    ky: {
+        nav_token: "Токен", nav_ecosystem: "Экосистема", nav_roadmap: "Жол картасы", nav_whitepaper: "Whitepaper",
+        subhead: "Luxury Сенсордук Саламаттык Экосистемасы",
+        hero_text: "Жыпар — абал, инсандык жана жеке ресурс куралы.<br>Физикалык люкс санарип инсандык менен жолугушкан жерде.",
+        token_title: "🪙 ADNA Токени",
+        utility_title: "Утилитардык токен",
+        utility_text: "ADNA — AromaDNA экосистемасынын утилитардык токени, Solana (Token-2022) тармагында түзүлгөн.<br><strong>Жалпы сунуш:</strong> 10 000 000 000 (бекитилген, эмиссия укугу өчүрүлгөн).",
+        disclaimer: "ADNA — катуу утилитардык токен, баалуу кагаз же инвестициялык курал эмес.",
+        functions_title: "Токен функциялары",
+        functions_list: "✓ Премиум өнүмдөргө жетүү<br>✓ Жабык жыпар-сессияларына катышуу<br>✓ Мүчөлүк жана лоялдуулук программасы<br>✓ Коомчулукту башкаруу<br>✓ NFT интеграциясы жана санарип жетүү",
+        key_principle: "Негизги принцип:",
+        principle_text: "ADNA — катышуу үчүн, спекуляция үчүн эмес.",
+        ecosystem_title: "🌿 Экосистема вертикалдары",
+        eco1: "Борбордук сенсордук саламаттык платформасы", eco2: "Luxury жекелештирилген парфюмерия бренди", eco3: "Жеке ресурстук жыпар ыкмасы",
+        eco4: "Билим берүү платформасы", eco5: "Изилдөөлөр жана молекулалык интеллект", eco6: "Санарип инфраструктурасы",
+        eco7: "Luxury сенсордук тажрыйбалар", eco8: "Өнөктөштөр аркылуу глобалдык масштабдоо", eco9: "Корпоративдик жыпар-чечимдер",
+        wp_title: "📄 Whitepaper", wp_text: "AromaDNA экосистемасынын толук көз карашы, түзүлүшү жана токендин утилитардуулугу менен таанышыңыз.",
+        wp_read: "📖 Онлайн окуу", wp_download: "⬇️ PDF жүктөө",
+        roadmap_title: "🗺️ Жол картасы",
+        phase1_title: "1-фаза – Негиз", phase1_text: "Бренд, методология, кардарлар базасы, контент, коомчулук.",
+        phase2_title: "2-фаза – Санариптештирүү", phase2_text: "Сайт, CRM, экосистема платформасы.",
+        phase3_title: "3-фаза – Токенизацияланган экосистема", phase3_text: "ADNA утилитардуулугу, NFT, мүчөлүк, лоялдуулук тутуму.",
+        phase4_title: "4-фаза – Эл аралык экспансия", phase4_text: "Франшиза, саламаттык өнөктөштүктөрү, люкс кызматташтыктар, глобалдык элчилер.",
+        footer: "Негиздөөчү: Дина Игалиева"
+    },
+    zh: {
+        nav_token: "代币", nav_ecosystem: "生态系统", nav_roadmap: "路线图", nav_whitepaper: "白皮书",
+        subhead: "奢华感官健康生态系统",
+        hero_text: "香气作为状态、身份和个人资源的工具。<br>物理奢华与数字身份交汇之处。",
+        token_title: "🪙 ADNA 代币",
+        utility_title: "实用代币",
+        utility_text: "ADNA 是 AromaDNA 生态系统的实用代币，基于 Solana (Token-2022) 构建。<br><strong>总供应量：</strong> 10,000,000,000 (固定，铸币权已撤销)。",
+        disclaimer: "ADNA 是严格的实用代币，不是证券或投资工具。",
+        functions_title: "代币功能",
+        functions_list: "✓ 访问优质产品<br>✓ 参与封闭式香气疗程<br>✓ 会员资格和忠诚度奖励<br>✓ 社区治理<br>✓ NFT 集成和数字访问",
+        key_principle: "核心原则：",
+        principle_text: "ADNA 促进参与，而非投机。",
+        ecosystem_title: "🌿 生态系统垂直领域",
+        eco1: "中央感官健康平台", eco2: "奢华个性化香水品牌", eco3: "个人资源香水方法",
+        eco4: "教育平台", eco5: "研究和分子智能", eco6: "数字基础设施",
+        eco7: "奢华感官体验", eco8: "通过合作伙伴进行全球扩展", eco9: "企业香气解决方案",
+        wp_title: "📄 白皮书", wp_text: "阅读 AromaDNA 的完整愿景、生态系统结构和代币实用性。",
+        wp_read: "📖 在线阅读", wp_download: "⬇️ 下载 PDF",
+        roadmap_title: "🗺️ 路线图",
+        phase1_title: "第一阶段 – 基础", phase1_text: "品牌、方法论、客户群、内容、社区。",
+        phase2_title: "第二阶段 – 数字化", phase2_text: "网站、CRM、生态系统平台。",
+        phase3_title: "第三阶段 – 代币化生态系统", phase3_text: "ADNA 实用性、NFT、会员资格、忠诚度系统。",
+        phase4_title: "第四阶段 – 国际扩张", phase4_text: "特许经营、健康合作伙伴关系、奢华合作、全球大使。",
+        footer: "创始人：Dina Igaliyeva"
+    },
+    de: {
+        nav_token: "Token", nav_ecosystem: "Ökosystem", nav_roadmap: "Fahrplan", nav_whitepaper: "Whitepaper",
+        subhead: "Luxuriöses sensorisches Wellness-Ökosystem",
+        hero_text: "Duft als Werkzeug für Zustand, Identität und persönliche Ressource.<br>Wo physischer Luxus auf digitale Identität trifft.",
+        token_title: "🪙 ADNA Token",
+        utility_title: "Utility-Token",
+        utility_text: "ADNA ist der Utility-Token des AromaDNA-Ökosystems, aufgebaut auf Solana (Token-2022).<br><strong>Gesamtangebot:</strong> 10.000.000.000 (fest, Münzrecht widerrufen).",
+        disclaimer: "ADNA ist strikt ein Utility-Token, kein Wertpapier oder Anlageinstrument.",
+        functions_title: "Token-Funktionen",
+        functions_list: "✓ Zugang zu Premium-Produkten<br>✓ Teilnahme an geschlossenen Duftsitzungen<br>✓ Mitgliedschaft und Treueprämien<br>✓ Community-Governance<br>✓ NFT-Integration und digitaler Zugang",
+        key_principle: "Grundprinzip:",
+        principle_text: "ADNA ermöglicht Teilhabe – nicht Spekulation.",
+        ecosystem_title: "🌿 Ökosystem-Bereiche",
+        eco1: "Zentrale sensorische Wellness-Plattform", eco2: "Luxuriöse, personalisierte Parfümeriemarke", eco3: "Methode für persönlichen Ressourcenduft",
+        eco4: "Bildungsplattform", eco5: "Forschung und molekulare Intelligenz", eco6: "Digitale Infrastruktur",
+        eco7: "Luxuriöse Sinneserlebnisse", eco8: "Globale Skalierung durch Partner", eco9: "Unternehmens-Duftlösungen",
+        wp_title: "📄 Whitepaper", wp_text: "Lesen Sie die vollständige Vision, Ökosystemstruktur und den Token-Nutzen von AromaDNA.",
+        wp_read: "📖 Online lesen", wp_download: "⬇️ PDF herunterladen",
+        roadmap_title: "🗺️ Fahrplan",
+        phase1_title: "Phase 1 – Grundlage", phase1_text: "Marke, Methodik, Kundenbasis, Inhalte, Community.",
+        phase2_title: "Phase 2 – Digitalisierung", phase2_text: "Website, CRM, Ökosystemplattform.",
+        phase3_title: "Phase 3 – Tokenisiertes Ökosystem", phase3_text: "ADNA-Utility, NFT, Mitgliedschaft, Treuesystem.",
+        phase4_title: "Phase 4 – Internationale Expansion", phase4_text: "Franchise, Wellness-Partnerschaften, Luxus-Kooperationen, globale Botschafter.",
+        footer: "Gegründet von Dina Igaliyeva"
+    },
+    fr: {
+        nav_token: "Token", nav_ecosystem: "Écosystème", nav_roadmap: "Feuille de route", nav_whitepaper: "Whitepaper",
+        subhead: "Écosystème de bien-être sensoriel de luxe",
+        hero_text: "Le parfum comme outil d'état, d'identité et de ressource personnelle.<br>Là où le luxe physique rencontre l'identité numérique.",
+        token_title: "🪙 Jeton ADNA",
+        utility_title: "Jeton utilitaire",
+        utility_text: "ADNA est le jeton utilitaire de l'écosystème AromaDNA, construit sur Solana (Token-2022).<br><strong>Offre totale :</strong> 10 000 000 000 (fixe, droit de frappe révoqué).",
+        disclaimer: "ADNA est strictement un jeton utilitaire, non un titre financier ou un instrument d'investissement.",
+        functions_title: "Fonctions du jeton",
+        functions_list: "✓ Accès aux produits premium<br>✓ Participation aux sessions de parfum fermées<br>✓ Adhésion et récompenses de fidélité<br>✓ Gouvernance communautaire<br>✓ Intégration NFT et accès numérique",
+        key_principle: "Principe clé :",
+        principle_text: "ADNA permet la participation — pas la spéculation.",
+        ecosystem_title: "🌿 Verticales de l'écosystème",
+        eco1: "Plateforme centrale de bien-être sensoriel", eco2: "Marque de parfumerie personnalisée de luxe", eco3: "Méthode de parfum à ressource personnelle",
+        eco4: "Plateforme éducative", eco5: "Recherche et intelligence moléculaire", eco6: "Infrastructure numérique",
+        eco7: "Expériences sensorielles de luxe", eco8: "Expansion mondiale par partenaires", eco9: "Solutions de parfum d'entreprise",
+        wp_title: "📄 Whitepaper", wp_text: "Lisez la vision complète, la structure de l'écosystème et l'utilité du jeton AromaDNA.",
+        wp_read: "📖 Lire en ligne", wp_download: "⬇️ Télécharger le PDF",
+        roadmap_title: "🗺️ Feuille de route",
+        phase1_title: "Phase 1 – Fondation", phase1_text: "Marque, méthodologie, base de clients, contenu, communauté.",
+        phase2_title: "Phase 2 – Digitalisation", phase2_text: "Site web, CRM, plateforme écosystémique.",
+        phase3_title: "Phase 3 – Écosystème tokenisé", phase3_text: "Utilitaire ADNA, NFT, adhésion, système de fidélité.",
+        phase4_title: "Phase 4 – Expansion internationale", phase4_text: "Franchise, partenariats bien-être, collaborations de luxe, ambassadeurs mondiaux.",
+        footer: "Fondé par Dina Igaliyeva"
+    }
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+            if (el.innerHTML.includes('<br>')) {
+                el.innerHTML = t[key];
+            } else {
+                el.innerText = t[key];
+            }
+        }
+    });
+    document.querySelector('.lang-switcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+    localStorage.setItem('aroma_lang', lang);
+}
+
+document.getElementById('langSwitcher').addEventListener('click', () => {
+    document.getElementById('langMenu').classList.toggle('show');
+});
+
+document.querySelectorAll('.lang-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = link.getAttribute('data-lang');
+        setLanguage(lang);
+        document.getElementById('langMenu').classList.remove('show');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) {
+        document.getElementById('langMenu').classList.remove('show');
+    }
+});
+
+// Load saved language
+const savedLang = localStorage.getItem('aroma_lang');
+if (savedLang && translations[savedLang]) {
+    setLanguage(savedLang);
+} else {
+    setLanguage('en');
+}
+</script>
+
 </body>
 </html>
