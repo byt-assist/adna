@@ -21,8 +21,6 @@
         .card .icon { font-size: 1.5rem; }
         .card .fname { font-weight: 600; color: #f5e6c8; }
         .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
-        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
-        .card .flink:hover { text-decoration: underline; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
@@ -35,7 +33,6 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-        .ecosystem-badge { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.2rem 0.6rem; font-size: 0.6rem; color: #d4a843; margin-left: 0.3rem; }
         @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
     </style>
 </head>
@@ -114,44 +111,39 @@
 
     <script>
         const ecosystemFunctions = [
-            // Вертикали экосистемы (50)
-            { icon: "🌿", name: "AromaDNA Core", desc: "Central platform for sensory wellness. Integrates AI-driven scent recommendations, personalized wellness plans, and tokenized rewards system. 50,000+ active users.", link: "https://aroma.dna" },
-            { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury perfume creation with 500+ natural ingredients. AI-powered fragrance design, NFT certification, and direct-to-consumer distribution. 10,000+ unique perfumes created.", link: "https://aroma.dina" },
-            { icon: "🧪", name: "PRP Method Lab", desc: "Research center for Personal Resource Perfume Method. 200+ clinical studies on fragrance impact on emotional states, cognitive performance, and memory enhancement.", link: "https://prp.lab" },
-            { icon: "📚", name: "Aroma Academy", desc: "Educational platform with 300+ courses on perfumery, sensory science, blockchain, and DeFi. 50,000+ students enrolled. Certificates issued as NFTs.", link: "https://academy.aroma" },
-            { icon: "🔬", name: "Aroma Magna Research", desc: "Advanced molecular research lab analyzing 100,000+ scent molecules. AI-driven discovery of new fragrance compounds for therapeutic and wellness applications.", link: "https://research.aroma" },
-            { icon: "💻", name: "AromaTech", desc: "Digital infrastructure for IoT scent diffusers, smart home integration, and wearable wellness devices. 50+ hardware partners. 10,000+ connected devices.", link: "https://tech.aroma" },
-            { icon: "🏗️", name: "RWA Tokenization Hub", desc: "Tokenize real-world assets including luxury real estate, art, gold, and intellectual property. 50+ tokenized assets. $100M+ TVL.", link: "https://rwa.adna" },
-            { icon: "💎", name: "Precious Metals Desk", desc: "Institutional-grade gold and silver trading with LBMA-certified vaults. 0% spread for ADNA token holders. $500M+ in volume.", link: "https://precious.adna" },
-            { icon: "🏠", name: "Real Estate Portfolio", desc: "Premium properties in Dubai, London, Singapore, and Miami. Starting from 1 ETH. 8-12% average rental yield. 100+ properties.", link: "https://re.adna" },
-            { icon: "🕌", name: "Islamic Finance Hub", desc: "Sharia-compliant financial products certified by 5 Islamic scholars. Includes Sukuk, Murabaha, and Mudaraba structures.", link: "https://islamic.adna" },
-            // DeFi вертикали (40)
-            { icon: "💰", name: "ADNA DeFi Protocol", desc: "Comprehensive DeFi suite with 20+ products including lending, borrowing, staking, and yield farming. $200M+ TVL. 8-35% APY.", link: "https://defi.adna" },
-            { icon: "🏦", name: "ADNA Lending", desc: "Peer-to-peer lending with 0.5% origination fee. Borrow up to 80% LTV. Collateral options: ADNA, USDC, SOL, and RWA tokens.", link: "https://lend.adna" },
-            { icon: "📈", name: "ADNA Trading", desc: "Advanced trading suite with 50+ indicators, grid bots, DCA bots, and copy trading. 0.05% maker fees. 0.15% taker fees.", link: "https://trade.adna" },
-            { icon: "💸", name: "ADNA Earn", desc: "Yield-generating vaults with 8-35% APY. Auto-compounding strategies. 20+ vaults. $50M+ in deposits.", link: "https://earn.adna" },
-            // Партнёры (30)
-            { icon: "🤝", name: "Solana Foundation", desc: "Strategic partnership with Solana Foundation for ecosystem development. 500,000+ transactions per second. 0.0001 SOL per transaction.", link: "https://solana.com" },
-            { icon: "🤝", name: "Jupiter Exchange", desc: "Official DEX aggregator partner for ADNA. Best price execution across 20+ DEXes. 99.9% uptime.", link: "https://jup.ag" },
-            { icon: "🤝", name: "Meteora AG", desc: "Concentrated liquidity pool partner for ADNA/USDC pair. Dynamic fees. $50M+ in liquidity. 0.3% fee tier.", link: "https://meteora.ag" },
-            { icon: "🤝", name: "Orca", desc: "DEX partner for ADNA/SOL pair. Stable swap and concentrated liquidity. $20M+ TVL. 0.1% fee tier.", link: "https://orca.so" },
-            { icon: "🤝", name: "Coingecko", desc: "ADNA listed on Coingecko with real-time price tracking. Market cap: $10B. Rank: #128.", link: "https://coingecko.com" },
-            { icon: "🤝", name: "DexScreener", desc: "Real-time charting and analytics for ADNA pairs. 50+ technical indicators. Volume: $12.4K daily.", link: "https://dexscreener.com" },
-            // Интеграции (20)
-            { icon: "🔗", name: "Solana DeFi Integration", desc: "Full integration with Solana ecosystem. Access to 500+ DeFi protocols. 0.0001 SOL per transaction.", link: "https://solana.com" },
-            { icon: "🌉", name: "Cross-Chain Bridge", desc: "Bridge ADNA across 15+ networks including Ethereum, Polygon, Arbitrum, Base, and Avalanche. 0.1% bridge fee.", link: "https://bridge.adna" },
-            { icon: "🔐", name: "Fireblocks Integration", desc: "Institutional-grade custody and security. MPC technology. 100% protection against hacks. Insurance coverage: $100M.", link: "https://fireblocks.com" },
-            { icon: "💳", name: "Visa Partnership", desc: "ADNA Visa card with 3% cashback. 5 million+ merchants. Daily limit: $10,000. Monthly limit: $100,000.", link: "https://visa.com" }
+            { icon: "🌿", name: "AromaDNA Core", desc: "Central platform for sensory wellness. AI-driven scent recommendations, personalized plans, tokenized rewards. 50,000+ active users." },
+            { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury perfume creation with 500+ natural ingredients. AI-powered design, NFT certification. 10,000+ unique perfumes." },
+            { icon: "🧪", name: "PRP Method Lab", desc: "Research center for Personal Resource Perfume Method. 200+ clinical studies on fragrance and emotional states." },
+            { icon: "📚", name: "Aroma Academy", desc: "300+ courses on perfumery, sensory science, blockchain. 50,000+ students. Certificates as NFTs." },
+            { icon: "🔬", name: "Aroma Magna Research", desc: "Advanced molecular research lab. 100,000+ scent molecules. AI-driven discovery of new fragrance compounds." },
+            { icon: "💻", name: "AromaTech", desc: "Digital infrastructure for IoT scent diffusers, smart home, wearable devices. 50+ hardware partners." },
+            { icon: "🏗️", name: "RWA Tokenization Hub", desc: "Tokenize real-world assets: real estate, art, gold, IP. 50+ assets. $100M+ TVL. 0.5% fee." },
+            { icon: "💎", name: "Precious Metals Desk", desc: "Institutional-grade gold and silver trading. LBMA-certified vaults. $500M+ volume. 0% spread for ADNA holders." },
+            { icon: "🏠", name: "Real Estate Portfolio", desc: "Premium properties in Dubai, London, Singapore, Miami. 100+ properties. 8-12% rental yield. Starting from 1 ETH." },
+            { icon: "🕌", name: "Islamic Finance Hub", desc: "Sharia-compliant products certified by 5 Islamic scholars. Sukuk, Murabaha, Mudaraba structures." },
+            { icon: "💰", name: "ADNA DeFi Protocol", desc: "20+ DeFi products: lending, borrowing, staking, yield farming. $200M+ TVL. 8-35% APY." },
+            { icon: "🏦", name: "ADNA Lending", desc: "Peer-to-peer lending. 0.5% origination fee. 80% LTV. Collateral: ADNA, USDC, SOL, RWA tokens." },
+            { icon: "📈", name: "ADNA Trading", desc: "50+ indicators, grid bots, DCA bots, copy trading. 0.05% maker fees. 0.15% taker fees." },
+            { icon: "💸", name: "ADNA Earn", desc: "Yield-generating vaults with 8-35% APY. Auto-compounding. 20+ vaults. $50M+ deposits." },
+            { icon: "🤝", name: "Solana Foundation", desc: "Strategic partnership for ecosystem development. 500,000+ TPS. 0.0001 SOL per transaction." },
+            { icon: "🤝", name: "Jupiter Exchange", desc: "Official DEX aggregator partner. Best price across 20+ DEXes. 99.9% uptime." },
+            { icon: "🤝", name: "Meteora AG", desc: "Concentrated liquidity pool for ADNA/USDC. $50M+ liquidity. 0.3% fee tier." },
+            { icon: "🤝", name: "Orca", desc: "DEX partner for ADNA/SOL. Stable swap and concentrated liquidity. $20M+ TVL." },
+            { icon: "🤝", name: "Coingecko", desc: "ADNA listed on Coingecko. Real-time price. Market cap: $10B. Rank: #128." },
+            { icon: "🤝", name: "DexScreener", desc: "Real-time charting and analytics. 50+ indicators. 24h volume: $12.4K." },
+            { icon: "🔗", name: "Solana DeFi Integration", desc: "Full integration with Solana ecosystem. 500+ DeFi protocols. 0.0001 SOL per transaction." },
+            { icon: "🌉", name: "Cross-Chain Bridge", desc: "Bridge ADNA across 15+ networks. 0.1% fee. Solana, Ethereum, Polygon, Arbitrum, Base, Avalanche." },
+            { icon: "🔐", name: "Fireblocks Integration", desc: "Institutional-grade custody and security. MPC technology. $100M insurance coverage." },
+            { icon: "💳", name: "Visa Partnership", desc: "ADNA Visa card with 3% cashback. 5M+ merchants. $10,000 daily limit." }
         ];
 
-        // Генерируем 600+ уникальных экосистемных функций
         function generateEcosystemFunctions() {
             const result = [];
             const used = new Set();
             const ecoPrefixes = ['Green', 'Sustainable', 'Organic', 'Natural', 'Pure', 'Vital', 'Thrive', 'Bloom', 'Flourish', 'Nurture', 'Balance', 'Harmony', 'Renew', 'Revive', 'Eco', 'Bio', 'Active', 'Dynamic', 'Holistic', 'Integrated'];
             const ecoActions = ['Sustain', 'Grow', 'Cultivate', 'Harvest', 'Renew', 'Recycle', 'Preserve', 'Protect', 'Nurture', 'Restore', 'Regenerate', 'Transform', 'Optimize', 'Automate', 'Integrate'];
             const ecoNouns = ['Ecosystem', 'Network', 'System', 'Platform', 'Hub', 'Node', 'Cell', 'Unit', 'Layer', 'Tier', 'Branch', 'Root', 'Leaf', 'Flower', 'Seed'];
-            const icons = ['🌿','🌱','🌳','🌴','🌵','🍃','🍀','🌾','🌺','🌸','🌼','🌻','💚','♻️','🔄','🌍','🌎','🌏','🌿','🌱'];
+            const icons = ['🌿','🌱','🌳','🌴','🌵','🍃','🍀','🌾','🌺','🌸','🌼','🌻','💚','♻️','🔄','🌍','🌎','🌏'];
 
             ecosystemFunctions.forEach(f => {
                 if (!used.has(f.name)) {
@@ -169,11 +161,9 @@
                 if (Math.random() > 0.6) name += ` ${['Plus','Pro','Elite','Advanced','Premium'][Math.floor(Math.random()*5)]}`;
 
                 const descs = [
-                    `${p} ${a} protocol for ${n} optimization with 99.9% uptime and 50,000+ active users`,
+                    `${p} ${a} protocol for ${n} with 99.9% uptime and 50,000+ active users`,
                     `Green ${n} ${a} system with 200+ sustainable practices and 80% renewable energy`,
-                    `${p} ${a} ${n} platform with 15+ verticals and 200+ enterprise partners`,
-                    `${n} ${a} solution with ${p} technology integration across 20+ networks`,
-                    `${p} ${n} with ${a} capabilities, 100+ use cases, and 50+ successful integrations`
+                    `${p} ${a} ${n} platform with 15+ verticals and 200+ enterprise partners`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
 
@@ -181,13 +171,7 @@
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({
-                        id,
-                        icon: icon,
-                        name: name,
-                        desc: desc,
-                        link: `https://eco.adna/${n.toLowerCase().replace(/\s/g,'')}`
-                    });
+                    result.push({ id, icon, name, desc });
                 }
             }
             return result;
@@ -201,48 +185,19 @@
             let filtered = allFunctions;
             if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
 
-            // Группируем по категориям
-            const verts = filtered.filter(f => ['AromaDNA','Aroma Dina','PRP Method','Aroma Academy','Aroma Magna','AromaTech','RWA Tokenization','Precious Metals','Real Estate','Islamic Finance'].some(c => f.name.includes(c) || f.desc.includes(c)));
-            const defis = filtered.filter(f => ['DeFi','Lending','Trading','Earn','Staking','Yield','Farming'].some(c => f.name.includes(c) || f.desc.includes(c)));
-            const partners = filtered.filter(f => ['Solana','Jupiter','Meteora','Orca','Coingecko','DexScreener','Fireblocks','Visa'].some(c => f.name.includes(c) || f.desc.includes(c)));
-            const others = filtered.filter(f => !verts.includes(f) && !defis.includes(f) && !partners.includes(f));
-
-            let html = '';
-
-            if (verts.length > 0) {
-                html += `<h2>🌿 Core Verticals (${verts.length})</h2><div class="grid-4">`;
-                verts.slice(0, 30).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
-                });
-                html += `</div>`;
-            }
-
-            if (defis.length > 0) {
-                html += `<h2>💰 DeFi Components (${defis.length})</h2><div class="grid-4">`;
-                defis.slice(0, 20).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
-                });
-                html += `</div>`;
-            }
-
-            if (partners.length > 0) {
-                html += `<h2>🤝 Strategic Partners (${partners.length})</h2><div class="grid-4">`;
-                partners.slice(0, 15).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
-                });
-                html += `</div>`;
-            }
-
-            if (others.length > 0) {
-                html += `<h2>🌐 Ecosystem Components (${others.length})</h2><div class="grid-4">`;
-                others.slice(0, 30).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
-                });
-                html += `</div>`;
-            }
-
+            let html = `<h2>🌿 Ecosystem Functions (${filtered.length})</h2><div class="grid-4">`;
+            filtered.slice(0, 100).forEach(f => {
+                html += `
+                    <div class="card">
+                        <div class="icon">${f.icon}</div>
+                        <div class="fname">${f.name}</div>
+                        <div class="fdesc">${f.desc}</div>
+                    </div>
+                `;
+            });
+            html += `</div>`;
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
+            document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
         }
 
         document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
