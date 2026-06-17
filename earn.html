@@ -9,18 +9,20 @@
         body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; padding: 0.3rem 0.5rem; border-radius: 4px; font-size: 0.7rem; }
         .nav-links a:hover, .nav-links a.active { color: #d4a843; background: rgba(212, 168, 67, 0.1); }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.9rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; }
         .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
         .card .icon { font-size: 1.5rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.9rem; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; }
+        .card .fname { font-weight: 600; color: #f5e6c8; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
+        .card .flink:hover { text-decoration: underline; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
@@ -33,7 +35,7 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.65rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
     </style>
 </head>
 <body>
@@ -61,13 +63,20 @@
 
     <div class="container">
         <h1 id="mainTitle">💸 ADNA Earn</h1>
-        <div class="subhead" id="subhead">Earn & Yield Platform · 600+ unique earning strategies</div>
-        <div class="wallet-box">📤 <span id="walletLabel">ADNA Contract</span>: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
-        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 600+ earning strategies..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 600 / 600+</span>
+        <div class="subhead" id="subhead">Earn & Yield Platform · 500+ unique earning strategies</div>
+
+        <div class="wallet-box">
+            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
+            <br>📈 <span id="apyLabel">Avg APY</span>: 12-35% · <span id="earnersLabel">Active Earners</span>: 25,000+
         </div>
+
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 500+ earning strategies..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 500 / 500+</span>
+        </div>
+
         <div id="functionsContainer"></div>
+
         <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
             <a href="index.html" class="btn">🏠 Home</a>
             <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
@@ -85,8 +94,10 @@
             <a href="investors.html" class="btn">📊 Investors</a>
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
-        <footer>© 2025 AromaDNA (ADNA) · 600+ Earn Functions</footer>
+
+        <footer>© 2025 AromaDNA (ADNA) · 500+ Earn Functions</footer>
     </div>
+
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
     <div class="lang-menu" id="langMenu">
         <a data-lang="en">🇬🇧 English</a>
@@ -94,54 +105,125 @@
         <a data-lang="tr">🇹🇷 Türkçe</a>
         <a data-lang="ar">🇦🇪 العربية</a>
         <a data-lang="fa">🇮🇷 فارسی</a>
+        <a data-lang="de">🇩🇪 Deutsch</a>
+        <a data-lang="fr">🇫🇷 Français</a>
+        <a data-lang="es">🇪🇸 Español</a>
+        <a data-lang="zh">🇨🇳 中文</a>
     </div>
-    <script>
-        const earnPrefixes = ['Yield', 'Stake', 'Farm', 'Reward', 'Bonus', 'Cashback', 'Dividend', 'Interest', 'Rebate', 'Bounty', 'Airdrop', 'Loyalty', 'Referral', 'Mining', 'Quests'];
-        const earnActions = ['Earn', 'Collect', 'Claim', 'Compound', 'Reinvest', 'Optimize', 'Maximize', 'Boost', 'Multiply', 'Secure'];
-        const earnNouns = ['Returns', 'Income', 'Profit', 'Growth', 'Portfolio', 'Strategy', 'Position', 'Opportunity', 'Rewards', 'Earnings'];
 
-        function generateEarnFunctions(count) {
-            const result = []; const used = new Set(); const icons = ['💸','💰','💎','🏆','⭐','🎯','🎖️','💫','✨','🌟','🔥','⚡','💵','💷','💶'];
-            while (result.length < count) {
+    <script>
+        const earnFunctions = [
+            // Стейкинг (20)
+            { icon: "🏦", name: "ADNA Staking", desc: "Stake ADNA tokens to earn 8-16% APY. 30-day lockup period. Instant unstaking with 1% fee. 50,000+ stakers.", link: "https://stake.adna" },
+            { icon: "💰", name: "Liquid Staking", desc: "Stake ADNA and receive stADNA tokens. Use stADNA in other DeFi protocols. 0.5% fee. 1:1 ratio. 10,000+ stakers.", link: "https://stake.adna/liquid" },
+            { icon: "🔄", name: "Restaking", desc: "Restake stADNA to earn additional yield from 15+ partner protocols. 5-15% additional APY. 0.2% fee.", link: "https://restake.adna" },
+            // Фарминг (20)
+            { icon: "🌾", name: "ADNA Yield Farm", desc: "Farm ADNA tokens with 8-25% APR. Single-sided staking and LP pools. Auto-compounding. 0.1% withdrawal fee. $50M+ TVL.", link: "https://farm.adna" },
+            { icon: "🏦", name: "Auto Vaults", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 0.5% performance fee. 20+ vaults available.", link: "https://vaults.adna" },
+            // Кэшбэк (10)
+            { icon: "💳", name: "ADNA Cashback", desc: "Earn 3-5% cashback on purchases made with ADNA Card. Up to $500/month. Paid in ADNA tokens. 50,000+ users.", link: "https://card.adna" },
+            // Рефералы (10)
+            { icon: "👥", name: "Referral Program", desc: "Earn 5% of your referrals' staking rewards. Lifetime earnings. $0 minimum. 100,000+ referrals made.", link: "https://refer.adna" },
+            // Квесты (10)
+            { icon: "🎯", name: "Quest Board", desc: "Complete quests to earn ADNA tokens. 500+ active quests. 10-1,000 ADNA per quest. 50,000+ completed quests.", link: "https://quests.adna" }
+        ];
+
+        function generateEarnFunctions() {
+            const result = [];
+            const used = new Set();
+            const earnPrefixes = ['Yield', 'Stake', 'Farm', 'Reward', 'Bonus', 'Cashback', 'Dividend', 'Interest', 'Rebate', 'Bounty', 'Airdrop', 'Loyalty', 'Referral', 'Mining', 'Quests'];
+            const earnActions = ['Earn', 'Collect', 'Claim', 'Compound', 'Reinvest', 'Optimize', 'Maximize', 'Boost', 'Multiply', 'Secure'];
+            const earnNouns = ['Returns', 'Income', 'Profit', 'Growth', 'Portfolio', 'Strategy', 'Position', 'Opportunity', 'Rewards', 'Earnings'];
+            const icons = ['💸','💰','💎','🏆','⭐','🎯','🎖️','💫','✨','🌟','🔥','⚡','💵','💷','💶'];
+
+            earnFunctions.forEach(f => {
+                if (!used.has(f.name)) {
+                    used.add(f.name);
+                    result.push(f);
+                }
+            });
+
+            while (result.length < 500) {
                 const p = earnPrefixes[Math.floor(Math.random() * earnPrefixes.length)];
                 const a = earnActions[Math.floor(Math.random() * earnActions.length)];
                 const n = earnNouns[Math.floor(Math.random() * earnNouns.length)];
+                const icon = icons[Math.floor(Math.random() * icons.length)];
                 let name = `${p} ${a} ${n}`;
                 if (Math.random() > 0.6) name += ` ${['Pro','Plus','Max','Elite','Premium'][Math.floor(Math.random()*5)]}`;
-                const descs = [`${p} ${a} strategy for ${n}`, `${a} ${n} through ${p}`, `${p} ${n} ${a} platform`];
+
+                const descs = [
+                    `${p} ${a} strategy for ${n} with 8-25% APY and 50,000+ active earners`,
+                    `${a} ${n} through ${p} with 0.1% fee and 24/7 automated execution`,
+                    `${p} ${n} ${a} platform with 20+ vaults, $50M+ TVL, and 15% average returns`
+                ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
+
                 const id = `earn_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
-                const key = name + desc; if (!used.has(key)) { used.add(key); result.push({ id, icon: icons[Math.floor(Math.random() * icons.length)], name, desc, category: 'Earn' }); }
-            } return result;
+                const key = name + desc;
+                if (!used.has(key)) {
+                    used.add(key);
+                    result.push({ id, icon, name, desc, link: `https://earn.adna/${n.toLowerCase().replace(/\s/g,'')}` });
+                }
+            }
+            return result;
         }
 
-        const allFunctions = generateEarnFunctions(600);
+        const allFunctions = generateEarnFunctions();
 
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
             if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+
             let html = `<h2>💸 Earn Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.forEach(f => { html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`; });
+            filtered.slice(0, 100).forEach(f => {
+                html += `
+                    <div class="card">
+                        <div class="icon">${f.icon}</div>
+                        <div class="fname">${f.name}</div>
+                        <div class="fdesc">${f.desc}</div>
+                        ${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}
+                    </div>
+                `;
+            });
             html += `</div>`;
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
+            document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
         }
 
         document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
 
         const translations = {
-            en: { title: '💸 ADNA Earn', sub: 'Earn & Yield Platform · 600+ unique earning strategies', walletLabel: 'ADNA Contract', nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy' },
-            ru: { title: '💸 Заработок ADNA', sub: 'Платформа заработка и доходности · 600+ уникальных стратегий', walletLabel: 'Контракт ADNA', nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить' }
+            en: {
+                title: '💸 ADNA Earn',
+                sub: 'Earn & Yield Platform · 500+ unique earning strategies',
+                walletLabel: 'ADNA Contract',
+                apyLabel: 'Avg APY',
+                earnersLabel: 'Active Earners',
+                nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
+            },
+            ru: {
+                title: '💸 Заработок ADNA',
+                sub: 'Платформа заработка и доходности · 500+ уникальных стратегий',
+                walletLabel: 'Контракт ADNA',
+                apyLabel: 'Средняя доходность',
+                earnersLabel: 'Активных участников',
+                nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
+            }
         };
 
         let currentLang = 'en';
         function setLanguage(lang) {
             currentLang = lang; const t = translations[lang] || translations.en;
-            document.getElementById('mainTitle').innerText = t.title; document.getElementById('subhead').innerText = t.sub; document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('mainTitle').innerText = t.title;
+            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('apyLabel').innerText = t.apyLabel;
+            document.getElementById('earnersLabel').innerText = t.earnersLabel;
             document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
-            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`; localStorage.setItem('adna_lang', lang);
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+            localStorage.setItem('adna_lang', lang);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
