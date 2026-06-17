@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Finance</title>
+    <title>ADNA — Finance & Tokenization</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -33,6 +33,16 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
+        .token-badge {
+            display: inline-block;
+            background: rgba(212, 168, 67, 0.15);
+            border: 1px solid #d4a843;
+            border-radius: 12px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.6rem;
+            color: #d4a843;
+            margin-left: 0.3rem;
+        }
         @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.65rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
     </style>
 </head>
@@ -60,14 +70,29 @@
     </div>
 
     <div class="container">
-        <h1 id="mainTitle">📊 ADNA Finance</h1>
-        <div class="subhead" id="subhead">Comprehensive Financial Tools · 600+ unique functions</div>
+        <h1 id="mainTitle">📊 ADNA Finance & Tokenization</h1>
+        <div class="subhead" id="subhead">Comprehensive Financial Tools + Tokenization · 600+ unique functions</div>
         <div class="wallet-box">📤 <span id="walletLabel">ADNA Contract</span>: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
+
+        <!-- Tokenization Highlight -->
+        <div style="background: rgba(212, 168, 67, 0.08); border: 2px solid #d4a843; border-radius: 16px; padding: 1rem; margin: 1rem 0;">
+            <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                <span style="font-size:2rem;">🏗️</span>
+                <div>
+                    <strong style="color:#d4a843; font-size:1.1rem;">Tokenization Engine</strong>
+                    <br><span id="tokenDesc" style="opacity:0.8;">Real-World Asset Tokenization · NFT Minting · Security Tokens · Fractional Ownership</span>
+                </div>
+                <span style="margin-left:auto; background:#d4a843; color:#1a0e08; padding:0.2rem 0.8rem; border-radius:20px; font-weight:700; font-size:0.8rem;">200+ TOKEN FUNCTIONS</span>
+            </div>
+        </div>
+
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 600+ finance functions..." style="flex:1; min-width:200px;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 600+ finance & tokenization functions..." style="flex:1; min-width:200px;">
             <span class="func-count" id="funcCount">Showing: 600 / 600+</span>
         </div>
+
         <div id="functionsContainer"></div>
+
         <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
             <a href="index.html" class="btn">🏠 Home</a>
             <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
@@ -85,8 +110,9 @@
             <a href="investors.html" class="btn">📊 Investors</a>
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
-        <footer>© 2025 AromaDNA (ADNA) · 600+ Finance Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 600+ Finance & Tokenization Functions</footer>
     </div>
+
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
     <div class="lang-menu" id="langMenu">
         <a data-lang="en">🇬🇧 English</a>
@@ -95,14 +121,24 @@
         <a data-lang="ar">🇦🇪 العربية</a>
         <a data-lang="fa">🇮🇷 فارسی</a>
     </div>
+
     <script>
+        // ========== ФИНАНСОВЫЕ ФУНКЦИИ ==========
         const finPrefixes = ['Budget', 'Cash', 'Capital', 'Asset', 'Liability', 'Equity', 'Revenue', 'Expense', 'Profit', 'Margin', 'ROI', 'NPV', 'IRR', 'Payback', 'BreakEven', 'Forecast', 'Projection', 'Scenario'];
         const finActions = ['Analyze', 'Optimize', 'Allocate', 'Diversify', 'Consolidate', 'Report', 'Track', 'Forecast', 'Model', 'Simulate'];
         const finNouns = ['Statement', 'Balance', 'Performance', 'Valuation', 'Risk', 'Return', 'Growth', 'Efficiency', 'Liquidity', 'Solvency'];
 
-        function generateFinanceFunctions(count) {
-            const result = []; const used = new Set(); const icons = ['📊','📈','📉','💰','💳','🏦','💱','📋','📌','📎','📏','📐','📑','📄','📝'];
-            while (result.length < count) {
+        // ========== ТОКЕНИЗАЦИОННЫЕ ФУНКЦИИ ==========
+        const tokenPrefixes = ['Security', 'Utility', 'Governance', 'Asset', 'RealEstate', 'Art', 'Music', 'IP', 'Commodity', 'Equity', 'Debt', 'Fund', 'Portfolio', 'Index', 'Derivative'];
+        const tokenActions = ['Tokenize', 'Mint', 'Burn', 'Transfer', 'Fractionalize', 'List', 'Trade', 'Stake', 'Vote', 'Dividend'];
+        const tokenNouns = ['Token', 'NFT', 'RWA', 'Shares', 'Units', 'Bonds', 'Notes', 'Certificates', 'Rights', 'Royalties'];
+
+        function generateFinanceWithTokenization(count) {
+            const result = []; const used = new Set(); 
+            const icons = ['📊','📈','📉','💰','💳','🏦','💱','📋','📌','📎','📏','📐','📑','📄','📝','🏗️','🔗','⛓️','🪙','💎','🏛️','📜','🔖','🏷️'];
+
+            // Генерируем 400 финансовых функций
+            while (result.length < 400) {
                 const p = finPrefixes[Math.floor(Math.random() * finPrefixes.length)];
                 const a = finActions[Math.floor(Math.random() * finActions.length)];
                 const n = finNouns[Math.floor(Math.random() * finNouns.length)];
@@ -111,43 +147,138 @@
                 const descs = [`${p} ${a} tool for ${n}`, `${a} ${n} with ${p} optimization`, `${p} ${n} ${a} system`];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
                 const id = `fin_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
-                const key = name + desc; if (!used.has(key)) { used.add(key); result.push({ id, icon: icons[Math.floor(Math.random() * icons.length)], name, desc, category: 'Finance' }); }
-            } return result;
+                const key = name + desc; 
+                if (!used.has(key)) { used.add(key); result.push({ id, icon: icons[Math.floor(Math.random() * icons.length)], name, desc, category: 'Finance', token: false }); }
+            }
+
+            // Генерируем 200 токенизационных функций
+            while (result.length < 600) {
+                const p = tokenPrefixes[Math.floor(Math.random() * tokenPrefixes.length)];
+                const a = tokenActions[Math.floor(Math.random() * tokenActions.length)];
+                const n = tokenNouns[Math.floor(Math.random() * tokenNouns.length)];
+                let name = `${p} ${a} ${n}`;
+                if (Math.random() > 0.5) name += ` ${['Pro','Plus','Premium','Elite','Gold','Platinum'][Math.floor(Math.random()*6)]}`;
+                const descs = [
+                    `${p} ${a} for ${n} tokenization`,
+                    `${a} ${n} with ${p} framework`,
+                    `${p} ${n} ${a} platform for RWA`,
+                    `Tokenization of ${p} ${n} with ${a}`,
+                    `${a} ${n} using ${p} standards`,
+                    `${p} ${n} ${a} for asset digitization`
+                ];
+                const desc = descs[Math.floor(Math.random() * descs.length)];
+                const id = `tok_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
+                const key = name + desc;
+                if (!used.has(key)) {
+                    used.add(key);
+                    const tokenIcon = ['🏗️','🔗','⛓️','🪙','💎','🏛️','📜','🔖','🏷️','🔐','🔑','🛡️','⚖️','📊','📈'][Math.floor(Math.random()*15)];
+                    result.push({ id, icon: tokenIcon, name, desc, category: 'Tokenization', token: true });
+                }
+            }
+            return result;
         }
 
-        const allFunctions = generateFinanceFunctions(600);
+        const allFunctions = generateFinanceWithTokenization(600);
 
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
-            let html = `<h2>📊 Finance Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.forEach(f => { html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`; });
-            html += `</div>`;
+            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search) || f.category.toLowerCase().includes(search));
+
+            // Группировка
+            const financeFuncs = filtered.filter(f => f.category === 'Finance');
+            const tokenFuncs = filtered.filter(f => f.category === 'Tokenization');
+
+            let html = '';
+
+            if (tokenFuncs.length > 0) {
+                html += `<h2>🏗️ Tokenization Functions (${tokenFuncs.length})</h2><div class="grid-4">`;
+                tokenFuncs.forEach(f => {
+                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name} <span class="token-badge">TOKEN</span></div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`;
+                });
+                html += `</div>`;
+            }
+
+            if (financeFuncs.length > 0) {
+                html += `<h2>📊 Finance Functions (${financeFuncs.length})</h2><div class="grid-4">`;
+                financeFuncs.forEach(f => {
+                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`;
+                });
+                html += `</div>`;
+            }
+
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
             document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
         document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
 
+        // ========== ПЕРЕВОД ==========
         const translations = {
-            en: { title: '📊 ADNA Finance', sub: 'Comprehensive Financial Tools · 600+ unique functions', walletLabel: 'ADNA Contract', nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy' },
-            ru: { title: '📊 Финансы ADNA', sub: 'Комплексные финансовые инструменты · 600+ уникальных функций', walletLabel: 'Контракт ADNA', nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить' }
+            en: {
+                title: '📊 ADNA Finance & Tokenization',
+                sub: 'Comprehensive Financial Tools + Tokenization · 600+ unique functions',
+                walletLabel: 'ADNA Contract',
+                tokenDesc: 'Real-World Asset Tokenization · NFT Minting · Security Tokens · Fractional Ownership',
+                nav_home: '🏠 Home',
+                nav_ecosystem: '🌿 Eco',
+                nav_defi: '💰 DeFi',
+                nav_lending: '🏦 Lend',
+                nav_trading: '📈 Trade',
+                nav_finance: '📊 Fin',
+                nav_realestate: '🏠 RE',
+                nav_earn: '💸 Earn',
+                nav_card: '💳 Card',
+                nav_bridge: '🌉 Bridge',
+                nav_islamic: '🕌 Islam',
+                nav_precious: '💎 Prec',
+                nav_mining: '⛏️ Mine',
+                nav_wp: '📄 WP',
+                nav_investors: '📊 Inv',
+                nav_howtobuy: '🇹🇲 Buy'
+            },
+            ru: {
+                title: '📊 Финансы и Токенизация ADNA',
+                sub: 'Комплексные финансовые инструменты + токенизация · 600+ уникальных функций',
+                walletLabel: 'Контракт ADNA',
+                tokenDesc: 'Токенизация реальных активов · NFT · Security Tokens · Дробное владение',
+                nav_home: '🏠 Главная',
+                nav_ecosystem: '🌿 Эко',
+                nav_defi: '💰 DeFi',
+                nav_lending: '🏦 Кред',
+                nav_trading: '📈 Трейд',
+                nav_finance: '📊 Фин',
+                nav_realestate: '🏠 Недв',
+                nav_earn: '💸 Зараб',
+                nav_card: '💳 Карта',
+                nav_bridge: '🌉 Мост',
+                nav_islamic: '🕌 Ислам',
+                nav_precious: '💎 Драг',
+                nav_mining: '⛏️ Майн',
+                nav_wp: '📄 WP',
+                nav_investors: '📊 Инв',
+                nav_howtobuy: '🇹🇲 Купить'
+            }
         };
 
         let currentLang = 'en';
         function setLanguage(lang) {
             currentLang = lang; const t = translations[lang] || translations.en;
-            document.getElementById('mainTitle').innerText = t.title; document.getElementById('subhead').innerText = t.sub; document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('mainTitle').innerText = t.title;
+            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('tokenDesc').innerText = t.tokenDesc;
             document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
-            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`; localStorage.setItem('adna_lang', lang);
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+            localStorage.setItem('adna_lang', lang);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
         document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
         document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
 </html>
