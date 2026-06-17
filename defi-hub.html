@@ -21,8 +21,6 @@
         .card .icon { font-size: 1.5rem; }
         .card .fname { font-weight: 600; color: #f5e6c8; }
         .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
-        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
-        .card .flink:hover { text-decoration: underline; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
@@ -113,23 +111,18 @@
 
     <script>
         const defiFunctions = [
-            // Staking (30)
-            { icon: "🏦", name: "ADNA Staking", desc: "Stake ADNA tokens to earn 8-16% APY. 30-day lockup period. Instant unstaking with 1% fee. Stakers receive governance rights and exclusive access to limited edition fragrances.", link: "https://stake.adna" },
-            { icon: "💰", name: "Liquid Staking", desc: "Stake ADNA and receive stADNA tokens. Use stADNA in other DeFi protocols while earning staking rewards. 1:1 ratio. 0.5% fee.", link: "https://stake.adna/liquid" },
-            { icon: "🔄", name: "Restaking", desc: "Restake stADNA to earn additional yield from 15+ partner protocols. 5-15% additional APY. Dynamic rewards based on partner performance.", link: "https://restake.adna" },
-            // Yield Farming (30)
-            { icon: "🌾", name: "ADNA Yield Farm", desc: "Farm ADNA tokens with 8-25% APR. Single-sided staking and LP pools. Auto-compounding. 0.1% withdrawal fee.", link: "https://farm.adna" },
-            { icon: "🏦", name: "Auto Vaults", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 0.5% performance fee. 20+ vaults available.", link: "https://vaults.adna" },
-            // Lending & Borrowing (25)
-            { icon: "🏦", name: "ADNA Lending", desc: "Lend ADNA, USDC, SOL, and RWA tokens. Earn 5-15% APY. Borrow up to 80% LTV. 0.5% origination fee. 24-hour liquidation window.", link: "https://lend.adna" },
-            { icon: "💳", name: "Flash Loans", desc: "Borrow up to $1M without collateral. 0.05% flash loan fee. 30-second repayment window. 99.9% success rate.", link: "https://flash.adna" },
-            // Trading (30)
-            { icon: "📈", name: "Copy Trading", desc: "Copy top 50 traders with proven track records. Minimum $100. 24/7 automated execution. 10% profit share to copy traders.", link: "https://copy.adna" },
-            { icon: "🤖", name: "Grid Trading Bot", desc: "Automated grid trading with 15% monthly average returns. Set custom grid levels. 0.1% fee per trade. Minimum $500 capital.", link: "https://grid.adna" },
-            { icon: "📉", name: "DCA Bot", desc: "Dollar-cost averaging bot. Daily, weekly, monthly purchases. 1-10% per purchase. 0.05% execution fee.", link: "https://dca.adna" },
-            // Analytics (20)
-            { icon: "📊", name: "Portfolio Tracker", desc: "Real-time tracking of 50+ DeFi positions. Profit/loss analysis. Tax reporting. 20+ connected protocols.", link: "https://portfolio.adna" },
-            { icon: "🔍", name: "On-Chain Analysis", desc: "Track whale movements, exchange flows, and smart money activity. 50+ metrics. Real-time alerts for $100K+ transactions.", link: "https://onchain.adna" }
+            { icon: "🏦", name: "ADNA Staking", desc: "Stake ADNA tokens to earn 8-16% APY. 30-day lockup. Instant unstaking with 1% fee. 50,000+ stakers." },
+            { icon: "💰", name: "Liquid Staking", desc: "Stake ADNA and receive stADNA tokens. Use stADNA in other DeFi protocols. 0.5% fee. 1:1 ratio." },
+            { icon: "🔄", name: "Restaking", desc: "Restake stADNA to earn additional yield from 15+ partner protocols. 5-15% additional APY." },
+            { icon: "🌾", name: "ADNA Yield Farm", desc: "Farm ADNA tokens with 8-25% APR. Single-sided staking and LP pools. Auto-compounding. $50M+ TVL." },
+            { icon: "🏦", name: "Auto Vaults", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 20+ vaults available." },
+            { icon: "🏦", name: "ADNA Lending", desc: "Lend ADNA, USDC, SOL, RWA tokens. Earn 5-15% APY. 80% LTV. 0.5% origination fee." },
+            { icon: "💳", name: "Flash Loans", desc: "Borrow up to $1M without collateral. 0.05% flash loan fee. 30-second repayment. 99.9% success rate." },
+            { icon: "📈", name: "Copy Trading", desc: "Copy top 50 traders. $100 minimum. 24/7 automated execution. 10% profit share." },
+            { icon: "🤖", name: "Grid Trading Bot", desc: "15% monthly average returns. Set custom grid levels. 0.1% fee per trade. $500 minimum." },
+            { icon: "📉", name: "DCA Bot", desc: "Dollar-cost averaging. Daily, weekly, monthly purchases. 1-10% per purchase. 0.05% fee." },
+            { icon: "📊", name: "Portfolio Tracker", desc: "Real-time tracking of 50+ DeFi positions. Profit/loss analysis. Tax reporting. 20+ protocols." },
+            { icon: "🔍", name: "On-Chain Analysis", desc: "Track whale movements, exchange flows, smart money. 50+ metrics. Real-time $100K+ alerts." }
         ];
 
         function generateDeFiFunctions() {
@@ -138,7 +131,7 @@
             const defiPrefixes = ['Yield', 'Stake', 'Lend', 'Borrow', 'Swap', 'Farm', 'Pool', 'Vault', 'Protocol', 'Aggregator', 'Oracle', 'Bridge', 'Liquid', 'Delta', 'Gamma', 'Theta', 'Alpha', 'Beta', 'Prime', 'Index'];
             const defiActions = ['Optimize', 'Secure', 'Maximize', 'Balance', 'Diversify', 'Hedge', 'Leverage', 'Arbitrage', 'Synchronize', 'Automate'];
             const defiNouns = ['Portfolio', 'Strategy', 'Performance', 'Liquidity', 'Efficiency', 'Growth', 'Stability', 'Returns', 'Risk', 'Capital'];
-            const icons = ['💰','🏦','💎','📊','📈','🔄','⚡','🔒','🌊','🪐','🎯','🏛️','📉','💱','📋','🔐','🛡️','⚖️'];
+            const icons = ['💰','🏦','💎','📊','📈','🔄','⚡','🔒','🌊','🪐','🎯','🏛️','📉','💱','📋'];
 
             defiFunctions.forEach(f => {
                 if (!used.has(f.name)) {
@@ -158,9 +151,7 @@
                 const descs = [
                     `${p} ${a} protocol for ${n} with 8-25% APY and 99.9% uptime`,
                     `Advanced ${p} ${a} strategy for ${n} optimization with 0.1% fees`,
-                    `${n} ${a} platform with ${p} technology and 50+ integrated protocols`,
-                    `${a} ${n} using ${p} methodology with 24/7 automated execution`,
-                    `${p} ${n} ${a} system with $200M+ TVL and 15+ partner protocols`
+                    `${n} ${a} platform with ${p} technology and 50+ integrated protocols`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
 
@@ -168,13 +159,7 @@
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({
-                        id,
-                        icon: icon,
-                        name: name,
-                        desc: desc,
-                        link: `https://defi.adna/${n.toLowerCase().replace(/\s/g,'')}`
-                    });
+                    result.push({ id, icon, name, desc });
                 }
             }
             return result;
@@ -195,7 +180,6 @@
                         <div class="icon">${f.icon}</div>
                         <div class="fname">${f.name}</div>
                         <div class="fdesc">${f.desc}</div>
-                        ${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}
                     </div>
                 `;
             });
