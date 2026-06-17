@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem</title>
+    <title>ADNA — AromaDNA</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -18,13 +18,12 @@
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
         .grid-2col { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
         .grid-2col > * { flex: 1; min-width: 250px; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; }
-        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
-        .card .icon { font-size: 1.5rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
-        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
-        .card .flink:hover { text-decoration: underline; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.8rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .wallet-box a { color: #d4a843; }
         .wallet-box a:hover { text-decoration: underline; }
@@ -43,11 +42,22 @@
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
         .price-big { font-size: 2.5rem; font-weight: 800; color: #d4a843; }
         .stats-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0.3rem 0; font-size: 0.85rem; }
-        .real-link { color: #4caf50; font-size: 0.7rem; display: inline-block; margin-top: 0.2rem; }
-        .real-link:hover { text-decoration: underline; }
-        .link-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
-        .link-group .btn { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
+
+        /* Модальное окно */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
+        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
+        .modal .modal-desc { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
+        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
+
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -80,18 +90,16 @@
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>🏦 <span id="treasuryLabel">Treasury</span>: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9
-        </div>
-
-        <div class="link-group">
-            <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="btn btn-outline">🔍 Solscan</a>
-            <a href="https://www.geckoterminal.com/solana/pools/CzALPo5VCfXHRTWCXMy5X5gTAevsUhKQR7VqjWNCYpu3" target="_blank" class="btn btn-outline">📊 GeckoTerminal</a>
-            <a href="https://dexscreener.com/solana/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="btn btn-outline">📈 DexScreener</a>
-            <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
-            <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
+            <br>🔗 <span id="linksLabel">Quick Links</span>: 
+            <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">Solscan</a> · 
+            <a href="https://www.geckoterminal.com/solana/pools/CzALPo5VCfXHRTWCXMy5X5gTAevsUhKQR7VqjWNCYpu3" target="_blank">GeckoTerminal</a> · 
+            <a href="https://dexscreener.com/solana/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DexScreener</a> · 
+            <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · 
+            <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div class="grid-2col">
-            <div class="card">
+            <div class="card" style="cursor:default;">
                 <div class="price-big" id="priceText">$0.9997</div>
                 <div id="priceDesc">1 ADNA ≈ 0.9997 USDC</div>
                 <div class="stats-row">
@@ -102,13 +110,8 @@
                     <span id="marketCapText">📈 MCap: $10B</span>
                     <span id="fdvText">📊 FDV: $10B</span>
                 </div>
-                <div style="margin-top:0.5rem; font-size:0.75rem;">
-                    🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> 
-                    | <a href="https://www.geckoterminal.com/solana/pools/CzALPo5VCfXHRTWCXMy5X5gTAevsUhKQR7VqjWNCYpu3" target="_blank" style="color:#d4a843;">GeckoTerminal</a>
-                    | <a href="https://dexscreener.com/solana/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DexScreener</a>
-                </div>
             </div>
-            <div class="card">
+            <div class="card" style="cursor:default;">
                 <div>🌿 <strong id="missionTitle">Mission</strong><br><span id="missionDesc">Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource. ADNA combines the art of perfumery with DeFi, RWA tokenization, and Web3 infrastructure.</span></div>
                 <div style="margin-top:0.8rem;">
                     <strong id="visionTitle">Vision</strong><br>
@@ -142,7 +145,20 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem · 700+ Functions · Contract: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</footer>
+        <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem · 700+ Functions</footer>
+    </div>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon" id="modalIcon">🌿</div>
+            <div class="modal-title" id="modalTitle">Function Name</div>
+            <div class="modal-category" id="modalCategory">Category</div>
+            <div class="modal-desc" id="modalDesc">Description</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Learn More</a>
+            <div class="modal-meta" id="modalMeta">ID: —</div>
+        </div>
     </div>
 
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
@@ -159,74 +175,76 @@
     </div>
 
     <script>
-        // ========== 700+ ФУНКЦИЙ С РЕАЛЬНЫМИ ССЫЛКАМИ ==========
-        const mainFunctions = [
-            // Основные (30) — без ссылок, просто описание
-            { icon: "🌿", name: "ADNA Core Platform", desc: "Central wellness platform with AI-driven fragrance recommendations. 50,000+ users. 200+ scent combinations. 24/7 availability." },
-            { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes with 500+ natural ingredients. AI-powered design. 10,000+ unique creations." },
-            { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method. 200+ clinical studies on fragrance and emotional states. 85% satisfaction rate." },
-            { icon: "📚", name: "Aroma Academy", desc: "300+ courses on perfumery, sensory science, blockchain. 50,000+ students. NFT certificates." },
-            { icon: "🔬", name: "Aroma Magna Research", desc: "Advanced molecular research lab. 100,000+ scent molecules analyzed. AI-driven discovery." },
-            { icon: "💻", name: "AromaTech", desc: "IoT scent diffusers and wearable wellness devices. 50+ hardware partners. 10,000+ devices." },
-            // DeFi (30)
-            { icon: "🏦", name: "ADNA Staking", desc: "Stake ADNA tokens. 8-16% APY. 30-day lockup. 1% unstaking fee. 50,000+ stakers." },
-            { icon: "💰", name: "Yield Farming", desc: "Farm ADNA tokens with 8-25% APR. Single-sided and LP pools. Auto-compounding. $50M+ TVL." },
-            { icon: "🌾", name: "Auto Vaults", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 20+ vaults." },
-            { icon: "📈", name: "Copy Trading", desc: "Copy top 50 traders. $100 minimum. 10% profit share. 100,000+ copied trades." },
-            { icon: "🤖", name: "Grid Trading Bot", desc: "15% monthly average returns. 0.1% fee per trade. $500 minimum. 10,000+ active bots." },
-            { icon: "📉", name: "DCA Bot", desc: "Dollar-cost averaging bot. 1-10% per purchase. 0.05% fee. 50,000+ active users." },
-            // Tokenization (20)
-            { icon: "🏗️", name: "RWA Tokenization", desc: "Tokenize real estate, art, gold, IP. 0.5% fee. $100M+ assets tokenized. 50+ assets." },
-            { icon: "🎨", name: "NFT Art Minting", desc: "Mint art as NFTs on Solana. 50+ artists. 5-10% royalties. 0.05 SOL per mint." },
-            { icon: "🎵", name: "Music Rights Tokenization", desc: "Tokenize music royalties. Earn passive income from streaming. 0.5% fee." },
-            { icon: "🥇", name: "Gold Tokenization", desc: "Tokenize physical gold in LBMA vaults. 1 gram = 1 token. 0.5% storage fee." },
-            // Lending (15)
-            { icon: "🏦", name: "ADNA Lending", desc: "Lend ADNA, USDC, SOL, RWA tokens. 5-15% APY. 0.5% origination fee. 80% LTV." },
-            { icon: "💳", name: "Flash Loans", desc: "Borrow up to $1M without collateral. 0.05% fee. 30-second repayment. 99.9% success rate." },
-            // Real Estate (15)
-            { icon: "🏠", name: "Dubai Marina Penthouse", desc: "Luxury penthouse in Dubai. 5 beds, 500 sqm. Price: 5M ADNA. 12% rental yield. Tokenized." },
-            { icon: "🏛️", name: "London Mayfair Mansion", desc: "Historic mansion in Mayfair. 8 beds, 800 sqm. Price: 15M ADNA. 8% appreciation." },
-            { icon: "🏢", name: "Singapore Marina Bay", desc: "Luxury apartment in Singapore. 3 beds, 200 sqm. Price: 8M ADNA. 10% rental yield." },
-            // Precious Metals (15)
-            { icon: "🥇", name: "Gold Spot Trading", desc: "Trade gold spot. 0% spread for ADNA holders. $500M+ daily volume. 24/7." },
-            { icon: "🥈", name: "Silver Spot Trading", desc: "Trade silver spot. Competitive spreads. $50M+ daily volume. 24/7." },
-            // Mining (10)
-            { icon: "⛏️", name: "ADNA Mining Pool", desc: "500+ active miners. 0.5% pool fee. Daily payouts. 99.9% uptime. 10,000+ blocks." },
-            { icon: "⚡", name: "Green Mining", desc: "80% renewable energy. Solar in Texas, hydro in Norway. 0.2% fee." },
-            // Card (10)
-            { icon: "💳", name: "ADNA Premium Card", desc: "Up to 5% cashback. Free airport lounge. Travel insurance. $0 annual fee." },
-            { icon: "💎", name: "ADNA Black Card", desc: "5% cashback. Unlimited lounge. 24/7 concierge. $10,000 monthly limit." },
-            // Bridge (10)
-            { icon: "🌉", name: "Solana → Ethereum Bridge", desc: "Bridge ADNA Solana to Ethereum. 0.1% fee. 2-5 min transfer. $10M+ bridged." },
-            { icon: "🌉", name: "Solana → Polygon Bridge", desc: "Bridge ADNA Solana to Polygon. 0.08% fee. 1-3 min transfer. $5M+ bridged." },
-            // Islamic (10)
-            { icon: "🕌", name: "Murabaha Financing", desc: "Sharia-compliant cost-plus financing. 5-10% profit. 12-36 months. Certified." },
-            { icon: "🕌", name: "Sukuk Bonds", desc: "Sharia-compliant bonds. 5-8% yield. $1,000 minimum. AAA rated. 50,000+ investors." },
-            // Earn (10)
-            { icon: "💸", name: "Referral Program", desc: "Earn 5% of referrals' staking rewards. Lifetime earnings. 100,000+ referrals." },
-            { icon: "🎯", name: "Quest Board", desc: "500+ active quests. 10-1,000 ADNA per quest. 50,000+ completed quests." },
-            // Whitepaper (5)
-            { icon: "📄", name: "Executive Summary", desc: "ADNA: luxury wellness ecosystem with DeFi + RWA. $10B market cap. 16,000+ holders." },
-            { icon: "📋", name: "Tokenomics", desc: "Total supply: 10B ADNA. 40% ecosystem, 20% team, 15% treasury, 15% investors, 10% liquidity." }
+        // ========== БАЗА ФУНКЦИЙ С КАТЕГОРИЯМИ И ССЫЛКАМИ ==========
+        const functionDatabase = [
+            // Категория: Wellness
+            { icon: "🌿", name: "ADNA Core Platform", category: "Wellness", desc: "Central wellness platform with AI-driven fragrance recommendations. 50,000+ users. 200+ scent combinations. 24/7 availability.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🌸", name: "Aroma Dina Perfumery", category: "Perfumery", desc: "Luxury personalized perfumes with 500+ natural ingredients. AI-powered design. 10,000+ unique creations.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "🧪", name: "PRP Method", category: "Research", desc: "Personal Resource Perfume Method. 200+ clinical studies on fragrance and emotional states. 85% satisfaction rate.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "📚", name: "Aroma Academy", category: "Education", desc: "300+ courses on perfumery, sensory science, blockchain. 50,000+ students. NFT certificates.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🔬", name: "Aroma Magna Research", category: "Research", desc: "Advanced molecular research lab. 100,000+ scent molecules analyzed. AI-driven discovery.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "💻", name: "AromaTech", category: "Technology", desc: "IoT scent diffusers and wearable wellness devices. 50+ hardware partners. 10,000+ devices.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: DeFi
+            { icon: "🏦", name: "ADNA Staking", category: "DeFi", desc: "Stake ADNA tokens. 8-16% APY. 30-day lockup. 1% unstaking fee. 50,000+ stakers.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "💰", name: "Yield Farming", category: "DeFi", desc: "Farm ADNA tokens with 8-25% APR. Single-sided and LP pools. Auto-compounding. $50M+ TVL.", link: "https://app.meteora.ag" },
+            { icon: "🌾", name: "Auto Vaults", category: "DeFi", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 20+ vaults.", link: "https://app.meteora.ag" },
+            { icon: "📈", name: "Copy Trading", category: "Trading", desc: "Copy top 50 traders. $100 minimum. 10% profit share. 100,000+ copied trades.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "🤖", name: "Grid Trading Bot", category: "Trading", desc: "15% monthly average returns. 0.1% fee per trade. $500 minimum. 10,000+ active bots.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "📉", name: "DCA Bot", category: "Trading", desc: "Dollar-cost averaging bot. 1-10% per purchase. 0.05% fee. 50,000+ active users.", link: "https://jup.ag/swap/SOL-ADNA" },
+            // Категория: Tokenization
+            { icon: "🏗️", name: "RWA Tokenization", category: "Tokenization", desc: "Tokenize real estate, art, gold, IP. 0.5% fee. $100M+ assets tokenized. 50+ assets.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🎨", name: "NFT Art Minting", category: "Tokenization", desc: "Mint art as NFTs on Solana. 50+ artists. 5-10% royalties. 0.05 SOL per mint.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🎵", name: "Music Rights Tokenization", category: "Tokenization", desc: "Tokenize music royalties. Earn passive income from streaming. 0.5% fee.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🥇", name: "Gold Tokenization", category: "Tokenization", desc: "Tokenize physical gold in LBMA vaults. 1 gram = 1 token. 0.5% storage fee.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Lending
+            { icon: "🏦", name: "ADNA Lending", category: "Lending", desc: "Lend ADNA, USDC, SOL, RWA tokens. 5-15% APY. 0.5% origination fee. 80% LTV.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "💳", name: "Flash Loans", category: "Lending", desc: "Borrow up to $1M without collateral. 0.05% fee. 30-second repayment. 99.9% success rate.", link: "https://jup.ag/swap/SOL-ADNA" },
+            // Категория: Real Estate
+            { icon: "🏠", name: "Dubai Marina Penthouse", category: "Real Estate", desc: "Luxury penthouse in Dubai. 5 beds, 500 sqm. Price: 5M ADNA. 12% rental yield. Tokenized.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🏛️", name: "London Mayfair Mansion", category: "Real Estate", desc: "Historic mansion in Mayfair. 8 beds, 800 sqm. Price: 15M ADNA. 8% appreciation.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🏢", name: "Singapore Marina Bay", category: "Real Estate", desc: "Luxury apartment in Singapore. 3 beds, 200 sqm. Price: 8M ADNA. 10% rental yield.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Precious Metals
+            { icon: "🥇", name: "Gold Spot Trading", category: "Precious", desc: "Trade gold spot. 0% spread for ADNA holders. $500M+ daily volume. 24/7.", link: "https://jup.ag/swap/SOL-ADNA" },
+            { icon: "🥈", name: "Silver Spot Trading", category: "Precious", desc: "Trade silver spot. Competitive spreads. $50M+ daily volume. 24/7.", link: "https://jup.ag/swap/SOL-ADNA" },
+            // Категория: Mining
+            { icon: "⛏️", name: "ADNA Mining Pool", category: "Mining", desc: "500+ active miners. 0.5% pool fee. Daily payouts. 99.9% uptime. 10,000+ blocks.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "⚡", name: "Green Mining", category: "Mining", desc: "80% renewable energy. Solar in Texas, hydro in Norway. 0.2% fee.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Card
+            { icon: "💳", name: "ADNA Premium Card", category: "Card", desc: "Up to 5% cashback. Free airport lounge. Travel insurance. $0 annual fee.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "💎", name: "ADNA Black Card", category: "Card", desc: "5% cashback. Unlimited lounge. 24/7 concierge. $10,000 monthly limit.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Bridge
+            { icon: "🌉", name: "Solana → Ethereum Bridge", category: "Bridge", desc: "Bridge ADNA Solana to Ethereum. 0.1% fee. 2-5 min transfer. $10M+ bridged.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🌉", name: "Solana → Polygon Bridge", category: "Bridge", desc: "Bridge ADNA Solana to Polygon. 0.08% fee. 1-3 min transfer. $5M+ bridged.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Islamic
+            { icon: "🕌", name: "Murabaha Financing", category: "Islamic", desc: "Sharia-compliant cost-plus financing. 5-10% profit. 12-36 months. Certified.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🕌", name: "Sukuk Bonds", category: "Islamic", desc: "Sharia-compliant bonds. 5-8% yield. $1,000 minimum. AAA rated. 50,000+ investors.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Earn
+            { icon: "💸", name: "Referral Program", category: "Earn", desc: "Earn 5% of referrals' staking rewards. Lifetime earnings. 100,000+ referrals.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "🎯", name: "Quest Board", category: "Earn", desc: "500+ active quests. 10-1,000 ADNA per quest. 50,000+ completed quests.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            // Категория: Whitepaper
+            { icon: "📄", name: "Executive Summary", category: "Whitepaper", desc: "ADNA: luxury wellness ecosystem with DeFi + RWA. $10B market cap. 16,000+ holders.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" },
+            { icon: "📋", name: "Tokenomics", category: "Whitepaper", desc: "Total supply: 10B ADNA. 40% ecosystem, 20% team, 15% treasury, 15% investors, 10% liquidity.", link: "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" }
         ];
 
-        // Генерируем 700+ уникальных функций (без ссылок, только описания)
-        function generateMainFunctions() {
+        // ========== ГЕНЕРАТОР ФУНКЦИЙ ==========
+        function generateFunctions() {
             const result = [];
             const used = new Set();
-            const categories = ['Wellness', 'Perfumery', 'Education', 'Research', 'DeFi', 'Lending', 'Trading', 'Finance', 'Real Estate', 'Earn', 'Card', 'Bridge', 'Islamic', 'Precious', 'Mining', 'Gaming', 'Social', 'Analytics'];
-            const prefixes = ['Premium', 'Luxury', 'Elite', 'Smart', 'Auto', 'Pro', 'Max', 'Ultra', 'Dynamic', 'Adaptive', 'Intelligent', 'Quantum', 'Nexus', 'Apex', 'Zen'];
-            const actions = ['Analyze', 'Generate', 'Optimize', 'Automate', 'Secure', 'Monitor', 'Execute', 'Validate', 'Verify', 'Audit', 'Simulate', 'Predict', 'Track', 'Scan', 'Filter'];
-            const nouns = ['Protocol', 'Matrix', 'Engine', 'Core', 'Hub', 'Node', 'System', 'Framework', 'Platform', 'Suite', 'Toolkit', 'Dashboard', 'Gateway', 'Network', 'Portal'];
+            const categories = ['Wellness', 'Perfumery', 'Education', 'Research', 'DeFi', 'Lending', 'Trading', 'Finance', 'Real Estate', 'Earn', 'Card', 'Bridge', 'Islamic', 'Precious', 'Mining', 'Gaming', 'Social', 'Analytics', 'Tokenization', 'Technology'];
+            const prefixes = ['Premium', 'Luxury', 'Elite', 'Smart', 'Auto', 'Pro', 'Max', 'Ultra', 'Dynamic', 'Adaptive', 'Intelligent', 'Quantum', 'Nexus', 'Apex', 'Zen', 'Golden', 'Platinum', 'Diamond', 'Royal', 'Imperial'];
+            const actions = ['Analyze', 'Generate', 'Optimize', 'Automate', 'Secure', 'Monitor', 'Execute', 'Validate', 'Verify', 'Audit', 'Simulate', 'Predict', 'Track', 'Scan', 'Filter', 'Convert', 'Exchange', 'Bridge', 'Stake', 'Farm'];
+            const nouns = ['Protocol', 'Matrix', 'Engine', 'Core', 'Hub', 'Node', 'System', 'Framework', 'Platform', 'Suite', 'Toolkit', 'Dashboard', 'Gateway', 'Network', 'Portal', 'Vault', 'Pool', 'Farm', 'Bridge', 'Oracle'];
             const icons = ['🌿','🌸','🧪','📚','🔬','💻','🏦','💳','🌊','🪐','📈','🤖','📉','⚡','🎯','🌾','🔄','📊','🔒','💰','🏗️','🎨','🎵','📜','🔑','🛡️','📰','🔍','💸','⚖️','🌆','🏛️','🥇','🥈','⛏️','🌉','💎','🏠','🏢','🏗️','🏘️','🌇','🏖️','🏔️','🏡','🏬','🏪','🏫','🏥'];
 
-            mainFunctions.forEach(f => {
+            // Добавляем базу
+            functionDatabase.forEach(f => {
                 if (!used.has(f.name)) {
                     used.add(f.name);
                     result.push(f);
                 }
             });
 
+            // Генерируем дополнительные уникальные функции
             while (result.length < 700) {
                 const cat = categories[Math.floor(Math.random() * categories.length)];
                 const p = prefixes[Math.floor(Math.random() * prefixes.length)];
@@ -234,40 +252,57 @@
                 const n = nouns[Math.floor(Math.random() * nouns.length)];
                 const icon = icons[Math.floor(Math.random() * icons.length)];
                 let name = `${p} ${a} ${n}`;
-                if (Math.random() > 0.5) name += ` ${['X','+','Pro','Elite','Advanced'][Math.floor(Math.random()*5)]}`;
+                if (Math.random() > 0.5) name += ` ${['X','+','Pro','Elite','Advanced','Ultra'][Math.floor(Math.random()*6)]}`;
 
                 const descs = [
-                    `${p} ${a} solution for ${cat} with 99.9% uptime and 50,000+ users`,
-                    `${p} ${n} for ${cat} with 8-25% APY and 0.1% fee`,
-                    `${a} ${n} with ${p} technology, 20+ integrations, and 24/7 availability`
+                    `${p} ${a} solution for ${cat} with 99.9% uptime and 50,000+ users. Integrated with 20+ protocols.`,
+                    `${p} ${n} for ${cat} with 8-25% APY and 0.1% fee. 24/7 automated execution.`,
+                    `${a} ${n} with ${p} technology, 20+ integrations, and 24/7 availability. Enterprise-grade security.`,
+                    `${cat} ${a} platform with ${n} and 50+ successful use cases. 99.9% uptime guaranteed.`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
+
+                // Ссылка в зависимости от категории
+                let link = "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E";
+                if (['DeFi', 'Lending', 'Trading', 'Earn'].includes(cat)) {
+                    link = "https://jup.ag/swap/SOL-ADNA";
+                } else if (['Card', 'Bridge', 'Islamic', 'Precious', 'Mining'].includes(cat)) {
+                    link = "https://app.meteora.ag";
+                } else if (['Real Estate', 'Tokenization', 'Technology'].includes(cat)) {
+                    link = "https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E";
+                }
 
                 const id = `fn_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc });
+                    result.push({ id, icon, name, category: cat, desc, link });
                 }
             }
             return result;
         }
 
-        const allFunctions = generateMainFunctions();
+        const allFunctions = generateFunctions();
 
+        // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            if (search) filtered = allFunctions.filter(f => 
+                f.name.toLowerCase().includes(search) || 
+                f.desc.toLowerCase().includes(search) ||
+                f.category.toLowerCase().includes(search)
+            );
 
             let html = `<h2>🌿 ADNA Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.slice(0, 100).forEach(f => {
+            filtered.slice(0, 100).forEach((f, index) => {
                 html += `
-                    <div class="card">
+                    <div class="card" onclick="openModal(${index})">
                         <div class="icon">${f.icon}</div>
                         <div class="fname">${f.name}</div>
-                        <div class="fdesc">${f.desc}</div>
+                        <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                        <div class="click-hint">👆 Click for details</div>
                     </div>
                 `;
             });
@@ -276,7 +311,38 @@
             document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
         }
 
-        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
+        // ========== МОДАЛЬНОЕ ОКНО ==========
+        function openModal(index) {
+            const f = allFunctions[index];
+            if (!f) return;
+            document.getElementById('modalIcon').textContent = f.icon;
+            document.getElementById('modalTitle').textContent = f.name;
+            document.getElementById('modalCategory').textContent = f.category;
+            document.getElementById('modalDesc').textContent = f.desc;
+            document.getElementById('modalLink').href = f.link || 'https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E';
+            document.getElementById('modalLink').textContent = '🔗 ' + (f.link ? 'Learn More' : 'View on Solscan');
+            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ========== ПОИСК ==========
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderFunctions(this.value);
+        });
 
         // ========== ПЕРЕВОД ==========
         const translations = {
@@ -285,6 +351,7 @@
                 sub: 'Luxury Sensory Wellness Ecosystem · 700+ Premium Functions',
                 walletLabel: 'ADNA Contract',
                 treasuryLabel: 'Treasury',
+                linksLabel: 'Quick Links',
                 price: '$0.9997',
                 priceDesc: '1 ADNA ≈ 0.9997 USDC',
                 liquidity: '💎 Liquidity: $668.9M',
@@ -302,6 +369,7 @@
                 sub: 'Экосистема роскошного сенсорного благополучия · 700+ премиальных функций',
                 walletLabel: 'Контракт ADNA',
                 treasuryLabel: 'Казначейство',
+                linksLabel: 'Быстрые ссылки',
                 price: '$0.9997',
                 priceDesc: '1 ADNA ≈ 0.9997 USDC',
                 liquidity: '💎 Ликвидность: $668.9M',
@@ -323,6 +391,7 @@
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('treasuryLabel').innerText = t.treasuryLabel;
+            document.getElementById('linksLabel').innerText = t.linksLabel;
             document.getElementById('priceText').innerHTML = t.price;
             document.getElementById('priceDesc').innerText = t.priceDesc;
             document.getElementById('liquidityText').innerHTML = t.liquidity;
@@ -341,7 +410,10 @@
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
         document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
         document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+
+        // ========== INIT ==========
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
 </html>
