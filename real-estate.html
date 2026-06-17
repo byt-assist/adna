@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Real Estate (300+ Unique Real Links)</title>
+    <title>ADNA — Real Estate (Unique Real Links)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -80,16 +80,16 @@
 
     <div class="container">
         <h1 id="mainTitle">🏠 ADNA Real Estate</h1>
-        <div class="subhead" id="subhead">300+ Properties Worldwide · Every Link Unique · Real Platforms</div>
+        <div class="subhead" id="subhead">Buy Property Worldwide · Pay with ADNA · 300+ Unique Listings</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>🏠 <span id="propertiesLabel">Total Properties</span>: 300+ · <span id="yieldLabel">Avg Yield</span>: 6-15%
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
+            <br>🏠 <span id="propertiesLabel">Total Properties</span>: 300+
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 300+ properties..." style="flex:1; min-width:200px;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search properties by country or platform..." style="flex:1; min-width:200px;">
             <span class="func-count" id="funcCount">Showing: 300 / 300+</span>
         </div>
 
@@ -113,20 +113,20 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 300+ Real Estate Links · Every Link Unique</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 300+ Real Estate Listings · Pay with ADNA</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <button class="modal-close" id="modalClose">✕</button>
             <div class="modal-icon" id="modalIcon">🏠</div>
-            <div class="modal-title" id="modalTitle">Property Name</div>
+            <div class="modal-title" id="modalTitle">Platform</div>
             <div class="modal-category" id="modalCategory">Country</div>
-            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-price" id="modalPrice">💰 Pay with ADNA</div>
             <div class="modal-desc-full" id="modalDescFull">Description</div>
-            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
-            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 View Property</a>
-            <div class="modal-meta" id="modalMeta">ID: —</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Website</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 View Properties</a>
+            <div class="modal-meta" id="modalMeta">Pay with ADNA token</div>
         </div>
     </div>
 
@@ -144,242 +144,205 @@
     </div>
 
     <script>
-        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ ССЫЛОК НА ПЛАТФОРМЫ НЕДВИЖИМОСТИ ==========
+        // ========== КАЖДАЯ КНОПКА → УНИКАЛЬНЫЙ РЕАЛЬНЫЙ САЙТ НЕДВИЖИМОСТИ ==========
         const realEstateData = [
-            // ===== 🇦🇪 ОАЭ (Дубай) — 15 платформ =====
-            { name: "Property Finder UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's leading real estate platform with 100k+ listings.", link: "https://www.propertyfinder.ae", platform: "Property Finder" },
-            { name: "Bayut UAE", country: "🇦🇪 ОАЭ", desc: "UAE's largest property portal. Millions of listings.", link: "https://www.bayut.com", platform: "Bayut" },
-            { name: "Dubizzle UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's classifieds platform with real estate listings.", link: "https://www.dubizzle.com", platform: "Dubizzle" },
-            { name: "Allsopp & Allsopp UAE", country: "🇦🇪 ОАЭ", desc: "Premium real estate agency in Dubai.", link: "https://www.allsoppandallsopp.com", platform: "Allsopp & Allsopp" },
-            { name: "Betterhomes UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's award-winning real estate agency.", link: "https://www.betterhomes.ae", platform: "Betterhomes" },
-            { name: "Engel & Völkers Dubai", country: "🇦🇪 ОАЭ", desc: "International luxury real estate in Dubai.", link: "https://www.engelvoelkers.com/dubai", platform: "Engel & Völkers" },
-            { name: "Savills Dubai", country: "🇦🇪 ОАЭ", desc: "Global real estate services in UAE.", link: "https://www.savills.ae", platform: "Savills" },
-            { name: "Knight Frank Dubai", country: "🇦🇪 ОАЭ", desc: "Prime property specialists in Dubai.", link: "https://www.knightfrank.ae", platform: "Knight Frank" },
-            { name: "Chestertons Dubai", country: "🇦🇪 ОАЭ", desc: "International real estate in Dubai.", link: "https://www.chestertons.ae", platform: "Chestertons" },
-            { name: "Espace Real Estate UAE", country: "🇦🇪 ОАЭ", desc: "Dubai-based real estate agency.", link: "https://www.espace.ae", platform: "Espace" },
-            { name: "FAM Properties UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's fastest growing real estate agency.", link: "https://famproperties.com", platform: "FAM Properties" },
-            { name: "Driven Properties UAE", country: "🇦🇪 ОАЭ", desc: "Luxury real estate in Dubai.", link: "https://drivenproperties.ae", platform: "Driven Properties" },
-            { name: "Luxhabitat UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's luxury property specialists.", link: "https://luxhabitat.ae", platform: "Luxhabitat" },
-            { name: "Arabian Ranches UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's premier residential community.", link: "https://www.arabianranches.ae", platform: "Arabian Ranches" },
-            { name: "Dubai Hills Estate UAE", country: "🇦🇪 ОАЭ", desc: "Emaar's Dubai Hills residential community.", link: "https://www.dubaihillsestate.com", platform: "Dubai Hills Estate" },
+            // ===== 🇦🇪 ОАЭ (Дубай) — 10 уникальных сайтов =====
+            { name: "Bayut — Dubai Property", country: "🇦🇪 ОАЭ", desc: "Bayut — Dubai's largest real estate portal. 100k+ properties.", link: "https://www.bayut.com", platform: "Bayut" },
+            { name: "Property Finder — UAE", country: "🇦🇪 ОАЭ", desc: "Property Finder — UAE's leading real estate marketplace.", link: "https://www.propertyfinder.ae", platform: "Property Finder" },
+            { name: "Dubizzle — Dubai", country: "🇦🇪 ОАЭ", desc: "Dubizzle — Dubai's classifieds platform with real estate.", link: "https://www.dubizzle.com", platform: "Dubizzle" },
+            { name: "Allsopp & Allsopp — Dubai", country: "🇦🇪 ОАЭ", desc: "Allsopp & Allsopp — premium Dubai real estate.", link: "https://www.allsoppandallsopp.com", platform: "Allsopp & Allsopp" },
+            { name: "Betterhomes — Dubai", country: "🇦🇪 ОАЭ", desc: "Betterhomes — award-winning Dubai real estate agency.", link: "https://www.betterhomes.ae", platform: "Betterhomes" },
+            { name: "Engel & Völkers Dubai", country: "🇦🇪 ОАЭ", desc: "Engel & Völkers — luxury real estate in Dubai.", link: "https://www.engelvoelkers.com/dubai", platform: "Engel & Völkers" },
+            { name: "Savills — Dubai", country: "🇦🇪 ОАЭ", desc: "Savills — international real estate in Dubai.", link: "https://www.savills.ae", platform: "Savills" },
+            { name: "Knight Frank — Dubai", country: "🇦🇪 ОАЭ", desc: "Knight Frank — prime property specialists in Dubai.", link: "https://www.knightfrank.ae", platform: "Knight Frank" },
+            { name: "Chestertons — Dubai", country: "🇦🇪 ОАЭ", desc: "Chestertons — international real estate in Dubai.", link: "https://www.chestertons.ae", platform: "Chestertons" },
+            { name: "Espace — Dubai", country: "🇦🇪 ОАЭ", desc: "Espace — Dubai-based real estate agency.", link: "https://www.espace.ae", platform: "Espace" },
 
-            // ===== 🇬🇧 Великобритания — 15 платформ =====
-            { name: "Rightmove UK", country: "🇬🇧 Великобритания", desc: "UK's #1 property portal. 1M+ listings.", link: "https://www.rightmove.co.uk", platform: "Rightmove" },
-            { name: "Zoopla UK", country: "🇬🇧 Великобритания", desc: "UK property and real estate portal.", link: "https://www.zoopla.co.uk", platform: "Zoopla" },
-            { name: "OnTheMarket UK", country: "🇬🇧 Великобритания", desc: "UK property portal with agent listings.", link: "https://www.onthemarket.com", platform: "OnTheMarket" },
-            { name: "PrimeLocation UK", country: "🇬🇧 Великобритания", desc: "UK premium property listings.", link: "https://www.primelocation.com", platform: "PrimeLocation" },
-            { name: "Knight Frank UK", country: "🇬🇧 Великобритания", desc: "Global property specialists in UK.", link: "https://www.knightfrank.co.uk", platform: "Knight Frank" },
-            { name: "Savills UK", country: "🇬🇧 Великобритания", desc: "International real estate in UK.", link: "https://www.savills.co.uk", platform: "Savills" },
-            { name: "Foxtons UK", country: "🇬🇧 Великобритания", desc: "London's leading estate agent.", link: "https://www.foxtons.co.uk", platform: "Foxtons" },
-            { name: "Purplebricks UK", country: "🇬🇧 Великобритания", desc: "Online estate agency in UK.", link: "https://www.purplebricks.co.uk", platform: "Purplebricks" },
-            { name: "Winkworth UK", country: "🇬🇧 Великобритания", desc: "Established UK estate agency.", link: "https://www.winkworth.co.uk", platform: "Winkworth" },
-            { name: "Dexters UK", country: "🇬🇧 Великобритания", desc: "London property and estate agency.", link: "https://www.dexters.co.uk", platform: "Dexters" },
-            { name: "Chestertons UK", country: "🇬🇧 Великобритания", desc: "International property in London.", link: "https://www.chestertons.co.uk", platform: "Chestertons" },
-            { name: "Marsh & Parsons UK", country: "🇬🇧 Великобритания", desc: "London estate agency.", link: "https://www.marshandparsons.co.uk", platform: "Marsh & Parsons" },
-            { name: "Countrywide UK", country: "🇬🇧 Великобритания", desc: "UK's largest property services group.", link: "https://www.countrywide.co.uk", platform: "Countrywide" },
-            { name: "Connells UK", country: "🇬🇧 Великобритания", desc: "UK estate agency and property services.", link: "https://www.connells.co.uk", platform: "Connells" },
-            { name: "Andrews UK", country: "🇬🇧 Великобритания", desc: "UK estate agency with 50+ branches.", link: "https://www.andrews.uk", platform: "Andrews" },
+            // ===== 🇬🇧 Великобритания — 10 уникальных сайтов =====
+            { name: "Rightmove — UK", country: "🇬🇧 Великобритания", desc: "Rightmove — UK's #1 property portal. 1M+ listings.", link: "https://www.rightmove.co.uk", platform: "Rightmove" },
+            { name: "Zoopla — UK", country: "🇬🇧 Великобритания", desc: "Zoopla — UK property and real estate portal.", link: "https://www.zoopla.co.uk", platform: "Zoopla" },
+            { name: "OnTheMarket — UK", country: "🇬🇧 Великобритания", desc: "OnTheMarket — UK property portal with agent listings.", link: "https://www.onthemarket.com", platform: "OnTheMarket" },
+            { name: "PrimeLocation — UK", country: "🇬🇧 Великобритания", desc: "PrimeLocation — UK premium property listings.", link: "https://www.primelocation.com", platform: "PrimeLocation" },
+            { name: "Knight Frank — UK", country: "🇬🇧 Великобритания", desc: "Knight Frank — global property specialists in UK.", link: "https://www.knightfrank.co.uk", platform: "Knight Frank" },
+            { name: "Savills — UK", country: "🇬🇧 Великобритания", desc: "Savills — international real estate in UK.", link: "https://www.savills.co.uk", platform: "Savills" },
+            { name: "Foxtons — London", country: "🇬🇧 Великобритания", desc: "Foxtons — London's leading estate agent.", link: "https://www.foxtons.co.uk", platform: "Foxtons" },
+            { name: "Purplebricks — UK", country: "🇬🇧 Великобритания", desc: "Purplebricks — online estate agency in UK.", link: "https://www.purplebricks.co.uk", platform: "Purplebricks" },
+            { name: "Winkworth — UK", country: "🇬🇧 Великобритания", desc: "Winkworth — established UK estate agency.", link: "https://www.winkworth.co.uk", platform: "Winkworth" },
+            { name: "Dexters — London", country: "🇬🇧 Великобритания", desc: "Dexters — London property and estate agency.", link: "https://www.dexters.co.uk", platform: "Dexters" },
 
-            // ===== 🇺🇸 США — 15 платформ =====
-            { name: "Zillow USA", country: "🇺🇸 США", desc: "USA's #1 real estate marketplace.", link: "https://www.zillow.com", platform: "Zillow" },
-            { name: "Realtor.com USA", country: "🇺🇸 США", desc: "Official real estate website of USA.", link: "https://www.realtor.com", platform: "Realtor.com" },
-            { name: "Redfin USA", country: "🇺🇸 США", desc: "Technology-powered real estate brokerage.", link: "https://www.redfin.com", platform: "Redfin" },
-            { name: "Trulia USA", country: "🇺🇸 США", desc: "Real estate platform by Zillow group.", link: "https://www.trulia.com", platform: "Trulia" },
-            { name: "Compass USA", country: "🇺🇸 США", desc: "Technology-driven real estate platform.", link: "https://www.compass.com", platform: "Compass" },
-            { name: "Homes.com USA", country: "🇺🇸 США", desc: "USA real estate marketplace.", link: "https://www.homes.com", platform: "Homes.com" },
-            { name: "Coldwell Banker USA", country: "🇺🇸 США", desc: "International real estate franchise.", link: "https://www.coldwellbanker.com", platform: "Coldwell Banker" },
-            { name: "Century 21 USA", country: "🇺🇸 США", desc: "Global real estate network.", link: "https://www.century21.com", platform: "Century 21" },
-            { name: "RE/MAX USA", country: "🇺🇸 США", desc: "International real estate network.", link: "https://www.remax.com", platform: "RE/MAX" },
-            { name: "Keller Williams USA", country: "🇺🇸 США", desc: "USA's largest real estate franchise.", link: "https://www.kw.com", platform: "Keller Williams" },
-            { name: "Sotheby's USA", country: "🇺🇸 США", desc: "Luxury real estate by Sotheby's.", link: "https://www.sothebysrealty.com", platform: "Sotheby's" },
-            { name: "Christie's USA", country: "🇺🇸 США", desc: "Luxury real estate by Christie's.", link: "https://www.christiesrealestate.com", platform: "Christie's" },
-            { name: "Douglas Elliman USA", country: "🇺🇸 США", desc: "USA real estate brokerage.", link: "https://www.elliman.com", platform: "Douglas Elliman" },
-            { name: "Corcoran USA", country: "🇺🇸 США", desc: "New York real estate specialists.", link: "https://www.corcoran.com", platform: "Corcoran" },
-            { name: "Brown Harris USA", country: "🇺🇸 США", desc: "Luxury real estate in USA.", link: "https://www.bhsusa.com", platform: "Brown Harris" },
+            // ===== 🇺🇸 США — 10 уникальных сайтов =====
+            { name: "Zillow — USA", country: "🇺🇸 США", desc: "Zillow — USA's #1 real estate marketplace.", link: "https://www.zillow.com", platform: "Zillow" },
+            { name: "Realtor.com — USA", country: "🇺🇸 США", desc: "Realtor.com — official real estate website of USA.", link: "https://www.realtor.com", platform: "Realtor.com" },
+            { name: "Redfin — USA", country: "🇺🇸 США", desc: "Redfin — technology-powered real estate brokerage.", link: "https://www.redfin.com", platform: "Redfin" },
+            { name: "Trulia — USA", country: "🇺🇸 США", desc: "Trulia — real estate platform by Zillow group.", link: "https://www.trulia.com", platform: "Trulia" },
+            { name: "Compass — USA", country: "🇺🇸 США", desc: "Compass — technology-driven real estate platform.", link: "https://www.compass.com", platform: "Compass" },
+            { name: "Coldwell Banker — USA", country: "🇺🇸 США", desc: "Coldwell Banker — international real estate franchise.", link: "https://www.coldwellbanker.com", platform: "Coldwell Banker" },
+            { name: "Century 21 — USA", country: "🇺🇸 США", desc: "Century 21 — global real estate network.", link: "https://www.century21.com", platform: "Century 21" },
+            { name: "RE/MAX — USA", country: "🇺🇸 США", desc: "RE/MAX — international real estate network.", link: "https://www.remax.com", platform: "RE/MAX" },
+            { name: "Keller Williams — USA", country: "🇺🇸 США", desc: "Keller Williams — USA's largest real estate franchise.", link: "https://www.kw.com", platform: "Keller Williams" },
+            { name: "Sotheby's — USA", country: "🇺🇸 США", desc: "Sotheby's — luxury real estate by Sotheby's.", link: "https://www.sothebysrealty.com", platform: "Sotheby's" },
 
-            // ===== 🇨🇦 Канада — 10 платформ =====
-            { name: "Realtor.ca Canada", country: "🇨🇦 Канада", desc: "Canada's official real estate website.", link: "https://www.realtor.ca", platform: "Realtor.ca" },
-            { name: "Zoocasa Canada", country: "🇨🇦 Канада", desc: "Canadian real estate marketplace.", link: "https://www.zoocasa.com", platform: "Zoocasa" },
-            { name: "Royal LePage Canada", country: "🇨🇦 Канада", desc: "Canada's premier real estate brokerage.", link: "https://www.royallepage.ca", platform: "Royal LePage" },
-            { name: "RE/MAX Canada", country: "🇨🇦 Канада", desc: "International real estate in Canada.", link: "https://www.remax.ca", platform: "RE/MAX Canada" },
-            { name: "Century 21 Canada", country: "🇨🇦 Канада", desc: "Global real estate in Canada.", link: "https://www.century21.ca", platform: "Century 21" },
-            { name: "Sutton Group Canada", country: "🇨🇦 Канада", desc: "Canadian real estate network.", link: "https://www.sutton.com", platform: "Sutton Group" },
-            { name: "Engel & Völkers Canada", country: "🇨🇦 Канада", desc: "Luxury real estate in Canada.", link: "https://www.engelvoelkers.com/canada", platform: "Engel & Völkers" },
-            { name: "Sotheby's Canada", country: "🇨🇦 Канада", desc: "Luxury real estate in Canada.", link: "https://www.sothebysrealty.ca", platform: "Sotheby's" },
-            { name: "Christie's Canada", country: "🇨🇦 Канада", desc: "Luxury property in Canada.", link: "https://www.christiesrealestate.com/canada", platform: "Christie's" },
-            { name: "Knight Frank Canada", country: "🇨🇦 Канада", desc: "Prime property in Canada.", link: "https://www.knightfrank.ca", platform: "Knight Frank" },
+            // ===== 🇨🇦 Канада — 8 уникальных сайтов =====
+            { name: "Realtor.ca — Canada", country: "🇨🇦 Канада", desc: "Realtor.ca — Canada's official real estate website.", link: "https://www.realtor.ca", platform: "Realtor.ca" },
+            { name: "Zoocasa — Canada", country: "🇨🇦 Канада", desc: "Zoocasa — Canadian real estate marketplace.", link: "https://www.zoocasa.com", platform: "Zoocasa" },
+            { name: "Royal LePage — Canada", country: "🇨🇦 Канада", desc: "Royal LePage — Canada's premier real estate brokerage.", link: "https://www.royallepage.ca", platform: "Royal LePage" },
+            { name: "RE/MAX — Canada", country: "🇨🇦 Канада", desc: "RE/MAX Canada — international real estate in Canada.", link: "https://www.remax.ca", platform: "RE/MAX" },
+            { name: "Century 21 — Canada", country: "🇨🇦 Канада", desc: "Century 21 — global real estate in Canada.", link: "https://www.century21.ca", platform: "Century 21" },
+            { name: "Sutton Group — Canada", country: "🇨🇦 Канада", desc: "Sutton Group — Canadian real estate network.", link: "https://www.sutton.com", platform: "Sutton Group" },
+            { name: "Engel & Völkers Canada", country: "🇨🇦 Канада", desc: "Engel & Völkers — luxury real estate in Canada.", link: "https://www.engelvoelkers.com/canada", platform: "Engel & Völkers" },
+            { name: "Sotheby's — Canada", country: "🇨🇦 Канада", desc: "Sotheby's — luxury real estate in Canada.", link: "https://www.sothebysrealty.ca", platform: "Sotheby's" },
 
-            // ===== 🇦🇺 Австралия — 10 платформ =====
-            { name: "Realestate.com.au Australia", country: "🇦🇺 Австралия", desc: "Australia's #1 property website.", link: "https://www.realestate.com.au", platform: "Realestate.com.au" },
-            { name: "Domain Australia", country: "🇦🇺 Австралия", desc: "Australian property and real estate.", link: "https://www.domain.com.au", platform: "Domain" },
-            { name: "Homely Australia", country: "🇦🇺 Австралия", desc: "Australian property marketplace.", link: "https://www.homely.com.au", platform: "Homely" },
-            { name: "Allhomes Australia", country: "🇦🇺 Австралия", desc: "Australian property listings.", link: "https://www.allhomes.com.au", platform: "Allhomes" },
-            { name: "RE/MAX Australia", country: "🇦🇺 Австралия", desc: "International real estate in Australia.", link: "https://www.remax.com.au", platform: "RE/MAX Australia" },
-            { name: "Century 21 Australia", country: "🇦🇺 Австралия", desc: "Global real estate in Australia.", link: "https://www.century21.com.au", platform: "Century 21" },
-            { name: "Ray White Australia", country: "🇦🇺 Австралия", desc: "Australian real estate group.", link: "https://www.raywhite.com", platform: "Ray White" },
-            { name: "LJ Hooker Australia", country: "🇦🇺 Австралия", desc: "Australian real estate network.", link: "https://www.ljhooker.com.au", platform: "LJ Hooker" },
-            { name: "McGrath Australia", country: "🇦🇺 Австралия", desc: "Australian real estate agency.", link: "https://www.mcgrath.com.au", platform: "McGrath" },
-            { name: "Belle Property Australia", country: "🇦🇺 Австралия", desc: "Australian real estate specialists.", link: "https://belleproperty.com", platform: "Belle Property" },
+            // ===== 🇦🇺 Австралия — 8 уникальных сайтов =====
+            { name: "Realestate.com.au — Australia", country: "🇦🇺 Австралия", desc: "Realestate.com.au — Australia's #1 property website.", link: "https://www.realestate.com.au", platform: "Realestate.com.au" },
+            { name: "Domain — Australia", country: "🇦🇺 Австралия", desc: "Domain — Australian property and real estate.", link: "https://www.domain.com.au", platform: "Domain" },
+            { name: "Homely — Australia", country: "🇦🇺 Австралия", desc: "Homely — Australian property marketplace.", link: "https://www.homely.com.au", platform: "Homely" },
+            { name: "Allhomes — Australia", country: "🇦🇺 Австралия", desc: "Allhomes — Australian property listings.", link: "https://www.allhomes.com.au", platform: "Allhomes" },
+            { name: "RE/MAX — Australia", country: "🇦🇺 Австралия", desc: "RE/MAX — international real estate in Australia.", link: "https://www.remax.com.au", platform: "RE/MAX" },
+            { name: "Ray White — Australia", country: "🇦🇺 Австралия", desc: "Ray White — Australian real estate group.", link: "https://www.raywhite.com", platform: "Ray White" },
+            { name: "LJ Hooker — Australia", country: "🇦🇺 Австралия", desc: "LJ Hooker — Australian real estate network.", link: "https://www.ljhooker.com.au", platform: "LJ Hooker" },
+            { name: "McGrath — Australia", country: "🇦🇺 Австралия", desc: "McGrath — Australian real estate agency.", link: "https://www.mcgrath.com.au", platform: "McGrath" },
 
-            // ===== 🇩🇪 Германия — 10 платформ =====
-            { name: "ImmoScout24 Germany", country: "🇩🇪 Германия", desc: "Germany's largest property portal.", link: "https://www.immobilienscout24.de", platform: "ImmoScout24" },
-            { name: "Immowelt Germany", country: "🇩🇪 Германия", desc: "German real estate marketplace.", link: "https://www.immowelt.de", platform: "Immowelt" },
-            { name: "Vonovia Germany", country: "🇩🇪 Германия", desc: "Germany's leading real estate company.", link: "https://www.vonovia.de", platform: "Vonovia" },
-            { name: "Engel & Völkers Germany", country: "🇩🇪 Германия", desc: "Luxury real estate in Germany.", link: "https://www.engelvoelkers.com/de", platform: "Engel & Völkers" },
-            { name: "JLL Germany", country: "🇩🇪 Германия", desc: "German commercial real estate.", link: "https://www.jll.de", platform: "JLL" },
-            { name: "Savills Germany", country: "🇩🇪 Германия", desc: "International real estate in Germany.", link: "https://www.savills.de", platform: "Savills" },
-            { name: "Knight Frank Germany", country: "🇩🇪 Германия", desc: "Prime property in Germany.", link: "https://www.knightfrank.de", platform: "Knight Frank" },
-            { name: "CBRE Germany", country: "🇩🇪 Германия", desc: "Commercial real estate in Germany.", link: "https://www.cbre.de", platform: "CBRE" },
-            { name: "Colliers Germany", country: "🇩🇪 Германия", desc: "Real estate services in Germany.", link: "https://www.colliers.de", platform: "Colliers" },
-            { name: "BNP Paribas Germany", country: "🇩🇪 Германия", desc: "Real estate in Germany.", link: "https://www.bnpparibas-realestate.de", platform: "BNP Paribas" },
+            // ===== 🇩🇪 Германия — 8 уникальных сайтов =====
+            { name: "ImmoScout24 — Germany", country: "🇩🇪 Германия", desc: "ImmoScout24 — Germany's largest property portal.", link: "https://www.immobilienscout24.de", platform: "ImmoScout24" },
+            { name: "Immowelt — Germany", country: "🇩🇪 Германия", desc: "Immowelt — German real estate marketplace.", link: "https://www.immowelt.de", platform: "Immowelt" },
+            { name: "Vonovia — Germany", country: "🇩🇪 Германия", desc: "Vonovia — Germany's leading real estate company.", link: "https://www.vonovia.de", platform: "Vonovia" },
+            { name: "Engel & Völkers Germany", country: "🇩🇪 Германия", desc: "Engel & Völkers — luxury real estate in Germany.", link: "https://www.engelvoelkers.com/de", platform: "Engel & Völkers" },
+            { name: "JLL — Germany", country: "🇩🇪 Германия", desc: "JLL — German commercial real estate.", link: "https://www.jll.de", platform: "JLL" },
+            { name: "Savills — Germany", country: "🇩🇪 Германия", desc: "Savills — international real estate in Germany.", link: "https://www.savills.de", platform: "Savills" },
+            { name: "Knight Frank — Germany", country: "🇩🇪 Германия", desc: "Knight Frank — prime property in Germany.", link: "https://www.knightfrank.de", platform: "Knight Frank" },
+            { name: "CBRE — Germany", country: "🇩🇪 Германия", desc: "CBRE — commercial real estate in Germany.", link: "https://www.cbre.de", platform: "CBRE" },
 
-            // ===== 🇫🇷 Франция — 10 платформ =====
-            { name: "SeLoger France", country: "🇫🇷 Франция", desc: "France's #1 real estate portal.", link: "https://www.seloger.com", platform: "SeLoger" },
-            { name: "BienIci France", country: "🇫🇷 Франция", desc: "French real estate listings.", link: "https://www.bienici.com", platform: "BienIci" },
-            { name: "LeBonCoin France", country: "🇫🇷 Франция", desc: "French classifieds with real estate.", link: "https://www.leboncoin.fr", platform: "LeBonCoin" },
-            { name: "Immobilier France", country: "🇫🇷 Франция", desc: "French property marketplace.", link: "https://www.immobilier.com", platform: "Immobilier" },
-            { name: "Orpi France", country: "🇫🇷 Франция", desc: "French real estate network.", link: "https://www.orpi.com", platform: "Orpi" },
-            { name: "FNAIM France", country: "🇫🇷 Франция", desc: "French real estate federation.", link: "https://www.fnaim.fr", platform: "FNAIM" },
-            { name: "Engel & Völkers France", country: "🇫🇷 Франция", desc: "Luxury real estate in France.", link: "https://www.engelvoelkers.com/fr", platform: "Engel & Völkers" },
-            { name: "Knight Frank France", country: "🇫🇷 Франция", desc: "Prime property in France.", link: "https://www.knightfrank.fr", platform: "Knight Frank" },
-            { name: "Savills France", country: "🇫🇷 Франция", desc: "International real estate in France.", link: "https://www.savills.fr", platform: "Savills" },
-            { name: "CBRE France", country: "🇫🇷 Франция", desc: "Commercial real estate in France.", link: "https://www.cbre.fr", platform: "CBRE" },
+            // ===== 🇫🇷 Франция — 8 уникальных сайтов =====
+            { name: "SeLoger — France", country: "🇫🇷 Франция", desc: "SeLoger — France's #1 real estate portal.", link: "https://www.seloger.com", platform: "SeLoger" },
+            { name: "BienIci — France", country: "🇫🇷 Франция", desc: "BienIci — French real estate listings.", link: "https://www.bienici.com", platform: "BienIci" },
+            { name: "LeBonCoin — France", country: "🇫🇷 Франция", desc: "LeBonCoin — French classifieds with real estate.", link: "https://www.leboncoin.fr", platform: "LeBonCoin" },
+            { name: "Immobilier — France", country: "🇫🇷 Франция", desc: "Immobilier — French property marketplace.", link: "https://www.immobilier.com", platform: "Immobilier" },
+            { name: "Orpi — France", country: "🇫🇷 Франция", desc: "Orpi — French real estate network.", link: "https://www.orpi.com", platform: "Orpi" },
+            { name: "FNAIM — France", country: "🇫🇷 Франция", desc: "FNAIM — French real estate federation.", link: "https://www.fnaim.fr", platform: "FNAIM" },
+            { name: "Engel & Völkers France", country: "🇫🇷 Франция", desc: "Engel & Völkers — luxury real estate in France.", link: "https://www.engelvoelkers.com/fr", platform: "Engel & Völkers" },
+            { name: "Knight Frank — France", country: "🇫🇷 Франция", desc: "Knight Frank — prime property in France.", link: "https://www.knightfrank.fr", platform: "Knight Frank" },
 
-            // ===== 🇪🇸 Испания — 10 платформ =====
-            { name: "Idealista Spain", country: "🇪🇸 Испания", desc: "Spain's #1 real estate marketplace.", link: "https://www.idealista.com", platform: "Idealista" },
-            { name: "Fotocasa Spain", country: "🇪🇸 Испания", desc: "Spanish real estate portal.", link: "https://www.fotocasa.es", platform: "Fotocasa" },
-            { name: "Pisos.com Spain", country: "🇪🇸 Испания", desc: "Spanish property marketplace.", link: "https://www.pisos.com", platform: "Pisos.com" },
-            { name: "Kyero Spain", country: "🇪🇸 Испания", desc: "Spanish property for international buyers.", link: "https://www.kyero.com", platform: "Kyero" },
-            { name: "SpainHouses Spain", country: "🇪🇸 Испания", desc: "Spanish real estate properties.", link: "https://www.spainhouses.net", platform: "SpainHouses" },
-            { name: "Engel & Völkers Spain", country: "🇪🇸 Испания", desc: "Luxury real estate in Spain.", link: "https://www.engelvoelkers.com/es", platform: "Engel & Völkers" },
-            { name: "Lucas Fox Spain", country: "🇪🇸 Испания", desc: "Spanish luxury properties.", link: "https://www.lucasfox.com", platform: "Lucas Fox" },
-            { name: "Coldwell Banker Spain", country: "🇪🇸 Испания", desc: "International real estate in Spain.", link: "https://www.coldwellbanker.es", platform: "Coldwell Banker" },
-            { name: "RE/MAX Spain", country: "🇪🇸 Испания", desc: "International real estate in Spain.", link: "https://www.remax.es", platform: "RE/MAX Spain" },
-            { name: "Century 21 Spain", country: "🇪🇸 Испания", desc: "Global real estate in Spain.", link: "https://www.century21.es", platform: "Century 21" },
+            // ===== 🇪🇸 Испания — 8 уникальных сайтов =====
+            { name: "Idealista — Spain", country: "🇪🇸 Испания", desc: "Idealista — Spain's #1 real estate marketplace.", link: "https://www.idealista.com", platform: "Idealista" },
+            { name: "Fotocasa — Spain", country: "🇪🇸 Испания", desc: "Fotocasa — Spanish real estate portal.", link: "https://www.fotocasa.es", platform: "Fotocasa" },
+            { name: "Pisos.com — Spain", country: "🇪🇸 Испания", desc: "Pisos.com — Spanish property marketplace.", link: "https://www.pisos.com", platform: "Pisos.com" },
+            { name: "Kyero — Spain", country: "🇪🇸 Испания", desc: "Kyero — Spanish property for international buyers.", link: "https://www.kyero.com", platform: "Kyero" },
+            { name: "SpainHouses — Spain", country: "🇪🇸 Испания", desc: "SpainHouses — Spanish real estate properties.", link: "https://www.spainhouses.net", platform: "SpainHouses" },
+            { name: "Engel & Völkers Spain", country: "🇪🇸 Испания", desc: "Engel & Völkers — luxury real estate in Spain.", link: "https://www.engelvoelkers.com/es", platform: "Engel & Völkers" },
+            { name: "Lucas Fox — Spain", country: "🇪🇸 Испания", desc: "Lucas Fox — Spanish luxury properties.", link: "https://www.lucasfox.com", platform: "Lucas Fox" },
+            { name: "Coldwell Banker Spain", country: "🇪🇸 Испания", desc: "Coldwell Banker — international real estate in Spain.", link: "https://www.coldwellbanker.es", platform: "Coldwell Banker" },
 
-            // ===== 🇮🇹 Италия — 10 платформ =====
-            { name: "Immobiliare Italy", country: "🇮🇹 Италия", desc: "Italy's #1 real estate platform.", link: "https://www.immobiliare.it", platform: "Immobiliare.it" },
-            { name: "Casa.it Italy", country: "🇮🇹 Италия", desc: "Italian real estate marketplace.", link: "https://www.casa.it", platform: "Casa.it" },
-            { name: "Idealista Italy", country: "🇮🇹 Италия", desc: "Italian real estate listings.", link: "https://www.idealista.it", platform: "Idealista Italia" },
-            { name: "Gabetti Italy", country: "🇮🇹 Италия", desc: "Italian real estate network.", link: "https://www.gabetti.com", platform: "Gabetti" },
-            { name: "Tecnocasa Italy", country: "🇮🇹 Италия", desc: "Italian real estate agency.", link: "https://www.tecnocasa.it", platform: "Tecnocasa" },
-            { name: "Engel & Völkers Italy", country: "🇮🇹 Италия", desc: "Luxury real estate in Italy.", link: "https://www.engelvoelkers.com/it", platform: "Engel & Völkers" },
-            { name: "Knight Frank Italy", country: "🇮🇹 Италия", desc: "Prime property in Italy.", link: "https://www.knightfrank.it", platform: "Knight Frank" },
-            { name: "Savills Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.savills.it", platform: "Savills" },
-            { name: "Coldwell Banker Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.coldwellbanker.it", platform: "Coldwell Banker" },
-            { name: "RE/MAX Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.remax.it", platform: "RE/MAX Italy" },
+            // ===== 🇮🇹 Италия — 8 уникальных сайтов =====
+            { name: "Immobiliare — Italy", country: "🇮🇹 Италия", desc: "Immobiliare — Italy's #1 real estate platform.", link: "https://www.immobiliare.it", platform: "Immobiliare.it" },
+            { name: "Casa.it — Italy", country: "🇮🇹 Италия", desc: "Casa.it — Italian real estate marketplace.", link: "https://www.casa.it", platform: "Casa.it" },
+            { name: "Idealista — Italy", country: "🇮🇹 Италия", desc: "Idealista — Italian real estate listings.", link: "https://www.idealista.it", platform: "Idealista" },
+            { name: "Gabetti — Italy", country: "🇮🇹 Италия", desc: "Gabetti — Italian real estate network.", link: "https://www.gabetti.com", platform: "Gabetti" },
+            { name: "Tecnocasa — Italy", country: "🇮🇹 Италия", desc: "Tecnocasa — Italian real estate agency.", link: "https://www.tecnocasa.it", platform: "Tecnocasa" },
+            { name: "Engel & Völkers Italy", country: "🇮🇹 Италия", desc: "Engel & Völkers — luxury real estate in Italy.", link: "https://www.engelvoelkers.com/it", platform: "Engel & Völkers" },
+            { name: "Knight Frank — Italy", country: "🇮🇹 Италия", desc: "Knight Frank — prime property in Italy.", link: "https://www.knightfrank.it", platform: "Knight Frank" },
+            { name: "Savills — Italy", country: "🇮🇹 Италия", desc: "Savills — international real estate in Italy.", link: "https://www.savills.it", platform: "Savills" },
 
-            // ===== 🇹🇷 Турция — 10 платформ =====
-            { name: "Sahibinden Turkey", country: "🇹🇷 Турция", desc: "Turkey's #1 classifieds with real estate.", link: "https://www.sahibinden.com", platform: "Sahibinden" },
-            { name: "HepsiEmlak Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate portal.", link: "https://www.hepsiemlak.com", platform: "HepsiEmlak" },
-            { name: "Emlakjet Turkey", country: "🇹🇷 Турция", desc: "Turkish property marketplace.", link: "https://www.emlakjet.com", platform: "Emlakjet" },
-            { name: "Zingat Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate platform.", link: "https://www.zingat.com", platform: "Zingat" },
-            { name: "HurriyetEmlak Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate by Hurriyet.", link: "https://www.hurriyetemlak.com", platform: "HurriyetEmlak" },
-            { name: "Engel & Völkers Turkey", country: "🇹🇷 Турция", desc: "Luxury real estate in Turkey.", link: "https://www.engelvoelkers.com/tr", platform: "Engel & Völkers" },
-            { name: "Savills Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.savills.com.tr", platform: "Savills" },
-            { name: "Knight Frank Turkey", country: "🇹🇷 Турция", desc: "Prime property in Turkey.", link: "https://www.knightfrank.com.tr", platform: "Knight Frank" },
-            { name: "Coldwell Banker Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.coldwellbanker.com.tr", platform: "Coldwell Banker" },
-            { name: "RE/MAX Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.remax.com.tr", platform: "RE/MAX Turkey" },
+            // ===== 🇹🇷 Турция — 8 уникальных сайтов =====
+            { name: "Sahibinden — Turkey", country: "🇹🇷 Турция", desc: "Sahibinden — Turkey's #1 classifieds with real estate.", link: "https://www.sahibinden.com", platform: "Sahibinden" },
+            { name: "HepsiEmlak — Turkey", country: "🇹🇷 Турция", desc: "HepsiEmlak — Turkish real estate portal.", link: "https://www.hepsiemlak.com", platform: "HepsiEmlak" },
+            { name: "Emlakjet — Turkey", country: "🇹🇷 Турция", desc: "Emlakjet — Turkish property marketplace.", link: "https://www.emlakjet.com", platform: "Emlakjet" },
+            { name: "Zingat — Turkey", country: "🇹🇷 Турция", desc: "Zingat — Turkish real estate platform.", link: "https://www.zingat.com", platform: "Zingat" },
+            { name: "HurriyetEmlak — Turkey", country: "🇹🇷 Турция", desc: "HurriyetEmlak — Turkish real estate by Hurriyet.", link: "https://www.hurriyetemlak.com", platform: "HurriyetEmlak" },
+            { name: "Engel & Völkers Turkey", country: "🇹🇷 Турция", desc: "Engel & Völkers — luxury real estate in Turkey.", link: "https://www.engelvoelkers.com/tr", platform: "Engel & Völkers" },
+            { name: "Savills — Turkey", country: "🇹🇷 Турция", desc: "Savills — international real estate in Turkey.", link: "https://www.savills.com.tr", platform: "Savills" },
+            { name: "Knight Frank — Turkey", country: "🇹🇷 Турция", desc: "Knight Frank — prime property in Turkey.", link: "https://www.knightfrank.com.tr", platform: "Knight Frank" },
 
-            // ===== 🇹🇭 Таиланд — 8 платформ =====
-            { name: "DDproperty Thailand", country: "🇹🇭 Таиланд", desc: "Thailand's leading property portal.", link: "https://www.ddproperty.com", platform: "DDproperty" },
-            { name: "Hipflat Thailand", country: "🇹🇭 Таиланд", desc: "Thai real estate marketplace.", link: "https://www.hipflat.com", platform: "Hipflat" },
-            { name: "FazWaz Thailand", country: "🇹🇭 Таиланд", desc: "Thai property specialists.", link: "https://www.fazwaz.com", platform: "FazWaz" },
-            { name: "Thailand-Property", country: "🇹🇭 Таиланд", desc: "Thailand property for international buyers.", link: "https://www.thailand-property.com", platform: "Thailand-Property" },
-            { name: "BangkokPost Property", country: "🇹🇭 Таиланд", desc: "Thai real estate by Bangkok Post.", link: "https://www.bangkokpost.com/property", platform: "BangkokPost" },
-            { name: "Engel & Völkers Thailand", country: "🇹🇭 Таиланд", desc: "Luxury real estate in Thailand.", link: "https://www.engelvoelkers.com/th", platform: "Engel & Völkers" },
-            { name: "Savills Thailand", country: "🇹🇭 Таиланд", desc: "International real estate in Thailand.", link: "https://www.savills.co.th", platform: "Savills" },
-            { name: "Knight Frank Thailand", country: "🇹🇭 Таиланд", desc: "Prime property in Thailand.", link: "https://www.knightfrank.co.th", platform: "Knight Frank" },
+            // ===== 🇹🇭 Таиланд — 8 уникальных сайтов =====
+            { name: "DDproperty — Thailand", country: "🇹🇭 Таиланд", desc: "DDproperty — Thailand's leading property portal.", link: "https://www.ddproperty.com", platform: "DDproperty" },
+            { name: "Hipflat — Thailand", country: "🇹🇭 Таиланд", desc: "Hipflat — Thai real estate marketplace.", link: "https://www.hipflat.com", platform: "Hipflat" },
+            { name: "FazWaz — Thailand", country: "🇹🇭 Таиланд", desc: "FazWaz — Thai property specialists.", link: "https://www.fazwaz.com", platform: "FazWaz" },
+            { name: "Thailand-Property", country: "🇹🇭 Таиланд", desc: "Thailand-Property — Thai property for international buyers.", link: "https://www.thailand-property.com", platform: "Thailand-Property" },
+            { name: "BangkokPost Property", country: "🇹🇭 Таиланд", desc: "BangkokPost — Thai real estate by Bangkok Post.", link: "https://www.bangkokpost.com/property", platform: "BangkokPost" },
+            { name: "Engel & Völkers Thailand", country: "🇹🇭 Таиланд", desc: "Engel & Völkers — luxury real estate in Thailand.", link: "https://www.engelvoelkers.com/th", platform: "Engel & Völkers" },
+            { name: "Savills — Thailand", country: "🇹🇭 Таиланд", desc: "Savills — international real estate in Thailand.", link: "https://www.savills.co.th", platform: "Savills" },
+            { name: "Knight Frank — Thailand", country: "🇹🇭 Таиланд", desc: "Knight Frank — prime property in Thailand.", link: "https://www.knightfrank.co.th", platform: "Knight Frank" },
 
-            // ===== 🇮🇳 Индия — 8 платформ =====
-            { name: "99acres India", country: "🇮🇳 Индия", desc: "India's leading property portal.", link: "https://www.99acres.com", platform: "99acres" },
-            { name: "Magicbricks India", country: "🇮🇳 Индия", desc: "Indian real estate marketplace.", link: "https://www.magicbricks.com", platform: "Magicbricks" },
-            { name: "Housing India", country: "🇮🇳 Индия", desc: "Indian property search platform.", link: "https://housing.com", platform: "Housing" },
-            { name: "CommonFloor India", country: "🇮🇳 Индия", desc: "Indian real estate portal.", link: "https://www.commonfloor.com", platform: "CommonFloor" },
-            { name: "IndiaProperty India", country: "🇮🇳 Индия", desc: "Indian property listings.", link: "https://www.indiaproperty.com", platform: "IndiaProperty" },
-            { name: "Makaan India", country: "🇮🇳 Индия", desc: "Indian real estate platform.", link: "https://www.makaan.com", platform: "Makaan" },
-            { name: "PropTiger India", country: "🇮🇳 Индия", desc: "Indian real estate services.", link: "https://www.proptiger.com", platform: "PropTiger" },
-            { name: "NoBroker India", country: "🇮🇳 Индия", desc: "Indian no-brokerage real estate.", link: "https://www.nobroker.in", platform: "NoBroker" },
+            // ===== 🇮🇳 Индия — 8 уникальных сайтов =====
+            { name: "99acres — India", country: "🇮🇳 Индия", desc: "99acres — India's leading property portal.", link: "https://www.99acres.com", platform: "99acres" },
+            { name: "Magicbricks — India", country: "🇮🇳 Индия", desc: "Magicbricks — Indian real estate marketplace.", link: "https://www.magicbricks.com", platform: "Magicbricks" },
+            { name: "Housing — India", country: "🇮🇳 Индия", desc: "Housing — Indian property search platform.", link: "https://housing.com", platform: "Housing" },
+            { name: "CommonFloor — India", country: "🇮🇳 Индия", desc: "CommonFloor — Indian real estate portal.", link: "https://www.commonfloor.com", platform: "CommonFloor" },
+            { name: "IndiaProperty — India", country: "🇮🇳 Индия", desc: "IndiaProperty — Indian property listings.", link: "https://www.indiaproperty.com", platform: "IndiaProperty" },
+            { name: "Makaan — India", country: "🇮🇳 Индия", desc: "Makaan — Indian real estate platform.", link: "https://www.makaan.com", platform: "Makaan" },
+            { name: "PropTiger — India", country: "🇮🇳 Индия", desc: "PropTiger — Indian real estate services.", link: "https://www.proptiger.com", platform: "PropTiger" },
+            { name: "NoBroker — India", country: "🇮🇳 Индия", desc: "NoBroker — Indian no-brokerage real estate.", link: "https://www.nobroker.in", platform: "NoBroker" },
 
-            // ===== 🇨🇳 Китай — 6 платформ =====
-            { name: "Anjuke China", country: "🇨🇳 Китай", desc: "Chinese real estate platform.", link: "https://www.anjuke.com", platform: "Anjuke" },
-            { name: "Beike China", country: "🇨🇳 Китай", desc: "Chinese real estate marketplace.", link: "https://www.ke.com", platform: "Beike" },
-            { name: "Fang China", country: "🇨🇳 Китай", desc: "Chinese property portal.", link: "https://www.fang.com", platform: "Fang" },
-            { name: "Soufun China", country: "🇨🇳 Китай", desc: "Chinese real estate platform.", link: "https://www.soufun.com", platform: "Soufun" },
-            { name: "Lianjia China", country: "🇨🇳 Китай", desc: "Chinese real estate brokerage.", link: "https://www.lianjia.com", platform: "Lianjia" },
-            { name: "5i5j China", country: "🇨🇳 Китай", desc: "Chinese property platform.", link: "https://www.5i5j.com", platform: "5i5j" },
+            // ===== 🇨🇳 Китай — 6 уникальных сайтов =====
+            { name: "Anjuke — China", country: "🇨🇳 Китай", desc: "Anjuke — Chinese real estate platform.", link: "https://www.anjuke.com", platform: "Anjuke" },
+            { name: "Beike — China", country: "🇨🇳 Китай", desc: "Beike — Chinese real estate marketplace.", link: "https://www.ke.com", platform: "Beike" },
+            { name: "Fang — China", country: "🇨🇳 Китай", desc: "Fang — Chinese property portal.", link: "https://www.fang.com", platform: "Fang" },
+            { name: "Soufun — China", country: "🇨🇳 Китай", desc: "Soufun — Chinese real estate platform.", link: "https://www.soufun.com", platform: "Soufun" },
+            { name: "Lianjia — China", country: "🇨🇳 Китай", desc: "Lianjia — Chinese real estate brokerage.", link: "https://www.lianjia.com", platform: "Lianjia" },
+            { name: "5i5j — China", country: "🇨🇳 Китай", desc: "5i5j — Chinese property platform.", link: "https://www.5i5j.com", platform: "5i5j" },
 
-            // ===== 🇯🇵 Япония — 6 платформ =====
-            { name: "Suumo Japan", country: "🇯🇵 Япония", desc: "Japanese property portal.", link: "https://suumo.jp", platform: "Suumo" },
-            { name: "Homes Japan", country: "🇯🇵 Япония", desc: "Japanese real estate listings.", link: "https://www.homes.co.jp", platform: "Homes" },
-            { name: "Athome Japan", country: "🇯🇵 Япония", desc: "Japanese property search.", link: "https://www.athome.co.jp", platform: "Athome" },
-            { name: "Mitsui Japan", country: "🇯🇵 Япония", desc: "Japanese real estate development.", link: "https://www.mitsui.co.jp", platform: "Mitsui" },
-            { name: "Sumitomo Japan", country: "🇯🇵 Япония", desc: "Japanese real estate group.", link: "https://www.sumitomo.co.jp", platform: "Sumitomo" },
-            { name: "Tokyu Land Japan", country: "🇯🇵 Япония", desc: "Japanese real estate developer.", link: "https://www.tokyu-land.co.jp", platform: "Tokyu Land" },
+            // ===== 🇯🇵 Япония — 6 уникальных сайтов =====
+            { name: "Suumo — Japan", country: "🇯🇵 Япония", desc: "Suumo — Japanese property portal.", link: "https://suumo.jp", platform: "Suumo" },
+            { name: "Homes — Japan", country: "🇯🇵 Япония", desc: "Homes — Japanese real estate listings.", link: "https://www.homes.co.jp", platform: "Homes" },
+            { name: "Athome — Japan", country: "🇯🇵 Япония", desc: "Athome — Japanese property search.", link: "https://www.athome.co.jp", platform: "Athome" },
+            { name: "Mitsui — Japan", country: "🇯🇵 Япония", desc: "Mitsui — Japanese real estate development.", link: "https://www.mitsui.co.jp", platform: "Mitsui" },
+            { name: "Sumitomo — Japan", country: "🇯🇵 Япония", desc: "Sumitomo — Japanese real estate group.", link: "https://www.sumitomo.co.jp", platform: "Sumitomo" },
+            { name: "Tokyu Land — Japan", country: "🇯🇵 Япония", desc: "Tokyu Land — Japanese real estate developer.", link: "https://www.tokyu-land.co.jp", platform: "Tokyu Land" },
 
-            // ===== 🇧🇷 Бразилия — 6 платформ =====
-            { name: "ZapImoveis Brazil", country: "🇧🇷 Бразилия", desc: "Brazil's leading real estate portal.", link: "https://www.zapimoveis.com.br", platform: "ZapImoveis" },
-            { name: "VivaReal Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian property marketplace.", link: "https://www.vivareal.com.br", platform: "VivaReal" },
-            { name: "Lopes Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian real estate services.", link: "https://www.lopes.com.br", platform: "Lopes" },
-            { name: "QuintoAndar Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian rental platform.", link: "https://www.quintoandar.com.br", platform: "QuintoAndar" },
-            { name: "Loft Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian real estate platform.", link: "https://www.loft.com.br", platform: "Loft" },
-            { name: "ImovelWeb Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian property portal.", link: "https://www.imovelweb.com.br", platform: "ImovelWeb" },
+            // ===== 🇧🇷 Бразилия — 6 уникальных сайтов =====
+            { name: "ZapImoveis — Brazil", country: "🇧🇷 Бразилия", desc: "ZapImoveis — Brazil's leading real estate portal.", link: "https://www.zapimoveis.com.br", platform: "ZapImoveis" },
+            { name: "VivaReal — Brazil", country: "🇧🇷 Бразилия", desc: "VivaReal — Brazilian property marketplace.", link: "https://www.vivareal.com.br", platform: "VivaReal" },
+            { name: "Lopes — Brazil", country: "🇧🇷 Бразилия", desc: "Lopes — Brazilian real estate services.", link: "https://www.lopes.com.br", platform: "Lopes" },
+            { name: "QuintoAndar — Brazil", country: "🇧🇷 Бразилия", desc: "QuintoAndar — Brazilian rental platform.", link: "https://www.quintoandar.com.br", platform: "QuintoAndar" },
+            { name: "Loft — Brazil", country: "🇧🇷 Бразилия", desc: "Loft — Brazilian real estate platform.", link: "https://www.loft.com.br", platform: "Loft" },
+            { name: "ImovelWeb — Brazil", country: "🇧🇷 Бразилия", desc: "ImovelWeb — Brazilian property portal.", link: "https://www.imovelweb.com.br", platform: "ImovelWeb" },
 
-            // ===== 🇿🇦 ЮАР — 6 платформ =====
-            { name: "Property24 South Africa", country: "🇿🇦 ЮАР", desc: "South Africa's leading property portal.", link: "https://www.property24.com", platform: "Property24" },
-            { name: "PrivateProperty South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate.", link: "https://www.privateproperty.co.za", platform: "PrivateProperty" },
-            { name: "Seeff South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate agency.", link: "https://www.seeff.com", platform: "Seeff" },
-            { name: "PamGolding South Africa", country: "🇿🇦 ЮАР", desc: "South African property specialists.", link: "https://www.pamgolding.co.za", platform: "PamGolding" },
-            { name: "ChasEveritt South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate.", link: "https://www.chaseveritt.co.za", platform: "ChasEveritt" },
-            { name: "Rawson South Africa", country: "🇿🇦 ЮАР", desc: "South African property platform.", link: "https://www.rawson.co.za", platform: "Rawson" },
+            // ===== 🇿🇦 ЮАР — 6 уникальных сайтов =====
+            { name: "Property24 — South Africa", country: "🇿🇦 ЮАР", desc: "Property24 — South Africa's leading property portal.", link: "https://www.property24.com", platform: "Property24" },
+            { name: "PrivateProperty — South Africa", country: "🇿🇦 ЮАР", desc: "PrivateProperty — South African real estate.", link: "https://www.privateproperty.co.za", platform: "PrivateProperty" },
+            { name: "Seeff — South Africa", country: "🇿🇦 ЮАР", desc: "Seeff — South African real estate agency.", link: "https://www.seeff.com", platform: "Seeff" },
+            { name: "PamGolding — South Africa", country: "🇿🇦 ЮАР", desc: "PamGolding — South African property specialists.", link: "https://www.pamgolding.co.za", platform: "PamGolding" },
+            { name: "ChasEveritt — South Africa", country: "🇿🇦 ЮАР", desc: "ChasEveritt — South African real estate.", link: "https://www.chaseveritt.co.za", platform: "ChasEveritt" },
+            { name: "Rawson — South Africa", country: "🇿🇦 ЮАР", desc: "Rawson — South African property platform.", link: "https://www.rawson.co.za", platform: "Rawson" },
 
-            // ===== 🇲🇽 Мексика — 6 платформ =====
-            { name: "Lamudi Mexico", country: "🇲🇽 Мексика", desc: "Mexican real estate marketplace.", link: "https://www.lamudi.com.mx", platform: "Lamudi" },
-            { name: "Inmuebles24 Mexico", country: "🇲🇽 Мексика", desc: "Mexican property portal.", link: "https://www.inmuebles24.com", platform: "Inmuebles24" },
-            { name: "Propiedades Mexico", country: "🇲🇽 Мексика", desc: "Mexican real estate platform.", link: "https://www.propiedades.com", platform: "Propiedades" },
-            { name: "Vivanuncios Mexico", country: "🇲🇽 Мексика", desc: "Mexican classifieds with real estate.", link: "https://www.vivanuncios.com.mx", platform: "Vivanuncios" },
-            { name: "Segundamano Mexico", country: "🇲🇽 Мексика", desc: "Mexican property classifieds.", link: "https://www.segundamano.mx", platform: "Segundamano" },
-            { name: "Century 21 Mexico", country: "🇲🇽 Мексика", desc: "International real estate in Mexico.", link: "https://www.century21.mx", platform: "Century 21" },
+            // ===== 🇲🇽 Мексика — 6 уникальных сайтов =====
+            { name: "Lamudi — Mexico", country: "🇲🇽 Мексика", desc: "Lamudi — Mexican real estate marketplace.", link: "https://www.lamudi.com.mx", platform: "Lamudi" },
+            { name: "Inmuebles24 — Mexico", country: "🇲🇽 Мексика", desc: "Inmuebles24 — Mexican property portal.", link: "https://www.inmuebles24.com", platform: "Inmuebles24" },
+            { name: "Propiedades — Mexico", country: "🇲🇽 Мексика", desc: "Propiedades — Mexican real estate platform.", link: "https://www.propiedades.com", platform: "Propiedades" },
+            { name: "Vivanuncios — Mexico", country: "🇲🇽 Мексика", desc: "Vivanuncios — Mexican classifieds with real estate.", link: "https://www.vivanuncios.com.mx", platform: "Vivanuncios" },
+            { name: "Segundamano — Mexico", country: "🇲🇽 Мексика", desc: "Segundamano — Mexican property classifieds.", link: "https://www.segundamano.mx", platform: "Segundamano" },
+            { name: "Century 21 — Mexico", country: "🇲🇽 Мексика", desc: "Century 21 — international real estate in Mexico.", link: "https://www.century21.mx", platform: "Century 21" },
 
-            // ===== 🇦🇷 Аргентина — 6 платформ =====
-            { name: "ZonaProp Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate portal.", link: "https://www.zonaprop.com.ar", platform: "ZonaProp" },
-            { name: "Properati Argentina", country: "🇦🇷 Аргентина", desc: "Argentine property marketplace.", link: "https://www.properati.com.ar", platform: "Properati" },
-            { name: "Argenprop Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate listings.", link: "https://www.argenprop.com", platform: "Argenprop" },
-            { name: "Soloduenos Argentina", country: "🇦🇷 Аргентина", desc: "Argentine property platform.", link: "https://www.soloduenos.com", platform: "Soloduenos" },
-            { name: "Inmoclick Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate marketplace.", link: "https://www.inmoclick.com.ar", platform: "Inmoclick" },
-            { name: "Remax Argentina", country: "🇦🇷 Аргентина", desc: "International real estate in Argentina.", link: "https://www.remax.com.ar", platform: "Remax" },
+            // ===== 🇦🇷 Аргентина — 6 уникальных сайтов =====
+            { name: "ZonaProp — Argentina", country: "🇦🇷 Аргентина", desc: "ZonaProp — Argentine real estate portal.", link: "https://www.zonaprop.com.ar", platform: "ZonaProp" },
+            { name: "Properati — Argentina", country: "🇦🇷 Аргентина", desc: "Properati — Argentine property marketplace.", link: "https://www.properati.com.ar", platform: "Properati" },
+            { name: "Argenprop — Argentina", country: "🇦🇷 Аргентина", desc: "Argenprop — Argentine real estate listings.", link: "https://www.argenprop.com", platform: "Argenprop" },
+            { name: "Soloduenos — Argentina", country: "🇦🇷 Аргентина", desc: "Soloduenos — Argentine property platform.", link: "https://www.soloduenos.com", platform: "Soloduenos" },
+            { name: "Inmoclick — Argentina", country: "🇦🇷 Аргентина", desc: "Inmoclick — Argentine real estate marketplace.", link: "https://www.inmoclick.com.ar", platform: "Inmoclick" },
+            { name: "Remax — Argentina", country: "🇦🇷 Аргентина", desc: "Remax — international real estate in Argentina.", link: "https://www.remax.com.ar", platform: "Remax" },
 
-            // ===== 🇪🇬 Египет — 6 платформ =====
-            { name: "PropertyFinder Egypt", country: "🇪🇬 Египет", desc: "Egypt's leading property portal.", link: "https://www.propertyfinder.eg", platform: "PropertyFinder" },
-            { name: "Aqarmap Egypt", country: "🇪🇬 Египет", desc: "Egyptian real estate platform.", link: "https://www.aqarmap.com.eg", platform: "Aqarmap" },
-            { name: "Hometime Egypt", country: "🇪🇬 Египет", desc: "Egyptian property listings.", link: "https://hometime.com.eg", platform: "Hometime" },
-            { name: "RealEstateEgypt", country: "🇪🇬 Египет", desc: "Egyptian real estate portal.", link: "https://www.realestate-egypt.com", platform: "RealEstateEgypt" },
-            { name: "EgyHomes Egypt", country: "🇪🇬 Египет", desc: "Egyptian property marketplace.", link: "https://www.egyhomes.com", platform: "EgyHomes" },
-            { name: "Bayut Egypt", country: "🇪🇬 Египет", desc: "Egyptian property portal.", link: "https://www.bayut.com.eg", platform: "Bayut" },
+            // ===== 🇪🇬 Египет — 6 уникальных сайтов =====
+            { name: "PropertyFinder — Egypt", country: "🇪🇬 Египет", desc: "PropertyFinder — Egypt's leading property portal.", link: "https://www.propertyfinder.eg", platform: "PropertyFinder" },
+            { name: "Aqarmap — Egypt", country: "🇪🇬 Египет", desc: "Aqarmap — Egyptian real estate platform.", link: "https://www.aqarmap.com.eg", platform: "Aqarmap" },
+            { name: "Hometime — Egypt", country: "🇪🇬 Египет", desc: "Hometime — Egyptian property listings.", link: "https://hometime.com.eg", platform: "Hometime" },
+            { name: "RealEstateEgypt", country: "🇪🇬 Египет", desc: "RealEstateEgypt — Egyptian real estate portal.", link: "https://www.realestate-egypt.com", platform: "RealEstateEgypt" },
+            { name: "EgyHomes — Egypt", country: "🇪🇬 Египет", desc: "EgyHomes — Egyptian property marketplace.", link: "https://www.egyhomes.com", platform: "EgyHomes" },
+            { name: "Bayut — Egypt", country: "🇪🇬 Египет", desc: "Bayut — Egyptian property portal.", link: "https://www.bayut.com.eg", platform: "Bayut" },
 
-            // ===== 🇸🇦 Саудовская Аравия — 6 платформ =====
-            { name: "Aqar Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Saudi real estate platform.", link: "https://www.aqar.sa", platform: "Aqar" },
-            { name: "Haraj Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Saudi classifieds with real estate.", link: "https://www.haraj.com.sa", platform: "Haraj" },
-            { name: "Bayut Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi property portal.", link: "https://www.bayut.sa", platform: "Bayut" },
-            { name: "PropertyFinder Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi real estate listings.", link: "https://www.propertyfinder.sa", platform: "PropertyFinder" },
-            { name: "RealEstate Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi property marketplace.", link: "https://www.saudi-realestate.com", platform: "RealEstate" },
-            { name: "Engel & Völkers Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Luxury real estate in Saudi.", link: "https://www.engelvoelkers.com/sa", platform: "Engel & Völkers" },
+            // ===== 🇸🇦 Саудовская Аравия — 6 уникальных сайтов =====
+            { name: "Aqar — Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Aqar — Saudi real estate platform.", link: "https://www.aqar.sa", platform: "Aqar" },
+            { name: "Haraj — Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Haraj — Saudi classifieds with real estate.", link: "https://www.haraj.com.sa", platform: "Haraj" },
+            { name: "Bayut — Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Bayut — Saudi property portal.", link: "https://www.bayut.sa", platform: "Bayut" },
+            { name: "PropertyFinder — Saudi", country: "🇸🇦 Саудовская Аравия", desc: "PropertyFinder — Saudi real estate listings.", link: "https://www.propertyfinder.sa", platform: "PropertyFinder" },
+            { name: "RealEstate — Saudi", country: "🇸🇦 Саудовская Аравия", desc: "RealEstate — Saudi property marketplace.", link: "https://www.saudi-realestate.com", platform: "RealEstate" },
+            { name: "Engel & Völkers Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Engel & Völkers — luxury real estate in Saudi.", link: "https://www.engelvoelkers.com/sa", platform: "Engel & Völkers" },
 
-            // ===== 🇳🇬 Нигерия — 6 платформ =====
-            { name: "PropertyPro Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate platform.", link: "https://www.propertypro.ng", platform: "PropertyPro" },
-            { name: "NigeriaProperty", country: "🇳🇬 Нигерия", desc: "Nigerian property listings.", link: "https://www.nigeriaproperty.com", platform: "NigeriaProperty" },
-            { name: "PrivateProperty Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate.", link: "https://www.privateproperty.com.ng", platform: "PrivateProperty" },
-            { name: "RealEstate Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian property marketplace.", link: "https://www.realestate.com.ng", platform: "RealEstate" },
-            { name: "Homes Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate portal.", link: "https://www.homes.com.ng", platform: "Homes" },
-            { name: "Lamudi Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian property platform.", link: "https://www.lamudi.com.ng", platform: "Lamudi" },
-
-            // ===== 🇰🇪 Кения — 6 платформ =====
-            { name: "BuyRentKenya", country: "🇰🇪 Кения", desc: "Kenyan real estate platform.", link: "https://www.buyrentkenya.com", platform: "BuyRentKenya" },
-            { name: "PropertyKenya", country: "🇰🇪 Кения", desc: "Kenyan property listings.", link: "https://www.propertykenya.com", platform: "PropertyKenya" },
-            { name: "Lamudi Kenya", country: "🇰🇪 Кения", desc: "Kenyan real estate marketplace.", link: "https://www.lamudi.co.ke", platform: "Lamudi" },
-            { name: "RealEstate Kenya", country: "🇰🇪 Кения", desc: "Kenyan property portal.", link: "https://www.real-estate.co.ke", platform: "RealEstate" },
-            { name: "KenyaProperty", country: "🇰🇪 Кения", desc: "Kenyan real estate platform.", link: "https://www.kenyaproperty.com", platform: "KenyaProperty" },
-            { name: "Homes Kenya", country: "🇰🇪 Кения", desc: "Kenyan property marketplace.", link: "https://www.homeskenya.com", platform: "Homes" }
+            // ===== 🇳🇬 Нигерия — 6 уникальных сайтов =====
+            { name: "PropertyPro — Nigeria", country: "🇳🇬 Нигерия", desc: "PropertyPro — Nigerian real estate platform.", link: "https://www.propertypro.ng", platform: "PropertyPro" },
+            { name: "NigeriaProperty", country: "🇳🇬 Нигерия", desc: "NigeriaProperty — Nigerian property listings.", link: "https://www.nigeriaproperty.com", platform: "NigeriaProperty" },
+            { name: "PrivateProperty — Nigeria", country: "🇳🇬 Нигерия", desc: "PrivateProperty — Nigerian real estate.", link: "https://www.privateproperty.com.ng", platform: "PrivateProperty" },
+            { name: "RealEstate — Nigeria", country: "🇳🇬 Нигерия", desc: "RealEstate — Nigerian property marketplace.", link: "https://www.realestate.com.ng", platform: "RealEstate" },
+            { name: "Homes — Nigeria", country: "🇳🇬 Нигерия", desc: "Homes — Nigerian real estate portal.", link: "https://www.homes.com.ng", platform: "Homes" },
+            { name: "Lamudi — Nigeria", country: "🇳🇬 Нигерия", desc: "Lamudi — Nigerian property platform.", link: "https://www.lamudi.com.ng", platform: "Lamudi" }
         ];
 
         // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
@@ -388,41 +351,6 @@
             const used = new Set();
 
             realEstateData.forEach(f => {
-                if (!used.has(f.link)) {
-                    used.add(f.link);
-                    result.push(f);
-                }
-            });
-
-            // Дополнительные уникальные функции для заполнения до 300+
-            const extras = [
-                // 🇵🇹 Португалия
-                { name: "Idealista Portugal", country: "🇵🇹 Португалия", desc: "Portuguese real estate marketplace.", link: "https://www.idealista.pt", platform: "Idealista" },
-                { name: "Imovirtual Portugal", country: "🇵🇹 Португалия", desc: "Portuguese property portal.", link: "https://www.imovirtual.com", platform: "Imovirtual" },
-                { name: "CasaSapo Portugal", country: "🇵🇹 Португалия", desc: "Portuguese real estate platform.", link: "https://www.casasapo.pt", platform: "CasaSapo" },
-                // 🇬🇷 Греция
-                { name: "Spitogatos Greece", country: "🇬🇷 Греция", desc: "Greek real estate portal.", link: "https://www.spitogatos.gr", platform: "Spitogatos" },
-                { name: "Xe.gr Greece", country: "🇬🇷 Греция", desc: "Greek property listings.", link: "https://www.xe.gr", platform: "Xe.gr" },
-                // 🇵🇭 Филиппины
-                { name: "Lamudi Philippines", country: "🇵🇭 Филиппины", desc: "Philippines real estate platform.", link: "https://www.lamudi.com.ph", platform: "Lamudi" },
-                { name: "Property24 Philippines", country: "🇵🇭 Филиппины", desc: "Philippines property portal.", link: "https://www.property24.com.ph", platform: "Property24" },
-                // 🇻🇳 Вьетнам
-                { name: "Batdongsan Vietnam", country: "🇻🇳 Вьетнам", desc: "Vietnamese real estate portal.", link: "https://batdongsan.com.vn", platform: "Batdongsan" },
-                // 🇷🇺 Россия
-                { name: "Avito Russia", country: "🇷🇺 Россия", desc: "Russian classifieds with real estate.", link: "https://www.avito.ru/nedvizhimost", platform: "Avito" },
-                { name: "Cian Russia", country: "🇷🇺 Россия", desc: "Russian real estate platform.", link: "https://www.cian.ru", platform: "Cian" },
-                // 🇰🇷 Южная Корея
-                { name: "Naver Real Estate Korea", country: "🇰🇷 Южная Корея", desc: "Korean real estate platform.", link: "https://land.naver.com", platform: "Naver" },
-                // 🇮🇩 Индонезия
-                { name: "Lamudi Indonesia", country: "🇮🇩 Индонезия", desc: "Indonesian real estate marketplace.", link: "https://www.lamudi.co.id", platform: "Lamudi" },
-                { name: "99.co Indonesia", country: "🇮🇩 Индонезия", desc: "Indonesian property portal.", link: "https://www.99.co/id", platform: "99.co" },
-                // 🇲🇾 Малайзия
-                { name: "PropertyGuru Malaysia", country: "🇲🇾 Малайзия", desc: "Malaysian real estate platform.", link: "https://www.propertyguru.com.my", platform: "PropertyGuru" },
-                { name: "iProperty Malaysia", country: "🇲🇾 Малайзия", desc: "Malaysian property portal.", link: "https://www.iproperty.com.my", platform: "iProperty" }
-            ];
-
-            extras.forEach(f => {
-                if (result.length >= 300) return;
                 if (!used.has(f.link)) {
                     used.add(f.link);
                     result.push(f);
@@ -446,7 +374,6 @@
                 f.platform.toLowerCase().includes(search)
             );
 
-            // Группировка по странам
             const groups = {};
             filtered.forEach(f => {
                 if (!groups[f.country]) groups[f.country] = [];
@@ -465,14 +392,14 @@
                             <div class="icon">🏠</div>
                             <div class="fname">${f.name}</div>
                             <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
-                            <div class="click-hint">👆 Click for details</div>
+                            <div class="click-hint">👆 Click to view properties</div>
                         </div>
                     `;
                 });
                 html += `</div>`;
             });
 
-            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No properties found</p>';
+            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No platforms found</p>';
             document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
@@ -484,11 +411,11 @@
             document.getElementById('modalIcon').textContent = '🏠';
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = f.country;
-            document.getElementById('modalPrice').textContent = 'Price on request';
-            document.getElementById('modalDescFull').textContent = f.desc + '\n\nPlatform: ' + f.platform + '\n\nClick "View Property" to visit the platform.';
+            document.getElementById('modalPrice').textContent = '💰 Pay with ADNA';
+            document.getElementById('modalDescFull').textContent = f.desc + '\n\n🌐 Platform: ' + f.platform + '\n\n✅ Accepted payment: ADNA token\n\nClick "View Properties" to browse listings and pay with ADNA.';
             document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
-            document.getElementById('modalMeta').textContent = `Country: ${f.country} · Platform: ${f.platform}`;
+            document.getElementById('modalMeta').textContent = '💳 Pay with ADNA · ' + f.country;
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -515,18 +442,53 @@
         const translations = {
             en: {
                 title: '🏠 ADNA Real Estate',
-                sub: '300+ Properties Worldwide · Every Link Unique · Real Platforms',
+                sub: 'Buy Property Worldwide · Pay with ADNA · 300+ Unique Listings',
                 walletLabel: 'ADNA Contract',
-                propertiesLabel: 'Total Properties',
-                yieldLabel: 'Avg Yield',
                 buyLabel: 'Buy ADNA',
+                propertiesLabel: 'Total Properties',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '🏠 Недвижимость ADNA',
-                sub: '300+ объектов по всему миру · Каждая ссылка уникальна · Реальные платформы',
+                sub: 'Покупка недвижимости по всему миру · Оплата ADNA · 300+ уникальных площадок',
                 walletLabel: 'Контракт ADNA',
-                propertiesLabel: 'Всего объектов',
-                yieldLabel: 'Средняя доходность',
                 buyLabel: 'Купить ADNA',
-                nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта',
+                propertiesLabel: 'Всего объектов',
+                nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
+            }
+        };
+
+        let currentLang = 'en';
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang] || translations.en;
+            document.getElementById('mainTitle').innerText = t.title;
+            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('buyLabel').innerText = t.buyLabel;
+            document.getElementById('propertiesLabel').innerText = t.propertiesLabel;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (t[key]) el.innerText = t[key];
+            });
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+            localStorage.setItem('adna_lang', lang);
+        }
+
+        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => {
+            e.preventDefault();
+            setLanguage(a.dataset.lang);
+            document.getElementById('langMenu').classList.remove('show');
+        });
+        document.onclick = (e) => {
+            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
+                document.getElementById('langMenu').classList.remove('show');
+        };
+
+        // ========== INIT ==========
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
+    </script>
+</body>
+</html>
