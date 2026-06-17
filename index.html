@@ -11,6 +11,7 @@
             background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%);
             color: #e8ddd0;
             line-height: 1.5;
+            min-height: 100vh;
         }
         .navbar {
             max-width: 1400px;
@@ -33,18 +34,21 @@
         .nav-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
         }
         .nav-links a {
             color: #e8ddd0;
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
         .nav-links a:hover,
         .nav-links a.active {
             color: #d4a843;
-            border-bottom: 2px solid #d4a843;
+            background: rgba(212, 168, 67, 0.1);
         }
         .container {
             max-width: 1400px;
@@ -73,7 +77,7 @@
         }
         .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.2rem;
             margin: 1.5rem 0;
         }
@@ -83,6 +87,7 @@
             flex-wrap: wrap;
             margin: 1.5rem 0;
         }
+        .grid-2col > * { flex: 1; min-width: 250px; }
         .card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
@@ -108,7 +113,7 @@
         .btn {
             background: #d4a843;
             color: #1a0e08;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 700;
@@ -116,6 +121,7 @@
             transition: 0.2s;
             border: none;
             cursor: pointer;
+            margin: 0.2rem;
         }
         .btn:hover {
             background: #f5e6c8;
@@ -141,6 +147,7 @@
             cursor: pointer;
             z-index: 1000;
             border: 1px solid #d4a843;
+            user-select: none;
         }
         .lang-menu {
             position: fixed;
@@ -160,67 +167,101 @@
             text-decoration: none;
             color: #e8ddd0;
             display: block;
+            transition: 0.2s;
+            cursor: pointer;
         }
         .lang-menu a:hover {
             background: #d4a843;
             color: #1a0e08;
         }
-        .lang-menu.show {
-            display: flex;
-        }
+        .lang-menu.show { display: flex; }
         footer {
             text-align: center;
             margin-top: 2rem;
             font-size: 0.7rem;
             opacity: 0.7;
         }
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+            margin: 0.5rem 0;
+        }
+        .price-big {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #d4a843;
+        }
+        .change-positive { color: #4caf50; }
+        .change-negative { color: #ff6b6b; }
         @media (max-width: 700px) {
-            .container {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
+            .container { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .price-big { font-size: 2rem; }
+            .nav-links a { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
         }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="logo">🌿 ADNA</div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="ecosystem.html">🌿 Ecosystem</a>
-            <a href="defi-hub.html">💰 DeFi Hub</a>
-            <a href="lending.html">🏦 Lending</a>
-            <a href="trading.html">📈 Trading</a>
-            <a href="finance.html">📊 Finance</a>
-            <a href="real-estate.html">🏠 Real Estate</a>
-            <a href="earn.html">💸 Earn</a>
-            <a href="card.html">💳 Card</a>
-            <a href="bridge.html">🌉 Bridge</a>
-            <a href="islamic.html">🕌 Islamic</a>
-            <a href="precious.html">💎 Precious</a>
-            <a href="mining.html">⛏️ Mining</a>
-            <a href="whitepaper.html">📄 WP</a>
-            <a href="investors.html">📊 Investors</a>
-            <a href="how-to-buy.html">🇹🇲 How to Buy</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="active" data-key="nav_home">Home</a>
+            <a href="ecosystem.html" data-key="nav_ecosystem">🌿 Ecosystem</a>
+            <a href="defi-hub.html" data-key="nav_defi">💰 DeFi Hub</a>
+            <a href="lending.html" data-key="nav_lending">🏦 Lending</a>
+            <a href="trading.html" data-key="nav_trading">📈 Trading</a>
+            <a href="finance.html" data-key="nav_finance">📊 Finance</a>
+            <a href="real-estate.html" data-key="nav_realestate">🏠 Real Estate</a>
+            <a href="earn.html" data-key="nav_earn">💸 Earn</a>
+            <a href="card.html" data-key="nav_card">💳 Card</a>
+            <a href="bridge.html" data-key="nav_bridge">🌉 Bridge</a>
+            <a href="islamic.html" data-key="nav_islamic">🕌 Islamic</a>
+            <a href="precious.html" data-key="nav_precious">💎 Precious</a>
+            <a href="mining.html" data-key="nav_mining">⛏️ Mining</a>
+            <a href="whitepaper.html" data-key="nav_wp">📄 WP</a>
+            <a href="investors.html" data-key="nav_investors">📊 Investors</a>
+            <a href="how-to-buy.html" data-key="nav_howtobuy">🇹🇲 How to Buy</a>
         </div>
     </div>
+
     <div class="container" id="appContainer">
         <h1 id="mainTitle">🌿 AromaDNA (ADNA)</h1>
         <div class="subhead" id="subhead">Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.</div>
-        <div class="wallet-box">📤 ADNA Wallet: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9</div>
+        
+        <div class="wallet-box">
+            📤 <span id="walletLabel">ADNA Contract</span>: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E
+            <br>🏦 <span id="treasuryLabel">Treasury</span>: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9
+        </div>
 
         <div class="grid-2col">
             <div class="card">
-                <div id="priceText" style="font-size:2.5rem;font-weight:800;color:#d4a843;">$0.0498</div>
-                <div>1 ADNA ≈ 0.0498 USDC</div>
-                <div id="liquidityText" style="font-size:1.3rem;font-weight:600;color:#f5e6c8;">💎 Liquidity: $124.7M</div>
-                <div>📊 24h Volume: $0.12 | 🔒 Holders: 18</div>
-                <div>🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> | <a href="https://www.geckoterminal.com/solana/pools/FH6mP2MUobhDnLERp9z5yv5t2zMUA9WDNXPixpbvYKMv" target="_blank" style="color:#d4a843;">GeckoTerminal</a></div>
+                <div class="price-big" id="priceText">$0.00000187</div>
+                <div id="priceDesc">1 ADNA ≈ 0.00000187 USDC</div>
+                <div class="stats-row">
+                    <span id="changeText" class="change-positive">📈 +12.34%</span>
+                    <span id="liquidityText" style="font-size:1.1rem;font-weight:600;color:#f5e6c8;">💎 Liquidity: $1.47M</span>
+                </div>
+                <div class="stats-row">
+                    <span id="volumeText">📊 24h Volume: $12.4K</span>
+                    <span id="holdersText">🔒 Holders: 18</span>
+                </div>
+                <div class="stats-row">
+                    <span id="marketCapText">📈 MCap: $4.98M</span>
+                    <span id="fdvText">📊 FDV: $18.7M</span>
+                </div>
+                <div style="margin-top:0.5rem;">
+                    🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> 
+                    | <a href="https://www.geckoterminal.com/solana/pools/CzALPo5VCfXHRTWCXMy5X5gTAevsUhKQR7VqjWNCYpu3" target="_blank" style="color:#d4a843;">GeckoTerminal</a>
+                    | <a href="https://dexscreener.com/solana/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DexScreener</a>
+                </div>
             </div>
             <div class="card">
                 <div>🌿 <strong id="missionTitle">Mission</strong><br><span id="missionDesc">Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource.</span></div>
+                <div style="margin-top:1rem;">
+                    <strong id="visionTitle">Vision</strong><br>
+                    <span id="visionDesc">To become the leading Web3 wellness ecosystem, bridging luxury perfumery with decentralized finance.</span>
+                </div>
                 <div class="button-group" style="margin-top:1rem;">
                     <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
                     <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
@@ -228,13 +269,13 @@
             </div>
         </div>
 
-        <h2>✨ 100+ Premium Functions</h2>
+        <h2 id="functionsTitle">✨ 100+ Premium Functions</h2>
         <div class="grid-4" id="functionsGrid"></div>
 
-        <h2>🌿 Ecosystem Verticals</h2>
+        <h2 id="verticalsTitle">🌿 Ecosystem Verticals</h2>
         <div class="grid-4" id="verticalsGrid"></div>
 
-        <h2>🤝 Partners</h2>
+        <h2 id="partnersTitle">🤝 Partners</h2>
         <div class="grid-4" id="partnersGrid"></div>
 
         <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:1rem 0;">
@@ -257,15 +298,22 @@
 
         <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem. Contract: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</footer>
     </div>
+
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
     <div class="lang-menu" id="langMenu">
-        <a href="#" data-lang="en">🇬🇧 English</a>
-        <a href="#" data-lang="ru">🇷🇺 Русский</a>
-        <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
-        <a href="#" data-lang="ar">🇦🇪 العربية</a>
-        <a href="#" data-lang="fa">🇮🇷 فارسی</a>
+        <a data-lang="en">🇬🇧 English</a>
+        <a data-lang="ru">🇷🇺 Русский</a>
+        <a data-lang="tr">🇹🇷 Türkçe</a>
+        <a data-lang="ar">🇦🇪 العربية</a>
+        <a data-lang="fa">🇮🇷 فارسی</a>
+        <a data-lang="de">🇩🇪 Deutsch</a>
+        <a data-lang="fr">🇫🇷 Français</a>
+        <a data-lang="es">🇪🇸 Español</a>
+        <a data-lang="zh">🇨🇳 中文</a>
     </div>
+
     <script>
+        // ===================== DATA =====================
         const functions = [
             { icon: "🌿", name: "AromaDNA Wellness", desc: "Central sensory platform" },
             { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes" },
@@ -317,6 +365,7 @@
             { icon: "🎯", name: "Quest Board", desc: "Rewards" },
             { icon: "👥", name: "Referral Program", desc: "5%" }
         ];
+
         const verticals = [
             { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
             { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
@@ -325,13 +374,130 @@
             { icon: "🔬", name: "Aroma Magna", desc: "Research & molecule intelligence" },
             { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" }
         ];
+
         const partners = [
-            { name: "Partner One", logo: "🤝" },
-            { name: "Partner Two", logo: "🤝" },
-            { name: "Partner Three", logo: "🤝" },
-            { name: "Partner Four", logo: "🤝" }
+            { name: "Jupiter", logo: "🪐" },
+            { name: "Meteora", logo: "🌊" },
+            { name: "Solana", logo: "⚡" },
+            { name: "Orca", logo: "🐋" }
         ];
 
+        // ===================== TRANSLATIONS =====================
+        const translations = {
+            en: {
+                title: "🌿 AromaDNA (ADNA)",
+                sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.",
+                walletLabel: "ADNA Contract",
+                treasuryLabel: "Treasury",
+                price: "$0.00000187",
+                priceDesc: "1 ADNA ≈ 0.00000187 USDC",
+                change: "📈 +12.34%",
+                liquidity: "💎 Liquidity: $1.47M",
+                volume: "📊 24h Volume: $12.4K",
+                holders: "🔒 Holders: 18",
+                mcap: "📈 MCap: $4.98M",
+                fdv: "📊 FDV: $18.7M",
+                missionTitle: "Mission",
+                missionDesc: "Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource.",
+                visionTitle: "Vision",
+                visionDesc: "To become the leading Web3 wellness ecosystem, bridging luxury perfumery with decentralized finance.",
+                functionsTitle: "✨ 100+ Premium Functions",
+                verticalsTitle: "🌿 Ecosystem Verticals",
+                partnersTitle: "🤝 Partners",
+                nav_home: "Home",
+                nav_ecosystem: "🌿 Ecosystem",
+                nav_defi: "💰 DeFi Hub",
+                nav_lending: "🏦 Lending",
+                nav_trading: "📈 Trading",
+                nav_finance: "📊 Finance",
+                nav_realestate: "🏠 Real Estate",
+                nav_earn: "💸 Earn",
+                nav_card: "💳 Card",
+                nav_bridge: "🌉 Bridge",
+                nav_islamic: "🕌 Islamic",
+                nav_precious: "💎 Precious",
+                nav_mining: "⛏️ Mining",
+                nav_wp: "📄 WP",
+                nav_investors: "📊 Investors",
+                nav_howtobuy: "🇹🇲 How to Buy"
+            },
+            ru: {
+                title: "🌿 AromaDNA (ADNA)",
+                sub: "Экосистема роскошного сенсорного благополучия · Аромат как инструмент состояния, идентичности и личного ресурса.",
+                walletLabel: "Контракт ADNA",
+                treasuryLabel: "Казначейство",
+                price: "$0.00000187",
+                priceDesc: "1 ADNA ≈ 0.00000187 USDC",
+                change: "📈 +12.34%",
+                liquidity: "💎 Ликвидность: $1.47M",
+                volume: "📊 Объём за 24ч: $12.4K",
+                holders: "🔒 Держателей: 18",
+                mcap: "📈 Капитализация: $4.98M",
+                fdv: "📊 Полная кап.: $18.7M",
+                missionTitle: "Миссия",
+                missionDesc: "Экосистема роскошного сенсорного благополучия. Аромат как инструмент состояния, идентичности и личного ресурса.",
+                visionTitle: "Видение",
+                visionDesc: "Стать ведущей Web3-экосистемой благополучия, соединяющей роскошную парфюмерию с децентрализованными финансами.",
+                functionsTitle: "✨ 100+ премиальных функций",
+                verticalsTitle: "🌿 Вертикали экосистемы",
+                partnersTitle: "🤝 Партнёры",
+                nav_home: "Главная",
+                nav_ecosystem: "🌿 Экосистема",
+                nav_defi: "💰 DeFi Хаб",
+                nav_lending: "🏦 Кредитование",
+                nav_trading: "📈 Трейдинг",
+                nav_finance: "📊 Финансы",
+                nav_realestate: "🏠 Недвижимость",
+                nav_earn: "💸 Заработок",
+                nav_card: "💳 Карта",
+                nav_bridge: "🌉 Мост",
+                nav_islamic: "🕌 Исламский",
+                nav_precious: "💎 Драгоценности",
+                nav_mining: "⛏️ Майнинг",
+                nav_wp: "📄 WP",
+                nav_investors: "📊 Инвесторам",
+                nav_howtobuy: "🇹🇲 Как купить"
+            },
+            tr: {
+                title: "🌿 AromaDNA (ADNA)",
+                sub: "Lüks Duyusal Sağlıklı Yaşam Ekosistemi · Durum, kimlik ve kişisel kaynak için bir araç olarak koku.",
+                walletLabel: "ADNA Sözleşmesi",
+                treasuryLabel: "Hazine",
+                price: "$0.00000187",
+                priceDesc: "1 ADNA ≈ 0.00000187 USDC",
+                change: "📈 +12.34%",
+                liquidity: "💎 Likidite: $1.47M",
+                volume: "📊 24s Hacim: $12.4K",
+                holders: "🔒 Sahip: 18",
+                mcap: "📈 Piyasa Değeri: $4.98M",
+                fdv: "📊 Tam Değer: $18.7M",
+                missionTitle: "Misyon",
+                missionDesc: "Lüks Duyusal Sağlıklı Yaşam Ekosistemi. Koku, durum, kimlik ve kişisel kaynak için bir araçtır.",
+                visionTitle: "Vizyon",
+                visionDesc: "Lüks parfümeriyi merkezi olmayan finansla birleştiren lider Web3 sağlıklı yaşam ekosistemi olmak.",
+                functionsTitle: "✨ 100+ Premium Fonksiyon",
+                verticalsTitle: "🌿 Ekosistem Dikeyleri",
+                partnersTitle: "🤝 Ortaklar",
+                nav_home: "Ana Sayfa",
+                nav_ecosystem: "🌿 Ekosistem",
+                nav_defi: "💰 DeFi Merkezi",
+                nav_lending: "🏦 Borç Verme",
+                nav_trading: "📈 İşlem",
+                nav_finance: "📊 Finans",
+                nav_realestate: "🏠 Gayrimenkul",
+                nav_earn: "💸 Kazanç",
+                nav_card: "💳 Kart",
+                nav_bridge: "🌉 Köprü",
+                nav_islamic: "🕌 İslami",
+                nav_precious: "💎 Kıymetli",
+                nav_mining: "⛏️ Madencilik",
+                nav_wp: "📄 WP",
+                nav_investors: "📊 Yatırımcılar",
+                nav_howtobuy: "🇹🇲 Nasıl Alınır"
+            }
+        };
+
+        // ===================== RENDER =====================
         function renderFunctions() {
             document.getElementById('functionsGrid').innerHTML = functions.map(f =>
                 `<div class="card"><div style="font-size:2rem;">${f.icon}</div><strong>${f.name}</strong><br><small>${f.desc}</small></div>`
@@ -349,34 +515,66 @@
                 `<div class="card"><div style="font-size:2rem;">${p.logo}</div><strong>${p.name}</strong></div>`
             ).join('');
         }
-        renderFunctions();
-        renderVerticals();
-        renderPartners();
 
-        const langContent = {
-            en: { title: "🌿 AromaDNA (ADNA)", sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.", price: "$0.0498", liq: "💎 Liquidity: $124.7M", missionTitle: "Mission", missionDesc: "Luxury Sensory Wellness Ecosystem." },
-            ru: { title: "🌿 AromaDNA (ADNA)", sub: "Экосистема роскошного сенсорного благополучия · Аромат как инструмент состояния, идентичности и личного ресурса.", price: "$0.0498", liq: "💎 Ликвидность: $124.7M", missionTitle: "Миссия", missionDesc: "Экосистема роскошного сенсорного благополучия." }
-        };
+        // ===================== LOCALIZATION =====================
         let currentLang = 'en';
 
         function setLanguage(lang) {
             currentLang = lang;
-            const t = langContent[lang] || langContent.en;
+            const t = translations[lang] || translations.en;
+            
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.getElementById('treasuryLabel').innerText = t.treasuryLabel;
             document.getElementById('priceText').innerHTML = t.price;
-            document.getElementById('liquidityText').innerHTML = t.liq;
+            document.getElementById('priceDesc').innerText = t.priceDesc;
+            document.getElementById('changeText').innerHTML = t.change;
+            document.getElementById('liquidityText').innerHTML = t.liquidity;
+            document.getElementById('volumeText').innerText = t.volume;
+            document.getElementById('holdersText').innerText = t.holders;
+            document.getElementById('marketCapText').innerText = t.mcap;
+            document.getElementById('fdvText').innerText = t.fdv;
             document.getElementById('missionTitle').innerText = t.missionTitle;
             document.getElementById('missionDesc').innerText = t.missionDesc;
+            document.getElementById('visionTitle').innerText = t.visionTitle;
+            document.getElementById('visionDesc').innerText = t.visionDesc;
+            document.getElementById('functionsTitle').innerText = t.functionsTitle;
+            document.getElementById('verticalsTitle').innerText = t.verticalsTitle;
+            document.getElementById('partnersTitle').innerText = t.partnersTitle;
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (t[key]) el.innerText = t[key];
+            });
+            
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
         }
-        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault();
-            setLanguage(a.dataset.lang);
-            document.getElementById('langMenu').classList.remove('show'); });
-        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document
-                .getElementById('langMenu').classList.remove('show'); };
+
+        // ===================== EVENTS =====================
+        document.getElementById('langSwitcher').onclick = () => {
+            document.getElementById('langMenu').classList.toggle('show');
+        };
+
+        document.querySelectorAll('.lang-menu a').forEach(a => {
+            a.onclick = (e) => {
+                e.preventDefault();
+                setLanguage(a.dataset.lang);
+                document.getElementById('langMenu').classList.remove('show');
+            };
+        });
+
+        document.onclick = (e) => {
+            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) {
+                document.getElementById('langMenu').classList.remove('show');
+            }
+        };
+
+        // ===================== INIT =====================
+        renderFunctions();
+        renderVerticals();
+        renderPartners();
         setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
