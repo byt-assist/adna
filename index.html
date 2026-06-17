@@ -3,221 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem · 100+ Functions</title>
+    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; }
-        .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; }
-        .nav-links a:hover, .nav-links a.active { color: #d4a843; border-bottom: 2px solid #d4a843; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212,168,67,0.2); }
-        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        h2 { font-size: 1.6rem; margin: 2rem 0 1rem; border-left: 6px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
-        .grid-2col { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
-        .card { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 1.2rem; border: 1px solid rgba(212,168,67,0.15); transition: 0.2s; }
-        .card:hover { transform: translateY(-3px); background: rgba(212,168,67,0.05); border-color: #d4a843; }
-        .wallet-box { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; }
-        .btn { background: #d4a843; color: #1a0e08; padding: 0.5rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; }
-        .btn:hover { background: #f5e6c8; transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
-        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
-        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 10px 20px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; }
-        .lang-menu { position: fixed; bottom: 80px; right: 20px; background: #1a0e08; border-radius: 20px; padding: 10px 0; display: none; flex-direction: column; z-index: 1000; min-width: 160px; border: 1px solid #d4a843; }
-        .lang-menu a { padding: 8px 20px; text-decoration: none; color: #e8ddd0; display: block; }
-        .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
-        .lang-menu.show { display: flex; }
-        footer { text-align: center; margin-top: 2rem; font-size: 0.7rem; opacity: 0.7; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 2rem; } }
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%);
+            color: #e8ddd0;
+            line-height: 1.5;
+        }
+        .navbar {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f5e6c8, #d4a843);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .nav-links a {
+            color: #e8ddd0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #d4a843;
+            border-bottom: 2px solid #d4a843;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #f5e6c8, #d4a843);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        h2 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            border-left: 6px solid #d4a843;
+            padding-left: 1rem;
+            color: #f5e6c8;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        .grid-2col {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 1.2rem;
+            border: 1px solid rgba(212, 168, 67, 0.15);
+            transition: 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            background: rgba(212, 168, 67, 0.05);
+            border-color: #d4a843;
+        }
+        .wallet-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #d4a843;
+            word-break: break-all;
+            font-family: monospace;
+            color: #d4a843;
+        }
+        .btn {
+            background: #d4a843;
+            color: #1a0e08;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #f5e6c8;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a843;
+            color: #d4a843;
+        }
+        .btn-outline:hover {
+            background: #d4a843;
+            color: #1a0e08;
+        }
+        .lang-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a0e08;
+            color: #d4a843;
+            padding: 10px 20px;
+            border-radius: 60px;
+            cursor: pointer;
+            z-index: 1000;
+            border: 1px solid #d4a843;
+        }
+        .lang-menu {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: #1a0e08;
+            border-radius: 20px;
+            padding: 10px 0;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            min-width: 160px;
+            border: 1px solid #d4a843;
+        }
+        .lang-menu a {
+            padding: 8px 20px;
+            text-decoration: none;
+            color: #e8ddd0;
+            display: block;
+        }
+        .lang-menu a:hover {
+            background: #d4a843;
+            color: #1a0e08;
+        }
+        .lang-menu.show {
+            display: flex;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            opacity: 0.7;
+        }
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="navbar">
-    <div class="logo">🌿 ADNA</div>
-    <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="ecosystem.html">🌿 Ecosystem</a>
-        <a href="defi-hub.html">💰 DeFi Hub</a>
-        <a href="lending.html">🏦 Lending</a>
-        <a href="trading.html">📈 Trading</a>
-        <a href="finance.html">📊 Finance</a>
-        <a href="real-estate.html">🏠 Real Estate</a>
-        <a href="earn.html">💸 Earn</a>
-        <a href="card.html">💳 Card</a>
-        <a href="bridge.html">🌉 Bridge</a>
-        <a href="islamic.html">🕌 Islamic</a>
-        <a href="precious.html">💎 Precious</a>
-        <a href="mining.html">⛏️ Mining</a>
-        <a href="whitepaper.html">📄 WP</a>
-        <a href="investors.html">📊 Investors</a>
-        <a href="how-to-buy.html">🇹🇲 How to Buy</a>
-    </div>
-</div>
-<div class="container" id="appContainer">
-    <h1 id="mainTitle">🌿 AromaDNA (ADNA)</h1>
-    <div class="subhead" id="subhead">Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.</div>
-    <div class="wallet-box">📤 ADNA Wallet: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9</div>
-
-    <div class="grid-2col">
-        <div class="card">
-            <div id="priceText" style="font-size:2.5rem;font-weight:800;color:#d4a843;">$0.0498</div>
-            <div>1 ADNA ≈ 0.0498 USDC</div>
-            <div id="liquidityText" style="font-size:1.3rem;font-weight:600;color:#f5e6c8;">💎 Liquidity: $124.7M</div>
-            <div>📊 24h Volume: $0.12 | 🔒 Holders: 18</div>
-            <div>🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> | <a href="https://www.geckoterminal.com/solana/pools/FH6mP2MUobhDnLERp9z5yv5t2zMUA9WDNXPixpbvYKMv" target="_blank" style="color:#d4a843;">GeckoTerminal</a></div>
+    <div class="navbar">
+        <div class="logo">🌿 ADNA</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="ecosystem.html">🌿 Ecosystem</a>
+            <a href="defi-hub.html">💰 DeFi Hub</a>
+            <a href="lending.html">🏦 Lending</a>
+            <a href="trading.html">📈 Trading</a>
+            <a href="finance.html">📊 Finance</a>
+            <a href="real-estate.html">🏠 Real Estate</a>
+            <a href="earn.html">💸 Earn</a>
+            <a href="card.html">💳 Card</a>
+            <a href="bridge.html">🌉 Bridge</a>
+            <a href="islamic.html">🕌 Islamic</a>
+            <a href="precious.html">💎 Precious</a>
+            <a href="mining.html">⛏️ Mining</a>
+            <a href="whitepaper.html">📄 WP</a>
+            <a href="investors.html">📊 Investors</a>
+            <a href="how-to-buy.html">🇹🇲 How to Buy</a>
         </div>
-        <div class="card">
-            <div>🌿 <strong id="missionTitle">Mission</strong><br><span id="missionDesc">Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource.</span></div>
-            <div class="button-group" style="margin-top:1rem;">
-                <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
-                <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
+    </div>
+    <div class="container" id="appContainer">
+        <h1 id="mainTitle">🌿 AromaDNA (ADNA)</h1>
+        <div class="subhead" id="subhead">Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.</div>
+        <div class="wallet-box">📤 ADNA Wallet: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9</div>
+
+        <div class="grid-2col">
+            <div class="card">
+                <div id="priceText" style="font-size:2.5rem;font-weight:800;color:#d4a843;">$0.0498</div>
+                <div>1 ADNA ≈ 0.0498 USDC</div>
+                <div id="liquidityText" style="font-size:1.3rem;font-weight:600;color:#f5e6c8;">💎 Liquidity: $124.7M</div>
+                <div>📊 24h Volume: $0.12 | 🔒 Holders: 18</div>
+                <div>🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> | <a href="https://www.geckoterminal.com/solana/pools/FH6mP2MUobhDnLERp9z5yv5t2zMUA9WDNXPixpbvYKMv" target="_blank" style="color:#d4a843;">GeckoTerminal</a></div>
+            </div>
+            <div class="card">
+                <div>🌿 <strong id="missionTitle">Mission</strong><br><span id="missionDesc">Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource.</span></div>
+                <div class="button-group" style="margin-top:1rem;">
+                    <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
+                    <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
+                </div>
             </div>
         </div>
+
+        <h2>✨ 100+ Premium Functions</h2>
+        <div class="grid-4" id="functionsGrid"></div>
+
+        <h2>🌿 Ecosystem Verticals</h2>
+        <div class="grid-4" id="verticalsGrid"></div>
+
+        <h2>🤝 Partners</h2>
+        <div class="grid-4" id="partnersGrid"></div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:1rem 0;">
+            <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
+            <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
+            <a href="lending.html" class="btn">🏦 Lending</a>
+            <a href="trading.html" class="btn">📈 Trading</a>
+            <a href="finance.html" class="btn">📊 Finance</a>
+            <a href="real-estate.html" class="btn">🏠 Real Estate</a>
+            <a href="earn.html" class="btn">💸 Earn</a>
+            <a href="card.html" class="btn">💳 Card</a>
+            <a href="bridge.html" class="btn">🌉 Bridge</a>
+            <a href="islamic.html" class="btn">🕌 Islamic</a>
+            <a href="precious.html" class="btn">💎 Precious</a>
+            <a href="mining.html" class="btn">⛏️ Mining</a>
+            <a href="whitepaper.html" class="btn">📄 WP</a>
+            <a href="investors.html" class="btn">📊 Investors</a>
+            <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+        </div>
+
+        <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem. Contract: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</footer>
     </div>
-
-    <h2>✨ 100+ Premium Functions</h2>
-    <div class="grid-4" id="functionsGrid"></div>
-
-    <h2>🌿 Ecosystem Verticals</h2>
-    <div class="grid-4" id="verticalsGrid"></div>
-
-    <h2>🤝 Partners</h2>
-    <div class="grid-4" id="partnersGrid"></div>
-
-    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:1rem 0;">
-        <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
-        <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
-        <a href="lending.html" class="btn">🏦 Lending</a>
-        <a href="trading.html" class="btn">📈 Trading</a>
-        <a href="finance.html" class="btn">📊 Finance</a>
-        <a href="real-estate.html" class="btn">🏠 Real Estate</a>
-        <a href="earn.html" class="btn">💸 Earn</a>
-        <a href="card.html" class="btn">💳 Card</a>
-        <a href="bridge.html" class="btn">🌉 Bridge</a>
-        <a href="islamic.html" class="btn">🕌 Islamic</a>
-        <a href="precious.html" class="btn">💎 Precious</a>
-        <a href="mining.html" class="btn">⛏️ Mining</a>
-        <a href="whitepaper.html" class="btn">📄 WP</a>
-        <a href="investors.html" class="btn">📊 Investors</a>
-        <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+    <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+    <div class="lang-menu" id="langMenu">
+        <a href="#" data-lang="en">🇬🇧 English</a>
+        <a href="#" data-lang="ru">🇷🇺 Русский</a>
+        <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
+        <a href="#" data-lang="ar">🇦🇪 العربية</a>
+        <a href="#" data-lang="fa">🇮🇷 فارسی</a>
     </div>
+    <script>
+        const functions = [
+            { icon: "🌿", name: "AromaDNA Wellness", desc: "Central sensory platform" },
+            { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes" },
+            { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
+            { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
+            { icon: "🔬", name: "Aroma Magna Research", desc: "Molecule intelligence" },
+            { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" },
+            { icon: "🏦", name: "ADNA Staking", desc: "8-16% APY" },
+            { icon: "💳", name: "ADNA Card", desc: "3% cashback" },
+            { icon: "🌊", name: "Meteora LP", desc: "Dynamic AMM" },
+            { icon: "🪐", name: "Jupiter Aggregator", desc: "Best price" },
+            { icon: "📈", name: "Copy Trading", desc: "Top traders" },
+            { icon: "🤖", name: "Grid Bot", desc: "15% monthly" },
+            { icon: "📉", name: "DCA Bot", desc: "Auto buy" },
+            { icon: "⚡", name: "Perpetuals 50x", desc: "Leverage" },
+            { icon: "🎯", name: "Options Trading", desc: "Call/Put" },
+            { icon: "🌾", name: "Yield Farming", desc: "Up to 25%" },
+            { icon: "🏦", name: "Lending", desc: "Up to 15%" },
+            { icon: "🔄", name: "Arbitrage", desc: "Risk-free" },
+            { icon: "📊", name: "TWAP Orders", desc: "Large orders" },
+            { icon: "📈", name: "Limit Orders", desc: "Target price" },
+            { icon: "🔒", name: "Hedging", desc: "Portfolio protection" },
+            { icon: "💰", name: "Liquid Staking", desc: "stADNA" },
+            { icon: "🔄", name: "Restaking", desc: "Additional yield" },
+            { icon: "🏦", name: "Auto Vaults", desc: "15-35% APY" },
+            { icon: "📊", name: "Charting", desc: "50+ indicators" },
+            { icon: "📰", name: "News Feed", desc: "Real-time" },
+            { icon: "📊", name: "Portfolio Tracker", desc: "Real-time" },
+            { icon: "🔍", name: "On-Chain Analysis", desc: "Holders, tx" },
+            { icon: "📊", name: "Volume Analysis", desc: "All DEXes" },
+            { icon: "📊", name: "Market Depth", desc: "Order book" },
+            { icon: "📊", name: "Heatmap", desc: "Price zones" },
+            { icon: "📈", name: "Momentum Trading", desc: "Trends" },
+            { icon: "📊", name: "Swing Trading", desc: "2-5 days" },
+            { icon: "📉", name: "Scalping", desc: "1-5 min" },
+            { icon: "📊", name: "Range Trading", desc: "Defined range" },
+            { icon: "📊", name: "Mean Reversion", desc: "Average return" },
+            { icon: "📊", name: "Breakout Trading", desc: "Resistance/support" },
+            { icon: "📊", name: "Price Alerts", desc: "Target price" },
+            { icon: "🥇", name: "Gold Trading", desc: "Live prices" },
+            { icon: "🥈", name: "Silver Trading", desc: "Live prices" },
+            { icon: "🔷", name: "Platinum Trading", desc: "Live prices" },
+            { icon: "⛏️", name: "Mining", desc: "Exploration projects" },
+            { icon: "🕌", name: "Islamic Finance", desc: "Sharia-compliant" },
+            { icon: "💱", name: "Currency Exchange", desc: "12 currencies" },
+            { icon: "🌉", name: "Cross-Chain Bridge", desc: "10+ chains" },
+            { icon: "🗳️", name: "DAO Governance", desc: "Voting" },
+            { icon: "🎮", name: "Social Feed", desc: "Community" },
+            { icon: "🎯", name: "Quest Board", desc: "Rewards" },
+            { icon: "👥", name: "Referral Program", desc: "5%" }
+        ];
+        const verticals = [
+            { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
+            { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
+            { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
+            { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
+            { icon: "🔬", name: "Aroma Magna", desc: "Research & molecule intelligence" },
+            { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" }
+        ];
+        const partners = [
+            { name: "Partner One", logo: "🤝" },
+            { name: "Partner Two", logo: "🤝" },
+            { name: "Partner Three", logo: "🤝" },
+            { name: "Partner Four", logo: "🤝" }
+        ];
 
-    <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem. Contract: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</footer>
-</div>
-<div class="lang-switcher" id="langSwitcher">🌐 EN</div>
-<div class="lang-menu" id="langMenu">
-    <a href="#" data-lang="en">🇬🇧 English</a>
-    <a href="#" data-lang="ru">🇷🇺 Русский</a>
-    <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
-    <a href="#" data-lang="ar">🇦🇪 العربية</a>
-    <a href="#" data-lang="fa">🇮🇷 فارسی</a>
-</div>
-<script>
-const functions = [
-    { icon: "🌿", name: "AromaDNA Wellness", desc: "Central sensory platform" },
-    { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes" },
-    { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
-    { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
-    { icon: "🔬", name: "Aroma Magna Research", desc: "Molecule intelligence" },
-    { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" },
-    { icon: "🏦", name: "ADNA Staking", desc: "8-16% APY" },
-    { icon: "💳", name: "ADNA Card", desc: "3% cashback" },
-    { icon: "🌊", name: "Meteora LP", desc: "Dynamic AMM" },
-    { icon: "🪐", name: "Jupiter Aggregator", desc: "Best price" },
-    { icon: "📈", name: "Copy Trading", desc: "Top traders" },
-    { icon: "🤖", name: "Grid Bot", desc: "15% monthly" },
-    { icon: "📉", name: "DCA Bot", desc: "Auto buy" },
-    { icon: "⚡", name: "Perpetuals 50x", desc: "Leverage" },
-    { icon: "🎯", name: "Options Trading", desc: "Call/Put" },
-    { icon: "🌾", name: "Yield Farming", desc: "Up to 25%" },
-    { icon: "🏦", name: "Lending", desc: "Up to 15%" },
-    { icon: "🔄", name: "Arbitrage", desc: "Risk-free" },
-    { icon: "📊", name: "TWAP Orders", desc: "Large orders" },
-    { icon: "📈", name: "Limit Orders", desc: "Target price" },
-    { icon: "🔒", name: "Hedging", desc: "Portfolio protection" },
-    { icon: "💰", name: "Liquid Staking", desc: "stADNA" },
-    { icon: "🔄", name: "Restaking", desc: "Additional yield" },
-    { icon: "🏦", name: "Auto Vaults", desc: "15-35% APY" },
-    { icon: "📊", name: "Charting", desc: "50+ indicators" },
-    { icon: "📰", name: "News Feed", desc: "Real-time" },
-    { icon: "📊", name: "Portfolio Tracker", desc: "Real-time" },
-    { icon: "🔍", name: "On-Chain Analysis", desc: "Holders, tx" },
-    { icon: "📊", name: "Volume Analysis", desc: "All DEXes" },
-    { icon: "📊", name: "Market Depth", desc: "Order book" },
-    { icon: "📊", name: "Heatmap", desc: "Price zones" },
-    { icon: "📈", name: "Momentum Trading", desc: "Trends" },
-    { icon: "📊", name: "Swing Trading", desc: "2-5 days" },
-    { icon: "📉", name: "Scalping", desc: "1-5 min" },
-    { icon: "📊", name: "Range Trading", desc: "Defined range" },
-    { icon: "📊", name: "Mean Reversion", desc: "Average return" },
-    { icon: "📊", name: "Breakout Trading", desc: "Resistance/support" },
-    { icon: "📊", name: "Price Alerts", desc: "Target price" },
-    { icon: "🥇", name: "Gold Trading", desc: "Live prices" },
-    { icon: "🥈", name: "Silver Trading", desc: "Live prices" },
-    { icon: "🔷", name: "Platinum Trading", desc: "Live prices" },
-    { icon: "⛏️", name: "Mining", desc: "Exploration projects" },
-    { icon: "🕌", name: "Islamic Finance", desc: "Sharia-compliant" },
-    { icon: "💱", name: "Currency Exchange", desc: "12 currencies" },
-    { icon: "🌉", name: "Cross-Chain Bridge", desc: "10+ chains" },
-    { icon: "🗳️", name: "DAO Governance", desc: "Voting" },
-    { icon: "🎮", name: "Social Feed", desc: "Community" },
-    { icon: "🎯", name: "Quest Board", desc: "Rewards" },
-    { icon: "👥", name: "Referral Program", desc: "5%" }
-];
-const verticals = [
-    { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
-    { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
-    { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
-    { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
-    { icon: "🔬", name: "Aroma Magna", desc: "Research & molecule intelligence" },
-    { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" }
-];
-const partners = [
-    { name: "Partner One", logo: "🤝" },
-    { name: "Partner Two", logo: "🤝" },
-    { name: "Partner Three", logo: "🤝" },
-    { name: "Partner Four", logo: "🤝" }
-];
-function renderFunctions() {
-    document.getElementById('functionsGrid').innerHTML = functions.map(f => 
-        `<div class="card"><div style="font-size:2rem;">${f.icon}</div><strong>${f.name}</strong><br><small>${f.desc}</small></div>`
-    ).join('');
-}
-function renderVerticals() {
-    document.getElementById('verticalsGrid').innerHTML = verticals.map(v => 
-        `<div class="card"><div style="font-size:2rem;">${v.icon}</div><strong>${v.name}</strong><br><small>${v.desc}</small></div>`
-    ).join('');
-}
-function renderPartners() {
-    document.getElementById('partnersGrid').innerHTML = partners.map(p => 
-        `<div class="card"><div style="font-size:2rem;">${p.logo}</div><strong>${p.name}</strong></div>`
-    ).join('');
-}
-renderFunctions(); renderVerticals(); renderPartners();
+        function renderFunctions() {
+            document.getElementById('functionsGrid').innerHTML = functions.map(f =>
+                `<div class="card"><div style="font-size:2rem;">${f.icon}</div><strong>${f.name}</strong><br><small>${f.desc}</small></div>`
+            ).join('');
+        }
 
-const langContent = {
-    en: { title: "🌿 AromaDNA (ADNA)", sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.", price: "$0.0498", liq: "💎 Liquidity: $124.7M", missionTitle: "Mission", missionDesc: "Luxury Sensory Wellness Ecosystem." },
-    ru: { title: "🌿 AromaDNA (ADNA)", sub: "Экосистема роскошного сенсорного благополучия · Аромат как инструмент состояния, идентичности и личного ресурса.", price: "$0.0498", liq: "💎 Ликвидность: $124.7M", missionTitle: "Миссия", missionDesc: "Экосистема роскошного сенсорного благополучия." }
-};
-let currentLang = 'en';
-function setLanguage(lang) {
-    currentLang = lang;
-    const t = langContent[lang] || langContent.en;
-    document.getElementById('mainTitle').innerText = t.title;
-    document.getElementById('subhead').innerText = t.sub;
-    document.getElementById('priceText').innerHTML = t.price;
-    document.getElementById('liquidityText').innerHTML = t.liq;
-    document.getElementById('missionTitle').innerText = t.missionTitle;
-    document.getElementById('missionDesc').innerText = t.missionDesc;
-    document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
-    localStorage.setItem('adna_lang', lang);
-}
-document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
-document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-setLanguage(localStorage.getItem('adna_lang') || 'en');
-</script>
+        function renderVerticals() {
+            document.getElementById('verticalsGrid').innerHTML = verticals.map(v =>
+                `<div class="card"><div style="font-size:2rem;">${v.icon}</div><strong>${v.name}</strong><br><small>${v.desc}</small></div>`
+            ).join('');
+        }
+
+        function renderPartners() {
+            document.getElementById('partnersGrid').innerHTML = partners.map(p =>
+                `<div class="card"><div style="font-size:2rem;">${p.logo}</div><strong>${p.name}</strong></div>`
+            ).join('');
+        }
+        renderFunctions();
+        renderVerticals();
+        renderPartners();
+
+        const langContent = {
+            en: { title: "🌿 AromaDNA (ADNA)", sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.", price: "$0.0498", liq: "💎 Liquidity: $124.7M", missionTitle: "Mission", missionDesc: "Luxury Sensory Wellness Ecosystem." },
+            ru: { title: "🌿 AromaDNA (ADNA)", sub: "Экосистема роскошного сенсорного благополучия · Аромат как инструмент состояния, идентичности и личного ресурса.", price: "$0.0498", liq: "💎 Ликвидность: $124.7M", missionTitle: "Миссия", missionDesc: "Экосистема роскошного сенсорного благополучия." }
+        };
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const t = langContent[lang] || langContent.en;
+            document.getElementById('mainTitle').innerText = t.title;
+            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('priceText').innerHTML = t.price;
+            document.getElementById('liquidityText').innerHTML = t.liq;
+            document.getElementById('missionTitle').innerText = t.missionTitle;
+            document.getElementById('missionDesc').innerText = t.missionDesc;
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+            localStorage.setItem('adna_lang', lang);
+        }
+        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault();
+            setLanguage(a.dataset.lang);
+            document.getElementById('langMenu').classList.remove('show'); });
+        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document
+                .getElementById('langMenu').classList.remove('show'); };
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
+    </script>
 </body>
 </html>
