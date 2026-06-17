@@ -2,568 +2,159 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>AromaDNA — Sensory Wellness Ecosystem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        /* PREMIUM AROMA BACKGROUND — static elegant */
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: #FAF7F2;
-            color: #2C2A29;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="none" stroke="%238B5E3C" stroke-width="1.2" d="M200 200 L250 180 L300 200 L330 250 L300 300 L250 320 L200 300 L170 250 Z M500 500 L560 475 L620 500 L645 560 L620 620 L560 645 L500 620 L475 560 Z M400 100 L430 70 L470 80 L490 120 L470 160 L430 170 L400 150 L380 120 Z"/><circle cx="350" cy="450" r="15" stroke="%238B5E3C" stroke-width="1" fill="none"/><circle cx="550" cy="350" r="12" stroke="%238B5E3C" stroke-width="1" fill="none"/></svg>');
-            background-repeat: repeat;
-            background-size: 400px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 1.8rem; position: relative; z-index: 2; }
-        
-        header {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            background: rgba(250, 247, 242, 0.85);
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .logo { height: 52px; width: auto; }
-        nav { display: flex; gap: 2rem; flex-wrap: wrap; }
-        nav a { text-decoration: none; color: #2C2A29; font-weight: 500; transition: 0.2s; font-size: 0.95rem; }
-        nav a:hover { color: #B57C48; }
-        
-        /* Language Switcher */
-        .lang-switcher {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #1A1A1A;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 60px;
-            cursor: pointer;
-            z-index: 1000;
-            font-family: monospace;
-            font-weight: bold;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-            transition: 0.2s;
-        }
-        .lang-switcher:hover { background: #B57C48; }
-        .lang-menu {
-            position: fixed;
-            bottom: 80px;
-            right: 24px;
-            background: white;
-            border-radius: 24px;
-            padding: 12px 0;
-            display: none;
-            flex-direction: column;
-            z-index: 1000;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            min-width: 150px;
-            border: 1px solid #eee;
-        }
-        .lang-menu a { padding: 10px 24px; text-decoration: none; color: #2C2A29; font-size: 0.85rem; }
-        .lang-menu a:hover { background: #F5F0EA; }
+        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; }
+        .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #d4a843; border-bottom: 2px solid #d4a843; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212,168,67,0.2); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        h2 { font-size: 1.6rem; margin: 2rem 0 1rem; border-left: 6px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+        .grid-2col { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 1.2rem; border: 1px solid rgba(212,168,67,0.15); transition: 0.2s; }
+        .card:hover { transform: translateY(-3px); background: rgba(212,168,67,0.05); border-color: #d4a843; }
+        .wallet-box { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.5rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; }
+        .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
+        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 10px 20px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; }
+        .lang-menu { position: fixed; bottom: 80px; right: 20px; background: #1a0e08; border-radius: 20px; padding: 10px 0; display: none; flex-direction: column; z-index: 1000; min-width: 160px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 8px 20px; text-decoration: none; color: #e8ddd0; display: block; }
+        .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
         .lang-menu.show { display: flex; }
-        
-        section { padding: 4rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        h1 { font-size: 3.8rem; font-weight: 400; letter-spacing: 2px; }
-        h2 { font-size: 2rem; font-weight: 400; margin-bottom: 1.8rem; border-left: 4px solid #B57C48; padding-left: 1rem; }
-        h3 { font-size: 1.3rem; font-weight: 500; margin: 1rem 0 0.5rem; }
-        .hero { text-align: center; padding: 2rem 0 3rem; }
-        .hero p { max-width: 700px; margin: 1rem auto 0; font-size: 1.2rem; opacity: 0.8; }
-        .subhead { font-size: 1.3rem; color: #B57C48; margin-top: 0.3rem; font-weight: 300; }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 1.8rem;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.25s;
-            height: 100%;
-        }
-        .card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.96); box-shadow: 0 12px 28px rgba(0,0,0,0.05); }
-        
-        .grid-2, .grid-3 { display: grid; gap: 2rem; margin-top: 1.2rem; }
-        .grid-2 { grid-template-columns: repeat(2, 1fr); }
-        .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        
-        .token-address {
-            background: #F1EFEC;
-            padding: 1rem;
-            border-radius: 20px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            word-break: break-all;
-            margin: 1rem 0;
-        }
-        .price-card {
-            text-align: center;
-        }
-        .gecko-button {
-            display: inline-block;
-            background: #1A1A1A;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: 0.2s;
-        }
-        .gecko-button:hover { background: #B57C48; }
-        
-        .partner-logos { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; align-items: center; }
-        .partner-placeholder { width: 120px; height: 70px; background: rgba(0,0,0,0.03); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #8B8781; border: 1px dashed #ddd; }
-        
-        .roadmap-item {
-            position: relative;
-            padding-left: 2.5rem;
-            padding-bottom: 2rem;
-            border-left: 2px solid #D4CFC9;
-            margin-left: 1rem;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.6s ease;
-        }
-        .roadmap-item.visible { opacity: 1; transform: translateX(0); }
-        .roadmap-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: #B57C48;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-        
-        .button {
-            background: #1A1A1A;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.2s;
-        }
-        .button-outline { background: transparent; border: 1px solid #1A1A1A; color: #1A1A1A; }
-        .button-outline:hover { background: #1A1A1A; color: white; }
-        .button-group { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-        
-        footer { padding: 2.5rem 0; text-align: center; color: #6F6A64; border-top: 1px solid rgba(0,0,0,0.05); }
-        
-        @media (max-width: 800px) {
-            .grid-2, .grid-3 { grid-template-columns: 1fr; }
-            h1 { font-size: 2.2rem; }
-            .container { padding: 0 1rem; }
-            .header-inner { flex-direction: column; text-align: center; }
-            nav { justify-content: center; }
-        }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.7rem; opacity: 0.7; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="container header-inner">
-        <img src="adna_logo.png" alt="AromaDNA" class="logo" onerror="this.style.display='none';">
-        <nav>
-            <a href="#" data-i18n="nav_token">Token</a>
-            <a href="#" data-i18n="nav_ecosystem">Ecosystem</a>
-            <a href="#" data-i18n="nav_roadmap">Roadmap</a>
-            <a href="whitepaper.html" data-i18n="nav_whitepaper">Whitepaper</a>
-        </nav>
+<div class="navbar">
+    <div class="logo">🌿 ADNA</div>
+    <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="ecosystem.html">🌿 Ecosystem</a>
+        <a href="defi-hub.html">💰 DeFi Hub</a>
+        <a href="lending.html">🏦 Lending</a>
+        <a href="trading.html">📈 Trading</a>
+        <a href="earn.html">💸 Earn</a>
+        <a href="card.html">💳 Card</a>
+        <a href="bridge.html">🌉 Bridge</a>
+        <a href="islamic.html">🕌 Islamic</a>
+        <a href="precious.html">💎 Precious</a>
+        <a href="mining.html">⛏️ Mining</a>
+        <a href="whitepaper.html">📄 WP</a>
+        <a href="investors.html">📊 Investors</a>
+        <a href="how-to-buy.html">🇹🇲 How to Buy</a>
     </div>
-</header>
+</div>
+<div class="container" id="appContainer">
+    <h1 id="mainTitle">🌿 AromaDNA (ADNA)</h1>
+    <div class="subhead" id="subhead">Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.</div>
+    <div class="wallet-box">📤 ADNA Wallet: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9</div>
 
-<main>
-    <div class="container">
-        <div class="hero">
-            <h1>AromaDNA</h1>
-            <div class="subhead" data-i18n="subhead">Luxury Sensory Wellness Ecosystem</div>
-            <p data-i18n="hero_text">Fragrance as a tool for state, identity, and personal resource.<br>Where physical luxury meets digital identity.</p>
+    <div class="grid-2col">
+        <div class="card">
+            <div id="priceText" style="font-size:2.5rem;font-weight:800;color:#d4a843;">$0.0498</div>
+            <div>1 ADNA ≈ 0.0498 USDC</div>
+            <div id="liquidityText" style="font-size:1.3rem;font-weight:600;color:#f5e6c8;">💎 Liquidity: $124.7M</div>
+            <div>📊 24h Volume: $0.12 | 🔒 Holders: 18</div>
+            <div>🔗 <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">Solscan</a> | <a href="https://www.geckoterminal.com/solana/pools/FH6mP2MUobhDnLERp9z5yv5t2zMUA9WDNXPixpbvYKMv" target="_blank" style="color:#d4a843;">GeckoTerminal</a></div>
         </div>
-
-        <!-- Tokenomics -->
-        <section id="tokenomics">
-            <h2 data-i18n="tokenomics_title">📊 Tokenomics (10B ADNA)</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3 data-i18n="regulatory_title">🏦 Regulatory Insurance Deposit</h3>
-                    <p data-i18n="regulatory_text">30% — Master wallets for potential regulatory requests (3B ADNA).</p>
-                    <h3 data-i18n="byt_title">⚙️ byt-assist Ecosystem</h3>
-                    <p data-i18n="byt_text">25% — Operations, marketing, integrations (2.5B ADNA).</p>
-                    <h3 data-i18n="lp_title">💧 Liquidity (LP)</h3>
-                    <p data-i18n="lp_text">20% — DEX pools (2B ADNA).</p>
-                </div>
-                <div class="card">
-                    <h3 data-i18n="reserve_title">🔥 Reserve (Future Burns)</h3>
-                    <p data-i18n="reserve_text">15% — Controlled deflation (1.5B ADNA).</p>
-                    <h3 data-i18n="founder_title">👤 Founder & Strategic Vision Holder</h3>
-                    <p data-i18n="founder_text">10% — Dina Igaliyeva: long-term stewardship, brand development, expansion, IP protection (1B ADNA).</p>
-                    <p><em data-i18n="disclaimer">Mint Authority revoked. Total supply fixed.</em></p>
-                </div>
+        <div class="card">
+            <div>🌿 <strong id="missionTitle">Mission</strong><br><span id="missionDesc">Luxury Sensory Wellness Ecosystem. Fragrance as a tool for state, identity, and personal resource.</span></div>
+            <div class="button-group" style="margin-top:1rem;">
+                <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
+                <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
             </div>
-        </section>
-
-        <!-- Token + Live Chart Link -->
-        <section id="token">
-            <h2 data-i18n="token_title">🪙 ADNA Token</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3 data-i18n="utility_title">Utility Token</h3>
-                    <p data-i18n="utility_text">Solana Token-2022 | Total Supply: 10,000,000,000 fixed.</p>
-                    <div class="token-address">📍 <strong>Contract:</strong><br>DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
-                    <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="button">🔍 View on Solscan</a>
-                </div>
-                <div class="card price-card">
-                    <h3 data-i18n="live_chart_title">📈 Live Price & Chart</h3>
-                    <p data-i18n="live_chart_text">View real-time trading data, liquidity, and price history.</p>
-                    <a href="https://www.geckoterminal.com/solana/pools/FP5LSg4wTg3WTSgui8WWgWYeDRu5vsiGufaH2NZ1GpLX" target="_blank" class="gecko-button" data-i18n="gecko_button">📊 View on GeckoTerminal</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- How to Buy -->
-        <section id="howtobuy">
-            <h2 data-i18n="how_title">📘 How to buy ADNA</h2>
-            <div class="card">
-                <ol>
-                    <li data-i18n="step1">Install Phantom wallet</li>
-                    <li data-i18n="step2">Buy SOL on exchange → send to wallet</li>
-                    <li data-i18n="step3">Go to Jupiter or Meteora DEX</li>
-                    <li data-i18n="step4">Swap SOL → ADNA using contract address</li>
-                </ol>
-                <div class="token-address">ADNA: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
-            </div>
-        </section>
-
-        <!-- Partners -->
-        <section id="partners">
-            <h2 data-i18n="partners_title">🤝 Ecosystem Partners</h2>
-            <div class="partner-logos">
-                <div class="partner-placeholder" data-i18n="partner1">Partner One</div>
-                <div class="partner-placeholder" data-i18n="partner2">Partner Two</div>
-                <div class="partner-placeholder" data-i18n="partner3">Partner Three</div>
-                <div class="partner-placeholder" data-i18n="partner4">Partner Four</div>
-            </div>
-        </section>
-
-        <!-- Animated Roadmap -->
-        <section id="roadmap">
-            <h2 data-i18n="roadmap_title">🗺️ Roadmap</h2>
-            <div class="roadmap-item" data-i18n="phase1_anim"><strong>Phase 1 – Foundation</strong><br>Brand, methodology, client base, community.</div>
-            <div class="roadmap-item" data-i18n="phase2_anim"><strong>Phase 2 – Digitalization</strong><br>Website, CRM, ecosystem platform.</div>
-            <div class="roadmap-item" data-i18n="phase3_anim"><strong>Phase 3 – Tokenized Ecosystem</strong><br>ADNA utility, NFT, membership, loyalty.</div>
-            <div class="roadmap-item" data-i18n="phase4_anim"><strong>Phase 4 – International Expansion</strong><br>Franchise, wellness partnerships, global ambassadors.</div>
-        </section>
-
-        <!-- Ecosystem Verticals -->
-        <section id="ecosystem">
-            <h2 data-i18n="ecosystem_title">🌿 Ecosystem Verticals</h2>
-            <div class="grid-3">
-                <div class="card"><strong>AromaDNA</strong><br><span data-i18n="eco1">Central sensory wellness platform</span></div>
-                <div class="card"><strong>Aroma Dina</strong><br><span data-i18n="eco2">Luxury personalized perfumery</span></div>
-                <div class="card"><strong>PRP Method</strong><br><span data-i18n="eco3">Personal Resource Perfume Method</span></div>
-                <div class="card"><strong>Aroma Academy</strong><br><span data-i18n="eco4">Educational platform</span></div>
-                <div class="card"><strong>Aroma Magna</strong><br><span data-i18n="eco5">Research & molecule intelligence</span></div>
-                <div class="card"><strong>AromaTech</strong><br><span data-i18n="eco6">Digital infrastructure</span></div>
-            </div>
-        </section>
-
-        <!-- Whitepaper -->
-        <section id="whitepapersec">
-            <h2 data-i18n="wp_title">📄 Whitepaper</h2>
-            <div class="card">
-                <p data-i18n="wp_text">Read full vision, ecosystem structure, and token utility.</p>
-                <div class="button-group">
-                    <a href="whitepaper.html" class="button" data-i18n="wp_read">📖 Read online</a>
-                    <a href="whitepaper.pdf" class="button button-outline" data-i18n="wp_download">⬇️ Download PDF</a>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
-</main>
 
-<footer><div class="container">© 2026 AromaDNA Ecosystem — <span data-i18n="footer">Founded by Dina Igaliyeva</span></div></footer>
+    <h2>✨ Ecosystem Verticals</h2>
+    <div class="grid-4" id="verticalsGrid"></div>
 
+    <h2>🤝 Partners</h2>
+    <div class="grid-4" id="partnersGrid"></div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin:1rem 0;">
+        <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
+        <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
+        <a href="lending.html" class="btn">🏦 Lending</a>
+        <a href="trading.html" class="btn">📈 Trading</a>
+        <a href="earn.html" class="btn">💸 Earn</a>
+        <a href="card.html" class="btn">💳 Card</a>
+        <a href="bridge.html" class="btn">🌉 Bridge</a>
+        <a href="islamic.html" class="btn">🕌 Islamic</a>
+        <a href="precious.html" class="btn">💎 Precious</a>
+        <a href="mining.html" class="btn">⛏️ Mining</a>
+        <a href="whitepaper.html" class="btn">📄 WP</a>
+        <a href="investors.html" class="btn">📊 Investors</a>
+        <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+    </div>
+
+    <footer>© 2025 AromaDNA (ADNA) — Muslim Usmanov Ecosystem. Contract: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</footer>
+</div>
 <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
 <div class="lang-menu" id="langMenu">
-    <a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ru">🇷🇺 Русский</a><a href="#" data-lang="kk">🇰🇿 Қазақша</a>
-    <a href="#" data-lang="uz">🇺🇿 O'zbekcha</a><a href="#" data-lang="ky">🇰🇬 Кыргызча</a><a href="#" data-lang="zh">🇨🇳 中文</a>
-    <a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="fr">🇫🇷 Français</a>
+    <a href="#" data-lang="en">🇬🇧 English</a>
+    <a href="#" data-lang="ru">🇷🇺 Русский</a>
+    <a href="#" data-lang="tr">🇹🇷 Türkçe</a>
+    <a href="#" data-lang="ar">🇦🇪 العربية</a>
+    <a href="#" data-lang="fa">🇮🇷 فارسی</a>
 </div>
-
 <script>
-// ========================
-// FULL TRANSLATIONS (8 languages)
-// ========================
-const translations = {
-  en: {
-    nav_token: "Token", nav_ecosystem: "Ecosystem", nav_roadmap: "Roadmap", nav_whitepaper: "Whitepaper",
-    subhead: "Luxury Sensory Wellness Ecosystem",
-    hero_text: "Fragrance as a tool for state, identity, and personal resource.<br>Where physical luxury meets digital identity.",
-    tokenomics_title: "📊 Tokenomics (10B ADNA)",
-    regulatory_title: "🏦 Regulatory Insurance Deposit", regulatory_text: "30% — Master wallets for potential regulatory requests (3B ADNA).",
-    byt_title: "⚙️ byt-assist Ecosystem", byt_text: "25% — Operations, marketing, integrations (2.5B ADNA).",
-    lp_title: "💧 Liquidity (LP)", lp_text: "20% — DEX pools (2B ADNA).",
-    reserve_title: "🔥 Reserve (Future Burns)", reserve_text: "15% — Controlled deflation (1.5B ADNA).",
-    founder_title: "👤 Founder & Strategic Vision Holder", founder_text: "10% — Dina Igaliyeva: long-term stewardship, brand development, expansion, IP protection (1B ADNA).",
-    disclaimer: "Mint Authority revoked. Total supply fixed.",
-    token_title: "🪙 ADNA Token", utility_title: "Utility Token", utility_text: "Solana Token-2022 | Total Supply: 10,000,000,000 fixed.",
-    live_chart_title: "📈 Live Price & Chart", live_chart_text: "View real-time trading data, liquidity, and price history.", gecko_button: "📊 View on GeckoTerminal",
-    how_title: "📘 How to buy ADNA", step1: "Install Phantom wallet", step2: "Buy SOL on exchange → send to wallet", step3: "Go to Jupiter or Meteora DEX", step4: "Swap SOL → ADNA using contract address",
-    partners_title: "🤝 Ecosystem Partners", partner1: "Partner One", partner2: "Partner Two", partner3: "Partner Three", partner4: "Partner Four",
-    roadmap_title: "🗺️ Roadmap", 
-    phase1_anim: "<strong>Phase 1 – Foundation</strong><br>Brand, methodology, client base, community.",
-    phase2_anim: "<strong>Phase 2 – Digitalization</strong><br>Website, CRM, ecosystem platform.",
-    phase3_anim: "<strong>Phase 3 – Tokenized Ecosystem</strong><br>ADNA utility, NFT, membership, loyalty.",
-    phase4_anim: "<strong>Phase 4 – International Expansion</strong><br>Franchise, wellness partnerships, global ambassadors.",
-    ecosystem_title: "🌿 Ecosystem Verticals", 
-    eco1: "Central sensory wellness platform", eco2: "Luxury personalized perfumery", eco3: "Personal Resource Perfume Method",
-    eco4: "Educational platform", eco5: "Research & molecule intelligence", eco6: "Digital infrastructure",
-    wp_title: "📄 Whitepaper", wp_text: "Read full vision, ecosystem structure, and token utility.", 
-    wp_read: "📖 Read online", wp_download: "⬇️ Download PDF",
-    footer: "Founded by Dina Igaliyeva"
-  },
-  ru: {
-    nav_token: "Токен", nav_ecosystem: "Экосистема", nav_roadmap: "Дорожная карта", nav_whitepaper: "Whitepaper",
-    subhead: "Сенсорная оздоровительная экосистема класса люкс",
-    hero_text: "Аромат как инструмент состояния, идентичности и личного ресурса.<br>Там, где физическая роскошь встречается с цифровой идентичностью.",
-    tokenomics_title: "📊 Токеномика (10 млрд ADNA)",
-    regulatory_title: "🏦 Регуляторный страховой депозит", regulatory_text: "30% — мастер-кошельки (3 млрд ADNA).",
-    byt_title: "⚙️ Экосистема byt-assist", byt_text: "25% — операции, маркетинг (2.5 млрд).",
-    lp_title: "💧 Ликвидность (LP)", lp_text: "20% — пулы DEX (2 млрд).",
-    reserve_title: "🔥 Резерв (сжигания)", reserve_text: "15% — контролируемая дефляция (1.5 млрд).",
-    founder_title: "👤 Основатель и стратегический держатель видения", founder_text: "10% — Дина Игалиева: долгосрочное управление, развитие бренда, экспансия, защита интеллектуальной концепции (1 млрд).",
-    disclaimer: "Право на эмиссию отозвано. Общее предложение фиксировано.",
-    token_title: "🪙 Токен ADNA", utility_title: "Утилитарный токен", utility_text: "Solana Token-2022 | Общее предложение: 10 000 000 000.",
-    live_chart_title: "📈 Живая цена и график", live_chart_text: "Смотрите данные о торгах, ликвидности и истории цены в реальном времени.", gecko_button: "📊 Смотреть на GeckoTerminal",
-    how_title: "📘 Как купить ADNA", step1: "Установите Phantom кошелек", step2: "Купите SOL на бирже → отправьте в кошелек", step3: "Перейдите на Jupiter или Meteora DEX", step4: "Обменяйте SOL → ADNA по адресу контракта",
-    partners_title: "🤝 Партнеры экосистемы", partner1: "Партнер 1", partner2: "Партнер 2", partner3: "Партнер 3", partner4: "Партнер 4",
-    roadmap_title: "🗺️ Дорожная карта",
-    phase1_anim: "<strong>Фаза 1 – Основа</strong><br>Бренд, методология, клиентская база, комьюнити.",
-    phase2_anim: "<strong>Фаза 2 – Цифровизация</strong><br>Сайт, CRM, платформа экосистемы.",
-    phase3_anim: "<strong>Фаза 3 – Токенизированная экосистема</strong><br>Утилитарность ADNA, NFT, членство, лояльность.",
-    phase4_anim: "<strong>Фаза 4 – Международная экспансия</strong><br>Франшиза, партнерства, глобальные послы.",
-    ecosystem_title: "🌿 Вертикали экосистемы",
-    eco1: "Центральная сенсорная wellness-платформа", eco2: "Персонализированная парфюмерия класса люкс", eco3: "Метод персонального ресурсного аромата",
-    eco4: "Образовательная платформа", eco5: "Исследования и молекулярный интеллект", eco6: "Цифровая инфраструктура",
-    wp_title: "📄 Whitepaper", wp_text: "Ознакомьтесь с полным видением, структурой и токеном.", wp_read: "📖 Читать онлайн", wp_download: "⬇️ Скачать PDF",
-    footer: "Основано Диной Игалиевой"
-  },
-  kk: {
-    nav_token: "Токен", nav_ecosystem: "Экожүйе", nav_roadmap: "Жол картасы", nav_whitepaper: "Whitepaper",
-    subhead: "Luxury сенсорлық салауаттылық экожүйесі",
-    hero_text: "Хош иіс — күй, бірегейлік және жеке ресурс құралы.<br>Физикалық люкс цифрлық бірегейлікпен тоғысқан жерде.",
-    tokenomics_title: "📊 Токеномика (10 млрд ADNA)",
-    regulatory_title: "🏦 Реттеушілік сақтандыру депозиті", regulatory_text: "30% — шебер-әмияндар (3 млрд ADNA).",
-    byt_title: "⚙️ byt-assist экожүйесі", byt_text: "25% — операциялар, маркетинг (2.5 млрд).",
-    lp_title: "💧 Өтімділік (LP)", lp_text: "20% — DEX пулдары (2 млрд).",
-    reserve_title: "🔥 Резерв (болашақ өртеулер)", reserve_text: "15% — бақыланатын дефляция (1.5 млрд).",
-    founder_title: "👤 Негізін салушы және стратегиялық көзқарас иесі", founder_text: "10% — Дина Игалиева: ұзақ мерзімді басқару, брендті дамыту, экспансия, зияткерлік тұжырымдаманы қорғау (1 млрд).",
-    disclaimer: "Эмиссия құқығы өшірілді. Жалпы ұсыныс бекітілген.",
-    token_title: "🪙 ADNA Токені", utility_title: "Утилитарлық токен", utility_text: "Solana Token-2022 | Жалпы ұсыныс: 10 000 000 000.",
-    live_chart_title: "📈 Нақты уақыттағы баға және график", live_chart_text: "Сауда деректерін, өтімділік пен баға тарихын нақты уақытта көріңіз.", gecko_button: "📊 GeckoTerminal-да қарау",
-    how_title: "📘 ADNA қалай сатып алуға болады", step1: "Phantom әмиянын орнатыңыз", step2: "Биржадан SOL сатып алыңыз → әмиянға жіберіңіз", step3: "Jupiter немесе Meteora DEX сайтына өтіңіз", step4: "SOL → ADNA айырбастаңыз (контракт мекенжайы бойынша)",
-    partners_title: "🤝 Экожүйе серіктестері", partner1: "Серіктес 1", partner2: "Серіктес 2", partner3: "Серіктес 3", partner4: "Серіктес 4",
-    roadmap_title: "🗺️ Жол картасы",
-    phase1_anim: "<strong>1-кезең – Негіз</strong><br>Бренд, әдіснама, клиенттік база, қоғамдастық.",
-    phase2_anim: "<strong>2-кезең – Цифрландыру</strong><br>Сайт, CRM, экожүйе платформасы.",
-    phase3_anim: "<strong>3-кезең – Токенизацияланған экожүйе</strong><br>ADNA утилитарлығы, NFT, мүшелік, лоялдылық жүйесі.",
-    phase4_anim: "<strong>4-кезең – Халықаралық экспансия</strong><br>Франшиза, салауаттылық серіктестіктері, люкс коллаборациялар, жаһандық елшілер.",
-    ecosystem_title: "🌿 Экожүйе вертикалдары",
-    eco1: "Орталық сенсорлық салауаттылық платформасы", eco2: "Luxury дербес парфюмерия бренді", eco3: "Дербес ресурстық хош иіс әдісі",
-    eco4: "Білім беру платформасы", eco5: "Зерттеулер және молекулалық интеллект", eco6: "Цифрлық инфрақұрылым",
-    wp_title: "📄 Whitepaper", wp_text: "Толық көзқарас, экожүйе құрылымы және токен пайдалылығымен танысыңыз.", wp_read: "📖 Онлайн оқу", wp_download: "⬇️ PDF жүктеу",
-    footer: "Құрылтайшы: Дина Игалиева"
-  },
-  uz: {
-    nav_token: "Token", nav_ecosystem: "Ekotizim", nav_roadmap: "Yo'l xaritasi", nav_whitepaper: "Whitepaper",
-    subhead: "Luxury sensorli sog'lomlashtirish ekotizimi",
-    hero_text: "Xushbo'ylik — holat, shaxs va shaxsiy resurs vositasi.<br>Fizik hashamat raqamli shaxs bilan uchrashadigan joy.",
-    tokenomics_title: "📊 Tokenomika (10 mlrd ADNA)",
-    regulatory_title: "🏦 Regulyator sug'urta depoziti", regulatory_text: "30% — master hamyonlar (3 mlrd ADNA).",
-    byt_title: "⚙️ byt-assist ekotizimi", byt_text: "25% — operatsiyalar, marketing (2.5 mlrd).",
-    lp_title: "💧 Likvidlik (LP)", lp_text: "20% — DEX pullari (2 mlrd).",
-    reserve_title: "🔥 Zaxira (kelajakda yoqish)", reserve_text: "15% — nazorat qilinadigan deflyatsiya (1.5 mlrd).",
-    founder_title: "👤 Asoschi va strategik qarash egasi", founder_text: "10% — Dina Igaliyeva: uzoq muddatli boshqaruv, brendni rivojlantirish, kengayish, intellektual kontseptsiyani himoya qilish (1 mlrd).",
-    disclaimer: "Emissiya huquqi bekor qilingan. Umumiy taklif belgilangan.",
-    token_title: "🪙 ADNA Tokeni", utility_title: "Utility token", utility_text: "Solana Token-2022 | Umumiy taklif: 10 000 000 000.",
-    live_chart_title: "📈 Jonli narx va grafik", live_chart_text: "Real vaqt rejimidagi savdo ma'lumotlari, likvidlik va narx tarixini ko'ring.", gecko_button: "📊 GeckoTerminalda ko'rish",
-    how_title: "📘 ADNA qanday sotib olinadi", step1: "Phantom hamyonini o'rnating", step2: "Birjadan SOL sotib oling → hamyonga yuboring", step3: "Jupiter yoki Meteora DEX ga o'ting", step4: "SOL → ADNA almashtiring (kontrakt manzili bo'yicha)",
-    partners_title: "🤝 Ekotizim hamkorlari", partner1: "Hamkor 1", partner2: "Hamkor 2", partner3: "Hamkor 3", partner4: "Hamkor 4",
-    roadmap_title: "🗺️ Yo'l xaritasi",
-    phase1_anim: "<strong>1-bosqich – Asos</strong><br>Brend, metodologiya, mijozlar bazasi, hamjamiyat.",
-    phase2_anim: "<strong>2-bosqich – Raqamlashtirish</strong><br>Veb-sayt, CRM, ekotizim platformasi.",
-    phase3_anim: "<strong>3-bosqich – Tokenlashtirilgan ekotizim</strong><br>ADNA utility, NFT, a'zolik, loyalty tizimi.",
-    phase4_anim: "<strong>4-bosqich – Xalqaro kengayish</strong><br>Franchayzing, sog'lomlashtirish hamkorliklari, hashamatli kollaboratsiyalar, global elchilar.",
-    ecosystem_title: "🌿 Ekotizim vertikallari",
-    eco1: "Markaziy sensorli sog'lomlashtirish platformasi", eco2: "Luxury shaxsiy parfyumeriya brendi", eco3: "Shaxsiy resursli xushbo'ylik usuli",
-    eco4: "Ta'lim platformasi", eco5: "Tadqiqotlar va molekulyar intellekt", eco6: "Raqamli infratuzilma",
-    wp_title: "📄 Whitepaper", wp_text: "To'liq qarashlar, tuzilish va token foydaliligi bilan tanishing.", wp_read: "📖 Onlayn o'qish", wp_download: "⬇️ Yuklab olish (PDF)",
-    footer: "Asoschi: Dina Igaliyeva"
-  },
-  ky: {
-    nav_token: "Токен", nav_ecosystem: "Экосистема", nav_roadmap: "Жол картасы", nav_whitepaper: "Whitepaper",
-    subhead: "Luxury сенсордук саламаттык экосистемасы",
-    hero_text: "Жыпар — абал, инсандык жана жеке ресурс куралы.<br>Физикалык люкс санарип инсандык менен жолугушкан жерде.",
-    tokenomics_title: "📊 Токеномика (10 млрд ADNA)",
-    regulatory_title: "🏦 Регулятордук камсыздандыруу депозити", regulatory_text: "30% — мастер-камиттер (3 млрд ADNA).",
-    byt_title: "⚙️ byt-assist экосистемасы", byt_text: "25% — операциялар, маркетинг (2.5 млрд).",
-    lp_title: "💧 Ликвиддүүлүк (LP)", lp_text: "20% — DEX пулдары (2 млрд).",
-    reserve_title: "🔥 Резерв (келечекте өрттөө)", reserve_text: "15% — көзөмөлдөгү дефляция (1.5 млрд).",
-    founder_title: "👤 Негиздөөчү жана стратегиялык көз караш ээси", founder_text: "10% — Дина Игалиева: узак мөөнөттүү башкаруу, брендди өнүктүрүү, экспансия, интеллектуалдык концепцияны коргоо (1 млрд).",
-    disclaimer: "Эмиссия укугу өчүрүлгөн. Жалпы сунуш бекитилген.",
-    token_title: "🪙 ADNA Токени", utility_title: "Утилитардык токен", utility_text: "Solana Token-2022 | Жалпы сунуш: 10 000 000 000.",
-    live_chart_title: "📈 Реалдуу убакыттагы баа жана график", live_chart_text: "Реалдуу убакытта соода маалыматтарын, ликвиддүүлүктү жана баа тарыхын көрүңүз.", gecko_button: "📊 GeckoTerminalда көрүү",
-    how_title: "📘 ADNA кантип сатып алууга болот", step1: "Phantom капчыгын орнотуңуз", step2: "Биржадан SOL сатып алыңыз → капчыкка жөнөтүңүз", step3: "Jupiter же Meteora DEX сайтына өтүңүз", step4: "SOL → ADNA алмаштырыңыз (контракт дареги боюнча)",
-    partners_title: "🤝 Экосистема өнөктөштөрү", partner1: "Өнөктөш 1", partner2: "Өнөктөш 2", partner3: "Өнөктөш 3", partner4: "Өнөктөш 4",
-    roadmap_title: "🗺️ Жол картасы",
-    phase1_anim: "<strong>1-фаза – Негиз</strong><br>Бренд, методология, кардарлар базасы, коомчулук.",
-    phase2_anim: "<strong>2-фаза – Санариптештирүү</strong><br>Сайт, CRM, экосистема платформасы.",
-    phase3_anim: "<strong>3-фаза – Токенизацияланган экосистема</strong><br>ADNA утилитардуулугу, NFT, мүчөлүк, лоялдуулук тутуму.",
-    phase4_anim: "<strong>4-фаза – Эл аралык экспансия</strong><br>Франшиза, саламаттык өнөктөштүктөрү, люкс кызматташтыктар, глобалдык элчилер.",
-    ecosystem_title: "🌿 Экосистема вертикалдары",
-    eco1: "Борбордук сенсордук саламаттык платформасы", eco2: "Luxury жекелештирилген парфюмерия бренди", eco3: "Жеке ресурстук жыпар ыкмасы",
-    eco4: "Билим берүү платформасы", eco5: "Изилдөөлөр жана молекулалык интеллект", eco6: "Санарип инфраструктурасы",
-    wp_title: "📄 Whitepaper", wp_text: "Толук көз караш, экосистеманын түзүлүшү жана токендин пайдалуулугу менен таанышыңыз.", wp_read: "📖 Онлайн окуу", wp_download: "⬇️ PDF жүктөө",
-    footer: "Негиздөөчү: Дина Игалиева"
-  },
-  zh: {
-    nav_token: "代币", nav_ecosystem: "生态系统", nav_roadmap: "路线图", nav_whitepaper: "白皮书",
-    subhead: "奢华感官健康生态系统",
-    hero_text: "香气作为状态、身份和个人资源的工具。<br>物理奢华与数字身份交汇之处。",
-    tokenomics_title: "📊 代币经济 (100亿 ADNA)",
-    regulatory_title: "🏦 监管保险存款", regulatory_text: "30% — 主钱包 (30亿 ADNA)。",
-    byt_title: "⚙️ byt-assist 生态系统", byt_text: "25% — 运营、营销、集成 (25亿 ADNA)。",
-    lp_title: "💧 流动性 (LP)", lp_text: "20% — DEX池 (20亿 ADNA)。",
-    reserve_title: "🔥 储备金 (未来销毁)", reserve_text: "15% — 可控通缩 (15亿 ADNA)。",
-    founder_title: "👤 创始人及战略愿景持有者", founder_text: "10% — Dina Igaliyeva：长期管理、品牌发展、扩张、知识产权保护 (10亿 ADNA)。",
-    disclaimer: "铸币权已撤销。总供应量固定。",
-    token_title: "🪙 ADNA 代币", utility_title: "实用代币", utility_text: "Solana Token-2022 | 总供应量: 10,000,000,000。",
-    live_chart_title: "📈 实时价格和图表", live_chart_text: "查看实时交易数据、流动性和价格历史。", gecko_button: "📊 在 GeckoTerminal 上查看",
-    how_title: "📘 如何购买 ADNA", step1: "安装 Phantom 钱包", step2: "在交易所购买 SOL → 发送到钱包", step3: "前往 Jupiter 或 Meteora DEX", step4: "使用合约地址兑换 SOL → ADNA",
-    partners_title: "🤝 生态系统合作伙伴", partner1: "合作伙伴 1", partner2: "合作伙伴 2", partner3: "合作伙伴 3", partner4: "合作伙伴 4",
-    roadmap_title: "🗺️ 路线图",
-    phase1_anim: "<strong>第一阶段 – 基础</strong><br>品牌、方法论、客户群、社区。",
-    phase2_anim: "<strong>第二阶段 – 数字化</strong><br>网站、CRM、生态系统平台。",
-    phase3_anim: "<strong>第三阶段 – 代币化生态系统</strong><br>ADNA 实用性、NFT、会员资格、忠诚度系统。",
-    phase4_anim: "<strong>第四阶段 – 国际扩张</strong><br>特许经营、健康合作伙伴关系、奢华合作、全球大使。",
-    ecosystem_title: "🌿 生态系统垂直领域",
-    eco1: "中央感官健康平台", eco2: "奢华个性化香水", eco3: "个人资源香水方法",
-    eco4: "教育平台", eco5: "研究和分子智能", eco6: "数字基础设施",
-    wp_title: "📄 白皮书", wp_text: "阅读完整愿景、生态系统结构和代币实用性。", wp_read: "📖 在线阅读", wp_download: "⬇️ 下载 PDF",
-    footer: "创始人：Dina Igaliyeva"
-  },
-  de: {
-    nav_token: "Token", nav_ecosystem: "Ökosystem", nav_roadmap: "Fahrplan", nav_whitepaper: "Whitepaper",
-    subhead: "Luxuriöses sensorisches Wellness-Ökosystem",
-    hero_text: "Duft als Werkzeug für Zustand, Identität und persönliche Ressource.<br>Wo physischer Luxus auf digitale Identität trifft.",
-    tokenomics_title: "📊 Tokenomics (10 Mrd. ADNA)",
-    regulatory_title: "🏦 Regulatorische Versicherungseinlage", regulatory_text: "30% — Master-Wallets (3 Mrd. ADNA).",
-    byt_title: "⚙️ byt-assist Ökosystem", byt_text: "25% — Betrieb, Marketing, Integrationen (2.5 Mrd.).",
-    lp_title: "💧 Liquidität (LP)", lp_text: "20% — DEX-Pools (2 Mrd.).",
-    reserve_title: "🔥 Reserve (zukünftige Verbrennungen)", reserve_text: "15% — Kontrollierte Deflation (1.5 Mrd.).",
-    founder_title: "👤 Gründerin & Strategische Vision-Inhaberin", founder_text: "10% — Dina Igaliyeva: langfristige Verwaltung, Markenentwicklung, Expansion, Schutz des geistigen Eigentums (1 Mrd.).",
-    disclaimer: "Münzrecht widerrufen. Gesamtangebot fest.",
-    token_title: "🪙 ADNA Token", utility_title: "Utility-Token", utility_text: "Solana Token-2022 | Gesamtangebot: 10.000.000.000.",
-    live_chart_title: "📈 Live-Preis und Chart", live_chart_text: "Sehen Sie Echtzeit-Handelsdaten, Liquidität und Preishistorie.", gecko_button: "📊 Auf GeckoTerminal ansehen",
-    how_title: "📘 Wie kauft man ADNA", step1: "Installieren Sie Phantom Wallet", step2: "Kaufen Sie SOL an einer Börse → senden Sie an Wallet", step3: "Gehen Sie zu Jupiter oder Meteora DEX", step4: "Tauschen Sie SOL → ADNA mit der Vertragsadresse",
-    partners_title: "🤝 Ökosystem-Partner", partner1: "Partner 1", partner2: "Partner 2", partner3: "Partner 3", partner4: "Partner 4",
-    roadmap_title: "🗺️ Fahrplan",
-    phase1_anim: "<strong>Phase 1 – Grundlage</strong><br>Marke, Methodik, Kundenbasis, Community.",
-    phase2_anim: "<strong>Phase 2 – Digitalisierung</strong><br>Website, CRM, Ökosystemplattform.",
-    phase3_anim: "<strong>Phase 3 – Tokenisiertes Ökosystem</strong><br>ADNA-Utility, NFT, Mitgliedschaft, Treuesystem.",
-    phase4_anim: "<strong>Phase 4 – Internationale Expansion</strong><br>Franchise, Wellness-Partnerschaften, Luxus-Kooperationen, globale Botschafter.",
-    ecosystem_title: "🌿 Ökosystem-Bereiche",
-    eco1: "Zentrale sensorische Wellness-Plattform", eco2: "Luxuriöse, personalisierte Parfümerie", eco3: "Methode für persönlichen Ressourcenduft",
-    eco4: "Bildungsplattform", eco5: "Forschung und molekulare Intelligenz", eco6: "Digitale Infrastruktur",
-    wp_title: "📄 Whitepaper", wp_text: "Lesen Sie die vollständige Vision, Ökosystemstruktur und den Token-Nutzen.", wp_read: "📖 Online lesen", wp_download: "⬇️ PDF herunterladen",
-    footer: "Gegründet von Dina Igaliyeva"
-  },
-  fr: {
-    nav_token: "Token", nav_ecosystem: "Écosystème", nav_roadmap: "Feuille de route", nav_whitepaper: "Whitepaper",
-    subhead: "Écosystème de bien-être sensoriel de luxe",
-    hero_text: "Le parfum comme outil d'état, d'identité et de ressource personnelle.<br>Là où le luxe physique rencontre l'identité numérique.",
-    tokenomics_title: "📊 Tokenomics (10 milliards ADNA)",
-    regulatory_title: "🏦 Dépôt d'assurance réglementaire", regulatory_text: "30% — portefeuilles maîtres (3 milliards ADNA).",
-    byt_title: "⚙️ Écosystème byt-assist", byt_text: "25% — opérations, marketing, intégrations (2.5 milliards).",
-    lp_title: "💧 Liquidité (LP)", lp_text: "20% — pools DEX (2 milliards).",
-    reserve_title: "🔥 Réserve (futurs brûlages)", reserve_text: "15% — déflation contrôlée (1.5 milliard).",
-    founder_title: "👤 Fondatrice et détentrice de la vision stratégique", founder_text: "10% — Dina Igaliyeva: gestion à long terme, développement de la marque, expansion, protection de la propriété intellectuelle (1 milliard).",
-    disclaimer: "Droit de frappe révoqué. Offre totale fixe.",
-    token_title: "🪙 Jeton ADNA", utility_title: "Jeton utilitaire", utility_text: "Solana Token-2022 | Offre totale: 10 000 000 000.",
-    live_chart_title: "📈 Prix en direct et graphique", live_chart_text: "Visualisez les données de trading en temps réel, la liquidité et l'historique des prix.", gecko_button: "📊 Voir sur GeckoTerminal",
-    how_title: "📘 Comment acheter ADNA", step1: "Installez le portefeuille Phantom", step2: "Achetez SOL sur un exchange → envoyez au portefeuille", step3: "Allez sur Jupiter ou Meteora DEX", step4: "Échangez SOL → ADNA en utilisant l'adresse du contrat",
-    partners_title: "🤝 Partenaires de l'écosystème", partner1: "Partenaire 1", partner2: "Partenaire 2", partner3: "Partenaire 3", partner4: "Partenaire 4",
-    roadmap_title: "🗺️ Feuille de route",
-    phase1_anim: "<strong>Phase 1 – Fondation</strong><br>Marque, méthodologie, base de clients, communauté.",
-    phase2_anim: "<strong>Phase 2 – Digitalisation</strong><br>Site web, CRM, plateforme écosystémique.",
-    phase3_anim: "<strong>Phase 3 – Écosystème tokenisé</strong><br>Utilitaire ADNA, NFT, adhésion, système de fidélité.",
-    phase4_anim: "<strong>Phase 4 – Expansion internationale</strong><br>Franchise, partenariats bien-être, collaborations de luxe, ambassadeurs mondiaux.",
-    ecosystem_title: "🌿 Verticales de l'écosystème",
-    eco1: "Plateforme centrale de bien-être sensoriel", eco2: "Parfumerie personnalisée de luxe", eco3: "Méthode de parfum à ressource personnelle",
-    eco4: "Plateforme éducative", eco5: "Recherche et intelligence moléculaire", eco6: "Infrastructure numérique",
-    wp_title: "📄 Whitepaper", wp_text: "Lisez la vision complète, la structure de l'écosystème et l'utilité du jeton.", wp_read: "📖 Lire en ligne", wp_download: "⬇️ Télécharger le PDF",
-    footer: "Fondé par Dina Igaliyeva"
-  }
-};
+const verticals = [
+    { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
+    { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
+    { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
+    { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
+    { icon: "🔬", name: "Aroma Magna", desc: "Research & molecule intelligence" },
+    { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" }
+];
+const partners = [
+    { name: "Partner One", logo: "🤝" },
+    { name: "Partner Two", logo: "🤝" },
+    { name: "Partner Three", logo: "🤝" },
+    { name: "Partner Four", logo: "🤝" }
+];
+function renderVerticals() {
+    document.getElementById('verticalsGrid').innerHTML = verticals.map(v => 
+        `<div class="card"><div style="font-size:2rem;">${v.icon}</div><strong>${v.name}</strong><br><small>${v.desc}</small></div>`
+    ).join('');
+}
+function renderPartners() {
+    document.getElementById('partnersGrid').innerHTML = partners.map(p => 
+        `<div class="card"><div style="font-size:2rem;">${p.logo}</div><strong>${p.name}</strong></div>`
+    ).join('');
+}
+renderVerticals(); renderPartners();
 
-// Language logic
+const langContent = {
+    en: { title: "🌿 AromaDNA (ADNA)", sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.", price: "$0.0498", liq: "💎 Liquidity: $124.7M", missionTitle: "Mission", missionDesc: "Luxury Sensory Wellness Ecosystem." },
+    ru: { title: "🌿 AromaDNA (ADNA)", sub: "Экосистема роскошного сенсорного благополучия · Аромат как инструмент состояния, идентичности и личного ресурса.", price: "$0.0498", liq: "💎 Ликвидность: $124.7M", missionTitle: "Миссия", missionDesc: "Экосистема роскошного сенсорного благополучия." }
+};
 let currentLang = 'en';
 function setLanguage(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) {
-      if (el.innerHTML && el.innerHTML.includes('<br>')) el.innerHTML = t[key];
-      else el.innerText = t[key];
-    }
-  });
-  document.querySelector('.lang-switcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
-  localStorage.setItem('aroma_lang', lang);
+    currentLang = lang;
+    const t = langContent[lang] || langContent.en;
+    document.getElementById('mainTitle').innerText = t.title;
+    document.getElementById('subhead').innerText = t.sub;
+    document.getElementById('priceText').innerHTML = t.price;
+    document.getElementById('liquidityText').innerHTML = t.liq;
+    document.getElementById('missionTitle').innerText = t.missionTitle;
+    document.getElementById('missionDesc').innerText = t.missionDesc;
+    document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+    localStorage.setItem('adna_lang', lang);
 }
-
-document.getElementById('langSwitcher').addEventListener('click', () => document.getElementById('langMenu').classList.toggle('show'));
-document.querySelectorAll('.lang-menu a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    setLanguage(link.getAttribute('data-lang'));
-    document.getElementById('langMenu').classList.remove('show');
-  });
-});
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
-    document.getElementById('langMenu').classList.remove('show');
-});
-const savedLang = localStorage.getItem('aroma_lang');
-if (savedLang && translations[savedLang]) setLanguage(savedLang);
-else setLanguage('en');
-
-// Roadmap animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.2 });
-document.querySelectorAll('.roadmap-item').forEach(el => observer.observe(el));
+document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
+document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
+setLanguage(localStorage.getItem('adna_lang') || 'en');
 </script>
 </body>
 </html>
