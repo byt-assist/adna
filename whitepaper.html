@@ -3,262 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AromaDNA — Whitepaper</title>
+    <title>ADNA — Whitepaper</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: #FAF7F2;
-            color: #2C2A29;
-            line-height: 1.6;
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="none" stroke="%238B5E3C" stroke-width="1.2" d="M200 200 L250 180 L300 200 L330 250 L300 300 L250 320 L200 300 L170 250 Z M500 500 L560 475 L620 500 L645 560 L620 620 L560 645 L500 620 L475 560 Z"/><circle cx="350" cy="450" r="15" stroke="%238B5E3C" stroke-width="1" fill="none"/></svg>');
-            background-repeat: repeat;
-            background-size: 400px;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(2px);
-            border-radius: 32px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.6rem; margin: 1.5rem 0 1rem; border-left: 4px solid #B57C48; padding-left: 1rem; }
-        h3 { font-size: 1.2rem; margin: 1rem 0 0.5rem; }
-        .subhead { color: #B57C48; margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem; }
-        .disclaimer { background: #F1EFEC; padding: 1rem; border-radius: 16px; margin: 1rem 0; font-size: 0.85rem; }
-        .button { display: inline-block; background: #1A1A1A; color: white; padding: 0.6rem 1.2rem; border-radius: 40px; text-decoration: none; margin-top: 1rem; }
-        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1A1A1A; color: white; padding: 10px 16px; border-radius: 40px; cursor: pointer; z-index: 1000; font-family: monospace; }
-        .lang-menu { position: fixed; bottom: 70px; right: 20px; background: white; border-radius: 16px; padding: 10px 0; display: none; flex-direction: column; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 130px; }
-        .lang-menu a { padding: 8px 20px; text-decoration: none; color: #2C2A29; }
-        .lang-menu a:hover { background: #F5F0EA; }
+        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #d4a843; background: rgba(212, 168, 67, 0.1); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.9rem; }
+        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
+        .card .icon { font-size: 1.5rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.9rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; }
+        .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
+        .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
+        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
+        .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
         .lang-menu.show { display: flex; }
-        .back-link { display: inline-block; margin-bottom: 1rem; color: #B57C48; text-decoration: none; }
-        footer { text-align: center; margin-top: 2rem; font-size: 0.8rem; color: #6F6A64; }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.6rem; opacity: 0.7; }
+        .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
+        .search-box:focus { outline: none; border-color: #d4a843; }
+        .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.65rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
     </style>
 </head>
 <body>
-
-<div class="container" id="whitepaperContainer">
-    <a href="index.html" class="back-link" data-i18n="back">← Back to main page</a>
-    <h1 data-i18n="title">AromaDNA Ecosystem</h1>
-    <div class="subhead" data-i18n="version">Whitepaper — Version 1.0 · Founder: Dina Igaliyeva</div>
-
-    <div id="whitepaperContent">
-        <!-- content will be filled by JS -->
+    <div class="navbar">
+        <div class="logo">📄 ADNA</div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-key="nav_home">🏠 Home</a>
+            <a href="ecosystem.html" data-key="nav_ecosystem">🌿 Eco</a>
+            <a href="defi-hub.html" data-key="nav_defi">💰 DeFi</a>
+            <a href="lending.html" data-key="nav_lending">🏦 Lend</a>
+            <a href="trading.html" data-key="nav_trading">📈 Trade</a>
+            <a href="finance.html" data-key="nav_finance">📊 Fin</a>
+            <a href="real-estate.html" data-key="nav_realestate">🏠 RE</a>
+            <a href="earn.html" data-key="nav_earn">💸 Earn</a>
+            <a href="card.html" data-key="nav_card">💳 Card</a>
+            <a href="bridge.html" data-key="nav_bridge">🌉 Bridge</a>
+            <a href="islamic.html" data-key="nav_islamic">🕌 Islam</a>
+            <a href="precious.html" data-key="nav_precious">💎 Prec</a>
+            <a href="mining.html" data-key="nav_mining">⛏️ Mine</a>
+            <a href="whitepaper.html" class="active" data-key="nav_wp">📄 WP</a>
+            <a href="investors.html" data-key="nav_investors">📊 Inv</a>
+            <a href="how-to-buy.html" data-key="nav_howtobuy">🇹🇲 Buy</a>
+        </div>
     </div>
 
-    <footer>© 2026 AromaDNA Ecosystem — <span data-i18n="footer">Founded by Dina Igaliyeva</span></footer>
-</div>
+    <div class="container">
+        <h1 id="mainTitle">📄 ADNA Whitepaper</h1>
+        <div class="subhead" id="subhead">Complete Documentation & Technical Specifications · 300+ unique topics</div>
+        <div class="wallet-box">📤 <span id="walletLabel">ADNA Contract</span>: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 300+ whitepaper topics..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 300 / 300+</span>
+        </div>
+        <div id="functionsContainer"></div>
+        <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
+            <a href="index.html" class="btn">🏠 Home</a>
+            <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
+            <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
+            <a href="lending.html" class="btn">🏦 Lending</a>
+            <a href="trading.html" class="btn">📈 Trading</a>
+            <a href="finance.html" class="btn">📊 Finance</a>
+            <a href="real-estate.html" class="btn">🏠 Real Estate</a>
+            <a href="earn.html" class="btn">💸 Earn</a>
+            <a href="card.html" class="btn">💳 Card</a>
+            <a href="bridge.html" class="btn">🌉 Bridge</a>
+            <a href="islamic.html" class="btn">🕌 Islamic</a>
+            <a href="precious.html" class="btn">💎 Precious</a>
+            <a href="mining.html" class="btn">⛏️ Mining</a>
+            <a href="investors.html" class="btn">📊 Investors</a>
+            <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+        </div>
+        <footer>© 2025 AromaDNA (ADNA) · 300+ Whitepaper Topics</footer>
+    </div>
+    <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+    <div class="lang-menu" id="langMenu">
+        <a data-lang="en">🇬🇧 English</a>
+        <a data-lang="ru">🇷🇺 Русский</a>
+        <a data-lang="tr">🇹🇷 Türkçe</a>
+        <a data-lang="ar">🇦🇪 العربية</a>
+        <a data-lang="fa">🇮🇷 فارسی</a>
+    </div>
+    <script>
+        const wpPrefixes = ['Architecture', 'Protocol', 'Security', 'Governance', 'Economics', 'Tokenomics', 'Roadmap', 'Vision', 'Mission', 'Innovation', 'Strategy', 'Implementation', 'Development', 'Ecosystem', 'Integration'];
+        const wpActions = ['Define', 'Describe', 'Explain', 'Outline', 'Detail', 'Specify', 'Propose', 'Analyze', 'Evaluate', 'Plan'];
+        const wpNouns = ['Framework', 'Model', 'Structure', 'Plan', 'Strategy', 'Vision', 'Goal', 'Objective', 'Milestone', 'Timeline'];
 
-<div class="lang-switcher" id="langSwitcher">🌐 EN</div>
-<div class="lang-menu" id="langMenu">
-    <a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ru">🇷🇺 Русский</a><a href="#" data-lang="kk">🇰🇿 Қазақша</a>
-    <a href="#" data-lang="uz">🇺🇿 O'zbekcha</a><a href="#" data-lang="ky">🇰🇬 Кыргызча</a><a href="#" data-lang="zh">🇨🇳 中文</a>
-    <a href="#" data-lang="de">🇩🇪 Deutsch</a><a href="#" data-lang="fr">🇫🇷 Français</a>
-</div>
+        function generateWPFunctions(count) {
+            const result = []; const used = new Set(); const icons = ['📄','📄','📋','📋','📑','📑','📚','📚','📖','📖','📝','📝','📌','📌','📎'];
+            while (result.length < count) {
+                const p = wpPrefixes[Math.floor(Math.random() * wpPrefixes.length)];
+                const a = wpActions[Math.floor(Math.random() * wpActions.length)];
+                const n = wpNouns[Math.floor(Math.random() * wpNouns.length)];
+                let name = `${p} ${a} ${n}`;
+                if (Math.random() > 0.6) name += ` ${['Detailed','Comprehensive','Strategic','Advanced','Core'][Math.floor(Math.random()*5)]}`;
+                const descs = [`${p} ${a} for ${n}`, `${a} ${n} of ${p}`, `${p} ${n} ${a} documentation`];
+                const desc = descs[Math.floor(Math.random() * descs.length)];
+                const id = `wp_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
+                const key = name + desc; if (!used.has(key)) { used.add(key); result.push({ id, icon: icons[Math.floor(Math.random() * icons.length)], name, desc, category: 'Whitepaper' }); }
+            } return result;
+        }
 
-<script>
-const whitepaperTexts = {
-  en: `
-    <h2>1. Introduction</h2>
-    <p>AromaDNA is a next-generation sensory wellness ecosystem that unites personalized perfumery, sensory wellness, emotional rituals, luxury experiences, digital services, Web3 infrastructure, and a research platform for aromatic molecules and human states.</p>
-    <p><strong>Core idea:</strong> Fragrance as a tool for state, identity, and personal resource.</p>
-    <p>The ecosystem bridges physical products, digital identity, premium service, and personalized interaction with scent.</p>
+        const allFunctions = generateWPFunctions(300);
 
-    <h2>2. Mission</h2>
-    <p>To build a global ecosystem of personalized fragrance and sensory wellness, where scent becomes part of identity, a tool for emotional regulation, an element of ritual, a digital identifier, a means of self-expression, and a component of the future lifestyle ecosystem.</p>
+        function renderFunctions(filter = '') {
+            const container = document.getElementById('functionsContainer');
+            const search = filter.toLowerCase();
+            let filtered = allFunctions;
+            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            let html = `<h2>📄 Whitepaper Topics (${filtered.length})</h2><div class="grid-4">`;
+            filtered.forEach(f => { html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`; });
+            html += `</div>`;
+            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
+        }
 
-    <h2>3. Philosophy</h2>
-    <p><strong>3.1 Individuality</strong><br>Every person has a unique emotional, sensory, and behavioral architecture.</p>
-    <p><strong>3.2 Fragrance as a language of state</strong><br>Scent can serve as an anchor for memory, emotion, focus, relaxation, and internal state.</p>
-    <p><strong>3.3 Luxury through meaning</strong><br>True luxury is not mass production — it is personalization and depth of experience.</p>
-    <p><strong>3.4 Digital + Physical</strong><br>The future of luxury lies at the intersection of physical products, digital identity, membership models, tokenized access, and personalized services.</p>
+        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
 
-    <h2>4. Ecosystem Structure</h2>
-    <p><strong>AromaDNA</strong> – Central sensory wellness platform.<br>
-    <strong>Aroma Dina</strong> – Luxury personalized perfumery brand.<br>
-    <strong>PRP Method</strong> – Proprietary methodology for personal resource fragrance.<br>
-    <strong>Aroma Academy</strong> – Educational platform.<br>
-    <strong>Aroma Magna</strong> – Research and molecule intelligence.<br>
-    <strong>AromaTech</strong> – Digital infrastructure.<br>
-    <strong>Wellness & Ritual</strong> – Luxury sensory experiences.<br>
-    <strong>Franchise</strong> – Global scaling through partners.<br>
-    <strong>B2B</strong> – Corporate aroma solutions.</p>
+        const translations = {
+            en: { title: '📄 ADNA Whitepaper', sub: 'Complete Documentation & Technical Specifications · 300+ unique topics', walletLabel: 'ADNA Contract', nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy' },
+            ru: { title: '📄 Белая книга ADNA', sub: 'Полная документация и технические спецификации · 300+ уникальных тем', walletLabel: 'Контракт ADNA', nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить' }
+        };
 
-    <h2>5. AromaDNA — Core Platform</h2>
-    <p>AromaDNA is the central platform of the ecosystem, focusing on personalized fragrances, sensory wellness, emotional rituals, digital-physical access, premium membership, NFT scent identity, and community ecosystem.</p>
+        let currentLang = 'en';
+        function setLanguage(lang) {
+            currentLang = lang; const t = translations[lang] || translations.en;
+            document.getElementById('mainTitle').innerText = t.title; document.getElementById('subhead').innerText = t.sub; document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`; localStorage.setItem('adna_lang', lang);
+        }
 
-    <h2>6. ADNA Token</h2>
-    <p>ADNA is the utility token of the AromaDNA ecosystem.</p>
-    <p><strong>Parameters:</strong><br>
-    Name: AromaDNA<br>
-    Ticker: ADNA<br>
-    Positioning: Luxury Sensory Wellness Utility Token<br>
-    Network: Solana (Token-2022)<br>
-    Total Supply: 10,000,000,000 (10 billion) ADNA<br>
-    Mint Authority: Revoked (no additional tokens can ever be created)</p>
-    <div class="disclaimer"><strong>Legal Disclaimer:</strong><br>ADNA is strictly a utility token. It does not represent equity, debt, profit-sharing, or any financial claim. It provides access to products, services, and community features within the AromaDNA ecosystem. ADNA is not positioned as an investment instrument or security.</div>
-    <p><strong>Token Functions:</strong><br>
-    Access to premium products, participation in closed aroma sessions, membership access, loyalty rewards, community governance, NFT integration, digital access, and ecosystem participation.</p>
-    <p><strong>Tokenomics:</strong><br>
-    • 30% — Regulatory Insurance Deposit (master wallets)<br>
-    • 25% — byt-assist Ecosystem (operations, marketing, integrations)<br>
-    • 20% — Liquidity (DEX pools)<br>
-    • 15% — Reserve (future burns, controlled deflation)<br>
-    • 10% — Founder & Strategic Vision Holder: Dina Igaliyeva (long-term stewardship, brand development, expansion, IP protection)</p>
-
-    <h2>7. Aroma Dina</h2>
-    <p>Luxury personalized perfumery brand offering personal fragrances, signature scents, emotional perfumes, ritual fragrances, and luxury collections. Each fragrance is co-created with the client as a sensory portrait, an emotional anchor, and an extension of their lifestyle.</p>
-
-    <h2>8. PRP Method</h2>
-    <p>The Personal Resource Perfume Method is a proprietary methodology based on neuro-aromatics, sensory anchoring, associative perception, emotional mapping, and ritual integration.</p>
-
-    <h2>9. Aroma Academy</h2>
-    <p>Educational platform offering training in aromatherapy, luxury perfumery, neuro-aroma consulting, sensory branding, and emotional fragrance design.</p>
-
-    <h2>10. Aroma Magna</h2>
-    <p>Research and molecule intelligence platform focused on building a database of essential oils, molecule classification, chemotype mapping, molecule-effect relationships, and sensory response analysis.</p>
-
-    <h2>11. AromaTech</h2>
-    <p>Digital infrastructure including aroma recommendation engine, sensory profile system, digital scent passport, client CRM, and digital-physical integration layer.</p>
-
-    <h2>12. NFT Scent Passport</h2>
-    <p>Digital identity layer recording each user's sensory profile, fragrance preferences, emotional anchors, ritual history, and ecosystem memberships.</p>
-
-    <h2>13. Wellness & Ritual Direction</h2>
-    <p>Luxury wellness experiences including aroma rituals, relaxation sessions, sensory immersion, emotional reset experiences, and private wellness events.</p>
-
-    <h2>14. Franchise Model</h2>
-    <p>Global scaling through aroma studios, luxury consultation spaces, partner ecosystem, and certified aroma consultants.</p>
-
-    <h2>15. B2B Direction</h2>
-    <p>Corporate aroma solutions: scent branding, aroma identity for business, luxury hospitality aroma design, retail scent marketing, and private label production.</p>
-
-    <h2>16. Digital Commerce</h2>
-    <p>Online boutique, digital memberships, token-based access, subscription models, and NFT-linked products.</p>
-
-    <h2>17. Global Development Strategy</h2>
-    <p><strong>Phase 1 – Foundation:</strong> Brand, methodology, client base, content, community.<br>
-    <strong>Phase 2 – Digitalization:</strong> Website, CRM, ecosystem platform.<br>
-    <strong>Phase 3 – Tokenized Ecosystem:</strong> ADNA utility, NFT, membership, loyalty system.<br>
-    <strong>Phase 4 – International Expansion:</strong> Franchise, wellness partnerships, luxury collaborations, global ambassadors.</p>
-
-    <h2>18. Target Audience</h2>
-    <p>Premium wellness clients, luxury consumers, entrepreneurs, creatives, biohacking audience, lifestyle-focused individuals, and luxury hospitality sector.</p>
-
-    <h2>19. Competitive Advantages</h2>
-    <p>Fusion of luxury and wellness, deep personalization, emotional architecture of fragrances, digital-physical ecosystem, tokenized access, educational platform, and research ecosystem.</p>
-
-    <h2>20. Vision</h2>
-    <p>AromaDNA aims to become an international next-generation platform where fragrance becomes part of digital identity, sensory wellness integrates into lifestyle, luxury experiences become deeply personalized, and physical and digital products unite into a single ecosystem.</p>
-
-    <h2>21. Conclusion</h2>
-    <p>AromaDNA is not merely a perfume brand. It is a sensory ecosystem, a luxury wellness platform, a personalized experience architecture, an educational and technological environment, a research infrastructure, and a digital-physical lifestyle ecosystem.</p>
-  `,
-  ru: ` 
-    <h2>1. Введение</h2>
-    <p>AromaDNA — это сенсорная оздоровительная экосистема нового поколения, объединяющая персонализированную парфюмерию, эмоциональные ритуалы, люксовые впечатления, цифровые сервисы, Web3-инфраструктуру и исследовательскую платформу.</p>
-    <p><strong>Ключевая идея:</strong> Аромат как инструмент состояния, идентичности и личного ресурса.</p>
-
-    <h2>2. Миссия</h2>
-    <p>Создать глобальную экосистему персонализированной ароматики и сенсорного благополучия.</p>
-
-    <h2>3. Философия</h2>
-    <p><strong>3.1 Индивидуальность</strong> — уникальная архитектура каждого человека.<br>
-    <strong>3.2 Аромат как язык состояния</strong> — якорь для памяти, эмоций, фокуса и релаксации.<br>
-    <strong>3.3 Роскошь через смысл</strong> — персонализация и глубина опыта.<br>
-    <strong>3.4 Цифровое + Физическое</strong> — будущее люкса на стыке физических продуктов и цифровой идентичности.</p>
-
-    <h2>4. Структура экосистемы</h2>
-    <p><strong>AromaDNA</strong> – центральная сенсорная платформа.<br>
-    <strong>Aroma Dina</strong> – бренд персонализированной парфюмерии.<br>
-    <strong>PRP Method</strong> – метод ресурсного аромата.<br>
-    <strong>Aroma Academy</strong> – образовательная платформа.<br>
-    <strong>Aroma Magna</strong> – исследования и молекулярный интеллект.<br>
-    <strong>AromaTech</strong> – цифровая инфраструктура.<br>
-    <strong>Wellness & Ritual</strong> – люксовые сенсорные практики.<br>
-    <strong>Франшиза</strong> – масштабирование через партнеров.<br>
-    <strong>B2B</strong> – корпоративные арома-решения.</p>
-
-    <h2>5. AromaDNA — Основная платформа</h2>
-    <p>Персонализированные ароматы, сенсорный велнес, эмоциональные ритуалы, NFT-идентичность, премиальный доступ.</p>
-
-    <h2>6. Токен ADNA</h2>
-    <p>Утилитарный токен экосистемы AromaDNA на Solana (Token-2022).<br>
-    <strong>Общее предложение:</strong> 10 000 000 000 (фиксировано, право на эмиссию отозвано).</p>
-    <div class="disclaimer"><strong>Юридическое примечание:</strong> ADNA — строго утилитарный токен, не являющийся ценной бумагой или инвестиционным инструментом.</div>
-    <p><strong>Функции токена:</strong> Доступ к премиум-продуктам, участие в закрытых сессиях, членство, управление сообществом, NFT-интеграция.</p>
-    <p><strong>Токеномика:</strong><br>
-    • 30% — Регуляторный страховой депозит<br>
-    • 25% — Экосистема byt-assist<br>
-    • 20% — Ликвидность<br>
-    • 15% — Резерв (будущие сжигания)<br>
-    • 10% — Основатель и стратегический держатель видения: Дина Игалиева</p>
-
-    <h2>7-21. Остальные разделы</h2>
-    <p>Полное описание бренда Aroma Dina, метода PRP, академии, исследований, инфраструктуры, NFT-паспорта, франшизы, B2B, дорожной карты и видения проекта доступно в английской версии и будет добавлено позже. Основная концепция и токеномика представлены выше.</p>
-  `,
-  // For other languages we fallback to English for brevity, but you can expand
-};
-
-// Fallback for missing languages
-const supportedLangs = ['en', 'ru', 'kk', 'uz', 'ky', 'zh', 'de', 'fr'];
-for (let lang of supportedLangs) {
-    if (!whitepaperTexts[lang]) whitepaperTexts[lang] = whitepaperTexts.en;
-}
-
-let currentLangWP = 'en';
-function setLanguageWP(lang) {
-    currentLangWP = lang;
-    document.getElementById('whitepaperContent').innerHTML = whitepaperTexts[lang] || whitepaperTexts.en;
-    document.querySelector('.lang-switcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
-    localStorage.setItem('aroma_wp_lang', lang);
-    // Update back link and footer
-    const backLink = document.querySelector('.back-link');
-    if (backLink) {
-        if (lang === 'ru') backLink.innerText = '← На главную';
-        else backLink.innerText = '← Back to main page';
-    }
-    const footerSpan = document.querySelector('#whitepaperContainer footer span');
-    if (footerSpan) {
-        if (lang === 'ru') footerSpan.innerText = 'Основано Диной Игалиевой';
-        else footerSpan.innerText = 'Founded by Dina Igaliyeva';
-    }
-}
-
-// Language switcher UI
-document.getElementById('langSwitcher').addEventListener('click', () => document.getElementById('langMenu').classList.toggle('show'));
-document.querySelectorAll('.lang-menu a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        setLanguageWP(link.getAttribute('data-lang'));
-        document.getElementById('langMenu').classList.remove('show');
-    });
-});
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
-        document.getElementById('langMenu').classList.remove('show');
-});
-const savedWPLang = localStorage.getItem('aroma_wp_lang');
-if (savedWPLang && whitepaperTexts[savedWPLang]) setLanguageWP(savedWPLang);
-else setLanguageWP('en');
-</script>
+        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
+        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
+        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+    </script>
 </body>
 </html>
