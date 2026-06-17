@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADNA — Islamic Finance</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; }
+        .nav-links a:hover, .nav-links a.active { color: #d4a843; background: rgba(212, 168, 67, 0.1); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.9rem; }
+        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
+        .card .icon { font-size: 1.5rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.9rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; }
+        .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
+        .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
+        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
+        .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
+        .lang-menu.show { display: flex; }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.6rem; opacity: 0.7; }
+        .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
+        .search-box:focus { outline: none; border-color: #d4a843; }
+        .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.65rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">🕌 ADNA</div>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-key="nav_home">🏠 Home</a>
+            <a href="ecosystem.html" data-key="nav_ecosystem">🌿 Eco</a>
+            <a href="defi-hub.html" data-key="nav_defi">💰 DeFi</a>
+            <a href="lending.html" data-key="nav_lending">🏦 Lend</a>
+            <a href="trading.html" data-key="nav_trading">📈 Trade</a>
+            <a href="finance.html" data-key="nav_finance">📊 Fin</a>
+            <a href="real-estate.html" data-key="nav_realestate">🏠 RE</a>
+            <a href="earn.html" data-key="nav_earn">💸 Earn</a>
+            <a href="card.html" data-key="nav_card">💳 Card</a>
+            <a href="bridge.html" data-key="nav_bridge">🌉 Bridge</a>
+            <a href="islamic.html" class="active" data-key="nav_islamic">🕌 Islam</a>
+            <a href="precious.html" data-key="nav_precious">💎 Prec</a>
+            <a href="mining.html" data-key="nav_mining">⛏️ Mine</a>
+            <a href="whitepaper.html" data-key="nav_wp">📄 WP</a>
+            <a href="investors.html" data-key="nav_investors">📊 Inv</a>
+            <a href="how-to-buy.html" data-key="nav_howtobuy">🇹🇲 Buy</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 id="mainTitle">🕌 ADNA Islamic Finance</h1>
+        <div class="subhead" id="subhead">Sharia-Compliant Financial Solutions · 500+ unique products</div>
+        <div class="wallet-box">📤 <span id="walletLabel">ADNA Contract</span>: DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 500+ Islamic functions..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 500 / 500+</span>
+        </div>
+        <div id="functionsContainer"></div>
+        <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
+            <a href="index.html" class="btn">🏠 Home</a>
+            <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
+            <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
+            <a href="lending.html" class="btn">🏦 Lending</a>
+            <a href="trading.html" class="btn">📈 Trading</a>
+            <a href="finance.html" class="btn">📊 Finance</a>
+            <a href="real-estate.html" class="btn">🏠 Real Estate</a>
+            <a href="earn.html" class="btn">💸 Earn</a>
+            <a href="card.html" class="btn">💳 Card</a>
+            <a href="bridge.html" class="btn">🌉 Bridge</a>
+            <a href="precious.html" class="btn">💎 Precious</a>
+            <a href="mining.html" class="btn">⛏️ Mining</a>
+            <a href="whitepaper.html" class="btn">📄 WP</a>
+            <a href="investors.html" class="btn">📊 Investors</a>
+            <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+        </div>
+        <footer>© 2025 AromaDNA (ADNA) · 500+ Islamic Finance Functions</footer>
+    </div>
+    <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+    <div class="lang-menu" id="langMenu">
+        <a data-lang="en">🇬🇧 English</a>
+        <a data-lang="ru">🇷🇺 Русский</a>
+        <a data-lang="tr">🇹🇷 Türkçe</a>
+        <a data-lang="ar">🇦🇪 العربية</a>
+        <a data-lang="fa">🇮🇷 فارسی</a>
+    </div>
+    <script>
+        const islamicPrefixes = ['Murabaha', 'Mudaraba', 'Musharaka', 'Ijarah', 'Wakala', 'Qard', 'Takaful', 'Sukuk', 'Waqf', 'Zakat', 'Sadaqah', 'Halal', 'Sharia', 'Ethical', 'Islamic'];
+        const islamicActions = ['Certify', 'Validate', 'Structure', 'Comply', 'Screen', 'Audit', 'Approve', 'Guarantee', 'Insure', 'Distribute'];
+        const islamicNouns = ['Contract', 'Agreement', 'Investment', 'Product', 'Service', 'Portfolio', 'Trust', 'Fund', 'Asset', 'Return'];
+
+        function generateIslamicFunctions(count) {
+            const result = []; const used = new Set(); const icons = ['🕌','🕌','☪️','☪️','📿','📿','🕋','🕋','🕊️','🕊️','🌟','🌟','💚','💚','✨'];
+            while (result.length < count) {
+                const p = islamicPrefixes[Math.floor(Math.random() * islamicPrefixes.length)];
+                const a = islamicActions[Math.floor(Math.random() * islamicActions.length)];
+                const n = islamicNouns[Math.floor(Math.random() * islamicNouns.length)];
+                let name = `${p} ${a} ${n}`;
+                if (Math.random() > 0.6) name += ` ${['Premium','Plus','Pro','Elite','Gold'][Math.floor(Math.random()*5)]}`;
+                const descs = [`${p} ${a} product for ${n}`, `Sharia-compliant ${p} ${n}`, `${a} ${n} according to ${p} principles`];
+                const desc = descs[Math.floor(Math.random() * descs.length)];
+                const id = `islamic_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
+                const key = name + desc; if (!used.has(key)) { used.add(key); result.push({ id, icon: icons[Math.floor(Math.random() * icons.length)], name, desc, category: 'Islamic' }); }
+            } return result;
+        }
+
+        const allFunctions = generateIslamicFunctions(500);
+
+        function renderFunctions(filter = '') {
+            const container = document.getElementById('functionsContainer');
+            const search = filter.toLowerCase();
+            let filtered = allFunctions;
+            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            let html = `<h2>🕌 Islamic Functions (${filtered.length})</h2><div class="grid-4">`;
+            filtered.forEach(f => { html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div><div style="font-size:0.6rem;opacity:0.4;margin-top:0.2rem;">${f.id.slice(0,10)}</div></div>`; });
+            html += `</div>`;
+            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
+
+        const translations = {
+            en: { title: '🕌 ADNA Islamic Finance', sub: 'Sharia-Compliant Financial Solutions · 500+ unique products', walletLabel: 'ADNA Contract', nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy' },
+            ru: { title: '🕌 Исламские финансы ADNA', sub: 'Решения, соответствующие Шариату · 500+ уникальных продуктов', walletLabel: 'Контракт ADNA', nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить' }
+        };
+
+        let currentLang = 'en';
+        function setLanguage(lang) {
+            currentLang = lang; const t = translations[lang] || translations.en;
+            document.getElementById('mainTitle').innerText = t.title; document.getElementById('subhead').innerText = t.sub; document.getElementById('walletLabel').innerText = t.walletLabel;
+            document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
+            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`; localStorage.setItem('adna_lang', lang);
+        }
+
+        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
+        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
+        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+    </script>
+</body>
+</html>
