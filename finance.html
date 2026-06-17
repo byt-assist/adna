@@ -21,8 +21,6 @@
         .card .icon { font-size: 1.5rem; }
         .card .fname { font-weight: 600; color: #f5e6c8; }
         .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
-        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
-        .card .flink:hover { text-decoration: underline; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
@@ -68,7 +66,7 @@
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>🏗️ <span id="tokenizationLabel">Tokenization Engine</span>: <span id="tokenizationDesc">RWA · NFTs · Security Tokens · Fractional Ownership</span>
+            <br>🏗️ <span id="tokenizationLabel">Tokenization Engine</span>: RWA · NFTs · Security Tokens · Fractional Ownership
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
@@ -114,17 +112,15 @@
 
     <script>
         const financeTokenFunctions = [
-            // Финансовые инструменты (30)
-            { icon: "📊", name: "Budget Planner", desc: "AI-powered budget planning with 50+ categories. Track spending, set goals, and get insights. 0.1% fee for premium features.", link: "https://finance.adna/budget" },
-            { icon: "💰", name: "Cash Flow Analyzer", desc: "Real-time cash flow analysis with 30-day projections. Connect 20+ wallets and exchanges. 0% fee for basic features.", link: "https://finance.adna/cash" },
-            { icon: "📈", name: "ROI Calculator", desc: "Calculate ROI for 50+ investment strategies. Include fees, taxes, and inflation. 0.05% fee for advanced calculations.", link: "https://finance.adna/roi" },
-            // Токенизация (30)
-            { icon: "🏗️", name: "RWA Tokenization Engine", desc: "Tokenize real-world assets including real estate, art, gold, and intellectual property. 0.5% tokenization fee. 50+ assets tokenized. $100M+ TVL.", link: "https://tokenize.adna" },
-            { icon: "🎨", name: "NFT Art Minting", desc: "Mint your art as NFTs on Solana. Integration with 50+ artists. Royalties: 5-10% automatically paid. 0.05 SOL per mint.", link: "https://nft.adna" },
-            { icon: "🎵", name: "Music Rights Tokenization", desc: "Tokenize music royalties and intellectual property. Earn passive income from streaming, licensing, and performances. 0.5% fee.", link: "https://music.adna" },
-            { icon: "🏠", name: "Real Estate Tokenization", desc: "Fractional ownership of premium real estate. Minimum investment $1,000. Properties in Dubai, London, Singapore, Miami. 8-12% rental yield.", link: "https://re.adna" },
-            { icon: "🥇", name: "Gold Tokenization", desc: "Tokenize physical gold stored in LBMA vaults. 1 gram = 1 token. 0.5% storage fee. Redeem physical gold anytime.", link: "https://gold.adna" },
-            { icon: "📜", name: "Security Token Framework", desc: "SEC-compliant security token issuance. Automated compliance, KYC/AML, investor accreditation. 1% issuance fee.", link: "https://security.adna" }
+            { icon: "📊", name: "Budget Planner", desc: "AI-powered budget planning with 50+ categories. 0.1% fee for premium features. Track spending in real-time." },
+            { icon: "💰", name: "Cash Flow Analyzer", desc: "Real-time cash flow analysis with 30-day projections. Connect 20+ wallets and exchanges." },
+            { icon: "📈", name: "ROI Calculator", desc: "Calculate ROI for 50+ investment strategies. Include fees, taxes, inflation. 0.05% fee." },
+            { icon: "🏗️", name: "RWA Tokenization", desc: "Tokenize real estate, art, gold, IP. 0.5% fee. $100M+ assets tokenized. 50+ assets." },
+            { icon: "🎨", name: "NFT Art Minting", desc: "Mint art as NFTs on Solana. 50+ artists. 5-10% royalties. 0.05 SOL per mint." },
+            { icon: "🎵", name: "Music Rights Tokenization", desc: "Tokenize music royalties. Earn passive income from streaming. 0.5% fee." },
+            { icon: "🏠", name: "Real Estate Tokenization", desc: "Fractional ownership. Min $1,000. Dubai, London, Singapore, Miami. 8-12% yield." },
+            { icon: "🥇", name: "Gold Tokenization", desc: "Physical gold in LBMA vaults. 1 gram = 1 token. 0.5% storage fee. Redeem anytime." },
+            { icon: "📜", name: "Security Token Framework", desc: "SEC-compliant token issuance. KYC/AML, accreditation. 1% issuance fee." }
         ];
 
         function generateFinanceTokenFunctions() {
@@ -145,7 +141,6 @@
                 }
             });
 
-            // Финансовые функции
             while (result.filter(f => f.category !== 'Tokenization').length < 400) {
                 const p = finPrefixes[Math.floor(Math.random() * finPrefixes.length)];
                 const a = finActions[Math.floor(Math.random() * finActions.length)];
@@ -155,19 +150,17 @@
                 if (Math.random() > 0.6) name += ` ${['Pro','Plus','Adv','Elite','Max'][Math.floor(Math.random()*5)]}`;
                 const descs = [
                     `${p} ${a} tool for ${n} with 0.05% fee and 99.9% accuracy`,
-                    `${a} ${n} with ${p} optimization and real-time data from 20+ sources`,
-                    `${p} ${n} ${a} system with 50+ metrics and automated reporting`
+                    `${a} ${n} with ${p} optimization and real-time data from 20+ sources`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
                 const id = `fin_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc, link: `https://finance.adna/${n.toLowerCase().replace(/\s/g,'')}`, category: 'Finance' });
+                    result.push({ id, icon, name, desc, category: 'Finance' });
                 }
             }
 
-            // Токенизационные функции
             while (result.filter(f => f.category === 'Tokenization').length < 200) {
                 const p = tokenPrefixes[Math.floor(Math.random() * tokenPrefixes.length)];
                 const a = tokenActions[Math.floor(Math.random() * tokenActions.length)];
@@ -176,17 +169,15 @@
                 let name = `${p} ${a} ${n}`;
                 if (Math.random() > 0.5) name += ` ${['Pro','Plus','Premium','Elite','Gold','Platinum'][Math.floor(Math.random()*6)]}`;
                 const descs = [
-                    `${p} ${a} for ${n} tokenization with 0.5% fee and $100M+ TVL`,
-                    `${a} ${n} with ${p} framework, 50+ assets tokenized, SEC-compliant`,
-                    `${p} ${n} ${a} platform for RWA with 8-12% yield and fractional ownership`,
-                    `${a} ${n} using ${p} standards with 24/7 trading and instant settlement`
+                    `${p} ${a} for ${n} with 0.5% fee and $100M+ TVL`,
+                    `${a} ${n} with ${p} framework, 50+ assets tokenized, SEC-compliant`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
                 const id = `tok_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc, link: `https://tokenize.adna/${n.toLowerCase().replace(/\s/g,'')}`, category: 'Tokenization' });
+                    result.push({ id, icon, name, desc, category: 'Tokenization' });
                 }
             }
             return result;
@@ -207,7 +198,7 @@
             if (tok.length > 0) {
                 html += `<h2>🏗️ Tokenization Functions (${tok.length})</h2><div class="grid-4">`;
                 tok.slice(0, 50).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name} <span class="token-badge">TOKEN</span></div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
+                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name} <span class="token-badge">TOKEN</span></div><div class="fdesc">${f.desc}</div></div>`;
                 });
                 html += `</div>`;
             }
@@ -215,7 +206,7 @@
             if (fin.length > 0) {
                 html += `<h2>📊 Finance Functions (${fin.length})</h2><div class="grid-4">`;
                 fin.slice(0, 50).forEach(f => {
-                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div>${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}</div>`;
+                    html += `<div class="card"><div class="icon">${f.icon}</div><div class="fname">${f.name}</div><div class="fdesc">${f.desc}</div></div>`;
                 });
                 html += `</div>`;
             }
@@ -232,7 +223,6 @@
                 sub: 'Comprehensive Financial Tools + Tokenization · 600+ unique functions',
                 walletLabel: 'ADNA Contract',
                 tokenizationLabel: 'Tokenization Engine',
-                tokenizationDesc: 'RWA · NFTs · Security Tokens · Fractional Ownership',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
@@ -240,7 +230,6 @@
                 sub: 'Комплексные финансовые инструменты + токенизация · 600+ уникальных функций',
                 walletLabel: 'Контракт ADNA',
                 tokenizationLabel: 'Движок токенизации',
-                tokenizationDesc: 'RWA · NFT · Security Tokens · Дробное владение',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
         };
@@ -252,7 +241,6 @@
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('tokenizationLabel').innerText = t.tokenizationLabel;
-            document.getElementById('tokenizationDesc').innerText = t.tokenizationDesc;
             document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
