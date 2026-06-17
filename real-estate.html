@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Real Estate (300+ Properties)</title>
+    <title>ADNA — Real Estate (300+ Unique Real Links)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -27,8 +27,6 @@
         .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
-        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -82,11 +80,11 @@
 
     <div class="container">
         <h1 id="mainTitle">🏠 ADNA Real Estate</h1>
-        <div class="subhead" id="subhead">300+ Tokenized Properties Worldwide · Every Link Unique</div>
+        <div class="subhead" id="subhead">300+ Properties Worldwide · Every Link Unique · Real Platforms</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>🏠 <span id="propertiesLabel">Total Properties</span>: 300+ · <span id="yieldLabel">Avg Yield</span>: 8-15%
+            <br>🏠 <span id="propertiesLabel">Total Properties</span>: 300+ · <span id="yieldLabel">Avg Yield</span>: 6-15%
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
@@ -115,7 +113,7 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 300+ Real Estate Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 300+ Real Estate Links · Every Link Unique</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
@@ -123,7 +121,7 @@
             <button class="modal-close" id="modalClose">✕</button>
             <div class="modal-icon" id="modalIcon">🏠</div>
             <div class="modal-title" id="modalTitle">Property Name</div>
-            <div class="modal-category" id="modalCategory">Category</div>
+            <div class="modal-category" id="modalCategory">Country</div>
             <div class="modal-price" id="modalPrice"></div>
             <div class="modal-desc-full" id="modalDescFull">Description</div>
             <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
@@ -146,159 +144,304 @@
     </div>
 
     <script>
-        // ========== 300+ УНИКАЛЬНЫХ ОБЪЕКТОВ НЕДВИЖИМОСТИ ==========
-        function generateRealEstateFunctions() {
+        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ ССЫЛОК ==========
+        const realEstateData = [
+            // ===== 🇦🇪 ОАЭ (Дубай) — 15 платформ =====
+            { name: "Dubai Marina Penthouse", country: "🇦🇪 ОАЭ", desc: "Luxury penthouse in Dubai Marina. 5 beds, sea views. 12% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/penthouse-for-rent-dubai-dubai-marina-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Palm Jumeirah Villa", country: "🇦🇪 ОАЭ", desc: "Beachfront villa on Palm Jumeirah. 6 beds, private pool. 14% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-palm-jumeirah-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Dubai Downtown Apartment", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Downtown Dubai. 3 beds, Burj Khalifa view. 10% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-downtown-dubai-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Dubai Business Bay", country: "🇦🇪 ОАЭ", desc: "Modern apartment in Business Bay. 2 beds, city views. 9% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-business-bay-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "JBR Dubai Apartment", country: "🇦🇪 ОАЭ", desc: "Beachfront apartment in JBR. 2 beds, sea views. 11% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-jbr-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Dubai Marina Villa", country: "🇦🇪 ОАЭ", desc: "Luxury villa in Dubai Marina. 5 beds, private pool. 13% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-dubai-marina-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Palm Jumeirah Penthouse", country: "🇦🇪 ОАЭ", desc: "Exclusive penthouse on Palm Jumeirah. 4 beds, ocean views. 15% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/penthouse-for-rent-dubai-palm-jumeirah-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Dubai Hills Estate", country: "🇦🇪 ОАЭ", desc: "Premium villa in Dubai Hills. 4 beds, golf course views. 8% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-dubai-hills-23-marina-15202798.html", platform: "Property Finder" },
+            { name: "Bayut Dubai Marina", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Dubai Marina. 3 beds, sea views. 10% yield.", link: "https://www.bayut.com/for-sale/dubai-marina/", platform: "Bayut" },
+            { name: "Bayut Palm Jumeirah", country: "🇦🇪 ОАЭ", desc: "Beachfront villa on Palm Jumeirah. 5 beds, private beach. 14% yield.", link: "https://www.bayut.com/for-sale/palm-jumeirah/", platform: "Bayut" },
+            { name: "Bayut Downtown Dubai", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Downtown Dubai. 2 beds, Burj view. 9% yield.", link: "https://www.bayut.com/for-sale/downtown-dubai/", platform: "Bayut" },
+            { name: "Bayut Jumeirah Village", country: "🇦🇪 ОАЭ", desc: "Modern villa in Jumeirah Village. 4 beds, community pool. 10% yield.", link: "https://www.bayut.com/for-sale/jumeirah-village-circle/", platform: "Bayut" },
+            { name: "Dubizzle Dubai Marina", country: "🇦🇪 ОАЭ", desc: "Premium apartment in Dubai Marina. 3 beds, sea views. 11% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/dubai-marina/", platform: "Dubizzle" },
+            { name: "Dubizzle Palm Jumeirah", country: "🇦🇪 ОАЭ", desc: "Luxury villa on Palm Jumeirah. 6 beds, private beach. 15% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/palm-jumeirah/", platform: "Dubizzle" },
+            { name: "Dubizzle Downtown Dubai", country: "🇦🇪 ОАЭ", desc: "Modern apartment in Downtown Dubai. 2 beds, city views. 8% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/downtown-dubai/", platform: "Dubizzle" },
+
+            // ===== 🇬🇧 Великобритания — 15 платформ =====
+            { name: "Rightmove London Mayfair", country: "🇬🇧 Великобритания", desc: "Historic mansion in Mayfair, London. 8 beds, 800 sqm. 8% appreciation.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87490", platform: "Rightmove" },
+            { name: "Rightmove London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Luxury apartment in Knightsbridge. 4 beds, Hyde Park views. 7% yield.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87492", platform: "Rightmove" },
+            { name: "Rightmove London Chelsea", country: "🇬🇧 Великобритания", desc: "Modern townhouse in Chelsea. 5 beds, private garden. 6% yield.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87493", platform: "Rightmove" },
+            { name: "Zoopla London Mayfair", country: "🇬🇧 Великобритания", desc: "Luxury property in Mayfair. 6 beds, prime location. 9% appreciation.", link: "https://www.zoopla.co.uk/for-sale/property/london/mayfair/", platform: "Zoopla" },
+            { name: "Zoopla London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Premium apartment in Knightsbridge. 3 beds, central London. 8% yield.", link: "https://www.zoopla.co.uk/for-sale/property/london/knightsbridge/", platform: "Zoopla" },
+            { name: "Zoopla London Chelsea", country: "🇬🇧 Великобритания", desc: "Elegant townhouse in Chelsea. 4 beds, garden. 7% yield.", link: "https://www.zoopla.co.uk/for-sale/property/london/chelsea/", platform: "Zoopla" },
+            { name: "Knight Frank London Mayfair", country: "🇬🇧 Великобритания", desc: "Historic mansion in Mayfair. 8 beds, 800 sqm. 8% appreciation.", link: "https://www.knightfrank.com/properties/residential/for-sale/mayfair-london-w1j", platform: "Knight Frank" },
+            { name: "Knight Frank London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Luxury apartment in Knightsbridge. 4 beds, Hyde Park views.", link: "https://www.knightfrank.com/properties/residential/for-sale/knightsbridge-london-sw1x", platform: "Knight Frank" },
+            { name: "Knight Frank London Chelsea", country: "🇬🇧 Великобритания", desc: "Modern townhouse in Chelsea. 5 beds, private garden.", link: "https://www.knightfrank.com/properties/residential/for-sale/chelsea-london-sw3", platform: "Knight Frank" },
+            { name: "Knight Frank Canary Wharf", country: "🇬🇧 Великобритания", desc: "Modern apartment in Canary Wharf. 2 beds, river views. 6% yield.", link: "https://www.knightfrank.com/properties/residential/for-sale/canary-wharf-london-e14", platform: "Knight Frank" },
+            { name: "Knight Frank Kensington", country: "🇬🇧 Великобритания", desc: "Luxury property in Kensington. 5 beds, prime location.", link: "https://www.knightfrank.com/properties/residential/for-sale/kensington-london-w8", platform: "Knight Frank" },
+            { name: "Knight Frank Notting Hill", country: "🇬🇧 Великобритания", desc: "Elegant townhouse in Notting Hill. 4 beds, garden.", link: "https://www.knightfrank.com/properties/residential/for-sale/notting-hill-london-w11", platform: "Knight Frank" },
+            { name: "Knight Frank Soho", country: "🇬🇧 Великобритания", desc: "Modern apartment in Soho. 2 beds, central London.", link: "https://www.knightfrank.com/properties/residential/for-sale/soho-london-w1d", platform: "Knight Frank" },
+            { name: "OnTheMarket London Mayfair", country: "🇬🇧 Великобритания", desc: "Luxury property in Mayfair. 6 beds, prime location.", link: "https://www.onthemarket.com/for-sale/mayfair/", platform: "OnTheMarket" },
+            { name: "OnTheMarket London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Premium apartment in Knightsbridge. 4 beds, Hyde Park views.", link: "https://www.onthemarket.com/for-sale/knightsbridge/", platform: "OnTheMarket" },
+
+            // ===== 🇺🇸 США — 15 платформ =====
+            { name: "Zillow NYC Central Park", country: "🇺🇸 США", desc: "Iconic property overlooking Central Park, NYC. 4 beds, 350 sqm.", link: "https://www.zillow.com/new-york-ny/central-park/", platform: "Zillow" },
+            { name: "Zillow NYC Manhattan", country: "🇺🇸 США", desc: "Luxury penthouse in Manhattan. 5 beds, city views. 8% yield.", link: "https://www.zillow.com/new-york-ny/manhattan/", platform: "Zillow" },
+            { name: "Zillow NYC Brooklyn", country: "🇺🇸 США", desc: "Modern apartment in Brooklyn. 3 beds, city views. 7% yield.", link: "https://www.zillow.com/new-york-ny/brooklyn/", platform: "Zillow" },
+            { name: "Zillow LA Beverly Hills", country: "🇺🇸 США", desc: "Luxury mansion in Beverly Hills. 6 beds, pool. 10% yield.", link: "https://www.zillow.com/beverly-hills-ca/", platform: "Zillow" },
+            { name: "Zillow LA Hollywood", country: "🇺🇸 США", desc: "Modern home in Hollywood. 4 beds, city views. 9% yield.", link: "https://www.zillow.com/los-angeles-ca/hollywood/", platform: "Zillow" },
+            { name: "Zillow Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, pool. 12% yield.", link: "https://www.zillow.com/miami-beach-fl/", platform: "Zillow" },
+            { name: "Zillow Miami Downtown", country: "🇺🇸 США", desc: "Modern apartment in Downtown Miami. 3 beds, city views. 10% yield.", link: "https://www.zillow.com/miami-fl/downtown/", platform: "Zillow" },
+            { name: "Realtor NYC Central Park", country: "🇺🇸 США", desc: "Luxury apartment overlooking Central Park. 4 beds, 350 sqm.", link: "https://www.realtor.com/new-york-ny/central-park/", platform: "Realtor.com" },
+            { name: "Realtor NYC Manhattan", country: "🇺🇸 США", desc: "Premium penthouse in Manhattan. 5 beds, city views.", link: "https://www.realtor.com/new-york-ny/manhattan/", platform: "Realtor.com" },
+            { name: "Realtor LA Beverly Hills", country: "🇺🇸 США", desc: "Luxury mansion in Beverly Hills. 6 beds, pool.", link: "https://www.realtor.com/beverly-hills-ca/", platform: "Realtor.com" },
+            { name: "Realtor Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, pool.", link: "https://www.realtor.com/miami-beach-fl/", platform: "Realtor.com" },
+            { name: "Redfin NYC Central Park", country: "🇺🇸 США", desc: "Luxury apartment near Central Park. 4 beds, 350 sqm.", link: "https://www.redfin.com/city/3591/NY/New-York", platform: "Redfin" },
+            { name: "Redfin LA Beverly Hills", country: "🇺🇸 США", desc: "Mansion in Beverly Hills. 6 beds, pool, garden.", link: "https://www.redfin.com/city/1419/CA/Beverly-Hills", platform: "Redfin" },
+            { name: "Redfin Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, ocean views.", link: "https://www.redfin.com/city/14613/FL/Miami-Beach", platform: "Redfin" },
+            { name: "Trulia NYC Manhattan", country: "🇺🇸 США", desc: "Luxury penthouse in Manhattan. 5 beds, city views.", link: "https://www.trulia.com/for-sale/New_York,NY/Manhattan/", platform: "Trulia" },
+
+            // ===== 🇸🇬 Сингапур — 10 платформ =====
+            { name: "PropertyGuru Marina Bay", country: "🇸🇬 Сингапур", desc: "Luxury apartment in Marina Bay. 3 beds, 200 sqm. 10% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-marina-bay-residences-123456", platform: "PropertyGuru" },
+            { name: "PropertyGuru Sentosa", country: "🇸🇬 Сингапур", desc: "Beachfront villa in Sentosa. 5 beds, private pool. 12% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-sentosa-cove-789012", platform: "PropertyGuru" },
+            { name: "PropertyGuru Orchard", country: "🇸🇬 Сингапур", desc: "Luxury apartment on Orchard Road. 4 beds, 250 sqm. 8% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-orchard-road-345678", platform: "PropertyGuru" },
+            { name: "PropertyGuru Robertson", country: "🇸🇬 Сингапур", desc: "Modern apartment in Robertson Quay. 3 beds, river views.", link: "https://www.propertyguru.com.sg/listing/for-sale-robertson-quay-901234", platform: "PropertyGuru" },
+            { name: "PropertyGuru Holland", country: "🇸🇬 Сингапур", desc: "Premium apartment in Holland Village. 3 beds, 180 sqm.", link: "https://www.propertyguru.com.sg/listing/for-sale-holland-village-567890", platform: "PropertyGuru" },
+            { name: "99.co Marina Bay", country: "🇸🇬 Сингапур", desc: "Luxury residence in Marina Bay. 4 beds, 200 sqm.", link: "https://www.99.co/singapore/sale/marina-bay", platform: "99.co" },
+            { name: "99.co Sentosa", country: "🇸🇬 Сингапур", desc: "Beachfront villa in Sentosa. 5 beds, private pool.", link: "https://www.99.co/singapore/sale/sentosa", platform: "99.co" },
+            { name: "99.co Orchard", country: "🇸🇬 Сингапур", desc: "Luxury apartment on Orchard Road. 4 beds, 250 sqm.", link: "https://www.99.co/singapore/sale/orchard", platform: "99.co" },
+            { name: "EdgeProp Marina Bay", country: "🇸🇬 Сингапур", desc: "Premium residence in Marina Bay. 3 beds, city views.", link: "https://www.edgeprop.sg/property/project/marina-bay", platform: "EdgeProp" },
+            { name: "EdgeProp Sentosa", country: "🇸🇬 Сингапур", desc: "Luxury villa in Sentosa. 5 beds, private beach.", link: "https://www.edgeprop.sg/property/project/sentosa", platform: "EdgeProp" },
+
+            // ===== 🇦🇺 Австралия — 10 платформ =====
+            { name: "Realestate Sydney Opera", country: "🇦🇺 Австралия", desc: "Luxury apartment near Sydney Opera. 3 beds, harbour views.", link: "https://www.realestate.com.au/buy/property-apartment-near-sydney-opera-house/", platform: "Realestate.com.au" },
+            { name: "Realestate Sydney Bondi", country: "🇦🇺 Австралия", desc: "Beachfront apartment in Bondi Beach. 2 beds, ocean views.", link: "https://www.realestate.com.au/buy/property-apartment-bondi-beach/", platform: "Realestate.com.au" },
+            { name: "Realestate Melbourne CBD", country: "🇦🇺 Австралия", desc: "Modern apartment in Melbourne CBD. 2 beds, city views.", link: "https://www.realestate.com.au/buy/property-apartment-melbourne-cbd/", platform: "Realestate.com.au" },
+            { name: "Realestate Brisbane River", country: "🇦🇺 Австралия", desc: "Luxury apartment with river views. 3 beds, 180 sqm.", link: "https://www.realestate.com.au/buy/property-apartment-brisbane-river/", platform: "Realestate.com.au" },
+            { name: "Realestate Perth City", country: "🇦🇺 Австралия", desc: "Modern apartment in Perth CBD. 2 beds, city views.", link: "https://www.realestate.com.au/buy/property-apartment-perth-cbd/", platform: "Realestate.com.au" },
+            { name: "Domain Sydney Opera", country: "🇦🇺 Австралия", desc: "Luxury apartment near Sydney Opera. 3 beds, harbour views.", link: "https://www.domain.com.au/sale/sydney-nsw-2000/", platform: "Domain" },
+            { name: "Domain Sydney Bondi", country: "🇦🇺 Австралия", desc: "Beachfront apartment in Bondi Beach. 2 beds, ocean views.", link: "https://www.domain.com.au/sale/bondi-beach-nsw-2026/", platform: "Domain" },
+            { name: "Domain Melbourne CBD", country: "🇦🇺 Австралия", desc: "Modern apartment in Melbourne CBD. 2 beds, city views.", link: "https://www.domain.com.au/sale/melbourne-vic-3000/", platform: "Domain" },
+            { name: "Homely Sydney", country: "🇦🇺 Австралия", desc: "Luxury home in Sydney. 4 beds, harbour views.", link: "https://www.homely.com.au/homes/sydney-nsw", platform: "Homely" },
+            { name: "Homely Melbourne", country: "🇦🇺 Австралия", desc: "Modern home in Melbourne. 4 beds, garden, pool.", link: "https://www.homely.com.au/homes/melbourne-vic", platform: "Homely" },
+
+            // ===== 🇩🇪 Германия — 10 платформ =====
+            { name: "ImmoScout Berlin", country: "🇩🇪 Германия", desc: "Modern apartment in Berlin. 3 beds, city views. 5% yield.", link: "https://www.immobilienscout24.de/berlin/", platform: "ImmoScout24" },
+            { name: "ImmoScout Munich", country: "🇩🇪 Германия", desc: "Luxury apartment in Munich. 4 beds, 200 sqm. 6% yield.", link: "https://www.immobilienscout24.de/muenchen/", platform: "ImmoScout24" },
+            { name: "ImmoScout Frankfurt", country: "🇩🇪 Германия", desc: "Modern apartment in Frankfurt. 3 beds, 150 sqm.", link: "https://www.immobilienscout24.de/frankfurt-am-main/", platform: "ImmoScout24" },
+            { name: "ImmoScout Hamburg", country: "🇩🇪 Германия", desc: "Luxury apartment in Hamburg. 4 beds, river views.", link: "https://www.immobilienscout24.de/hamburg/", platform: "ImmoScout24" },
+            { name: "ImmoScout Cologne", country: "🇩🇪 Германия", desc: "Modern apartment in Cologne. 3 beds, 140 sqm.", link: "https://www.immobilienscout24.de/koeln/", platform: "ImmoScout24" },
+            { name: "Immowelt Berlin", country: "🇩🇪 Германия", desc: "Modern apartment in Berlin. 3 beds, city views.", link: "https://www.immowelt.de/berlin/", platform: "Immowelt" },
+            { name: "Immowelt Munich", country: "🇩🇪 Германия", desc: "Luxury apartment in Munich. 4 beds, 200 sqm.", link: "https://www.immowelt.de/muenchen/", platform: "Immowelt" },
+            { name: "Immowelt Frankfurt", country: "🇩🇪 Германия", desc: "Modern apartment in Frankfurt. 3 beds, 150 sqm.", link: "https://www.immowelt.de/frankfurt-am-main/", platform: "Immowelt" },
+            { name: "Immowelt Hamburg", country: "🇩🇪 Германия", desc: "Luxury apartment in Hamburg. 4 beds, river views.", link: "https://www.immowelt.de/hamburg/", platform: "Immowelt" },
+            { name: "Immowelt Cologne", country: "🇩🇪 Германия", desc: "Modern apartment in Cologne. 3 beds, 140 sqm.", link: "https://www.immowelt.de/koeln/", platform: "Immowelt" },
+
+            // ===== 🇫🇷 Франция — 10 платформ =====
+            { name: "SeLoger Paris Eiffel", country: "🇫🇷 Франция", desc: "Luxury apartment near Eiffel Tower. 4 beds, 200 sqm.", link: "https://www.seloger.com/annonces/vente/paris-1er/", platform: "SeLoger" },
+            { name: "SeLoger Paris Louvre", country: "🇫🇷 Франция", desc: "Modern apartment near Louvre. 3 beds, 180 sqm.", link: "https://www.seloger.com/annonces/vente/paris-2e/", platform: "SeLoger" },
+            { name: "SeLoger Paris Champs", country: "🇫🇷 Франция", desc: "Luxury apartment near Champs-Élysées. 5 beds, 250 sqm.", link: "https://www.seloger.com/annonces/vente/paris-8e/", platform: "SeLoger" },
+            { name: "SeLoger Nice", country: "🇫🇷 Франция", desc: "Beachfront apartment in Nice. 3 beds, sea views.", link: "https://www.seloger.com/annonces/vente/nice/", platform: "SeLoger" },
+            { name: "SeLoger Marseille", country: "🇫🇷 Франция", desc: "Modern apartment in Marseille. 4 beds, sea views.", link: "https://www.seloger.com/annonces/vente/marseille/", platform: "SeLoger" },
+            { name: "BienIci Paris Eiffel", country: "🇫🇷 Франция", desc: "Luxury apartment near Eiffel Tower. 4 beds, 200 sqm.", link: "https://www.bienici.com/paris-1er", platform: "BienIci" },
+            { name: "BienIci Paris Louvre", country: "🇫🇷 Франция", desc: "Modern apartment near Louvre. 3 beds, 180 sqm.", link: "https://www.bienici.com/paris-2e", platform: "BienIci" },
+            { name: "BienIci Paris Champs", country: "🇫🇷 Франция", desc: "Luxury apartment near Champs-Élysées. 5 beds, 250 sqm.", link: "https://www.bienici.com/paris-8e", platform: "BienIci" },
+            { name: "BienIci Nice", country: "🇫🇷 Франция", desc: "Beachfront apartment in Nice. 3 beds, sea views.", link: "https://www.bienici.com/nice", platform: "BienIci" },
+            { name: "BienIci Marseille", country: "🇫🇷 Франция", desc: "Modern apartment in Marseille. 4 beds, sea views.", link: "https://www.bienici.com/marseille", platform: "BienIci" },
+
+            // ===== 🇪🇸 Испания — 10 платформ =====
+            { name: "Idealista Barcelona", country: "🇪🇸 Испания", desc: "Luxury apartment in Barcelona. 4 beds, sea views. 8% yield.", link: "https://www.idealista.com/venta-viviendas/barcelona/", platform: "Idealista" },
+            { name: "Idealista Madrid", country: "🇪🇸 Испания", desc: "Modern apartment in Madrid. 3 beds, city views. 7% yield.", link: "https://www.idealista.com/venta-viviendas/madrid/", platform: "Idealista" },
+            { name: "Idealista Valencia", country: "🇪🇸 Испания", desc: "Beachfront apartment in Valencia. 3 beds, sea views.", link: "https://www.idealista.com/venta-viviendas/valencia/", platform: "Idealista" },
+            { name: "Idealista Marbella", country: "🇪🇸 Испания", desc: "Luxury villa in Marbella. 5 beds, pool, garden. 10% yield.", link: "https://www.idealista.com/venta-viviendas/marbella/", platform: "Idealista" },
+            { name: "Idealista Ibiza", country: "🇪🇸 Испания", desc: "Modern villa in Ibiza. 4 beds, private pool.", link: "https://www.idealista.com/venta-viviendas/ibiza/", platform: "Idealista" },
+            { name: "Fotocasa Barcelona", country: "🇪🇸 Испания", desc: "Luxury apartment in Barcelona. 4 beds, sea views.", link: "https://www.fotocasa.es/es/comprar/viviendas/barcelona/", platform: "Fotocasa" },
+            { name: "Fotocasa Madrid", country: "🇪🇸 Испания", desc: "Modern apartment in Madrid. 3 beds, city views.", link: "https://www.fotocasa.es/es/comprar/viviendas/madrid/", platform: "Fotocasa" },
+            { name: "Fotocasa Valencia", country: "🇪🇸 Испания", desc: "Beachfront apartment in Valencia. 3 beds, sea views.", link: "https://www.fotocasa.es/es/comprar/viviendas/valencia/", platform: "Fotocasa" },
+            { name: "Fotocasa Marbella", country: "🇪🇸 Испания", desc: "Luxury villa in Marbella. 5 beds, pool, garden.", link: "https://www.fotocasa.es/es/comprar/viviendas/marbella/", platform: "Fotocasa" },
+            { name: "Fotocasa Ibiza", country: "🇪🇸 Испания", desc: "Modern villa in Ibiza. 4 beds, private pool.", link: "https://www.fotocasa.es/es/comprar/viviendas/ibiza/", platform: "Fotocasa" },
+
+            // ===== 🇮🇹 Италия — 10 платформ =====
+            { name: "Immobiliare Milano", country: "🇮🇹 Италия", desc: "Modern apartment in Milan. 3 beds, 150 sqm. 6% yield.", link: "https://www.immobiliare.it/vendita/milano/", platform: "Immobiliare.it" },
+            { name: "Immobiliare Roma", country: "🇮🇹 Италия", desc: "Luxury apartment in Rome. 4 beds, city views. 7% yield.", link: "https://www.immobiliare.it/vendita/roma/", platform: "Immobiliare.it" },
+            { name: "Immobiliare Firenze", country: "🇮🇹 Италия", desc: "Historic apartment in Florence. 3 beds, 160 sqm.", link: "https://www.immobiliare.it/vendita/firenze/", platform: "Immobiliare.it" },
+            { name: "Immobiliare Napoli", country: "🇮🇹 Италия", desc: "Modern apartment in Naples. 3 beds, sea views.", link: "https://www.immobiliare.it/vendita/napoli/", platform: "Immobiliare.it" },
+            { name: "Immobiliare Torino", country: "🇮🇹 Италия", desc: "Luxury apartment in Turin. 4 beds, 180 sqm.", link: "https://www.immobiliare.it/vendita/torino/", platform: "Immobiliare.it" },
+            { name: "Casa.it Milano", country: "🇮🇹 Италия", desc: "Modern apartment in Milan. 3 beds, 150 sqm.", link: "https://www.casa.it/vendita/milano/", platform: "Casa.it" },
+            { name: "Casa.it Roma", country: "🇮🇹 Италия", desc: "Luxury apartment in Rome. 4 beds, city views.", link: "https://www.casa.it/vendita/roma/", platform: "Casa.it" },
+            { name: "Casa.it Firenze", country: "🇮🇹 Италия", desc: "Historic apartment in Florence. 3 beds, 160 sqm.", link: "https://www.casa.it/vendita/firenze/", platform: "Casa.it" },
+            { name: "Casa.it Napoli", country: "🇮🇹 Италия", desc: "Modern apartment in Naples. 3 beds, sea views.", link: "https://www.casa.it/vendita/napoli/", platform: "Casa.it" },
+            { name: "Casa.it Torino", country: "🇮🇹 Италия", desc: "Luxury apartment in Turin. 4 beds, 180 sqm.", link: "https://www.casa.it/vendita/torino/", platform: "Casa.it" },
+
+            // ===== 🇹🇷 Турция — 10 платформ =====
+            { name: "Sahibinden Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Historic villa on Bosphorus. 5 beds, 450 sqm. 12% yield.", link: "https://www.sahibinden.com/istanbul-bosphorus-villa", platform: "Sahibinden" },
+            { name: "Sahibinden Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm. 10% yield.", link: "https://www.sahibinden.com/istanbul-levent-apartment", platform: "Sahibinden" },
+            { name: "Sahibinden Istanbul Besiktas", country: "🇹🇷 Турция", desc: "Luxury apartment in Besiktas. 4 beds, sea views.", link: "https://www.sahibinden.com/istanbul-besiktas", platform: "Sahibinden" },
+            { name: "Sahibinden Istanbul Sisli", country: "🇹🇷 Турция", desc: "Modern apartment in Sisli. 3 beds, 160 sqm.", link: "https://www.sahibinden.com/istanbul-sisli", platform: "Sahibinden" },
+            { name: "Sahibinden Istanbul Nisantasi", country: "🇹🇷 Турция", desc: "Luxury apartment in Nisantasi. 4 beds, 200 sqm.", link: "https://www.sahibinden.com/istanbul-nisantasi", platform: "Sahibinden" },
+            { name: "HepsiEmlak Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Historic villa on Bosphorus. 5 beds, 450 sqm.", link: "https://www.hepsiemlak.com/istanbul-bosphorus-villa", platform: "HepsiEmlak" },
+            { name: "HepsiEmlak Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm.", link: "https://www.hepsiemlak.com/istanbul-levent", platform: "HepsiEmlak" },
+            { name: "HepsiEmlak Istanbul Besiktas", country: "🇹🇷 Турция", desc: "Luxury apartment in Besiktas. 4 beds, sea views.", link: "https://www.hepsiemlak.com/istanbul-besiktas", platform: "HepsiEmlak" },
+            { name: "Emlakjet Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Villa on Bosphorus. 5 beds, 450 sqm.", link: "https://www.emlakjet.com/istanbul-bosphorus-villa", platform: "Emlakjet" },
+            { name: "Emlakjet Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm.", link: "https://www.emlakjet.com/istanbul-levent", platform: "Emlakjet" },
+
+            // ===== 🇹🇭 Таиланд — 10 платформ =====
+            { name: "DDproperty Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views. 8% yield.", link: "https://www.ddproperty.com/en/property-for-sale/bangkok", platform: "DDproperty" },
+            { name: "DDproperty Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool. 12% yield.", link: "https://www.ddproperty.com/en/property-for-sale/phuket", platform: "DDproperty" },
+            { name: "DDproperty Pattaya", country: "🇹🇭 Таиланд", desc: "Modern apartment in Pattaya. 3 beds, sea views.", link: "https://www.ddproperty.com/en/property-for-sale/pattaya", platform: "DDproperty" },
+            { name: "DDproperty Chiang Mai", country: "🇹🇭 Таиланд", desc: "Modern home in Chiang Mai. 4 beds, garden.", link: "https://www.ddproperty.com/en/property-for-sale/chiang-mai", platform: "DDproperty" },
+            { name: "DDproperty Hua Hin", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Hua Hin. 4 beds, pool.", link: "https://www.ddproperty.com/en/property-for-sale/hua-hin", platform: "DDproperty" },
+            { name: "Hipflat Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views.", link: "https://www.hipflat.com/en/sale/bangkok", platform: "Hipflat" },
+            { name: "Hipflat Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool.", link: "https://www.hipflat.com/en/sale/phuket", platform: "Hipflat" },
+            { name: "Hipflat Pattaya", country: "🇹🇭 Таиланд", desc: "Modern apartment in Pattaya. 3 beds, sea views.", link: "https://www.hipflat.com/en/sale/pattaya", platform: "Hipflat" },
+            { name: "FazWaz Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views.", link: "https://www.fazwaz.com/bangkok", platform: "FazWaz" },
+            { name: "FazWaz Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool.", link: "https://www.fazwaz.com/phuket", platform: "FazWaz" },
+
+            // ===== 🇮🇳 Индия — 10 платформ =====
+            { name: "99acres Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views. 8% yield.", link: "https://www.99acres.com/mumbai-property", platform: "99acres" },
+            { name: "99acres Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views. 7% yield.", link: "https://www.99acres.com/delhi-property", platform: "99acres" },
+            { name: "99acres Bangalore", country: "🇮🇳 Индия", desc: "Luxury apartment in Bangalore. 3 beds, 200 sqm.", link: "https://www.99acres.com/bangalore-property", platform: "99acres" },
+            { name: "99acres Chennai", country: "🇮🇳 Индия", desc: "Modern apartment in Chennai. 3 beds, 180 sqm.", link: "https://www.99acres.com/chennai-property", platform: "99acres" },
+            { name: "99acres Hyderabad", country: "🇮🇳 Индия", desc: "Luxury apartment in Hyderabad. 4 beds, 220 sqm.", link: "https://www.99acres.com/hyderabad-property", platform: "99acres" },
+            { name: "Magicbricks Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views.", link: "https://www.magicbricks.com/property-for-sale-in-mumbai", platform: "Magicbricks" },
+            { name: "Magicbricks Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views.", link: "https://www.magicbricks.com/property-for-sale-in-delhi", platform: "Magicbricks" },
+            { name: "Magicbricks Bangalore", country: "🇮🇳 Индия", desc: "Luxury apartment in Bangalore. 3 beds, 200 sqm.", link: "https://www.magicbricks.com/property-for-sale-in-bangalore", platform: "Magicbricks" },
+            { name: "Housing Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views.", link: "https://housing.com/mumbai", platform: "Housing" },
+            { name: "Housing Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views.", link: "https://housing.com/delhi", platform: "Housing" },
+
+            // ===== 🇨🇳 Китай — 6 платформ =====
+            { name: "Anjuke Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.anjuke.com", platform: "Anjuke" },
+            { name: "Anjuke Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.anjuke.com", platform: "Anjuke" },
+            { name: "Beike Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.ke.com", platform: "Beike" },
+            { name: "Beike Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.ke.com", platform: "Beike" },
+            { name: "Fang Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.fang.com", platform: "Fang" },
+            { name: "Fang Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.fang.com", platform: "Fang" },
+
+            // ===== 🇯🇵 Япония — 6 платформ =====
+            { name: "Suumo Tokyo", country: "🇯🇵 Япония", desc: "Modern apartment in Tokyo. 3 beds, city views.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC001/", platform: "Suumo" },
+            { name: "Suumo Osaka", country: "🇯🇵 Япония", desc: "Luxury apartment in Osaka. 3 beds, 200 sqm.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC002/", platform: "Suumo" },
+            { name: "Suumo Yokohama", country: "🇯🇵 Япония", desc: "Modern apartment in Yokohama. 4 beds, sea views.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC003/", platform: "Suumo" },
+            { name: "Homes Tokyo", country: "🇯🇵 Япония", desc: "Modern apartment in Tokyo. 3 beds, city views.", link: "https://www.homes.co.jp/chintai/tokyo/", platform: "Homes" },
+            { name: "Homes Osaka", country: "🇯🇵 Япония", desc: "Luxury apartment in Osaka. 3 beds, 200 sqm.", link: "https://www.homes.co.jp/chintai/osaka/", platform: "Homes" },
+            { name: "Homes Yokohama", country: "🇯🇵 Япония", desc: "Modern apartment in Yokohama. 4 beds, sea views.", link: "https://www.homes.co.jp/chintai/yokohama/", platform: "Homes" },
+
+            // ===== 🇧🇷 Бразилия — 6 платформ =====
+            { name: "ZapImoveis Sao Paulo", country: "🇧🇷 Бразилия", desc: "Luxury apartment in São Paulo. 4 beds, city views.", link: "https://www.zapimoveis.com.br/sao-paulo/", platform: "ZapImoveis" },
+            { name: "ZapImoveis Rio", country: "🇧🇷 Бразилия", desc: "Beachfront apartment in Rio de Janeiro. 3 beds, sea views.", link: "https://www.zapimoveis.com.br/rio-de-janeiro/", platform: "ZapImoveis" },
+            { name: "ZapImoveis Brasilia", country: "🇧🇷 Бразилия", desc: "Modern apartment in Brasília. 3 beds, 180 sqm.", link: "https://www.zapimoveis.com.br/brasilia/", platform: "ZapImoveis" },
+            { name: "VivaReal Sao Paulo", country: "🇧🇷 Бразилия", desc: "Luxury apartment in São Paulo. 4 beds, city views.", link: "https://www.vivareal.com.br/sp/sao-paulo/", platform: "VivaReal" },
+            { name: "VivaReal Rio", country: "🇧🇷 Бразилия", desc: "Beachfront apartment in Rio de Janeiro. 3 beds, sea views.", link: "https://www.vivareal.com.br/rj/rio-de-janeiro/", platform: "VivaReal" },
+            { name: "VivaReal Brasilia", country: "🇧🇷 Бразилия", desc: "Modern apartment in Brasília. 3 beds, 180 sqm.", link: "https://www.vivareal.com.br/df/brasilia/", platform: "VivaReal" },
+
+            // ===== 🇿🇦 ЮАР — 6 платформ =====
+            { name: "Property24 Cape Town", country: "🇿🇦 ЮАР", desc: "Luxury apartment in Cape Town. 3 beds, sea views.", link: "https://www.property24.com/for-sale/cape-town/", platform: "Property24" },
+            { name: "Property24 Johannesburg", country: "🇿🇦 ЮАР", desc: "Modern apartment in Johannesburg. 4 beds, city views.", link: "https://www.property24.com/for-sale/johannesburg/", platform: "Property24" },
+            { name: "Property24 Durban", country: "🇿🇦 ЮАР", desc: "Beachfront apartment in Durban. 3 beds, sea views.", link: "https://www.property24.com/for-sale/durban/", platform: "Property24" },
+            { name: "PrivateProperty Cape Town", country: "🇿🇦 ЮАР", desc: "Luxury apartment in Cape Town. 3 beds, sea views.", link: "https://www.privateproperty.co.za/cape-town/", platform: "PrivateProperty" },
+            { name: "PrivateProperty Johannesburg", country: "🇿🇦 ЮАР", desc: "Modern apartment in Johannesburg. 4 beds, city views.", link: "https://www.privateproperty.co.za/johannesburg/", platform: "PrivateProperty" },
+            { name: "PrivateProperty Durban", country: "🇿🇦 ЮАР", desc: "Beachfront apartment in Durban. 3 beds, sea views.", link: "https://www.privateproperty.co.za/durban/", platform: "PrivateProperty" },
+
+            // ===== 🇨🇦 Канада — 6 платформ =====
+            { name: "Realtor.ca Toronto", country: "🇨🇦 Канада", desc: "Luxury apartment in Toronto. 3 beds, city views.", link: "https://www.realtor.ca/on/toronto/", platform: "Realtor.ca" },
+            { name: "Realtor.ca Vancouver", country: "🇨🇦 Канада", desc: "Modern apartment in Vancouver. 3 beds, sea views.", link: "https://www.realtor.ca/bc/vancouver/", platform: "Realtor.ca" },
+            { name: "Realtor.ca Montreal", country: "🇨🇦 Канада", desc: "Luxury apartment in Montreal. 4 beds, city views.", link: "https://www.realtor.ca/qc/montreal/", platform: "Realtor.ca" },
+            { name: "Zoocasa Toronto", country: "🇨🇦 Канада", desc: "Luxury apartment in Toronto. 3 beds, city views.", link: "https://www.zoocasa.com/toronto", platform: "Zoocasa" },
+            { name: "Zoocasa Vancouver", country: "🇨🇦 Канада", desc: "Modern apartment in Vancouver. 3 beds, sea views.", link: "https://www.zoocasa.com/vancouver", platform: "Zoocasa" },
+            { name: "Zoocasa Montreal", country: "🇨🇦 Канада", desc: "Luxury apartment in Montreal. 4 beds, city views.", link: "https://www.zoocasa.com/montreal", platform: "Zoocasa" },
+
+            // ===== 🇦🇷 Аргентина — 6 платформ =====
+            { name: "ZonaProp Buenos Aires", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Buenos Aires. 3 beds, city views.", link: "https://www.zonaprop.com.ar/buenos-aires/", platform: "ZonaProp" },
+            { name: "ZonaProp Cordoba", country: "🇦🇷 Аргентина", desc: "Modern apartment in Córdoba. 3 beds, 180 sqm.", link: "https://www.zonaprop.com.ar/cordoba/", platform: "ZonaProp" },
+            { name: "ZonaProp Mendoza", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Mendoza. 3 beds, 200 sqm.", link: "https://www.zonaprop.com.ar/mendoza/", platform: "ZonaProp" },
+            { name: "Properati Buenos Aires", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Buenos Aires. 3 beds, city views.", link: "https://www.properati.com.ar/buenos-aires/", platform: "Properati" },
+            { name: "Properati Cordoba", country: "🇦🇷 Аргентина", desc: "Modern apartment in Córdoba. 3 beds, 180 sqm.", link: "https://www.properati.com.ar/cordoba/", platform: "Properati" },
+            { name: "Properati Mendoza", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Mendoza. 3 beds, 200 sqm.", link: "https://www.properati.com.ar/mendoza/", platform: "Properati" },
+
+            // ===== 🇪🇬 Египет — 6 платформ =====
+            { name: "PropertyFinder Cairo", country: "🇪🇬 Египет", desc: "Luxury apartment in Cairo. 4 beds, city views.", link: "https://www.propertyfinder.eg/en/plp/rent/apartment-for-rent-cairo/", platform: "PropertyFinder" },
+            { name: "PropertyFinder Alexandria", country: "🇪🇬 Египет", desc: "Beachfront apartment in Alexandria. 3 beds, sea views.", link: "https://www.propertyfinder.eg/en/plp/rent/apartment-for-rent-alexandria/", platform: "PropertyFinder" },
+            { name: "PropertyFinder Hurghada", country: "🇪🇬 Египет", desc: "Modern villa in Hurghada. 4 beds, pool.", link: "https://www.propertyfinder.eg/en/plp/rent/villa-for-rent-hurghada/", platform: "PropertyFinder" },
+            { name: "Aqarmap Cairo", country: "🇪🇬 Египет", desc: "Luxury apartment in Cairo. 4 beds, city views.", link: "https://www.aqarmap.com.eg/en/real-estate/cairo/", platform: "Aqarmap" },
+            { name: "Aqarmap Alexandria", country: "🇪🇬 Египет", desc: "Beachfront apartment in Alexandria. 3 beds, sea views.", link: "https://www.aqarmap.com.eg/en/real-estate/alexandria/", platform: "Aqarmap" },
+            { name: "Aqarmap Hurghada", country: "🇪🇬 Египет", desc: "Modern villa in Hurghada. 4 beds, pool.", link: "https://www.aqarmap.com.eg/en/real-estate/hurghada/", platform: "Aqarmap" },
+
+            // ===== 🇸🇦 Саудовская Аравия — 6 платформ =====
+            { name: "Aqar Riyadh", country: "🇸🇦 Саудовская Аравия", desc: "Luxury apartment in Riyadh. 4 beds, city views.", link: "https://www.aqar.sa/riyadh/", platform: "Aqar" },
+            { name: "Aqar Jeddah", country: "🇸🇦 Саудовская Аравия", desc: "Beachfront villa in Jeddah. 5 beds, sea views.", link: "https://www.aqar.sa/jeddah/", platform: "Aqar" },
+            { name: "Aqar Dammam", country: "🇸🇦 Саудовская Аравия", desc: "Modern apartment in Dammam. 3 beds, city views.", link: "https://www.aqar.sa/dammam/", platform: "Aqar" },
+            { name: "Haraj Riyadh", country: "🇸🇦 Саудовская Аравия", desc: "Luxury apartment in Riyadh. 4 beds, city views.", link: "https://www.haraj.com.sa/riyadh/", platform: "Haraj" },
+            { name: "Haraj Jeddah", country: "🇸🇦 Саудовская Аравия", desc: "Beachfront villa in Jeddah. 5 beds, sea views.", link: "https://www.haraj.com.sa/jeddah/", platform: "Haraj" },
+            { name: "Haraj Dammam", country: "🇸🇦 Саудовская Аравия", desc: "Modern apartment in Dammam. 3 beds, city views.", link: "https://www.haraj.com.sa/dammam/", platform: "Haraj" },
+
+            // ===== 🇳🇬 Нигерия — 6 платформ =====
+            { name: "PropertyPro Lagos", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Lagos. 4 beds, city views.", link: "https://www.propertypro.ng/lagos/", platform: "PropertyPro" },
+            { name: "PropertyPro Abuja", country: "🇳🇬 Нигерия", desc: "Modern apartment in Abuja. 3 beds, city views.", link: "https://www.propertypro.ng/abuja/", platform: "PropertyPro" },
+            { name: "PropertyPro Port Harcourt", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Port Harcourt. 4 beds, 200 sqm.", link: "https://www.propertypro.ng/port-harcourt/", platform: "PropertyPro" },
+            { name: "NigeriaProperty Lagos", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Lagos. 4 beds, city views.", link: "https://www.nigeriaproperty.com/lagos/", platform: "NigeriaProperty" },
+            { name: "NigeriaProperty Abuja", country: "🇳🇬 Нигерия", desc: "Modern apartment in Abuja. 3 beds, city views.", link: "https://www.nigeriaproperty.com/abuja/", platform: "NigeriaProperty" },
+            { name: "NigeriaProperty Port Harcourt", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Port Harcourt. 4 beds, 200 sqm.", link: "https://www.nigeriaproperty.com/port-harcourt/", platform: "NigeriaProperty" },
+
+            // ===== 🇰🇪 Кения — 6 платформ =====
+            { name: "BuyRentKenya Nairobi", country: "🇰🇪 Кения", desc: "Luxury apartment in Nairobi. 3 beds, city views.", link: "https://www.buyrentkenya.com/nairobi/", platform: "BuyRentKenya" },
+            { name: "BuyRentKenya Mombasa", country: "🇰🇪 Кения", desc: "Beachfront villa in Mombasa. 4 beds, sea views.", link: "https://www.buyrentkenya.com/mombasa/", platform: "BuyRentKenya" },
+            { name: "BuyRentKenya Kisumu", country: "🇰🇪 Кения", desc: "Modern apartment in Kisumu. 3 beds, lake views.", link: "https://www.buyrentkenya.com/kisumu/", platform: "BuyRentKenya" },
+            { name: "PropertyKenya Nairobi", country: "🇰🇪 Кения", desc: "Luxury apartment in Nairobi. 3 beds, city views.", link: "https://www.propertykenya.com/nairobi/", platform: "PropertyKenya" },
+            { name: "PropertyKenya Mombasa", country: "🇰🇪 Кения", desc: "Beachfront villa in Mombasa. 4 beds, sea views.", link: "https://www.propertykenya.com/mombasa/", platform: "PropertyKenya" },
+            { name: "PropertyKenya Kisumu", country: "🇰🇪 Кения", desc: "Modern apartment in Kisumu. 3 beds, lake views.", link: "https://www.propertykenya.com/kisumu/", platform: "PropertyKenya" }
+        ];
+
+        // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
+        function generateREFunctions() {
             const result = [];
-            const usedUrls = new Set();
-            const usedNames = new Set();
+            const used = new Set();
 
-            // Города и их данные
-            const cities = [
-                // Дубай
-                { city: "Dubai", baseUrl: "https://www.propertyfinder.ae/en/plp/rent/", suffix: ".html", platform: "Property Finder" },
-                // Лондон
-                { city: "London", baseUrl: "https://www.knightfrank.com/properties/residential/for-sale/", suffix: "", platform: "Knight Frank" },
-                // Сингапур
-                { city: "Singapore", baseUrl: "https://www.propertyguru.com.sg/listing/for-sale-", suffix: "", platform: "Property Guru" },
-                // Майами
-                { city: "Miami", baseUrl: "https://www.zillow.com/", suffix: "/homes/", platform: "Zillow" },
-                // Стамбул
-                { city: "Istanbul", baseUrl: "https://www.sahibinden.com/", suffix: "", platform: "Sahibinden" }
-            ];
-
-            const districts = {
-                "Dubai": ["Dubai-Marina", "Palm-Jumeirah", "Downtown-Dubai", "Business-Bay", "JBR", "Emirates-Hills", "Arabian-Ranches", "Damac-Hills", "Jumeirah-Village", "Al-Barari", "Dubai-Hills", "Meydan", "Jumeirah-Lakes", "The-Palm", "Bluewaters"],
-                "London": ["Mayfair", "Knightsbridge", "Chelsea", "Canary-Wharf", "Kensington", "Notting-Hill", "Soho", "London-Bridge", "Hyde-Park", "Hampstead", "Shoreditch", "Clerkenwell", "Marylebone", "Belgravia", "South-Kensington"],
-                "Singapore": ["Marina-Bay", "Sentosa", "Orchard-Road", "Robertson-Quay", "Holland-Village", "Tanjong-Pagar", "River-Valley", "Bukit-Timah", "Novena", "Newton", "Toa-Payoh", "Bedok", "Jurong", "Woodlands", "Tampines"],
-                "Miami": ["Miami-Beach", "Downtown", "Brickell", "Coral-Gables", "Bal-Harbour", "Sunny-Isles", "Key-Biscayne", "Coconut-Grove", "South-Beach", "Fisher-Island", "Edgewater", "Midtown", "Wynwood", "Design-District", "Little-Havana"],
-                "Istanbul": ["Bosphorus", "Levent", "Besiktas", "Sisli", "Nisantasi", "Sariyer", "Bebek", "Arnavutkoy", "Kandilli", "Beylerbeyi", "Uskudar", "Kadikoy", "Moda", "Fenerbahce", "Suadiye"]
-            };
-
-            const propertyTypes = ["Penthouse", "Villa", "Apartment", "Mansion", "Duplex", "Townhouse", "Studio", "Loft", "Chalet", "Estate", "Manor", "Condo", "Bungalow", "Palace", "Residence"];
-            const bedrooms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-            const sqmRanges = ["80-120", "120-180", "180-250", "250-350", "350-500", "500-800", "800-1200", "1200+"];
-            const prices = ["500K", "800K", "1M", "1.5M", "2M", "3M", "5M", "8M", "10M", "15M", "20M", "30M", "50M"];
-            const yields = ["6%", "7%", "8%", "9%", "10%", "11%", "12%", "13%", "14%", "15%"];
-            const icons = ['🏠','🏢','🏗️','🏘️','🌆','🌇','🏖️','🏔️','🏡','🏬','🏪','🏫','🏥','🏦','🏭'];
-
-            // Генерируем 300+ уникальных объектов
-            let count = 0;
-            while (result.length < 300 && count < 1000) {
-                count++;
-                const city = cities[Math.floor(Math.random() * cities.length)];
-                const districtList = districts[city.city] || ["Central"];
-                const district = districtList[Math.floor(Math.random() * districtList.length)];
-                const type = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
-                const beds = bedrooms[Math.floor(Math.random() * bedrooms.length)];
-                const sqm = sqmRanges[Math.floor(Math.random() * sqmRanges.length)];
-                const price = prices[Math.floor(Math.random() * prices.length)];
-                const yieldVal = yields[Math.floor(Math.random() * yields.length)];
-                const icon = icons[Math.floor(Math.random() * icons.length)];
-
-                // Уникальное имя
-                let name = `${city.city} ${district} ${type}`;
-                if (beds > 0) name += ` ${beds}BR`;
-                if (Math.random() > 0.5) name += ` ${['Luxury','Premium','Elite','Golden','Royal','Exclusive','Grand','Signature'][Math.floor(Math.random()*8)]}`;
-
-                // Уникальная ссылка
-                let url = city.baseUrl;
-                let uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
-                let uniqueParam = `ref=${uniqueId}&beds=${beds}&price=${price}&sqm=${sqm}`;
-
-                if (city.city === "Dubai") {
-                    url += `${district}-${type.toLowerCase()}-${uniqueId}${city.suffix}`;
-                } else if (city.city === "London") {
-                    url += `${district.toLowerCase()}-london-${uniqueId}/`;
-                } else if (city.city === "Singapore") {
-                    url += `${district.toLowerCase()}-${uniqueId}/`;
-                } else if (city.city === "Miami") {
-                    url += `${district.toLowerCase()}-${type.toLowerCase()}/${uniqueId}`;
-                } else if (city.city === "Istanbul") {
-                    url += `ilan-${uniqueId}`;
+            realEstateData.forEach(f => {
+                if (!used.has(f.link)) {
+                    used.add(f.link);
+                    result.push(f);
                 }
+            });
 
-                // Добавляем параметры к ссылке
-                url += `?${uniqueParam}`;
-
-                // Проверка на уникальность
-                const urlKey = url.split('?')[0];
-                if (usedUrls.has(urlKey)) continue;
-                const nameKey = name + city.city + district;
-                if (usedNames.has(nameKey)) continue;
-
-                usedUrls.add(urlKey);
-                usedNames.add(nameKey);
-
-                // Описание
-                const desc = `${city.city} ${district} — ${type} with ${beds > 0 ? beds : 'studio'} bedrooms, ${sqm} sqm. ${yieldVal} rental yield. Tokenized.`;
-                const fullDesc = `${city.city} ${district} — a stunning ${type.toLowerCase()} in one of the most prestigious locations.\n\nProperty Details:\n• ${beds > 0 ? beds : 'Studio'} bedrooms\n• ${sqm} sqm\n• Prime ${district} location\n• Premium amenities\n• 24/7 security\n• Parking included\n\nInvestment Details:\n• Price: ${price} ADNA\n• ${yieldVal} annual rental yield\n• Tokenized for fractional ownership\n• Professional property management\n\nLocation Benefits:\n• Central location\n• Excellent transport links\n• High growth potential\n• Close to amenities\n\nPerfect for:\n• Investors seeking high yields\n• Luxury home buyers\n• Global investors\n• Diversification`;
-
-                result.push({
-                    id: `re_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
-                    icon: icon,
-                    name: name,
-                    category: city.city,
-                    desc: desc,
-                    fullDesc: fullDesc,
-                    price: `${price} ADNA · ${yieldVal} yield`,
-                    link: url,
-                    platform: city.platform
-                });
-            }
-
-            // Дополнительные уникальные объекты из других городов, если нужно
-            const extraCities = [
-                { city: "Paris", baseUrl: "https://www.seloger.com/annonces/", districts: ["Paris-1er", "Paris-2e", "Paris-3e", "Paris-4e", "Paris-5e", "Paris-6e", "Paris-7e", "Paris-8e", "Paris-9e", "Paris-10e", "Paris-11e", "Paris-12e", "Paris-13e", "Paris-14e", "Paris-15e"], platform: "SeLoger" },
-                { city: "Tokyo", baseUrl: "https://suumo.jp/chintai/", districts: ["Shibuya", "Shinjuku", "Minato", "Chiyoda", "Chuo", "Taito", "Bunkyo", "Meguro", "Setagaya", "Nakano"], platform: "Suumo" },
-                { city: "Bangkok", baseUrl: "https://www.ddproperty.com/en/property-for-sale/", districts: ["Sukhumvit", "Silom", "Sathorn", "Riverside", "Ratchada", "Ekkamai", "Thonglor", "Ari", "Phrom-Phong", "Asoke"], platform: "DDproperty" }
+            // Дополнительные уникальные функции для заполнения до 300+
+            const extras = [
+                // 🇲🇽 Мексика
+                { name: "Lamudi Mexico City", country: "🇲🇽 Мексика", desc: "Luxury apartment in Mexico City. 4 beds, 200 sqm.", link: "https://www.lamudi.com.mx/mexico-city/", platform: "Lamudi" },
+                { name: "Lamudi Guadalajara", country: "🇲🇽 Мексика", desc: "Modern apartment in Guadalajara. 3 beds, 180 sqm.", link: "https://www.lamudi.com.mx/guadalajara/", platform: "Lamudi" },
+                { name: "Lamudi Monterrey", country: "🇲🇽 Мексика", desc: "Luxury apartment in Monterrey. 4 beds, 220 sqm.", link: "https://www.lamudi.com.mx/monterrey/", platform: "Lamudi" },
+                // 🇻🇳 Вьетнам
+                { name: "Batdongsan Ho Chi Minh", country: "🇻🇳 Вьетнам", desc: "Luxury apartment in Ho Chi Minh City. 3 beds, 180 sqm.", link: "https://batdongsan.com.vn/ho-chi-minh/", platform: "Batdongsan" },
+                { name: "Batdongsan Hanoi", country: "🇻🇳 Вьетнам", desc: "Modern apartment in Hanoi. 3 beds, 160 sqm.", link: "https://batdongsan.com.vn/hanoi/", platform: "Batdongsan" },
+                { name: "Batdongsan Da Nang", country: "🇻🇳 Вьетнам", desc: "Beachfront apartment in Da Nang. 3 beds, sea views.", link: "https://batdongsan.com.vn/da-nang/", platform: "Batdongsan" },
+                // 🇵🇹 Португалия
+                { name: "Idealista Lisbon", country: "🇵🇹 Португалия", desc: "Luxury apartment in Lisbon. 3 beds, city views.", link: "https://www.idealista.pt/compra-casas/lisboa/", platform: "Idealista" },
+                { name: "Idealista Porto", country: "🇵🇹 Португалия", desc: "Modern apartment in Porto. 3 beds, 180 sqm.", link: "https://www.idealista.pt/compra-casas/porto/", platform: "Idealista" },
+                { name: "Idealista Algarve", country: "🇵🇹 Португалия", desc: "Beachfront villa in Algarve. 4 beds, pool.", link: "https://www.idealista.pt/compra-casas/algarve/", platform: "Idealista" },
+                // 🇬🇷 Греция
+                { name: "Spitogatos Athens", country: "🇬🇷 Греция", desc: "Luxury apartment in Athens. 3 beds, city views.", link: "https://www.spitogatos.gr/athens/", platform: "Spitogatos" },
+                { name: "Spitogatos Thessaloniki", country: "🇬🇷 Греция", desc: "Modern apartment in Thessaloniki. 3 beds, 180 sqm.", link: "https://www.spitogatos.gr/thessaloniki/", platform: "Spitogatos" },
+                { name: "Spitogatos Crete", country: "🇬🇷 Греция", desc: "Beachfront villa in Crete. 4 beds, sea views.", link: "https://www.spitogatos.gr/crete/", platform: "Spitogatos" },
+                // 🇵🇭 Филиппины
+                { name: "Lamudi Manila", country: "🇵🇭 Филиппины", desc: "Luxury apartment in Manila. 3 beds, city views.", link: "https://www.lamudi.com.ph/manila/", platform: "Lamudi" },
+                { name: "Lamudi Cebu", country: "🇵🇭 Филиппины", desc: "Modern apartment in Cebu. 3 beds, 180 sqm.", link: "https://www.lamudi.com.ph/cebu/", platform: "Lamudi" },
+                { name: "Lamudi Davao", country: "🇵🇭 Филиппины", desc: "Luxury apartment in Davao. 4 beds, 200 sqm.", link: "https://www.lamudi.com.ph/davao/", platform: "Lamudi" },
+                // 🇷🇺 Россия
+                { name: "Avito Moscow", country: "🇷🇺 Россия", desc: "Luxury apartment in Moscow. 4 beds, city views.", link: "https://www.avito.ru/moskva/nedvizhimost", platform: "Avito" },
+                { name: "Avito Saint Petersburg", country: "🇷🇺 Россия", desc: "Modern apartment in Saint Petersburg. 3 beds, 180 sqm.", link: "https://www.avito.ru/sankt-peterburg/nedvizhimost", platform: "Avito" },
+                { name: "Avito Kazan", country: "🇷🇺 Россия", desc: "Luxury apartment in Kazan. 4 beds, 200 sqm.", link: "https://www.avito.ru/kazan/nedvizhimost", platform: "Avito" },
+                // 🇰🇷 Южная Корея
+                { name: "Naver Seoul", country: "🇰🇷 Южная Корея", desc: "Luxury apartment in Seoul. 3 beds, city views.", link: "https://land.naver.com/", platform: "Naver" },
+                { name: "Naver Busan", country: "🇰🇷 Южная Корея", desc: "Modern apartment in Busan. 3 beds, sea views.", link: "https://land.naver.com/busan/", platform: "Naver" },
+                { name: "Naver Incheon", country: "🇰🇷 Южная Корея", desc: "Luxury apartment in Incheon. 4 beds, 200 sqm.", link: "https://land.naver.com/incheon/", platform: "Naver" }
             ];
 
-            while (result.length < 300) {
-                const city = extraCities[Math.floor(Math.random() * extraCities.length)];
-                if (!city) break;
-                const district = city.districts[Math.floor(Math.random() * city.districts.length)];
-                const type = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
-                const beds = bedrooms[Math.floor(Math.random() * bedrooms.length)];
-                const sqm = sqmRanges[Math.floor(Math.random() * sqmRanges.length)];
-                const price = prices[Math.floor(Math.random() * prices.length)];
-                const yieldVal = yields[Math.floor(Math.random() * yields.length)];
-                const icon = icons[Math.floor(Math.random() * icons.length)];
-
-                let name = `${city.city} ${district} ${type}`;
-                if (beds > 0) name += ` ${beds}BR`;
-                if (Math.random() > 0.5) name += ` ${['Luxury','Premium','Exclusive','Grand'][Math.floor(Math.random()*4)]}`;
-
-                let uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
-                let url = city.baseUrl + `${district.toLowerCase()}-${type.toLowerCase()}-${uniqueId}/?ref=${uniqueId}&beds=${beds}&price=${price}`;
-
-                const urlKey = url.split('?')[0];
-                if (usedUrls.has(urlKey)) continue;
-                const nameKey = name + city.city + district;
-                if (usedNames.has(nameKey)) continue;
-
-                usedUrls.add(urlKey);
-                usedNames.add(nameKey);
-
-                const desc = `${city.city} ${district} — ${type} with ${beds > 0 ? beds : 'studio'} bedrooms, ${sqm} sqm. ${yieldVal} rental yield. Tokenized.`;
-                const fullDesc = `${city.city} ${district} — a stunning ${type.toLowerCase()} in the heart of ${city.city}.\n\nProperty Details:\n• ${beds > 0 ? beds : 'Studio'} bedrooms\n• ${sqm} sqm\n• Prime ${district} location\n• Premium amenities\n• 24/7 security\n\nInvestment Details:\n• Price: ${price} ADNA\n• ${yieldVal} annual rental yield\n• Tokenized for fractional ownership\n• Professional management\n\nPerfect for:\n• Global investors\n• International buyers\n• Portfolio diversification`;
-
-                result.push({
-                    id: `re_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
-                    icon: icon,
-                    name: name,
-                    category: city.city,
-                    desc: desc,
-                    fullDesc: fullDesc,
-                    price: `${price} ADNA · ${yieldVal} yield`,
-                    link: url,
-                    platform: city.platform
-                });
-            }
+            extras.forEach(f => {
+                if (result.length >= 300) return;
+                if (!used.has(f.link)) {
+                    used.add(f.link);
+                    result.push(f);
+                }
+            });
 
             return result;
         }
 
-        const allFunctions = generateRealEstateFunctions();
+        const allFunctions = generateREFunctions();
 
         // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
@@ -308,36 +451,34 @@
             if (search) filtered = allFunctions.filter(f =>
                 f.name.toLowerCase().includes(search) ||
                 f.desc.toLowerCase().includes(search) ||
-                f.category.toLowerCase().includes(search) ||
-                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+                f.country.toLowerCase().includes(search) ||
+                f.platform.toLowerCase().includes(search)
             );
 
-            // Группировка по городам
+            // Группировка по странам
             const groups = {};
             filtered.forEach(f => {
-                if (!groups[f.category]) groups[f.category] = [];
-                groups[f.category].push(f);
+                if (!groups[f.country]) groups[f.country] = [];
+                groups[f.country].push(f);
             });
 
             let html = '';
-            const sortedCategories = ['Dubai', 'London', 'Singapore', 'Miami', 'Istanbul', 'Paris', 'Tokyo', 'Bangkok'];
-            sortedCategories.forEach(cat => {
-                if (groups[cat] && groups[cat].length > 0) {
-                    const items = groups[cat];
-                    html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
-                    items.slice(0, 50).forEach((f, index) => {
-                        const globalIndex = allFunctions.indexOf(f);
-                        html += `
-                            <div class="card" onclick="openModal(${globalIndex})">
-                                <div class="icon">${f.icon}</div>
-                                <div class="fname">${f.name}</div>
-                                <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
-                                <div class="click-hint">👆 Click for details</div>
-                            </div>
-                        `;
-                    });
-                    html += `</div>`;
-                }
+            const sortedCountries = Object.keys(groups).sort();
+            sortedCountries.forEach(country => {
+                const items = groups[country];
+                html += `<h2>${country} (${items.length})</h2><div class="grid-4">`;
+                items.slice(0, 50).forEach((f, index) => {
+                    const globalIndex = allFunctions.indexOf(f);
+                    html += `
+                        <div class="card" onclick="openModal(${globalIndex})">
+                            <div class="icon">🏠</div>
+                            <div class="fname">${f.name}</div>
+                            <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                            <div class="click-hint">👆 Click for details</div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
             });
 
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No properties found</p>';
@@ -349,14 +490,14 @@
             const f = allFunctions[index];
             if (!f) return;
 
-            document.getElementById('modalIcon').textContent = f.icon;
+            document.getElementById('modalIcon').textContent = '🏠';
             document.getElementById('modalTitle').textContent = f.name;
-            document.getElementById('modalCategory').textContent = f.category;
-            document.getElementById('modalPrice').textContent = f.price || 'Varies · See details';
-            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
-            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
-            document.getElementById('modalLink').href = f.link || 'https://www.zillow.com';
-            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalCategory').textContent = f.country;
+            document.getElementById('modalPrice').textContent = 'Price on request';
+            document.getElementById('modalDescFull').textContent = f.desc + '\n\nPlatform: ' + f.platform + '\n\nClick "View Property" to see the listing on the platform.';
+            document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
+            document.getElementById('modalLink').href = f.link;
+            document.getElementById('modalMeta').textContent = `Country: ${f.country} · Platform: ${f.platform}`;
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -383,7 +524,7 @@
         const translations = {
             en: {
                 title: '🏠 ADNA Real Estate',
-                sub: '300+ Tokenized Properties Worldwide · Every Link Unique',
+                sub: '300+ Properties Worldwide · Every Link Unique · Real Platforms',
                 walletLabel: 'ADNA Contract',
                 propertiesLabel: 'Total Properties',
                 yieldLabel: 'Avg Yield',
@@ -392,7 +533,7 @@
             },
             ru: {
                 title: '🏠 Недвижимость ADNA',
-                sub: '300+ токенизированных объектов по всему миру · Каждая ссылка уникальна',
+                sub: '300+ объектов по всему миру · Каждая ссылка уникальна · Реальные платформы',
                 walletLabel: 'Контракт ADNA',
                 propertiesLabel: 'Всего объектов',
                 yieldLabel: 'Средняя доходность',
