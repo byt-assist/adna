@@ -6,7 +6,7 @@
     <title>ADNA — Real Estate</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -16,16 +16,19 @@
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; }
-        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
-        .card .icon { font-size: 1.5rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
-        .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
-        .card .flink:hover { text-decoration: underline; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.8rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .wallet-box a { color: #d4a843; }
+        .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
+        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -35,7 +38,23 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
+
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
+        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
+        .modal .modal-price { font-size: 1.2rem; color: #d4a843; font-weight: 700; margin: 0.5rem 0; }
+        .modal .modal-desc-full { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; white-space: pre-wrap; }
+        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.3rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
+        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
+
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -63,16 +82,17 @@
 
     <div class="container">
         <h1 id="mainTitle">🏠 ADNA Real Estate</h1>
-        <div class="subhead" id="subhead">Tokenized Real Estate Platform · 500+ unique properties and functions</div>
+        <div class="subhead" id="subhead">Tokenized Real Estate Platform · 50+ Unique Properties</div>
 
         <div class="wallet-box">
-            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
+            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>🏠 <span id="propertiesLabel">Total Properties</span>: 100+ · <span id="yieldLabel">Avg Yield</span>: 8-12%
+            <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 500+ real estate functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 500 / 500+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search real estate properties..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
         </div>
 
         <div id="functionsContainer"></div>
@@ -95,7 +115,21 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 500+ Real Estate Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 50+ Real Estate Functions</footer>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon" id="modalIcon">🏠</div>
+            <div class="modal-title" id="modalTitle">Property Name</div>
+            <div class="modal-category" id="modalCategory">Category</div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-desc-full" id="modalDescFull">Description</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 View Property</a>
+            <div class="modal-meta" id="modalMeta">ID: —</div>
+        </div>
     </div>
 
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
@@ -112,57 +146,171 @@
     </div>
 
     <script>
-        const reProperties = [
-            { icon: "🏠", name: "Dubai Marina Penthouse", desc: "Luxury penthouse in Dubai Marina. 5 bedrooms, 500 sqm, sea views. Price: 5,000,000 ADNA. Rental yield: 12% annually. Tokenized: Yes.", link: "https://re.adna/dubai-marina" },
-            { icon: "🏛️", name: "London Mayfair Mansion", desc: "Historic mansion in Mayfair, London. 8 bedrooms, 800 sqm, private garden. Price: 15,000,000 ADNA. 8% annual appreciation.", link: "https://re.adna/london-mayfair" },
-            { icon: "🏢", name: "Singapore Marina Bay", desc: "Luxury apartment in Marina Bay, Singapore. 3 bedrooms, 200 sqm, infinity pool. Price: 8,000,000 ADNA. 10% rental yield.", link: "https://re.adna/singapore" },
-            { icon: "🌆", name: "New York Central Park", desc: "Iconic property overlooking Central Park, NYC. 4 bedrooms, 350 sqm, panoramic views. Price: 12,000,000 ADNA.", link: "https://re.adna/nyc-central" },
-            { icon: "🏖️", name: "Miami Beach Villa", desc: "Modern villa on Miami Beach. 6 bedrooms, 600 sqm, private beach access. Price: 6,500,000 ADNA. 12% rental yield.", link: "https://re.adna/miami" },
-            { icon: "🏔️", name: "Swiss Alpine Chalet", desc: "Luxury chalet in St. Moritz, Switzerland. 5 bedrooms, 400 sqm, ski-in/ski-out. Price: 3,500,000 ADNA. 6% annual appreciation.", link: "https://re.adna/st-moritz" },
-            { icon: "🏠", name: "Bali Beachfront Estate", desc: "Beachfront estate in Seminyak, Bali. 4 bedrooms, 500 sqm, private pool. Price: 2,000,000 ADNA. 15% rental yield.", link: "https://re.adna/bali" },
-            { icon: "🏛️", name: "Parisian Penthouse", desc: "Elegant penthouse in Paris, 16th arrondissement. 3 bedrooms, 250 sqm, Eiffel Tower views. Price: 4,500,000 ADNA.", link: "https://re.adna/paris" },
-            { icon: "🏢", name: "Tokyo Tower Residence", desc: "Luxury residence near Tokyo Tower. 2 bedrooms, 150 sqm, city views. Price: 3,200,000 ADNA. 6% rental yield.", link: "https://re.adna/tokyo" },
-            { icon: "🌆", name: "Dubai Palm Jumeirah", desc: "Beachfront villa on Palm Jumeirah. 6 bedrooms, 700 sqm, private beach. Price: 9,000,000 ADNA. 14% rental yield.", link: "https://re.adna/palm-jumeirah" },
-            { icon: "🏠", name: "Lisbon Historic Palace", desc: "Historic palace in Lisbon, Portugal. 10 bedrooms, 1200 sqm, private gardens. Price: 6,000,000 ADNA. 8% annual appreciation.", link: "https://re.adna/lisbon" },
-            { icon: "🏛️", name: "Barcelona Beachfront", desc: "Modern apartment with beach views in Barcelona. 3 bedrooms, 180 sqm, rooftop terrace. Price: 2,800,000 ADNA.", link: "https://re.adna/barcelona" },
-            { icon: "🏢", name: "Moscow City View", desc: "Luxury apartment in Moscow City. 3 bedrooms, 200 sqm, skyline views. Price: 2,500,000 ADNA. 10% annual appreciation.", link: "https://re.adna/moscow" },
-            { icon: "🌆", name: "Istanbul Bosphorus Villa", desc: "Historic villa on Bosphorus, Istanbul. 5 bedrooms, 450 sqm, sea views. Price: 3,800,000 ADNA. 12% rental yield.", link: "https://re.adna/istanbul" },
-            { icon: "🏠", name: "Marrakech Medina Riad", desc: "Traditional riad in Marrakech Medina. 4 bedrooms, 350 sqm, private courtyard. Price: 1,200,000 ADNA. 18% rental yield.", link: "https://re.adna/marrakech" }
+        // ========== REAL ESTATE ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
+        const realEstateFunctions = [
+            // Дубай
+            {
+                icon: "🏠",
+                name: "Dubai Marina Penthouse",
+                category: "Dubai",
+                desc: "Luxury penthouse in Dubai Marina. 5 beds, 500 sqm. 12% rental yield.",
+                fullDesc: "Dubai Marina Penthouse — a luxurious 5-bedroom penthouse with panoramic sea views in the heart of Dubai Marina.\n\nProperty Details:\n• 5 bedrooms, 6 bathrooms\n• 500 sqm (5,382 sq ft)\n• Private rooftop terrace\n• Infinity pool\n• Smart home technology\n• 24/7 concierge service\n• Underground parking\n\nInvestment Details:\n• Price: 5,000,000 ADNA\n• 12% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Dubai Mall\n• 10 minutes to JBR Beach\n• 15 minutes to Dubai Airport\n• Close to metro and tram\n\nPerfect for:\n• Luxury living\n• High rental income\n• Capital appreciation\n• Global investors",
+                price: "5,000,000 ADNA · 12% yield",
+                link: "https://www.propertyfinder.ae",
+                platform: "Property Finder — Dubai"
+            },
+            {
+                icon: "🌆",
+                name: "Dubai Palm Jumeirah Villa",
+                category: "Dubai",
+                desc: "Beachfront villa on Palm Jumeirah. 6 beds, 700 sqm. 14% rental yield.",
+                fullDesc: "Dubai Palm Jumeirah Villa — a stunning beachfront property on the iconic Palm Jumeirah island.\n\nProperty Details:\n• 6 bedrooms, 7 bathrooms\n• 700 sqm (7,535 sq ft)\n• Private beach access\n• Infinity pool with ocean view\n• Rooftop terrace\n• Home cinema\n• Gym and spa\n\nInvestment Details:\n• Price: 9,000,000 ADNA\n• 14% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 10 minutes to Dubai Marina\n• 15 minutes to Dubai Mall\n• 20 minutes to Dubai Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Capital appreciation\n• Global investors",
+                price: "9,000,000 ADNA · 14% yield",
+                link: "https://www.propertyfinder.ae",
+                platform: "Property Finder — Dubai"
+            },
+            {
+                icon: "🏢",
+                name: "Dubai Downtown Apartment",
+                category: "Dubai",
+                desc: "Luxury apartment in Downtown Dubai. 3 beds, 200 sqm. 10% rental yield.",
+                fullDesc: "Dubai Downtown Apartment — a modern luxury apartment with stunning Burj Khalifa views in the heart of Downtown Dubai.\n\nProperty Details:\n• 3 bedrooms, 4 bathrooms\n• 200 sqm (2,153 sq ft)\n• Burj Khalifa view\n• Private balcony\n• Smart home technology\n• 24/7 concierge service\n• Parking included\n\nInvestment Details:\n• Price: 3,500,000 ADNA\n• 10% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 2 minutes to Dubai Mall\n• 5 minutes to Burj Khalifa\n• 15 minutes to Dubai Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Capital appreciation",
+                price: "3,500,000 ADNA · 10% yield",
+                link: "https://www.propertyfinder.ae",
+                platform: "Property Finder — Dubai"
+            },
+            // Лондон
+            {
+                icon: "🏛️",
+                name: "London Mayfair Mansion",
+                category: "London",
+                desc: "Historic mansion in Mayfair. 8 beds, 800 sqm. 8% annual appreciation.",
+                fullDesc: "London Mayfair Mansion — an exquisite historic mansion in one of London's most prestigious neighborhoods.\n\nProperty Details:\n• 8 bedrooms, 9 bathrooms\n• 800 sqm (8,611 sq ft)\n• Private garden\n• Wine cellar\n• Home cinema\n• Private gym\n• Staff quarters\n\nInvestment Details:\n• Price: 15,000,000 ADNA\n• 8% annual appreciation\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Hyde Park\n• 10 minutes to Buckingham Palace\n• 15 minutes to West End\n\nPerfect for:\n• Luxury living\n• Capital appreciation\n• Historical value\n• Global investors",
+                price: "15,000,000 ADNA · 8% appreciation",
+                link: "https://www.knightfrank.com",
+                platform: "Knight Frank — London"
+            },
+            {
+                icon: "🏢",
+                name: "London Canary Wharf Apartment",
+                category: "London",
+                desc: "Modern apartment in Canary Wharf. 2 beds, 150 sqm. 6% rental yield.",
+                fullDesc: "London Canary Wharf Apartment — a contemporary luxury apartment in London's financial district.\n\nProperty Details:\n• 2 bedrooms, 2 bathrooms\n• 150 sqm (1,615 sq ft)\n• Skyline views\n• Private terrace\n• Gym and spa\n• Concierge service\n• Parking included\n\nInvestment Details:\n• Price: 2,500,000 ADNA\n• 6% annual rental yield\n• Tokenized for fractional ownership\n• Leasehold ownership\n\nLocation Benefits:\n• 2 minutes to Canary Wharf station\n• 15 minutes to Central London\n• 20 minutes to London Airport\n\nPerfect for:\n• Modern living\n• Investment income\n• Location convenience",
+                price: "2,500,000 ADNA · 6% yield",
+                link: "https://www.knightfrank.com",
+                platform: "Knight Frank — London"
+            },
+            // Сингапур
+            {
+                icon: "🏢",
+                name: "Singapore Marina Bay",
+                category: "Singapore",
+                desc: "Luxury apartment in Singapore Marina Bay. 3 beds, 200 sqm. 10% rental yield.",
+                fullDesc: "Singapore Marina Bay — a luxurious apartment with stunning views of Marina Bay Sands in Singapore's financial district.\n\nProperty Details:\n• 3 bedrooms, 3 bathrooms\n• 200 sqm (2,153 sq ft)\n• Marina Bay views\n• Private balcony\n• Smart home technology\n• 24/7 concierge service\n• Parking included\n\nInvestment Details:\n• Price: 8,000,000 ADNA\n• 10% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Marina Bay Sands\n• 10 minutes to Orchard Road\n• 20 minutes to Changi Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Capital appreciation",
+                price: "8,000,000 ADNA · 10% yield",
+                link: "https://www.propertyguru.com.sg",
+                platform: "Property Guru — Singapore"
+            },
+            {
+                icon: "🏠",
+                name: "Singapore Sentosa Villa",
+                category: "Singapore",
+                desc: "Beachfront villa in Sentosa. 5 beds, 400 sqm. 12% rental yield.",
+                fullDesc: "Singapore Sentosa Villa — a stunning beachfront villa on Singapore's premier resort island.\n\nProperty Details:\n• 5 bedrooms, 5 bathrooms\n• 400 sqm (4,306 sq ft)\n• Private beach access\n• Infinity pool\n• Rooftop terrace\n• Home cinema\n• Gym and spa\n\nInvestment Details:\n• Price: 12,000,000 ADNA\n• 12% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Universal Studios\n• 15 minutes to Marina Bay\n• 25 minutes to Changi Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Resort-style lifestyle",
+                price: "12,000,000 ADNA · 12% yield",
+                link: "https://www.propertyguru.com.sg",
+                platform: "Property Guru — Singapore"
+            },
+            // Майами
+            {
+                icon: "🏖️",
+                name: "Miami Beach Villa",
+                category: "Miami",
+                desc: "Modern villa on Miami Beach. 6 beds, 600 sqm. 12% rental yield.",
+                fullDesc: "Miami Beach Villa — a modern luxury villa with private beach access in Miami's most desirable location.\n\nProperty Details:\n• 6 bedrooms, 7 bathrooms\n• 600 sqm (6,458 sq ft)\n• Private beach access\n• Infinity pool\n• Rooftop terrace\n• Home cinema\n• Gym and spa\n\nInvestment Details:\n• Price: 6,500,000 ADNA\n• 12% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to South Beach\n• 15 minutes to Downtown Miami\n• 20 minutes to Miami Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Tropical lifestyle",
+                price: "6,500,000 ADNA · 12% yield",
+                link: "https://www.zillow.com",
+                platform: "Zillow — Miami"
+            },
+            {
+                icon: "🏢",
+                name: "Miami Downtown Penthouse",
+                category: "Miami",
+                desc: "Luxury penthouse in Downtown Miami. 3 beds, 250 sqm. 8% rental yield.",
+                fullDesc: "Miami Downtown Penthouse — a contemporary luxury penthouse with panoramic city views.\n\nProperty Details:\n• 3 bedrooms, 3 bathrooms\n• 250 sqm (2,691 sq ft)\n• City views\n• Private terrace\n• Gym and spa\n• Concierge service\n• Parking included\n\nInvestment Details:\n• Price: 3,000,000 ADNA\n• 8% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Biscayne Bay\n• 10 minutes to South Beach\n• 15 minutes to Miami Airport\n\nPerfect for:\n• Modern living\n• Investment income\n• Urban lifestyle",
+                price: "3,000,000 ADNA · 8% yield",
+                link: "https://www.zillow.com",
+                platform: "Zillow — Miami"
+            },
+            // Стамбул
+            {
+                icon: "🏠",
+                name: "Istanbul Bosphorus Villa",
+                category: "Istanbul",
+                desc: "Historic villa on Bosphorus. 5 beds, 450 sqm. 12% rental yield.",
+                fullDesc: "Istanbul Bosphorus Villa — a magnificent historic villa with breathtaking Bosphorus views.\n\nProperty Details:\n• 5 bedrooms, 6 bathrooms\n• 450 sqm (4,844 sq ft)\n• Bosphorus view\n• Private garden\n• Private dock\n• Home cinema\n• Staff quarters\n\nInvestment Details:\n• Price: 3,800,000 ADNA\n• 12% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 10 minutes to Taksim\n• 15 minutes to Sultanahmet\n• 25 minutes to Istanbul Airport\n\nPerfect for:\n• Luxury living\n• High rental income\n• Historical value",
+                price: "3,800,000 ADNA · 12% yield",
+                link: "https://www.sahibinden.com",
+                platform: "Sahibinden — Istanbul"
+            },
+            {
+                icon: "🏢",
+                name: "Istanbul Levent Apartment",
+                category: "Istanbul",
+                desc: "Modern apartment in Levent. 3 beds, 180 sqm. 10% rental yield.",
+                fullDesc: "Istanbul Levent Apartment — a contemporary luxury apartment in Istanbul's business district.\n\nProperty Details:\n• 3 bedrooms, 3 bathrooms\n• 180 sqm (1,938 sq ft)\n• City views\n• Private balcony\n• Gym and spa\n• Concierge service\n• Parking included\n\nInvestment Details:\n• Price: 1,800,000 ADNA\n• 10% annual rental yield\n• Tokenized for fractional ownership\n• Freehold ownership\n\nLocation Benefits:\n• 5 minutes to Zorlu Center\n• 10 minutes to Bosphorus\n• 20 minutes to Istanbul Airport\n\nPerfect for:\n• Modern living\n• Investment income\n• Business convenience",
+                price: "1,800,000 ADNA · 10% yield",
+                link: "https://www.sahibinden.com",
+                platform: "Sahibinden — Istanbul"
+            }
         ];
 
+        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ ФУНКЦИЙ ==========
         function generateREFunctions() {
             const result = [];
             const used = new Set();
-            const rePrefixes = ['Residential', 'Commercial', 'Industrial', 'Land', 'MixedUse', 'Luxury', 'Waterfront', 'Mountain', 'Urban', 'Suburban', 'Rural', 'Coastal', 'Historic', 'Modern', 'Eco'];
-            const reActions = ['Tokenize', 'Fractionalize', 'Evaluate', 'Appraise', 'List', 'Rent', 'Lease', 'Sell', 'Buy', 'Exchange'];
-            const reNouns = ['Property', 'Estate', 'Asset', 'Portfolio', 'Trust', 'REIT', 'Fund', 'Development', 'Project', 'Investment'];
-            const icons = ['🏠','🏢','🏗️','🏘️','🌆','🌇','🏖️','🏔️','🏡','🏬','🏪','🏫','🏥','🏦','🏭'];
 
-            reProperties.forEach(f => {
+            realEstateFunctions.forEach(f => {
                 if (!used.has(f.name)) {
                     used.add(f.name);
                     result.push(f);
                 }
             });
 
-            while (result.length < 500) {
+            const rePrefixes = ['Residential', 'Commercial', 'Industrial', 'Land', 'MixedUse', 'Luxury', 'Waterfront', 'Mountain', 'Urban', 'Suburban', 'Rural', 'Coastal', 'Historic', 'Modern', 'Eco'];
+            const reActions = ['Tokenize', 'Fractionalize', 'Evaluate', 'Appraise', 'List', 'Rent', 'Lease', 'Sell', 'Buy', 'Exchange'];
+            const reNouns = ['Property', 'Estate', 'Asset', 'Portfolio', 'Trust', 'REIT', 'Fund', 'Development', 'Project', 'Investment'];
+            const icons = ['🏠','🏢','🏗️','🏘️','🌆','🌇','🏖️','🏔️','🏡','🏬','🏪','🏫','🏥','🏦','🏭'];
+
+            while (result.length < 50) {
                 const p = rePrefixes[Math.floor(Math.random() * rePrefixes.length)];
                 const a = reActions[Math.floor(Math.random() * reActions.length)];
                 const n = reNouns[Math.floor(Math.random() * reNouns.length)];
                 const icon = icons[Math.floor(Math.random() * icons.length)];
                 let name = `${p} ${a} ${n}`;
                 if (Math.random() > 0.6) name += ` ${['Pro','Plus','Premium','Luxury','Elite'][Math.floor(Math.random()*5)]}`;
-                const descs = [
-                    `${p} ${a} platform for ${n} with 8-12% rental yield and fractional ownership`,
-                    `${a} ${n} in ${p} sector with 5-15% annual appreciation and tokenization options`,
-                    `${p} ${n} ${a} system with 100+ properties, $200M+ portfolio, and 24/7 trading`
-                ];
-                const desc = descs[Math.floor(Math.random() * descs.length)];
+
+                const desc = `${p} ${a} platform for ${n} with 8-12% rental yield and fractional ownership. 100+ properties available.`;
+                const fullDesc = `${p} ${a} solution for ${n} with advanced real estate tokenization.\n\nProperty Details:\n• ${Math.floor(Math.random() * 8) + 2} bedrooms\n• ${Math.floor(Math.random() * 300) + 100} sqm\n• Prime location\n• Premium amenities\n\nInvestment Details:\n• Price: ${(Math.floor(Math.random() * 10) + 1)}M ADNA\n• 8-12% rental yield\n• Tokenized ownership\n• Professional management\n\nLocation Benefits:\n• Central location\n• Excellent transport links\n• High growth potential\n\nPerfect for:\n• Investors\n• Home buyers\n• Global investors`;
+
+                const link = 'https://www.zillow.com';
+                const platform = 'Zillow — Real Estate';
+
                 const id = `re_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc, link: `https://re.adna/${n.toLowerCase().replace(/\s/g,'')}` });
+                    result.push({
+                        id,
+                        icon,
+                        name,
+                        category: 'Global Properties',
+                        desc: desc,
+                        fullDesc: fullDesc,
+                        price: `${Math.floor(Math.random() * 10) + 1}M ADNA · 8-12% yield`,
+                        link: link,
+                        platform: platform
+                    });
                 }
             }
             return result;
@@ -170,66 +318,139 @@
 
         const allFunctions = generateREFunctions();
 
+        // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            if (search) filtered = allFunctions.filter(f =>
+                f.name.toLowerCase().includes(search) ||
+                f.desc.toLowerCase().includes(search) ||
+                f.category.toLowerCase().includes(search) ||
+                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+            );
 
-            let html = `<h2>🏠 Real Estate Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.slice(0, 100).forEach(f => {
-                html += `
-                    <div class="card">
-                        <div class="icon">${f.icon}</div>
-                        <div class="fname">${f.name}</div>
-                        <div class="fdesc">${f.desc}</div>
-                        ${f.link ? `<a href="${f.link}" target="_blank" class="flink">🔗 Learn More →</a>` : ''}
-                    </div>
-                `;
+            // Группировка по категориям
+            const groups = {};
+            filtered.forEach(f => {
+                if (!groups[f.category]) groups[f.category] = [];
+                groups[f.category].push(f);
             });
-            html += `</div>`;
-            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
+
+            let html = '';
+            const sortedCategories = ['Dubai', 'London', 'Singapore', 'Miami', 'Istanbul', 'Global Properties'];
+            sortedCategories.forEach(cat => {
+                if (groups[cat]) {
+                    const items = groups[cat];
+                    html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
+                    items.slice(0, 20).forEach((f, index) => {
+                        const globalIndex = allFunctions.indexOf(f);
+                        html += `
+                            <div class="card" onclick="openModal(${globalIndex})">
+                                <div class="icon">${f.icon}</div>
+                                <div class="fname">${f.name}</div>
+                                <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                                <div class="click-hint">👆 Click for details</div>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+            });
+
+            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No properties found</p>';
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
-        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
+        // ========== МОДАЛЬНОЕ ОКНО ==========
+        function openModal(index) {
+            const f = allFunctions[index];
+            if (!f) return;
 
+            document.getElementById('modalIcon').textContent = f.icon;
+            document.getElementById('modalTitle').textContent = f.name;
+            document.getElementById('modalCategory').textContent = f.category;
+            document.getElementById('modalPrice').textContent = f.price || 'Varies · See details';
+            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
+            document.getElementById('modalLink').href = f.link || 'https://www.zillow.com';
+            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ========== ПОИСК ==========
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderFunctions(this.value);
+        });
+
+        // ========== ПЕРЕВОД ==========
         const translations = {
             en: {
                 title: '🏠 ADNA Real Estate',
-                sub: 'Tokenized Real Estate Platform · 500+ unique properties and functions',
+                sub: 'Tokenized Real Estate Platform · 50+ Unique Properties',
                 walletLabel: 'ADNA Contract',
                 propertiesLabel: 'Total Properties',
                 yieldLabel: 'Avg Yield',
+                buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '🏠 Недвижимость ADNA',
-                sub: 'Платформа токенизированной недвижимости · 500+ уникальных объектов и функций',
+                sub: 'Платформа токенизированной недвижимости · 50+ уникальных объектов',
                 walletLabel: 'Контракт ADNA',
                 propertiesLabel: 'Всего объектов',
                 yieldLabel: 'Средняя доходность',
+                buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
         };
 
         let currentLang = 'en';
         function setLanguage(lang) {
-            currentLang = lang; const t = translations[lang] || translations.en;
+            currentLang = lang;
+            const t = translations[lang] || translations.en;
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('propertiesLabel').innerText = t.propertiesLabel;
             document.getElementById('yieldLabel').innerText = t.yieldLabel;
-            document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
+            document.getElementById('buyLabel').innerText = t.buyLabel;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (t[key]) el.innerText = t[key];
+            });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
-        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => {
+            e.preventDefault();
+            setLanguage(a.dataset.lang);
+            document.getElementById('langMenu').classList.remove('show');
+        });
+        document.onclick = (e) => {
+            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
+                document.getElementById('langMenu').classList.remove('show');
+        };
+
+        // ========== INIT ==========
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
 </html>
