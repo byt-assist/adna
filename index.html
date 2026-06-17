@@ -6,13 +6,7 @@
     <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%);
-            color: #e8ddd0;
-            line-height: 1.5;
-            min-height: 100vh;
-        }
+        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -32,6 +26,8 @@
         .card .flink { font-size: 0.65rem; color: #d4a843; text-decoration: none; display: inline-block; margin-top: 0.3rem; }
         .card .flink:hover { text-decoration: underline; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .wallet-box a { color: #d4a843; }
+        .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
         .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
@@ -49,6 +45,8 @@
         .stats-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0.3rem 0; font-size: 0.85rem; }
         .real-link { color: #4caf50; font-size: 0.7rem; display: inline-block; margin-top: 0.2rem; }
         .real-link:hover { text-decoration: underline; }
+        .link-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.5rem 0; }
+        .link-group .btn { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
         @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
     </style>
 </head>
@@ -80,10 +78,16 @@
         <div class="subhead" id="subhead">Luxury Sensory Wellness Ecosystem · 700+ Premium Functions</div>
 
         <div class="wallet-box">
-            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
+            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>🏦 <span id="treasuryLabel">Treasury</span>: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9
-            <br>🪐 <span id="jupiterLabel">Trade on Jupiter</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" style="color:#d4a843;">jup.ag/swap/SOL-ADNA</a>
-            <br>🌊 <span id="meteoraLabel">Meteora Pool</span>: <a href="https://app.meteora.ag" target="_blank" style="color:#d4a843;">app.meteora.ag</a>
+        </div>
+
+        <div class="link-group">
+            <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="btn btn-outline">🔍 Solscan</a>
+            <a href="https://www.geckoterminal.com/solana/pools/CzALPo5VCfXHRTWCXMy5X5gTAevsUhKQR7VqjWNCYpu3" target="_blank" class="btn btn-outline">📊 GeckoTerminal</a>
+            <a href="https://dexscreener.com/solana/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" class="btn btn-outline">📈 DexScreener</a>
+            <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
+            <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
         </div>
 
         <div class="grid-2col">
@@ -109,10 +113,6 @@
                 <div style="margin-top:0.8rem;">
                     <strong id="visionTitle">Vision</strong><br>
                     <span id="visionDesc">To become the leading Web3 wellness ecosystem, bridging luxury perfumery with decentralized finance, real-world assets, and sensory experiences.</span>
-                </div>
-                <div class="button-group" style="margin-top:0.8rem;">
-                    <a href="https://jup.ag/swap/SOL-ADNA" target="_blank" class="btn">🪐 Trade on Jupiter</a>
-                    <a href="https://app.meteora.ag" target="_blank" class="btn btn-outline">🌊 Meteora Pool</a>
                 </div>
             </div>
         </div>
@@ -159,9 +159,9 @@
     </div>
 
     <script>
-        // ========== 700+ ФУНКЦИЙ ==========
+        // ========== 700+ ФУНКЦИЙ С РЕАЛЬНЫМИ ССЫЛКАМИ ==========
         const mainFunctions = [
-            // Основные (30)
+            // Основные (30) — без ссылок, просто описание
             { icon: "🌿", name: "ADNA Core Platform", desc: "Central wellness platform with AI-driven fragrance recommendations. 50,000+ users. 200+ scent combinations. 24/7 availability." },
             { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes with 500+ natural ingredients. AI-powered design. 10,000+ unique creations." },
             { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method. 200+ clinical studies on fragrance and emotional states. 85% satisfaction rate." },
@@ -210,7 +210,7 @@
             { icon: "📋", name: "Tokenomics", desc: "Total supply: 10B ADNA. 40% ecosystem, 20% team, 15% treasury, 15% investors, 10% liquidity." }
         ];
 
-        // Генерируем 700+ уникальных функций
+        // Генерируем 700+ уникальных функций (без ссылок, только описания)
         function generateMainFunctions() {
             const result = [];
             const used = new Set();
@@ -239,8 +239,7 @@
                 const descs = [
                     `${p} ${a} solution for ${cat} with 99.9% uptime and 50,000+ users`,
                     `${p} ${n} for ${cat} with 8-25% APY and 0.1% fee`,
-                    `${a} ${n} with ${p} technology, 20+ integrations, and 24/7 availability`,
-                    `${cat} ${a} platform with ${n} and 50+ successful use cases`
+                    `${a} ${n} with ${p} technology, 20+ integrations, and 24/7 availability`
                 ];
                 const desc = descs[Math.floor(Math.random() * descs.length)];
 
@@ -286,8 +285,6 @@
                 sub: 'Luxury Sensory Wellness Ecosystem · 700+ Premium Functions',
                 walletLabel: 'ADNA Contract',
                 treasuryLabel: 'Treasury',
-                jupiterLabel: 'Trade on Jupiter',
-                meteoraLabel: 'Meteora Pool',
                 price: '$0.9997',
                 priceDesc: '1 ADNA ≈ 0.9997 USDC',
                 liquidity: '💎 Liquidity: $668.9M',
@@ -305,8 +302,6 @@
                 sub: 'Экосистема роскошного сенсорного благополучия · 700+ премиальных функций',
                 walletLabel: 'Контракт ADNA',
                 treasuryLabel: 'Казначейство',
-                jupiterLabel: 'Торговать на Jupiter',
-                meteoraLabel: 'Пул Meteora',
                 price: '$0.9997',
                 priceDesc: '1 ADNA ≈ 0.9997 USDC',
                 liquidity: '💎 Ликвидность: $668.9M',
@@ -328,8 +323,6 @@
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('treasuryLabel').innerText = t.treasuryLabel;
-            document.getElementById('jupiterLabel').innerText = t.jupiterLabel;
-            document.getElementById('meteoraLabel').innerText = t.meteoraLabel;
             document.getElementById('priceText').innerHTML = t.price;
             document.getElementById('priceDesc').innerText = t.priceDesc;
             document.getElementById('liquidityText').innerHTML = t.liquidity;
