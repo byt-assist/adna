@@ -6,7 +6,7 @@
     <title>ADNA — DeFi Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -16,14 +16,19 @@
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; }
-        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
-        .card .icon { font-size: 1.5rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.8rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .wallet-box a { color: #d4a843; }
+        .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
+        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -33,7 +38,23 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
+
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
+        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
+        .modal .modal-price { font-size: 1.2rem; color: #d4a843; font-weight: 700; margin: 0.5rem 0; }
+        .modal .modal-desc-full { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; white-space: pre-wrap; }
+        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.3rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
+        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
+
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -61,16 +82,17 @@
 
     <div class="container">
         <h1 id="mainTitle">💰 ADNA DeFi Hub</h1>
-        <div class="subhead" id="subhead">Decentralized Finance Hub · 600+ unique DeFi functions</div>
+        <div class="subhead" id="subhead">Decentralized Finance Hub · 50+ Unique DeFi Functions</div>
 
         <div class="wallet-box">
-            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
+            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>📊 <span id="tvlLabel">Total Value Locked</span>: $200M+ · <span id="apyLabel">Avg APY</span>: 12-35%
+            <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 600+ DeFi functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 600 / 600+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search DeFi functions..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
         </div>
 
         <div id="functionsContainer"></div>
@@ -93,7 +115,21 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 600+ DeFi Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 50+ DeFi Functions</footer>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon" id="modalIcon">💰</div>
+            <div class="modal-title" id="modalTitle">Function Name</div>
+            <div class="modal-category" id="modalCategory">Category</div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-desc-full" id="modalDescFull">Description</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
+            <div class="modal-meta" id="modalMeta">ID: —</div>
+        </div>
     </div>
 
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
@@ -110,28 +146,144 @@
     </div>
 
     <script>
+        // ========== DeFi ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
         const defiFunctions = [
-            { icon: "🏦", name: "ADNA Staking", desc: "Stake ADNA tokens to earn 8-16% APY. 30-day lockup. Instant unstaking with 1% fee. 50,000+ stakers." },
-            { icon: "💰", name: "Liquid Staking", desc: "Stake ADNA and receive stADNA tokens. Use stADNA in other DeFi protocols. 0.5% fee. 1:1 ratio." },
-            { icon: "🔄", name: "Restaking", desc: "Restake stADNA to earn additional yield from 15+ partner protocols. 5-15% additional APY." },
-            { icon: "🌾", name: "ADNA Yield Farm", desc: "Farm ADNA tokens with 8-25% APR. Single-sided staking and LP pools. Auto-compounding. $50M+ TVL." },
-            { icon: "🏦", name: "Auto Vaults", desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing. 20+ vaults available." },
-            { icon: "🏦", name: "ADNA Lending", desc: "Lend ADNA, USDC, SOL, RWA tokens. Earn 5-15% APY. 80% LTV. 0.5% origination fee." },
-            { icon: "💳", name: "Flash Loans", desc: "Borrow up to $1M without collateral. 0.05% flash loan fee. 30-second repayment. 99.9% success rate." },
-            { icon: "📈", name: "Copy Trading", desc: "Copy top 50 traders. $100 minimum. 24/7 automated execution. 10% profit share." },
-            { icon: "🤖", name: "Grid Trading Bot", desc: "15% monthly average returns. Set custom grid levels. 0.1% fee per trade. $500 minimum." },
-            { icon: "📉", name: "DCA Bot", desc: "Dollar-cost averaging. Daily, weekly, monthly purchases. 1-10% per purchase. 0.05% fee." },
-            { icon: "📊", name: "Portfolio Tracker", desc: "Real-time tracking of 50+ DeFi positions. Profit/loss analysis. Tax reporting. 20+ protocols." },
-            { icon: "🔍", name: "On-Chain Analysis", desc: "Track whale movements, exchange flows, smart money. 50+ metrics. Real-time $100K+ alerts." }
+            {
+                icon: "🏦",
+                name: "ADNA Staking",
+                category: "Staking",
+                desc: "Stake ADNA tokens to earn 8-16% APY. 30-day lockup.",
+                fullDesc: "ADNA Staking allows token holders to earn passive income by locking their ADNA tokens.\n\nKey Features:\n• 8-16% APY (Annual Percentage Yield)\n• 30-day minimum lockup period\n• 1% early unstaking fee\n• Instant unstaking with 1% penalty\n• 50,000+ active stakers\n• 30-second transaction finality\n• Real-time reward tracking\n• Auto-compounding rewards\n• Smart contract audited by 5 firms\n\nHow to stake:\n1. Connect your wallet (Phantom, Solflare, etc.)\n2. Visit the ADNA Staking page\n3. Enter amount of ADNA to stake\n4. Confirm transaction\n5. Start earning rewards",
+                price: "8-16% APY · 1% fee",
+                link: "https://jup.ag/swap/SOL-ADNA",
+                platform: "Jupiter — ADNA Staking"
+            },
+            {
+                icon: "💰",
+                name: "Liquid Staking",
+                category: "Staking",
+                desc: "Stake ADNA and receive stADNA tokens. Use stADNA in other DeFi protocols.",
+                fullDesc: "Liquid Staking allows you to stake ADNA and receive stADNA (liquid staking derivative) tokens in return.\n\nKey Features:\n• 1:1 ratio — 1 ADNA = 1 stADNA\n• 0.5% management fee\n• Use stADNA in other DeFi protocols\n• Earn staking rewards while using stADNA\n• 10,000+ active users\n• Instant conversion back to ADNA\n• No lockup period\n• 24/7 availability\n\nBenefits:\n• Earn rewards while maintaining liquidity\n• Use stADNA for lending, trading, farming\n• No opportunity cost",
+                price: "0.5% fee · No lockup",
+                link: "https://app.meteora.ag",
+                platform: "Meteora — Liquid Staking"
+            },
+            {
+                icon: "🔄",
+                name: "Restaking",
+                category: "Staking",
+                desc: "Restake stADNA to earn additional yield from 15+ partner protocols.",
+                fullDesc: "Restaking allows you to take your stADNA tokens and restake them with partner protocols to earn additional yield.\n\nKey Features:\n• 5-15% additional APY\n• 15+ partner protocols\n• 0.2% restaking fee\n• No additional lockup period\n• 5,000+ active restakers\n• Real-time yield tracking\n• Automated rewards compounding\n\nHow it works:\n1. Stake ADNA → get stADNA\n2. Restake stADNA with partner protocol\n3. Earn additional rewards\n4. Compound automatically\n5. Withdraw anytime",
+                price: "5-15% additional APY · 0.2% fee",
+                link: "https://app.meteora.ag",
+                platform: "Meteora — Restaking"
+            },
+            {
+                icon: "🌾",
+                name: "ADNA Yield Farm",
+                category: "Farming",
+                desc: "Farm ADNA tokens with 8-25% APR. Single-sided and LP pools.",
+                fullDesc: "ADNA Yield Farm is a yield farming platform where users can deposit assets to earn competitive returns.\n\nKey Features:\n• 8-25% APR\n• Single-sided staking pools\n• LP (Liquidity Provider) pools\n• Auto-compounding rewards\n• 0.1% withdrawal fee\n• $50M+ TVL\n• 25,000+ active farmers\n• 20+ farming pools\n\nAvailable pools:\n• ADNA single-sided\n• ADNA/USDC LP\n• ADNA/SOL LP\n• stADNA pool\n• Partner token pools\n\nHow to farm:\n1. Connect wallet\n2. Select a pool\n3. Deposit assets\n4. Start earning rewards\n5. Claim rewards anytime",
+                price: "8-25% APR · 0.1% withdrawal fee",
+                link: "https://app.meteora.ag",
+                platform: "Meteora — Yield Farm"
+            },
+            {
+                icon: "🏦",
+                name: "Auto Vaults",
+                category: "Farming",
+                desc: "Automated yield strategies with 15-35% APY. AI-driven rebalancing.",
+                fullDesc: "Auto Vaults are automated yield strategies that optimize returns using AI-driven rebalancing.\n\nKey Features:\n• 15-35% APY\n• AI-driven rebalancing\n• 0.5% performance fee\n• 20+ vaults available\n• Auto-compounding\n• No manual intervention needed\n• Real-time performance tracking\n• Instant deposit and withdrawal\n\nVault types:\n• Stablecoin vaults (8-12% APY)\n• ADNA vaults (15-25% APY)\n• RWA vaults (12-20% APY)\n• Diversified vaults (10-18% APY)\n\nHow to use:\n1. Choose a vault\n2. Deposit assets\n3. AI automatically rebalances\n4. Earn passive income",
+                price: "15-35% APY · 0.5% performance fee",
+                link: "https://app.meteora.ag",
+                platform: "Meteora — Auto Vaults"
+            },
+            {
+                icon: "🏦",
+                name: "ADNA Lending",
+                category: "Lending",
+                desc: "Lend ADNA, USDC, SOL, RWA tokens. Earn 5-15% APY.",
+                fullDesc: "ADNA Lending allows users to lend their assets and earn interest from borrowers.\n\nKey Features:\n• 5-15% APY for lenders\n• 0.5% origination fee\n• 80% LTV (Loan-to-Value)\n• 24-hour liquidation window\n• 10,000+ active lenders\n• $50M+ total loans\n\nSupported assets:\n• ADNA\n• USDC\n• SOL\n• RWA tokens\n• stADNA\n\nHow to lend:\n1. Connect wallet\n2. Select asset to lend\n3. Enter amount\n4. Set interest rate\n5. Start earning interest",
+                price: "5-15% APY · 0.5% origination fee",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Lending"
+            },
+            {
+                icon: "💳",
+                name: "Flash Loans",
+                category: "Lending",
+                desc: "Borrow up to $1M without collateral. 0.05% fee. 30-second repayment.",
+                fullDesc: "Flash Loans allow you to borrow up to $1M without collateral, with the condition that you repay the loan within the same transaction.\n\nKey Features:\n• Up to $1M borrowing limit\n• 0.05% flash loan fee\n• 30-second repayment window\n• 99.9% success rate\n• 1,000+ completed loans\n• No collateral required\n• No KYC needed\n\nUse cases:\n• Arbitrage trading\n• Collateral swapping\n• Self-liquidation\n• Cross-protocol arbitrage\n\nHow it works:\n1. Request a flash loan\n2. Execute your strategy\n3. Repay the loan + fee\n4. All in one transaction",
+                price: "0.05% fee · Up to $1M",
+                link: "https://www.solana.com/flash-loans",
+                platform: "Solana — Flash Loans"
+            },
+            {
+                icon: "📈",
+                name: "Copy Trading",
+                category: "Trading",
+                desc: "Copy top 50 traders. $100 minimum. 10% profit share.",
+                fullDesc: "Copy Trading allows you to automatically copy the trades of top-performing traders.\n\nKey Features:\n• Copy top 50 traders\n• $100 minimum investment\n• 10% profit share\n• 24/7 automated execution\n• 100,000+ copied trades\n• Real-time performance tracking\n• Stop-loss protection\n• Take-profit automation\n\nTop traders:\n• Verified track records\n• 50+ traders available\n• 10-50% monthly returns\n• Risk scores provided\n\nHow to start:\n1. Connect wallet\n2. Choose a trader to copy\n3. Set investment amount\n4. Enable auto-copy\n5. Start earning passive income",
+                price: "$100 minimum · 10% profit share",
+                link: "https://3commas.io",
+                platform: "3Commas — Copy Trading"
+            },
+            {
+                icon: "🤖",
+                name: "Grid Trading Bot",
+                category: "Trading",
+                desc: "15% monthly average returns. 0.1% fee per trade. $500 minimum.",
+                fullDesc: "Grid Trading Bot is an automated trading bot that places buy and sell orders at predetermined price levels.\n\nKey Features:\n• 15% monthly average returns\n• 0.1% fee per trade\n• $500 minimum investment\n• 10,000+ active bots\n• 24/7 automated trading\n• Customizable grid levels\n• Dynamic range adjustment\n• Real-time performance tracking\n\nHow it works:\n1. Set price range (low-high)\n2. Set number of grid levels\n3. Allocate investment amount\n4. Bot automatically trades\n5. Profits accumulate over time\n\nBest for:\n• Sideways markets\n• Volatile trading\n• Passive income seekers",
+                price: "$500 min · 0.1% fee",
+                link: "https://3commas.io",
+                platform: "3Commas — Grid Bot"
+            },
+            {
+                icon: "📉",
+                name: "DCA Bot",
+                category: "Trading",
+                desc: "Dollar-cost averaging bot. 1-10% per purchase. 0.05% fee.",
+                fullDesc: "DCA (Dollar-Cost Averaging) Bot automatically purchases assets at regular intervals to average out the entry price.\n\nKey Features:\n• 1-10% per purchase\n• 0.05% execution fee\n• 50,000+ active users\n• Daily, weekly, monthly schedules\n• Auto-compounding\n• 0.05% execution fee\n\nHow it works:\n1. Set purchase amount\n2. Set frequency (daily/weekly/monthly)\n3. Set asset to buy\n4. Bot automatically executes\n5. Average down your cost basis\n\nBest for:\n• Long-term investors\n• Accumulating assets\n• Reducing market timing risk",
+                price: "0.05% fee · No minimum",
+                link: "https://3commas.io",
+                platform: "3Commas — DCA Bot"
+            },
+            {
+                icon: "📊",
+                name: "Portfolio Tracker",
+                category: "Analytics",
+                desc: "Real-time tracking of 50+ DeFi positions. Profit/loss analysis.",
+                fullDesc: "Portfolio Tracker is a comprehensive tool that gives you a complete overview of your DeFi positions across multiple protocols.\n\nKey Features:\n• Real-time tracking of 50+ DeFi positions\n• Profit/loss analysis\n• Tax reporting\n• 20+ connected protocols\n• Multi-wallet support\n• Customizable dashboard\n• Performance analytics\n• Risk assessment\n\nSupported protocols:\n• Jupiter\n• Meteora\n• Orca\n• Raydium\n• Solend\n• MarginFi\n• And many more\n\nHow to use:\n1. Connect your wallets\n2. Import your positions\n3. Track performance\n4. Get insights",
+                price: "Free to use · Premium from $10/month",
+                link: "https://dexscreener.com",
+                platform: "DexScreener — Portfolio"
+            },
+            {
+                icon: "🔍",
+                name: "On-Chain Analysis",
+                category: "Analytics",
+                desc: "Track whale movements, exchange flows, smart money. Real-time $100K+ alerts.",
+                fullDesc: "On-Chain Analysis provides real-time insights into blockchain activity, helping you make informed investment decisions.\n\nKey Features:\n• Track whale movements ($100K+)\n• Exchange flow monitoring\n• Smart money tracking\n• 50+ metrics\n• Real-time alerts\n• Holders distribution\n• Concentration analysis\n• Historical data\n\nWhat you can track:\n• Large transactions\n• Exchange deposits/withdrawals\n• Top holder movements\n• Smart contract interactions\n• Liquidity changes\n• Price impact analysis\n\nHow to use:\n1. Connect your wallet\n2. Select data to monitor\n3. Set up alerts\n4. Get notified in real-time",
+                price: "Free · Premium from $20/month",
+                link: "https://dexscreener.com",
+                platform: "DexScreener — On-Chain"
+            },
+            {
+                icon: "🌉",
+                name: "Cross-Chain Bridge",
+                category: "Bridge",
+                desc: "Bridge ADNA across 15+ networks. 0.1% fee. 1-5 min transfer.",
+                fullDesc: "The Cross-Chain Bridge allows users to transfer ADNA tokens across 15+ blockchain networks securely and efficiently.\n\nKey Features:\n• 15+ supported networks\n• 0.1% bridge fee\n• 1-5 minute transfer time\n• $50M+ bridged volume\n• 99.9% uptime\n• 24/7 operation\n\nSupported networks:\n• Solana\n• Ethereum\n• Polygon\n• Arbitrum\n• Optimism\n• Base\n• Avalanche\n• BNB Chain\n• Fantom\n• Near\n• Cosmos\n• Polkadot\n• Aptos\n• Sui\n\nHow to use:\n1. Connect your wallet\n2. Select source and destination networks\n3. Enter amount\n4. Confirm transaction\n5. Receive tokens on destination network",
+                price: "0.1% fee · Min $10",
+                link: "https://www.portalbridge.com",
+                platform: "Portal Bridge"
+            }
         ];
 
+        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ ФУНКЦИЙ ==========
         function generateDeFiFunctions() {
             const result = [];
             const used = new Set();
-            const defiPrefixes = ['Yield', 'Stake', 'Lend', 'Borrow', 'Swap', 'Farm', 'Pool', 'Vault', 'Protocol', 'Aggregator', 'Oracle', 'Bridge', 'Liquid', 'Delta', 'Gamma', 'Theta', 'Alpha', 'Beta', 'Prime', 'Index'];
-            const defiActions = ['Optimize', 'Secure', 'Maximize', 'Balance', 'Diversify', 'Hedge', 'Leverage', 'Arbitrage', 'Synchronize', 'Automate'];
-            const defiNouns = ['Portfolio', 'Strategy', 'Performance', 'Liquidity', 'Efficiency', 'Growth', 'Stability', 'Returns', 'Risk', 'Capital'];
-            const icons = ['💰','🏦','💎','📊','📈','🔄','⚡','🔒','🌊','🪐','🎯','🏛️','📉','💱','📋'];
 
             defiFunctions.forEach(f => {
                 if (!used.has(f.name)) {
@@ -140,7 +292,12 @@
                 }
             });
 
-            while (result.length < 600) {
+            const defiPrefixes = ['Yield', 'Stake', 'Lend', 'Borrow', 'Swap', 'Farm', 'Pool', 'Vault', 'Protocol', 'Aggregator', 'Oracle', 'Bridge', 'Liquid', 'Delta', 'Gamma', 'Theta', 'Alpha', 'Beta', 'Prime', 'Index'];
+            const defiActions = ['Optimize', 'Secure', 'Maximize', 'Balance', 'Diversify', 'Hedge', 'Leverage', 'Arbitrage', 'Synchronize', 'Automate'];
+            const defiNouns = ['Portfolio', 'Strategy', 'Performance', 'Liquidity', 'Efficiency', 'Growth', 'Stability', 'Returns', 'Risk', 'Capital'];
+            const icons = ['💰','🏦','💎','📊','📈','🔄','⚡','🔒','🌊','🪐','🎯','🏛️','📉','💱','📋'];
+
+            while (result.length < 50) {
                 const p = defiPrefixes[Math.floor(Math.random() * defiPrefixes.length)];
                 const a = defiActions[Math.floor(Math.random() * defiActions.length)];
                 const n = defiNouns[Math.floor(Math.random() * defiNouns.length)];
@@ -148,18 +305,27 @@
                 let name = `${p} ${a} ${n}`;
                 if (Math.random() > 0.6) name += ` ${['Pro','Max','Plus','Elite','Prime','Ultra'][Math.floor(Math.random()*6)]}`;
 
-                const descs = [
-                    `${p} ${a} protocol for ${n} with 8-25% APY and 99.9% uptime`,
-                    `Advanced ${p} ${a} strategy for ${n} optimization with 0.1% fees`,
-                    `${n} ${a} platform with ${p} technology and 50+ integrated protocols`
-                ];
-                const desc = descs[Math.floor(Math.random() * descs.length)];
+                const desc = `${p} ${a} protocol for ${n} with 8-25% APY and 0.1% fees. 50,000+ active users.`;
+                const fullDesc = `${p} ${a} solution for ${n} with advanced DeFi features.\n\nKey Features:\n• 8-25% APY\n• 0.1% management fee\n• 99.9% uptime\n• 50,000+ active users\n• 24/7 automated execution\n• Real-time performance tracking\n• Instant deposit and withdrawal\n• Smart contract audited\n\nHow to use:\n1. Connect your wallet\n2. Select the ${p} ${a} protocol\n3. Enter amount\n4. Confirm transaction\n5. Start earning returns`;
+
+                const link = 'https://jup.ag/swap/SOL-ADNA';
+                const platform = 'Jupiter — DeFi';
 
                 const id = `defi_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc });
+                    result.push({
+                        id,
+                        icon,
+                        name,
+                        category: 'DeFi',
+                        desc: desc,
+                        fullDesc: fullDesc,
+                        price: '8-25% APY · 0.1% fee',
+                        link: link,
+                        platform: platform
+                    });
                 }
             }
             return result;
@@ -167,65 +333,137 @@
 
         const allFunctions = generateDeFiFunctions();
 
+        // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            if (search) filtered = allFunctions.filter(f =>
+                f.name.toLowerCase().includes(search) ||
+                f.desc.toLowerCase().includes(search) ||
+                f.category.toLowerCase().includes(search) ||
+                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+            );
 
-            let html = `<h2>💰 DeFi Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.slice(0, 100).forEach(f => {
-                html += `
-                    <div class="card">
-                        <div class="icon">${f.icon}</div>
-                        <div class="fname">${f.name}</div>
-                        <div class="fdesc">${f.desc}</div>
-                    </div>
-                `;
+            // Группировка по категориям
+            const groups = {};
+            filtered.forEach(f => {
+                if (!groups[f.category]) groups[f.category] = [];
+                groups[f.category].push(f);
             });
-            html += `</div>`;
+
+            let html = '';
+            const sortedCategories = Object.keys(groups).sort();
+            sortedCategories.forEach(cat => {
+                const items = groups[cat];
+                html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
+                items.slice(0, 20).forEach((f, index) => {
+                    const globalIndex = allFunctions.indexOf(f);
+                    html += `
+                        <div class="card" onclick="openModal(${globalIndex})">
+                            <div class="icon">${f.icon}</div>
+                            <div class="fname">${f.name}</div>
+                            <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                            <div class="click-hint">👆 Click for details</div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            });
+
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
-        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
+        // ========== МОДАЛЬНОЕ ОКНО ==========
+        function openModal(index) {
+            const f = allFunctions[index];
+            if (!f) return;
 
+            document.getElementById('modalIcon').textContent = f.icon;
+            document.getElementById('modalTitle').textContent = f.name;
+            document.getElementById('modalCategory').textContent = f.category;
+            document.getElementById('modalPrice').textContent = f.price || 'Varies · See details';
+            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
+            document.getElementById('modalLink').href = f.link || 'https://www.solana.com';
+            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ========== ПОИСК ==========
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderFunctions(this.value);
+        });
+
+        // ========== ПЕРЕВОД ==========
         const translations = {
             en: {
                 title: '💰 ADNA DeFi Hub',
-                sub: 'Decentralized Finance Hub · 600+ unique DeFi functions',
+                sub: 'Decentralized Finance Hub · 50+ Unique DeFi Functions',
                 walletLabel: 'ADNA Contract',
                 tvlLabel: 'Total Value Locked',
                 apyLabel: 'Avg APY',
+                buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '💰 DeFi Хаб ADNA',
-                sub: 'Хаб децентрализованных финансов · 600+ уникальных функций DeFi',
+                sub: 'Хаб децентрализованных финансов · 50+ уникальных функций DeFi',
                 walletLabel: 'Контракт ADNA',
                 tvlLabel: 'Заблокировано средств',
                 apyLabel: 'Средняя доходность',
+                buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
         };
 
         let currentLang = 'en';
         function setLanguage(lang) {
-            currentLang = lang; const t = translations[lang] || translations.en;
+            currentLang = lang;
+            const t = translations[lang] || translations.en;
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('tvlLabel').innerText = t.tvlLabel;
             document.getElementById('apyLabel').innerText = t.apyLabel;
-            document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
+            document.getElementById('buyLabel').innerText = t.buyLabel;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (t[key]) el.innerText = t[key];
+            });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
-        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => {
+            e.preventDefault();
+            setLanguage(a.dataset.lang);
+            document.getElementById('langMenu').classList.remove('show');
+        });
+        document.onclick = (e) => {
+            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
+                document.getElementById('langMenu').classList.remove('show');
+        };
+
+        // ========== INIT ==========
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
 </html>
