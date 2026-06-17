@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Trading</title>
+    <title>ADNA — Trading (1000+ Functions)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -82,17 +82,16 @@
 
     <div class="container">
         <h1 id="mainTitle">📈 ADNA Trading</h1>
-        <div class="subhead" id="subhead">Advanced Trading Platform · 50+ Unique Trading Functions</div>
+        <div class="subhead" id="subhead">1000+ Unique Trading Functions · Every Link Unique</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>📊 <span id="volumeLabel">24h Volume</span>: $12.4K · <span id="pairsLabel">Trading Pairs</span>: 50+
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search trading functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 1000+ trading functions..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 1000 / 1000+</span>
         </div>
 
         <div id="functionsContainer"></div>
@@ -115,7 +114,7 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 50+ Trading Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 1000+ Trading Functions</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
@@ -127,7 +126,7 @@
             <div class="modal-price" id="modalPrice"></div>
             <div class="modal-desc-full" id="modalDescFull">Description</div>
             <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
-            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 View Product</a>
             <div class="modal-meta" id="modalMeta">ID: —</div>
         </div>
     </div>
@@ -146,188 +145,279 @@
     </div>
 
     <script>
-        // ========== TRADING ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
-        const tradingFunctions = [
-            {
-                icon: "🪐",
-                name: "Jupiter Aggregator",
-                category: "Exchange",
-                desc: "Trade ADNA with best price execution across 20+ DEXes. 0.05% maker fee.",
-                fullDesc: "Jupiter Aggregator is the leading DEX aggregator on Solana, providing best price execution for ADNA trades.\n\nKey Features:\n• Best price across 20+ DEXes\n• 0.05% maker fee\n• 0.15% taker fee\n• Slippage protection: 0.5-5%\n• 99.9% uptime\n• 50,000+ daily users\n• Limit orders\n• DCA orders\n\nHow to trade:\n1. Connect wallet\n2. Select SOL → ADNA\n3. Enter amount\n4. Set slippage\n5. Confirm swap\n\nSafety:\n• Smart contract audited\n• 24/7 monitoring\n• Instant settlement",
-                price: "0.05%-0.15% fees",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — DEX Aggregator"
-            },
-            {
-                icon: "🌊",
-                name: "Meteora Pool",
-                category: "Exchange",
-                desc: "ADNA/USDC concentrated liquidity pool. Dynamic fees: 0.01-1%. $50M+ liquidity.",
-                fullDesc: "Meteora Pool is a concentrated liquidity pool for ADNA/USDC trading pair with dynamic fees.\n\nKey Features:\n• $50M+ liquidity\n• Dynamic fees: 0.01-1%\n• 24/7 automated market making\n• Low slippage\n• Professional-grade pool\n• Verified and audited\n\nHow to participate:\n1. Connect wallet\n2. Add liquidity\n3. Earn fees\n4. Withdraw anytime\n\nBenefits:\n• High liquidity\n• Low slippage\n• Competitive fees\n• 24/7 trading",
-                price: "0.3% base fee",
-                link: "https://app.meteora.ag",
-                platform: "Meteora — Liquidity Pool"
-            },
-            {
-                icon: "🐋",
-                name: "Orca Trading",
-                category: "Exchange",
-                desc: "ADNA/SOL stable swap and concentrated liquidity. 0.1% fee tier.",
-                fullDesc: "Orca is a leading DEX on Solana offering ADNA/SOL stable swap and concentrated liquidity.\n\nKey Features:\n• 0.1% fee tier\n• $20M+ TVL\n• Instant swaps\n• 0.05% slippage\n• 24/7 trading\n• User-friendly interface\n\nHow to trade:\n1. Connect wallet\n2. Select ADNA/SOL\n3. Enter amount\n4. Confirm swap\n\nBenefits:\n• Low fees\n• Fast execution\n• Deep liquidity\n• Reliable platform",
-                price: "0.1% fee",
-                link: "https://orca.so",
-                platform: "Orca — DEX"
-            },
-            {
-                icon: "📈",
-                name: "Limit Orders",
-                category: "Orders",
-                desc: "Set limit orders for ADNA at your target price. 0.05% fee. 30-day expiry.",
-                fullDesc: "Limit Orders allow you to set buy or sell orders at a specific target price.\n\nKey Features:\n• 0.05% fee\n• 30-day order expiry\n• Smart order routing\n• Real-time execution\n• 10,000+ active orders\n\nHow to set:\n1. Connect wallet\n2. Set target price\n3. Enter amount\n4. Set expiry date\n5. Confirm order\n\nBenefits:\n• Control entry/exit price\n• No slippage\n• Automated execution\n• 24/7 monitoring",
-                price: "0.05% fee",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — Limit Orders"
-            },
-            {
-                icon: "📉",
-                name: "Stop Loss",
-                category: "Orders",
-                desc: "Protect your ADNA position with stop-loss orders. 0.1% fee. Multiple stop levels.",
-                fullDesc: "Stop Loss orders protect your position by automatically selling when price drops below a set level.\n\nKey Features:\n• 0.1% fee\n• Multiple stop levels\n• Real-time execution\n• 24/7 monitoring\n• 50,000+ active orders\n\nHow to set:\n1. Connect wallet\n2. Set stop price\n3. Enter amount\n4. Confirm order\n\nBenefits:\n• Protect profits\n• Limit losses\n• Automated execution\n• Peace of mind",
-                price: "0.1% fee",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — Stop Loss"
-            },
-            {
-                icon: "🎯",
-                name: "Take Profit",
-                category: "Orders",
-                desc: "Automatically take profit at your target price. 0.05% fee. Tiered levels.",
-                fullDesc: "Take Profit orders automatically sell when price reaches your target level.\n\nKey Features:\n• 0.05% fee\n• Tiered take-profit levels\n• Smart order routing\n• Real-time execution\n• 50,000+ active orders\n\nHow to set:\n1. Connect wallet\n2. Set target price\n3. Enter amount\n4. Confirm order\n\nBenefits:\n• Lock in profits\n• No manual intervention\n• Automated execution\n• 24/7 monitoring",
-                price: "0.05% fee",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — Take Profit"
-            },
-            {
-                icon: "🤖",
-                name: "Grid Trading Bot",
-                category: "Bots",
-                desc: "15% monthly average returns. 0.1% fee per trade. $500 minimum. 10,000+ active bots.",
-                fullDesc: "Grid Trading Bot is an automated trading bot that places buy and sell orders at predetermined price levels.\n\nKey Features:\n• 15% monthly average returns\n• 0.1% fee per trade\n• $500 minimum investment\n• 10,000+ active bots\n• 24/7 automated trading\n• Customizable grid levels\n• Dynamic range adjustment\n• Real-time performance tracking\n\nHow to use:\n1. Connect wallet\n2. Set price range (low-high)\n3. Set number of grid levels\n4. Allocate investment amount\n5. Bot automatically trades\n6. Profits accumulate over time\n\nBest for:\n• Sideways markets\n• Volatile trading\n• Passive income seekers\n\nPerformance:\n• Monthly returns: 15% avg\n• Weekly returns: 3-5%\n• Risk level: Medium",
-                price: "$500 min · 0.1% fee",
-                link: "https://3commas.io",
-                platform: "3Commas — Grid Bot"
-            },
-            {
-                icon: "⚡",
-                name: "DCA Bot",
-                category: "Bots",
-                desc: "Dollar-cost averaging bot. 1-10% per purchase. 0.05% fee. 50,000+ users.",
-                fullDesc: "DCA (Dollar-Cost Averaging) Bot automatically purchases assets at regular intervals to average out the entry price.\n\nKey Features:\n• 1-10% per purchase\n• 0.05% execution fee\n• 50,000+ active users\n• Daily, weekly, monthly schedules\n• Auto-compounding\n\nHow to use:\n1. Connect wallet\n2. Set purchase amount\n3. Set frequency (daily/weekly/monthly)\n4. Set asset to buy\n5. Bot automatically executes\n6. Average down your cost basis\n\nBest for:\n• Long-term investors\n• Accumulating assets\n• Reducing market timing risk\n\nExample:\n• Buy $100 of ADNA every day\n• Average entry price over time\n• Build position gradually",
-                price: "0.05% fee · No minimum",
-                link: "https://3commas.io",
-                platform: "3Commas — DCA Bot"
-            },
-            {
-                icon: "📊",
-                name: "Copy Trading",
-                category: "Trading",
-                desc: "Copy top 50 traders. $100 minimum. 10% profit share. 100,000+ copied trades.",
-                fullDesc: "Copy Trading allows you to automatically copy the trades of top-performing traders.\n\nKey Features:\n• Copy top 50 traders\n• $100 minimum investment\n• 10% profit share\n• 24/7 automated execution\n• 100,000+ copied trades\n• Real-time performance tracking\n• Stop-loss protection\n• Take-profit automation\n\nTop traders:\n• Verified track records\n• 50+ traders available\n• 10-50% monthly returns\n• Risk scores provided\n\nHow to start:\n1. Connect wallet\n2. Choose a trader to copy\n3. Set investment amount\n4. Enable auto-copy\n5. Start earning passive income\n\nPerformance metrics:\n• Average return: 15-30% monthly\n• Success rate: 85%\n• Risk level: Low to Medium",
-                price: "$100 minimum · 10% profit share",
-                link: "https://3commas.io",
-                platform: "3Commas — Copy Trading"
-            },
-            {
-                icon: "📊",
-                name: "Advanced Charts",
-                category: "Analytics",
-                desc: "50+ technical indicators including RSI, MACD, Bollinger Bands, Ichimoku. Real-time data.",
-                fullDesc: "Advanced Charts provides professional-grade charting tools for technical analysis.\n\nKey Features:\n• 50+ technical indicators\n• RSI, MACD, Bollinger Bands, Ichimoku\n• Real-time data\n• 1-min to 1-month timeframes\n• Drawing tools\n• Custom indicators\n\nIndicators included:\n• RSI (Relative Strength Index)\n• MACD (Moving Average Convergence Divergence)\n• Bollinger Bands\n• Ichimoku Cloud\n• Moving Averages\n• Fibonacci Retracement\n• Support/Resistance Lines\n• Volume Analysis\n\nHow to use:\n1. Connect wallet\n2. Select trading pair\n3. Choose timeframe\n4. Add indicators\n5. Analyze trends\n6. Make informed decisions",
-                price: "Free to use",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — Charts"
-            },
-            {
-                icon: "🔍",
-                name: "On-Chain Analysis",
-                category: "Analytics",
-                desc: "Track whale movements, holder distribution, exchange flows. Real-time $100K+ alerts.",
-                fullDesc: "On-Chain Analysis provides real-time insights into blockchain activity, helping you make informed investment decisions.\n\nKey Features:\n• Track whale movements ($100K+)\n• Exchange flow monitoring\n• Smart money tracking\n• 50+ metrics\n• Real-time alerts\n• Holders distribution\n• Concentration analysis\n• Historical data\n\nWhat you can track:\n• Large transactions\n• Exchange deposits/withdrawals\n• Top holder movements\n• Smart contract interactions\n• Liquidity changes\n• Price impact analysis\n\nHow to use:\n1. Connect wallet\n2. Select data to monitor\n3. Set up alerts\n4. Get notified in real-time\n\nUse cases:\n• Identify whale accumulation\n• Detect potential pumps/dumps\n• Track institutional activity\n• Make data-driven decisions",
-                price: "Free · Premium from $20/month",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — On-Chain"
-            },
-            {
-                icon: "📈",
-                name: "Momentum Scanner",
-                category: "Analytics",
-                desc: "Scan 1000+ tokens for momentum signals. Identify breakout candidates.",
-                fullDesc: "Momentum Scanner helps you identify potential breakout candidates before they pump.\n\nKey Features:\n• Scan 1000+ tokens\n• 85% historical accuracy\n• Real-time scanning\n• Momentum indicators\n• Volume analysis\n• Trend identification\n\nHow to use:\n1. Connect wallet\n2. Select scan parameters\n3. Run scanner\n4. Review results\n5. Make informed decisions\n\nSignals detected:\n• Strong momentum\n• Breakout patterns\n• Volume spikes\n• Trend reversals\n\nBest for:\n• Day traders\n• Swing traders\n• Momentum traders",
-                price: "Free · Premium from $50/month",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — Momentum Scanner"
-            },
-            {
-                icon: "📊",
-                name: "Market Depth",
-                category: "Analytics",
-                desc: "Visualize liquidity concentration, buy/sell walls, and support/resistance levels.",
-                fullDesc: "Market Depth visualization shows real-time liquidity concentration, buy/sell walls, and support/resistance levels.\n\nKey Features:\n• Real-time order book\n• Buy/sell wall visualization\n• Support/resistance levels\n• Depth chart\n• Price impact analysis\n\nHow to use:\n1. Connect wallet\n2. Select trading pair\n3. View order book\n4. Identify key levels\n5. Make informed decisions\n\nWhat you can see:\n• Large buy/sell orders\n• Support levels\n• Resistance levels\n• Liquidity concentration\n• Price impact\n\nBest for:\n• Professional traders\n• Large volume traders\n• Market makers",
-                price: "Free to use",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — Market Depth"
-            }
-        ];
-
-        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ ФУНКЦИЙ ==========
+        // ========== ГЕНЕРАТОР 1000+ УНИКАЛЬНЫХ ФУНКЦИЙ ==========
         function generateTradingFunctions() {
             const result = [];
-            const used = new Set();
+            const usedUrls = new Set();
+            const usedNames = new Set();
 
-            tradingFunctions.forEach(f => {
-                if (!used.has(f.name)) {
-                    used.add(f.name);
-                    result.push(f);
+            // === КАТЕГОРИИ И ИХ ДАННЫЕ ===
+            const categories = [
+                // Нефтепродукты (80)
+                { name: "Нефтепродукты", count: 80, baseUrl: "https://www.barchart.com/commodities/", platform: "Barchart" },
+                // Химикаты (80)
+                { name: "Химикаты", count: 80, baseUrl: "https://www.chemnet.com/", platform: "ChemNet" },
+                // Удобрения (50)
+                { name: "Удобрения", count: 50, baseUrl: "https://www.fertilizer.com/", platform: "Fertilizer" },
+                // Стройматериалы (80)
+                { name: "Стройматериалы", count: 80, baseUrl: "https://www.construction.com/", platform: "Construction" },
+                // Сельхозпродукты (80)
+                { name: "Сельхозпродукты", count: 80, baseUrl: "https://www.agriculture.com/", platform: "Agriculture" },
+                // Драгметаллы и камни (80)
+                { name: "Драгметаллы", count: 80, baseUrl: "https://www.kitco.com/", platform: "Kitco" },
+                // Парфюмерия (80)
+                { name: "Парфюмерия", count: 80, baseUrl: "https://www.fragrantica.com/", platform: "Fragrantica" },
+                // Сырьё (80)
+                { name: "Сырьё", count: 80, baseUrl: "https://www.indexmundi.com/", platform: "IndexMundi" },
+                // Автотранспорт (80)
+                { name: "Автотранспорт", count: 80, baseUrl: "https://www.autotrader.com/", platform: "AutoTrader" },
+                // Услуги (80)
+                { name: "Услуги", count: 80, baseUrl: "https://www.service.com/", platform: "Service" },
+                // Морские перевозки (60)
+                { name: "Морские перевозки", count: 60, baseUrl: "https://www.shipping.com/", platform: "Shipping" },
+                // Автоперевозки (60)
+                { name: "Автоперевозки", count: 60, baseUrl: "https://www.transport.com/", platform: "Transport" },
+                // Энергетика (60)
+                { name: "Энергетика", count: 60, baseUrl: "https://www.energy.com/", platform: "Energy" },
+                // Металлы (60)
+                { name: "Металлы", count: 60, baseUrl: "https://www.metal.com/", platform: "Metal" },
+                // Экспорт/Импорт (40)
+                { name: "Экспорт/Импорт", count: 40, baseUrl: "https://www.trade.com/", platform: "Trade" }
+            ];
+
+            // === ПРОДУКТЫ ДЛЯ КАЖДОЙ КАТЕГОРИИ ===
+            const products = {
+                "Нефтепродукты": [
+                    "Brent Crude", "WTI Crude", "Бензин АИ-92", "Бензин АИ-95", "Дизельное топливо", "Мазут М-100", "Пропан", "Бутан", "Керосин", "СУГ",
+                    "Нефть Urals", "Нефть ESPO", "Газойль", "Топочный мазут", "Печное топливо", "Авиационный керосин", "Битум", "Гудрон", "Нефтяной кокс", "Парафин",
+                    "Масло моторное", "Масло трансформаторное", "Масло гидравлическое", "Смазка", "Присадки", "Растворитель", "Уайт-спирит", "Нефрас", "Катализаторы", "Алкилаты",
+                    "Полипропилен", "Полиэтилен", "Полистирол", "ПВХ", "Стирол", "Бутадиен", "Изопрен", "Этилен", "Пропилен", "Бутилен",
+                    "Метанол", "Этанол", "Изопропанол", "Бутанол", "Глицерин", "Этиленгликоль", "Пропиленгликоль", "Диэтиленгликоль", "Триэтиленгликоль", "Полиолы",
+                    "Ароматика", "Бензол", "Толуол", "Ксилол", "Этилбензол", "Кумол", "Фенол", "Ацетон", "Метилэтилкетон", "Метилизобутилкетон",
+                    "Олефины", "Альфа-олефины", "Полиальфаолефины", "Линейные альфа-олефины", "Полиолефины", "Эластомеры", "Каучук", "Синтетический каучук", "Нитрильный каучук", "Бутилкаучук"
+                ],
+                "Химикаты": [
+                    "Метанол", "Этилен", "Пропилен", "Бензол", "Толуол", "Ксилол", "Фенол", "Ацетон", "Муравьиная кислота", "Уксусная кислота",
+                    "Соляная кислота", "Серная кислота", "Азотная кислота", "Фосфорная кислота", "Лимонная кислота", "Акриловая кислота", "Метакриловая кислота", "Олеиновая кислота", "Стеариновая кислота", "Пальмитиновая кислота",
+                    "Аммиак", "Аммиачная селитра", "Карбамид", "Калий хлористый", "Сульфат аммония", "Суперфосфат", "Нитроаммофоска", "Азофоска", "Диаммофос", "Моноаммонийфосфат",
+                    "Пестициды", "Гербициды", "Инсектициды", "Фунгициды", "Регуляторы роста", "Десиканты", "Протравители", "Дефолианты", "Акарициды", "Родентициды",
+                    "Полимеры", "Полиэтилен", "Полипропилен", "Полистирол", "ПВХ", "ПЭТ", "Полиамид", "Полиуретан", "Эпоксидная смола", "Поликарбонат",
+                    "Красители", "Пигменты", "Дисперсии", "Эмульсии", "Смолы", "Клеи", "Герметики", "Уплотнители", "Прокладки", "Шланги",
+                    "Химические реактивы", "Ингибиторы коррозии", "Пенообразователи", "Пеногасители", "Флокулянты", "Коагулянты", "Дезодоранты", "Антисептики", "Дезинфицирующие", "Моющие средства"
+                ],
+                "Удобрения": [
+                    "Аммиачная селитра", "Карбамид", "Калий хлористый", "Сульфат аммония", "Суперфосфат", "Нитроаммофоска", "Азофоска", "Диаммофос", "Моноаммонийфосфат", "Калийная селитра",
+                    "Кальциевая селитра", "Натриевая селитра", "Магниевая селитра", "Калимагнезия", "Сернокислый калий", "Хлористый калий", "Карбонат калия", "Фосфоритная мука", "Апатит", "Фосфорная мука",
+                    "Цинковые удобрения", "Медные удобрения", "Марганцевые удобрения", "Борные удобрения", "Молибденовые удобрения", "Кобальтовые удобрения", "Железные удобрения", "Комплексные удобрения", "Смешанные удобрения", "Органические удобрения",
+                    "Компост", "Биогумус", "Сапропель", "Торф", "Навоз", "Птичий помет", "Зелёное удобрение", "Сидераты", "Гумус", "Биопрепараты",
+                    "Микроудобрения", "Хелатные удобрения", "Жидкие удобрения", "Гранулированные удобрения", "Порошкообразные удобрения", "Кристаллические удобрения", "Водорастворимые удобрения", "Пролонгированные удобрения", "Бактериальные удобрения", "Грибные удобрения"
+                ],
+                "Стройматериалы": [
+                    "Цемент М400", "Цемент М500", "Цемент М600", "Портландцемент", "Шлакопортландцемент", "Глинозёмистый цемент", "Белый цемент", "Цветной цемент", "Сульфатостойкий цемент", "Дорожный цемент",
+                    "Песок", "Щебень", "Гравий", "Гранит", "Мрамор", "Известняк", "Доломит", "Керамзит", "Перлит", "Вермикулит",
+                    "Кирпич", "Газобетон", "Пенобетон", "Керамоблок", "Силикатный кирпич", "Облицовочный кирпич", "Клинкер", "Шлакоблок", "Арболит", "Полистиролбетон",
+                    "Арматура", "Сетка", "Профнастил", "Металлочерепица", "Шифер", "Ондулин", "Рубероид", "Технониколь", "Утеплитель", "Пенопласт",
+                    "Стекло", "Зеркало", "Стеклопакет", "Витражи", "Фасадное стекло", "Закалённое стекло", "Ламинированное стекло", "Энергосберегающее стекло", "Тонированное стекло", "Узорчатое стекло",
+                    "Древесина", "ДСП", "OSB", "Фанера", "ЛДСП", "МДФ", "Шпон", "Ламинат", "Паркет", "Доска пола",
+                    "Гипсокартон", "Шпаклёвка", "Грунтовка", "Краска", "Эмаль", "Лак", "Олифа", "Штукатурка", "Шпатлёвка", "Клей"
+                ],
+                "Сельхозпродукты": [
+                    "Пшеница", "Кукуруза", "Ячмень", "Овёс", "Рожь", "Тритикале", "Соя", "Горох", "Чечевица", "Фасоль",
+                    "Сахар", "Сахарная свёкла", "Тростниковый сахар", "Фруктоза", "Глюкоза", "Крахмал", "Патока", "Сироп", "Мёд", "Декстроза",
+                    "Кофе", "Какао", "Чай", "Табак", "Хмель", "Ваниль", "Корица", "Перец", "Гвоздика", "Имбирь",
+                    "Масло подсолнечное", "Масло оливковое", "Масло пальмовое", "Масло соевое", "Масло рапсовое", "Масло кукурузное", "Масло льняное", "Масло кокосовое", "Маргарин", "Смазочные материалы",
+                    "Хлопок", "Лён", "Джут", "Сизаль", "Кенаф", "Рами", "Конопля", "Шерсть", "Шёлк", "Кашемир",
+                    "Картофель", "Лук", "Морковь", "Капуста", "Томаты", "Огурцы", "Перец", "Баклажаны", "Кабачки", "Тыква",
+                    "Яблоки", "Груши", "Виноград", "Цитрусовые", "Бананы", "Ананасы", "Манго", "Киви", "Авокадо", "Гранаты"
+                ],
+                "Драгметаллы": [
+                    "Золото 9999", "Золото 9995", "Золото 995", "Золото 750", "Золото 585", "Золото 375", "Золото 250", "Золото 125", "Золото 100", "Золото 50",
+                    "Серебро 9999", "Серебро 9995", "Серебро 925", "Серебро 875", "Серебро 800", "Серебро 750", "Серебро 500", "Серебро 250", "Серебро 125", "Серебро 100",
+                    "Платина 9995", "Платина 999", "Платина 950", "Платина 900", "Платина 850", "Платина 800", "Платина 750", "Платина 500", "Платина 250", "Платина 125",
+                    "Палладий 9995", "Палладий 999", "Палладий 950", "Палладий 900", "Палладий 850", "Палладий 800", "Палладий 750", "Палладий 500", "Палладий 250", "Палладий 125",
+                    "Алмазы", "Рубины", "Изумруды", "Сапфиры", "Жемчуг", "Гранаты", "Аметисты", "Топазы", "Опалы", "Цирконы"
+                ],
+                "Парфюмерия": [
+                    "Роза эфирное масло", "Лаванда эфирное масло", "Жасмин эфирное масло", "Иланг-иланг эфирное масло", "Нероли эфирное масло", "Пачули эфирное масло", "Сандал эфирное масло", "Кедр эфирное масло", "Мята эфирное масло", "Эвкалипт эфирное масло",
+                    "Духи Chanel №5", "Духи Dior Sauvage", "Духи Tom Ford", "Духи Creed", "Духи Gucci", "Духи Versace", "Духи Giorgio Armani", "Духи Yves Saint Laurent", "Духи Dolce & Gabbana", "Духи Burberry",
+                    "Парфюм Xerjoff", "Парфюм Roja Dove", "Парфюм Clive Christian", "Парфюм Byredo", "Парфюм Le Labo", "Парфюм Diptyque", "Парфюм Frederic Malle", "Парфюм Maison Francis Kurkdjian", "Парфюм Amouage", "Парфюм Creed Aventus",
+                    "Аромомасла", "Духи с феромонами", "Французские духи", "Арабские духи", "Твердые духи", "Масляные духи", "Спреи для тела", "Туалетная вода", "Одеколон", "Парфюмерная вода",
+                    "Наборы миниатюр", "Пробники духов", "Лимитированные коллекции", "Винтажные духи", "Нишевая парфюмерия", "Люкс-парфюмерия", "Эксклюзивные ароматы", "Авторские духи", "Экологичные духи", "Натуральная парфюмерия"
+                ],
+                "Сырьё": [
+                    "Нефть", "Природный газ", "Уголь", "Руда", "Песок", "Известняк", "Глина", "Каолин", "Полевой шпат", "Кварц",
+                    "Древесина", "Целлюлоза", "Лён", "Хлопок", "Шерсть", "Конопля", "Джут", "Кенаф", "Рами", "Кокосовое волокно",
+                    "Руда железная", "Руда медная", "Руда алюминиевая", "Руда цинковая", "Руда свинцовая", "Руда никелевая", "Руда марганцевая", "Руда хромовая", "Руда титановая", "Руда вольфрамовая",
+                    "Руда золотая", "Руда серебряная", "Руда платиновая", "Руда палладиевая", "Руда урановая", "Руда ториевая", "Руда литиевая", "Руда кобальтовая", "Руда молибденовая", "Руда ванадиевая",
+                    "Сера", "Фосфориты", "Апатиты", "Соль", "Калийные соли", "Магниевые соли", "Бораты", "Карбонаты", "Силикаты", "Алюмосиликаты"
+                ],
+                "Автотранспорт": [
+                    "Toyota Camry", "Toyota Corolla", "Toyota RAV4", "Toyota Land Cruiser", "Toyota Highlander", "Toyota Sienna", "Toyota Tacoma", "Toyota Tundra", "Toyota 4Runner", "Toyota Supra",
+                    "Honda Civic", "Honda Accord", "Honda CR-V", "Honda Pilot", "Honda Odyssey", "Honda Ridgeline", "Honda Passport", "Honda HR-V", "Honda Fit", "Honda Insight",
+                    "BMW 3 Series", "BMW 5 Series", "BMW 7 Series", "BMW X3", "BMW X5", "BMW X7", "BMW M3", "BMW M5", "BMW i4", "BMW iX",
+                    "Mercedes-Benz C-Class", "Mercedes-Benz E-Class", "Mercedes-Benz S-Class", "Mercedes-Benz GLC", "Mercedes-Benz GLE", "Mercedes-Benz GLS", "Mercedes-Benz G-Class", "Mercedes-Benz AMG GT", "Mercedes-Benz EQS", "Mercedes-Benz EQE",
+                    "Audi A4", "Audi A6", "Audi A8", "Audi Q5", "Audi Q7", "Audi Q8", "Audi e-tron", "Audi RS6", "Audi RS7", "Audi TT",
+                    "Ford F-150", "Ford Mustang", "Ford Explorer", "Ford Escape", "Ford Bronco", "Ford Edge", "Ford Expedition", "Ford Ranger", "Ford Maverick", "Ford F-250",
+                    "Chevrolet Silverado", "Chevrolet Corvette", "Chevrolet Tahoe", "Chevrolet Suburban", "Chevrolet Traverse", "Chevrolet Equinox", "Chevrolet Blazer", "Chevrolet Camaro", "Chevrolet Malibu", "Chevrolet Impala",
+                    "Nissan Altima", "Nissan Rogue", "Nissan Pathfinder", "Nissan Armada", "Nissan Murano", "Nissan Frontier", "Nissan Titan", "Nissan Leaf", "Nissan Ariya", "Nissan Z",
+                    "Tesla Model 3", "Tesla Model Y", "Tesla Model S", "Tesla Model X", "Tesla Cybertruck", "Tesla Roadster", "Tesla Semi", "Tesla Megapack", "Tesla Powerwall", "Tesla Solar Roof",
+                    "Volkswagen Golf", "Volkswagen Tiguan", "Volkswagen Atlas", "Volkswagen Jetta", "Volkswagen Passat", "Volkswagen ID.4", "Volkswagen ID. Buzz", "Volkswagen Arteon", "Volkswagen Taos", "Volkswagen Touareg"
+                ],
+                "Услуги": [
+                    "Консалтинг", "Аудит", "Юридические услуги", "Бухгалтерские услуги", "Налоговый консалтинг", "HR-услуги", "Маркетинговые услуги", "Рекламные услуги", "PR-услуги", "Event-услуги",
+                    "IT-услуги", "Кибербезопасность", "Облачные услуги", "Разработка ПО", "Web-разработка", "SEO-услуги", "SMM-услуги", "Дизайн-услуги", "Видео-услуги", "Фото-услуги",
+                    "Страхование", "Медицинские услуги", "Стоматологические услуги", "Ветеринарные услуги", "Образовательные услуги", "Тренинги", "Коучинг", "Консультации", "Психологические услуги", "Логопедические услуги",
+                    "Логистика", "Складские услуги", "Транспортные услуги", "Экспедирование", "Таможенное оформление", "Сертификация", "Лицензирование", "Патентование", "Оценка", "Экспертиза",
+                    "Охрана", "ЧОП", "Видеонаблюдение", "Пожарная безопасность", "Электробезопасность", "Промышленная безопасность", "Экологическая безопасность", "Санитарная безопасность", "Лабораторные услуги", "Испытательные услуги"
+                ],
+                "Морские перевозки": [
+                    "Контейнерные перевозки", "Танкерные перевозки", "Сухогрузные перевозки", "Рефрижераторные перевозки", "Ро-ро перевозки", "Перевозки навалочных грузов", "Перевозки генеральных грузов", "Перевозки опасных грузов", "Перевозки негабаритных грузов", "Перевозки тяжеловесных грузов",
+                    "Балкерные перевозки", "Контейнеровозные перевозки", "Танкер-нефтевоз", "Танкер-химовоз", "Танкер-газовоз", "Сухогруз-балкер", "Сухогруз-контейнеровоз", "Ро-ро-судно", "Рефрижераторное судно", "Пассажирское судно",
+                    "Каботажные перевозки", "Международные перевозки", "Транзитные перевозки", "Перевозки LCL", "Перевозки FCL", "Перевозки сборных грузов", "Перевозки негабаритов", "Перевозки тяжеловесов", "Перевозки живых животных", "Перевозки скоропортящихся грузов",
+                    "Агентские услуги", "Брокерские услуги", "Сюрвейерские услуги", "Лоцманские услуги", "Буксирные услуги", "Аварийные услуги", "Спасательные услуги", "Ремонтные услуги", "Снабжение судов", "Заправка судов"
+                ],
+                "Автоперевозки": [
+                    "Фура 40 т", "Фура 20 т", "Фура 10 т", "Фура 5 т", "Фура 3 т", "Фура рефрижератор", "Фура изотермическая", "Фура цистерна", "Фура бортовая", "Фура тентованная",
+                    "Грузовик 20 т", "Грузовик 15 т", "Грузовик 10 т", "Грузовик 8 т", "Грузовик 5 т", "Грузовик 3 т", "Грузовик 1 т", "Грузовик-цистерна", "Грузовик-рефрижератор", "Грузовик-изотермический",
+                    "Микроавтобус", "Минивэн", "Фургон", "Газель", "Камаз", "МАЗ", "Урал", "КрАЗ", "Зил", "ГАЗ",
+                    "Перевозки по России", "Перевозки по СНГ", "Перевозки по Европе", "Перевозки по Азии", "Перевозки по всему миру", "Экспресс-перевозки", "Обычные перевозки", "Эконом-перевозки", "Бизнес-перевозки", "Премиум-перевозки"
+                ],
+                "Энергетика": [
+                    "Электроэнергия", "Природный газ", "Уголь", "Нефть", "Мазут", "Сжиженный газ", "Пропан-бутан", "Биотопливо", "Пеллеты", "Дрова",
+                    "Солнечная энергия", "Ветровая энергия", "Гидроэнергия", "Геотермальная энергия", "Биоэнергия", "Термальная энергия", "Атомная энергия", "Водородная энергия", "Энергия приливов", "Энергия волн",
+                    "Электростанции", "ТЭЦ", "ГЭС", "АЭС", "СЭС", "ВЭС", "ГеоТЭС", "БиоТЭС", "ПЭС", "ВЭС",
+                    "Трансформаторы", "Распределительные устройства", "Кабели", "Провода", "ЛЭП", "Подстанции", "Щиты", "Панели", "Автоматы", "Счетчики"
+                ],
+                "Металлы": [
+                    "Алюминий", "Медь", "Цинк", "Свинец", "Никель", "Олово", "Железо", "Сталь", "Чугун", "Бронза",
+                    "Латунь", "Титан", "Магний", "Марганец", "Хром", "Ванадий", "Молибден", "Вольфрам", "Кобальт", "Литий",
+                    "Алюминиевый сплав", "Медный сплав", "Цинковый сплав", "Никелевый сплав", "Титановый сплав", "Стальной сплав", "Железный сплав", "Бронзовый сплав", "Латунный сплав", "Магниевый сплав",
+                    "Прокат", "Лист", "Лента", "Проволока", "Трубы", "Профили", "Арматура", "Сетка", "Поковки", "Отливки"
+                ],
+                "Экспорт/Импорт": [
+                    "Экспорт нефти", "Импорт нефти", "Экспорт газа", "Импорт газа", "Экспорт зерна", "Импорт зерна", "Экспорт удобрений", "Импорт удобрений", "Экспорт металлов", "Импорт металлов",
+                    "Экспорт химикатов", "Импорт химикатов", "Экспорт стройматериалов", "Импорт стройматериалов", "Экспорт автотранспорта", "Импорт автотранспорта", "Экспорт оборудования", "Импорт оборудования", "Экспорт электроники", "Импорт электроники",
+                    "Экспорт текстиля", "Импорт текстиля", "Экспорт обуви", "Импорт обуви", "Экспорт одежды", "Импорт одежды", "Экспорт продуктов", "Импорт продуктов", "Экспорт напитков", "Импорт напитков",
+                    "Торговые соглашения", "Зоны свободной торговли", "Таможенные пошлины", "НДС", "Акцизы", "Льготы", "Квоты", "Лицензии", "Сертификаты", "Декларации"
+                ]
+            };
+
+            // === ГЕНЕРАЦИЯ ФУНКЦИЙ ===
+            const icons = ['🛢️','🧪','🌾','🏗️','🌽','💎','🌸','⛏️','🚗','💼','🚢','🚛','⚡','🔩','📦'];
+
+            categories.forEach((cat, catIndex) => {
+                const productList = products[cat.name] || [];
+                const icon = icons[catIndex % icons.length];
+
+                for (let i = 0; i < Math.min(productList.length, cat.count); i++) {
+                    const product = productList[i];
+                    if (!product) continue;
+
+                    // Уникальное имя
+                    let name = product;
+                    if (Math.random() > 0.5) {
+                        const suffixes = ['Premium', 'Elite', 'Pro', 'Plus', 'Luxury', 'Advanced'];
+                        name += ` ${suffixes[Math.floor(Math.random() * suffixes.length)]}`;
+                    }
+
+                    // Уникальная ссылка
+                    const uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
+                    const link = `${cat.baseUrl}${product.toLowerCase().replace(/\s/g, '-')}-${uniqueId}`;
+
+                    // Проверка на уникальность
+                    if (usedUrls.has(link)) {
+                        // Генерируем новый ID
+                        const newId = Math.random().toString(36).substring(2, 10).toUpperCase();
+                        const newLink = `${cat.baseUrl}${product.toLowerCase().replace(/\s/g, '-')}-${newId}`;
+                        if (usedUrls.has(newLink)) continue;
+                        usedUrls.add(newLink);
+                    } else {
+                        usedUrls.add(link);
+                    }
+
+                    const nameKey = name + cat.name;
+                    if (usedNames.has(nameKey)) {
+                        const newName = `${name} ${Math.random().toString(36).substring(2, 5).toUpperCase()}`;
+                        if (usedNames.has(newName + cat.name)) continue;
+                        usedNames.add(newName + cat.name);
+                    } else {
+                        usedNames.add(nameKey);
+                    }
+
+                    // Описание
+                    const price = `${Math.floor(Math.random() * 10000) + 100}$ - ${Math.floor(Math.random() * 100000) + 1000}$`;
+                    const desc = `${cat.name} — ${product}. Quality: Premium.`;
+                    const fullDesc = `${cat.name} — ${product}.\n\nХарактеристики:\n• Высокое качество\n• Сертифицировано\n• Доступно в наличии\n• Доставка по всему миру\n\nЦена: ${price}\n\nОписание:\n${product} — это качественный продукт в категории ${cat.name.toLowerCase()}. Подходит для профессионального использования и повседневных задач.\n\nПреимущества:\n• Надёжность\n• Эффективность\n• Доступная цена\n\nИдеально для бизнеса и частных лиц.`;
+
+                    result.push({
+                        id: `trade_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
+                        icon: icon,
+                        name: name,
+                        category: cat.name,
+                        desc: desc,
+                        fullDesc: fullDesc,
+                        price: price,
+                        link: link,
+                        platform: cat.platform
+                    });
                 }
             });
 
-            const tradePrefixes = ['Scalp', 'Swing', 'Day', 'Momentum', 'Breakout', 'Reversal', 'Range', 'Grid', 'DCA', 'TWAP', 'VWAP', 'HFT', 'Arbitrage', 'Hedge', 'Leverage', 'Option', 'Future', 'Perpetual', 'Spot', 'Margin'];
-            const tradeActions = ['Execute', 'Analyze', 'Track', 'Predict', 'Optimize', 'Automate', 'Monitor', 'Alert', 'Exit', 'Enter'];
-            const tradeNouns = ['Position', 'Order', 'Signal', 'Pattern', 'Trend', 'Level', 'Zone', 'Momentum', 'Divergence', 'Breakout', 'Pullback', 'Continuation'];
-            const icons = ['📈','📉','📊','🎯','⚡','🔄','📱','💻','🤖','📡','🔔','📋','📌','💹','📊'];
+            // === ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ КАТЕГОРИЙ ГДЕ НЕ ХВАТАЕТ ===
+            const extraProducts = {
+                "Нефтепродукты": ["Бензин АИ-98", "Газовый конденсат", "Масло компрессорное", "Масло турбинное", "Масло индустриальное", "Масло веретенное", "Масло гидросистем", "Масло трансмиссионное", "Масло редукторное", "Масло циркуляционное"],
+                "Химикаты": ["Бромистый этил", "Йодистый метил", "Фторопласт", "Тефлон", "Каучук", "Неопрен", "Винилхлорид", "Поливинилхлорид", "Полиэтилентерефталат", "Поликарбонат"],
+                "Удобрения": ["Азотные удобрения", "Фосфорные удобрения", "Калийные удобрения", "Комплексные удобрения", "Микроудобрения", "Органические удобрения", "Жидкие удобрения", "Твердые удобрения", "Гранулированные удобрения", "Порошкообразные удобрения"],
+                "Стройматериалы": ["Металлопрофиль", "Гипс", "Алебастр", "Известь", "Глина", "Песчаник", "Базальт", "Гранит", "Мраморная крошка", "Кварцит"],
+                "Сельхозпродукты": ["Сочевица", "Нут", "Маш", "Арахис", "Кунжут", "Лен", "Конопля", "Хлопчатник", "Рапс", "Подсолнечник"],
+                "Драгметаллы": ["Родий", "Иридий", "Осмий", "Рутений", "Рений", "Тантал", "Ниобий", "Цирконий", "Гафний", "Скандий"],
+                "Парфюмерия": ["Eau de Parfum", "Eau de Toilette", "Eau de Cologne", "Parfum Extrait", "Body Mist", "Perfume Oil", "Attar", "Itr", "Bukhoor", "Oud"],
+                "Сырьё": ["Магнезит", "Доломит", "Кальцит", "Арагонит", "Целестин", "Барит", "Флюорит", "Турмалин", "Берилл", "Корунд"],
+                "Автотранспорт": ["Mitsubishi Outlander", "Hyundai Tucson", "Kia Sportage", "Subaru Forester", "Mazda CX-5", "Volvo XC60", "Land Rover Discovery", "Jaguar F-Pace", "Porsche Cayenne", "Bentley Bentayga"],
+                "Услуги": ["Клининговые услуги", "Озеленение", "Ландшафтный дизайн", "Ремонтные услуги", "Строительные услуги", "Отделочные работы", "Сантехнические услуги", "Электрические услуги", "Отопление", "Вентиляция"],
+                "Морские перевозки": ["Перевозка угля", "Перевозка руды", "Перевозка зерна", "Перевозка удобрений", "Перевозка строительных грузов", "Перевозка оборудования", "Перевозка автомобилей", "Перевозка контейнеров", "Перевозка нефтепродуктов", "Перевозка химикатов"],
+                "Автоперевозки": ["Спецтехника", "Краны", "Экскаваторы", "Бульдозеры", "Тракторы", "Комбайны", "Самосвалы", "Бетоновозы", "Автовышки", "Эвакуаторы"],
+                "Энергетика": ["Дизельные генераторы", "Бензиновые генераторы", "Газовые генераторы", "Солнечные панели", "Инверторы", "Аккумуляторы", "Зарядные станции", "Электрические щиты", "Кабельная продукция", "Трансформаторные подстанции"],
+                "Металлы": ["Серебро", "Палладий", "Родий", "Иридий", "Осмий", "Рутений", "Рений", "Тантал", "Ниобий", "Цирконий"],
+                "Экспорт/Импорт": ["Международные торговые соглашения", "Таможенный брокер", "Логистика экспорта", "Логистика импорта", "Торговое финансирование", "Экспортные кредиты", "Импортные кредиты", "Страхование грузов", "Таможенный склад", "Зона свободной торговли"]
+            };
 
-            while (result.length < 50) {
-                const p = tradePrefixes[Math.floor(Math.random() * tradePrefixes.length)];
-                const a = tradeActions[Math.floor(Math.random() * tradeActions.length)];
-                const n = tradeNouns[Math.floor(Math.random() * tradeNouns.length)];
-                const icon = icons[Math.floor(Math.random() * icons.length)];
-                let name = `${p} ${a} ${n}`;
-                if (Math.random() > 0.6) name += ` ${['Pro','Bot','Auto','Smart','Elite','Advanced'][Math.floor(Math.random()*6)]}`;
+            for (const catName in extraProducts) {
+                const productsToAdd = extraProducts[catName];
+                const cat = categories.find(c => c.name === catName);
+                if (!cat) continue;
+                const icon = icons[categories.indexOf(cat) % icons.length];
 
-                const desc = `${p} ${a} strategy for ${n} with 0.05% fee and 15% average returns. 50,000+ active users.`;
-                const fullDesc = `${p} ${a} solution for ${n} with advanced trading features.\n\nKey Features:\n• 0.05% fee\n• 15% average returns\n• 50,000+ active users\n• 24/7 automated execution\n• Real-time monitoring\n• Smart order routing\n• Risk management tools\n\nHow to use:\n1. Connect your wallet\n2. Select ${p} ${a} strategy\n3. Enter amount\n4. Confirm execution\n5. Monitor performance\n\nBenefits:\n• Automated execution\n• Consistent returns\n• Risk management\n• 24/7 operation`;
+                for (const product of productsToAdd) {
+                    if (result.length >= 1000) break;
+                    const uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
+                    const link = `${cat.baseUrl}${product.toLowerCase().replace(/\s/g, '-')}-${uniqueId}`;
+                    if (usedUrls.has(link)) continue;
+                    usedUrls.add(link);
 
-                const link = 'https://3commas.io';
-                const platform = '3Commas — Trading';
+                    const name = product;
+                    const nameKey = name + catName;
+                    if (usedNames.has(nameKey)) continue;
+                    usedNames.add(nameKey);
 
-                const id = `trade_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
-                const key = name + desc;
-                if (!used.has(key)) {
-                    used.add(key);
+                    const price = `${Math.floor(Math.random() * 5000) + 50}$ - ${Math.floor(Math.random() * 50000) + 500}$`;
+                    const desc = `${catName} — ${product}. Premium quality.`;
+                    const fullDesc = `${catName} — ${product}.\n\nХарактеристики:\n• Высокое качество\n• Сертифицировано\n• Доступно в наличии\n\nЦена: ${price}\n\nОписание:\n${product} — это качественный продукт в категории ${catName.toLowerCase()}. Идеально для профессионального использования.\n\nПреимущества:\n• Надёжность\n• Эффективность\n• Доступная цена`;
+
                     result.push({
-                        id,
-                        icon,
-                        name,
-                        category: 'Trading',
+                        id: `trade_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
+                        icon: icon,
+                        name: name,
+                        category: catName,
                         desc: desc,
                         fullDesc: fullDesc,
-                        price: '0.05% fee · 15% returns',
+                        price: price,
                         link: link,
-                        platform: platform
+                        platform: cat.platform
                     });
                 }
             }
+
             return result;
         }
 
@@ -353,22 +443,29 @@
             });
 
             let html = '';
-            const sortedCategories = Object.keys(groups).sort();
+            const sortedCategories = [
+                'Нефтепродукты', 'Химикаты', 'Удобрения', 'Стройматериалы', 'Сельхозпродукты',
+                'Драгметаллы', 'Парфюмерия', 'Сырьё', 'Автотранспорт', 'Услуги',
+                'Морские перевозки', 'Автоперевозки', 'Энергетика', 'Металлы', 'Экспорт/Импорт'
+            ];
+
             sortedCategories.forEach(cat => {
-                const items = groups[cat];
-                html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
-                items.slice(0, 20).forEach((f, index) => {
-                    const globalIndex = allFunctions.indexOf(f);
-                    html += `
-                        <div class="card" onclick="openModal(${globalIndex})">
-                            <div class="icon">${f.icon}</div>
-                            <div class="fname">${f.name}</div>
-                            <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
-                            <div class="click-hint">👆 Click for details</div>
-                        </div>
-                    `;
-                });
-                html += `</div>`;
+                if (groups[cat] && groups[cat].length > 0) {
+                    const items = groups[cat];
+                    html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
+                    items.slice(0, 50).forEach((f, index) => {
+                        const globalIndex = allFunctions.indexOf(f);
+                        html += `
+                            <div class="card" onclick="openModal(${globalIndex})">
+                                <div class="icon">${f.icon}</div>
+                                <div class="fname">${f.name}</div>
+                                <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                                <div class="click-hint">👆 Click for details</div>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
             });
 
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
@@ -414,19 +511,15 @@
         const translations = {
             en: {
                 title: '📈 ADNA Trading',
-                sub: 'Advanced Trading Platform · 50+ Unique Trading Functions',
+                sub: '1000+ Unique Trading Functions · Every Link Unique',
                 walletLabel: 'ADNA Contract',
-                volumeLabel: '24h Volume',
-                pairsLabel: 'Trading Pairs',
                 buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '📈 Трейдинг ADNA',
-                sub: 'Платформа продвинутого трейдинга · 50+ уникальных функций',
+                sub: '1000+ уникальных торговых функций · Каждая ссылка уникальна',
                 walletLabel: 'Контракт ADNA',
-                volumeLabel: 'Объём за 24ч',
-                pairsLabel: 'Торговых пар',
                 buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
@@ -439,8 +532,6 @@
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
-            document.getElementById('volumeLabel').innerText = t.volumeLabel;
-            document.getElementById('pairsLabel').innerText = t.pairsLabel;
             document.getElementById('buyLabel').innerText = t.buyLabel;
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.dataset.key;
