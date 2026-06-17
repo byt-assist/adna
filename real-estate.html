@@ -144,246 +144,242 @@
     </div>
 
     <script>
-        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ ССЫЛОК ==========
+        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ ССЫЛОК НА ПЛАТФОРМЫ НЕДВИЖИМОСТИ ==========
         const realEstateData = [
             // ===== 🇦🇪 ОАЭ (Дубай) — 15 платформ =====
-            { name: "Dubai Marina Penthouse", country: "🇦🇪 ОАЭ", desc: "Luxury penthouse in Dubai Marina. 5 beds, sea views. 12% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/penthouse-for-rent-dubai-dubai-marina-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Palm Jumeirah Villa", country: "🇦🇪 ОАЭ", desc: "Beachfront villa on Palm Jumeirah. 6 beds, private pool. 14% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-palm-jumeirah-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Dubai Downtown Apartment", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Downtown Dubai. 3 beds, Burj Khalifa view. 10% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-downtown-dubai-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Dubai Business Bay", country: "🇦🇪 ОАЭ", desc: "Modern apartment in Business Bay. 2 beds, city views. 9% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-business-bay-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "JBR Dubai Apartment", country: "🇦🇪 ОАЭ", desc: "Beachfront apartment in JBR. 2 beds, sea views. 11% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/apartment-for-rent-dubai-jbr-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Dubai Marina Villa", country: "🇦🇪 ОАЭ", desc: "Luxury villa in Dubai Marina. 5 beds, private pool. 13% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-dubai-marina-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Palm Jumeirah Penthouse", country: "🇦🇪 ОАЭ", desc: "Exclusive penthouse on Palm Jumeirah. 4 beds, ocean views. 15% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/penthouse-for-rent-dubai-palm-jumeirah-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Dubai Hills Estate", country: "🇦🇪 ОАЭ", desc: "Premium villa in Dubai Hills. 4 beds, golf course views. 8% yield.", link: "https://www.propertyfinder.ae/en/plp/rent/villa-for-rent-dubai-dubai-hills-23-marina-15202798.html", platform: "Property Finder" },
-            { name: "Bayut Dubai Marina", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Dubai Marina. 3 beds, sea views. 10% yield.", link: "https://www.bayut.com/for-sale/dubai-marina/", platform: "Bayut" },
-            { name: "Bayut Palm Jumeirah", country: "🇦🇪 ОАЭ", desc: "Beachfront villa on Palm Jumeirah. 5 beds, private beach. 14% yield.", link: "https://www.bayut.com/for-sale/palm-jumeirah/", platform: "Bayut" },
-            { name: "Bayut Downtown Dubai", country: "🇦🇪 ОАЭ", desc: "Luxury apartment in Downtown Dubai. 2 beds, Burj view. 9% yield.", link: "https://www.bayut.com/for-sale/downtown-dubai/", platform: "Bayut" },
-            { name: "Bayut Jumeirah Village", country: "🇦🇪 ОАЭ", desc: "Modern villa in Jumeirah Village. 4 beds, community pool. 10% yield.", link: "https://www.bayut.com/for-sale/jumeirah-village-circle/", platform: "Bayut" },
-            { name: "Dubizzle Dubai Marina", country: "🇦🇪 ОАЭ", desc: "Premium apartment in Dubai Marina. 3 beds, sea views. 11% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/dubai-marina/", platform: "Dubizzle" },
-            { name: "Dubizzle Palm Jumeirah", country: "🇦🇪 ОАЭ", desc: "Luxury villa on Palm Jumeirah. 6 beds, private beach. 15% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/palm-jumeirah/", platform: "Dubizzle" },
-            { name: "Dubizzle Downtown Dubai", country: "🇦🇪 ОАЭ", desc: "Modern apartment in Downtown Dubai. 2 beds, city views. 8% yield.", link: "https://www.dubizzle.com/dubai/property/for-sale/downtown-dubai/", platform: "Dubizzle" },
+            { name: "Property Finder UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's leading real estate platform with 100k+ listings.", link: "https://www.propertyfinder.ae", platform: "Property Finder" },
+            { name: "Bayut UAE", country: "🇦🇪 ОАЭ", desc: "UAE's largest property portal. Millions of listings.", link: "https://www.bayut.com", platform: "Bayut" },
+            { name: "Dubizzle UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's classifieds platform with real estate listings.", link: "https://www.dubizzle.com", platform: "Dubizzle" },
+            { name: "Allsopp & Allsopp UAE", country: "🇦🇪 ОАЭ", desc: "Premium real estate agency in Dubai.", link: "https://www.allsoppandallsopp.com", platform: "Allsopp & Allsopp" },
+            { name: "Betterhomes UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's award-winning real estate agency.", link: "https://www.betterhomes.ae", platform: "Betterhomes" },
+            { name: "Engel & Völkers Dubai", country: "🇦🇪 ОАЭ", desc: "International luxury real estate in Dubai.", link: "https://www.engelvoelkers.com/dubai", platform: "Engel & Völkers" },
+            { name: "Savills Dubai", country: "🇦🇪 ОАЭ", desc: "Global real estate services in UAE.", link: "https://www.savills.ae", platform: "Savills" },
+            { name: "Knight Frank Dubai", country: "🇦🇪 ОАЭ", desc: "Prime property specialists in Dubai.", link: "https://www.knightfrank.ae", platform: "Knight Frank" },
+            { name: "Chestertons Dubai", country: "🇦🇪 ОАЭ", desc: "International real estate in Dubai.", link: "https://www.chestertons.ae", platform: "Chestertons" },
+            { name: "Espace Real Estate UAE", country: "🇦🇪 ОАЭ", desc: "Dubai-based real estate agency.", link: "https://www.espace.ae", platform: "Espace" },
+            { name: "FAM Properties UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's fastest growing real estate agency.", link: "https://famproperties.com", platform: "FAM Properties" },
+            { name: "Driven Properties UAE", country: "🇦🇪 ОАЭ", desc: "Luxury real estate in Dubai.", link: "https://drivenproperties.ae", platform: "Driven Properties" },
+            { name: "Luxhabitat UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's luxury property specialists.", link: "https://luxhabitat.ae", platform: "Luxhabitat" },
+            { name: "Arabian Ranches UAE", country: "🇦🇪 ОАЭ", desc: "Dubai's premier residential community.", link: "https://www.arabianranches.ae", platform: "Arabian Ranches" },
+            { name: "Dubai Hills Estate UAE", country: "🇦🇪 ОАЭ", desc: "Emaar's Dubai Hills residential community.", link: "https://www.dubaihillsestate.com", platform: "Dubai Hills Estate" },
 
             // ===== 🇬🇧 Великобритания — 15 платформ =====
-            { name: "Rightmove London Mayfair", country: "🇬🇧 Великобритания", desc: "Historic mansion in Mayfair, London. 8 beds, 800 sqm. 8% appreciation.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87490", platform: "Rightmove" },
-            { name: "Rightmove London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Luxury apartment in Knightsbridge. 4 beds, Hyde Park views. 7% yield.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87492", platform: "Rightmove" },
-            { name: "Rightmove London Chelsea", country: "🇬🇧 Великобритания", desc: "Modern townhouse in Chelsea. 5 beds, private garden. 6% yield.", link: "https://www.rightmove.co.uk/property-for-sale/find.html?locationIdentifier=REGION%5E87493", platform: "Rightmove" },
-            { name: "Zoopla London Mayfair", country: "🇬🇧 Великобритания", desc: "Luxury property in Mayfair. 6 beds, prime location. 9% appreciation.", link: "https://www.zoopla.co.uk/for-sale/property/london/mayfair/", platform: "Zoopla" },
-            { name: "Zoopla London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Premium apartment in Knightsbridge. 3 beds, central London. 8% yield.", link: "https://www.zoopla.co.uk/for-sale/property/london/knightsbridge/", platform: "Zoopla" },
-            { name: "Zoopla London Chelsea", country: "🇬🇧 Великобритания", desc: "Elegant townhouse in Chelsea. 4 beds, garden. 7% yield.", link: "https://www.zoopla.co.uk/for-sale/property/london/chelsea/", platform: "Zoopla" },
-            { name: "Knight Frank London Mayfair", country: "🇬🇧 Великобритания", desc: "Historic mansion in Mayfair. 8 beds, 800 sqm. 8% appreciation.", link: "https://www.knightfrank.com/properties/residential/for-sale/mayfair-london-w1j", platform: "Knight Frank" },
-            { name: "Knight Frank London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Luxury apartment in Knightsbridge. 4 beds, Hyde Park views.", link: "https://www.knightfrank.com/properties/residential/for-sale/knightsbridge-london-sw1x", platform: "Knight Frank" },
-            { name: "Knight Frank London Chelsea", country: "🇬🇧 Великобритания", desc: "Modern townhouse in Chelsea. 5 beds, private garden.", link: "https://www.knightfrank.com/properties/residential/for-sale/chelsea-london-sw3", platform: "Knight Frank" },
-            { name: "Knight Frank Canary Wharf", country: "🇬🇧 Великобритания", desc: "Modern apartment in Canary Wharf. 2 beds, river views. 6% yield.", link: "https://www.knightfrank.com/properties/residential/for-sale/canary-wharf-london-e14", platform: "Knight Frank" },
-            { name: "Knight Frank Kensington", country: "🇬🇧 Великобритания", desc: "Luxury property in Kensington. 5 beds, prime location.", link: "https://www.knightfrank.com/properties/residential/for-sale/kensington-london-w8", platform: "Knight Frank" },
-            { name: "Knight Frank Notting Hill", country: "🇬🇧 Великобритания", desc: "Elegant townhouse in Notting Hill. 4 beds, garden.", link: "https://www.knightfrank.com/properties/residential/for-sale/notting-hill-london-w11", platform: "Knight Frank" },
-            { name: "Knight Frank Soho", country: "🇬🇧 Великобритания", desc: "Modern apartment in Soho. 2 beds, central London.", link: "https://www.knightfrank.com/properties/residential/for-sale/soho-london-w1d", platform: "Knight Frank" },
-            { name: "OnTheMarket London Mayfair", country: "🇬🇧 Великобритания", desc: "Luxury property in Mayfair. 6 beds, prime location.", link: "https://www.onthemarket.com/for-sale/mayfair/", platform: "OnTheMarket" },
-            { name: "OnTheMarket London Knightsbridge", country: "🇬🇧 Великобритания", desc: "Premium apartment in Knightsbridge. 4 beds, Hyde Park views.", link: "https://www.onthemarket.com/for-sale/knightsbridge/", platform: "OnTheMarket" },
+            { name: "Rightmove UK", country: "🇬🇧 Великобритания", desc: "UK's #1 property portal. 1M+ listings.", link: "https://www.rightmove.co.uk", platform: "Rightmove" },
+            { name: "Zoopla UK", country: "🇬🇧 Великобритания", desc: "UK property and real estate portal.", link: "https://www.zoopla.co.uk", platform: "Zoopla" },
+            { name: "OnTheMarket UK", country: "🇬🇧 Великобритания", desc: "UK property portal with agent listings.", link: "https://www.onthemarket.com", platform: "OnTheMarket" },
+            { name: "PrimeLocation UK", country: "🇬🇧 Великобритания", desc: "UK premium property listings.", link: "https://www.primelocation.com", platform: "PrimeLocation" },
+            { name: "Knight Frank UK", country: "🇬🇧 Великобритания", desc: "Global property specialists in UK.", link: "https://www.knightfrank.co.uk", platform: "Knight Frank" },
+            { name: "Savills UK", country: "🇬🇧 Великобритания", desc: "International real estate in UK.", link: "https://www.savills.co.uk", platform: "Savills" },
+            { name: "Foxtons UK", country: "🇬🇧 Великобритания", desc: "London's leading estate agent.", link: "https://www.foxtons.co.uk", platform: "Foxtons" },
+            { name: "Purplebricks UK", country: "🇬🇧 Великобритания", desc: "Online estate agency in UK.", link: "https://www.purplebricks.co.uk", platform: "Purplebricks" },
+            { name: "Winkworth UK", country: "🇬🇧 Великобритания", desc: "Established UK estate agency.", link: "https://www.winkworth.co.uk", platform: "Winkworth" },
+            { name: "Dexters UK", country: "🇬🇧 Великобритания", desc: "London property and estate agency.", link: "https://www.dexters.co.uk", platform: "Dexters" },
+            { name: "Chestertons UK", country: "🇬🇧 Великобритания", desc: "International property in London.", link: "https://www.chestertons.co.uk", platform: "Chestertons" },
+            { name: "Marsh & Parsons UK", country: "🇬🇧 Великобритания", desc: "London estate agency.", link: "https://www.marshandparsons.co.uk", platform: "Marsh & Parsons" },
+            { name: "Countrywide UK", country: "🇬🇧 Великобритания", desc: "UK's largest property services group.", link: "https://www.countrywide.co.uk", platform: "Countrywide" },
+            { name: "Connells UK", country: "🇬🇧 Великобритания", desc: "UK estate agency and property services.", link: "https://www.connells.co.uk", platform: "Connells" },
+            { name: "Andrews UK", country: "🇬🇧 Великобритания", desc: "UK estate agency with 50+ branches.", link: "https://www.andrews.uk", platform: "Andrews" },
 
             // ===== 🇺🇸 США — 15 платформ =====
-            { name: "Zillow NYC Central Park", country: "🇺🇸 США", desc: "Iconic property overlooking Central Park, NYC. 4 beds, 350 sqm.", link: "https://www.zillow.com/new-york-ny/central-park/", platform: "Zillow" },
-            { name: "Zillow NYC Manhattan", country: "🇺🇸 США", desc: "Luxury penthouse in Manhattan. 5 beds, city views. 8% yield.", link: "https://www.zillow.com/new-york-ny/manhattan/", platform: "Zillow" },
-            { name: "Zillow NYC Brooklyn", country: "🇺🇸 США", desc: "Modern apartment in Brooklyn. 3 beds, city views. 7% yield.", link: "https://www.zillow.com/new-york-ny/brooklyn/", platform: "Zillow" },
-            { name: "Zillow LA Beverly Hills", country: "🇺🇸 США", desc: "Luxury mansion in Beverly Hills. 6 beds, pool. 10% yield.", link: "https://www.zillow.com/beverly-hills-ca/", platform: "Zillow" },
-            { name: "Zillow LA Hollywood", country: "🇺🇸 США", desc: "Modern home in Hollywood. 4 beds, city views. 9% yield.", link: "https://www.zillow.com/los-angeles-ca/hollywood/", platform: "Zillow" },
-            { name: "Zillow Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, pool. 12% yield.", link: "https://www.zillow.com/miami-beach-fl/", platform: "Zillow" },
-            { name: "Zillow Miami Downtown", country: "🇺🇸 США", desc: "Modern apartment in Downtown Miami. 3 beds, city views. 10% yield.", link: "https://www.zillow.com/miami-fl/downtown/", platform: "Zillow" },
-            { name: "Realtor NYC Central Park", country: "🇺🇸 США", desc: "Luxury apartment overlooking Central Park. 4 beds, 350 sqm.", link: "https://www.realtor.com/new-york-ny/central-park/", platform: "Realtor.com" },
-            { name: "Realtor NYC Manhattan", country: "🇺🇸 США", desc: "Premium penthouse in Manhattan. 5 beds, city views.", link: "https://www.realtor.com/new-york-ny/manhattan/", platform: "Realtor.com" },
-            { name: "Realtor LA Beverly Hills", country: "🇺🇸 США", desc: "Luxury mansion in Beverly Hills. 6 beds, pool.", link: "https://www.realtor.com/beverly-hills-ca/", platform: "Realtor.com" },
-            { name: "Realtor Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, pool.", link: "https://www.realtor.com/miami-beach-fl/", platform: "Realtor.com" },
-            { name: "Redfin NYC Central Park", country: "🇺🇸 США", desc: "Luxury apartment near Central Park. 4 beds, 350 sqm.", link: "https://www.redfin.com/city/3591/NY/New-York", platform: "Redfin" },
-            { name: "Redfin LA Beverly Hills", country: "🇺🇸 США", desc: "Mansion in Beverly Hills. 6 beds, pool, garden.", link: "https://www.redfin.com/city/1419/CA/Beverly-Hills", platform: "Redfin" },
-            { name: "Redfin Miami Beach", country: "🇺🇸 США", desc: "Beachfront villa in Miami Beach. 5 beds, ocean views.", link: "https://www.redfin.com/city/14613/FL/Miami-Beach", platform: "Redfin" },
-            { name: "Trulia NYC Manhattan", country: "🇺🇸 США", desc: "Luxury penthouse in Manhattan. 5 beds, city views.", link: "https://www.trulia.com/for-sale/New_York,NY/Manhattan/", platform: "Trulia" },
+            { name: "Zillow USA", country: "🇺🇸 США", desc: "USA's #1 real estate marketplace.", link: "https://www.zillow.com", platform: "Zillow" },
+            { name: "Realtor.com USA", country: "🇺🇸 США", desc: "Official real estate website of USA.", link: "https://www.realtor.com", platform: "Realtor.com" },
+            { name: "Redfin USA", country: "🇺🇸 США", desc: "Technology-powered real estate brokerage.", link: "https://www.redfin.com", platform: "Redfin" },
+            { name: "Trulia USA", country: "🇺🇸 США", desc: "Real estate platform by Zillow group.", link: "https://www.trulia.com", platform: "Trulia" },
+            { name: "Compass USA", country: "🇺🇸 США", desc: "Technology-driven real estate platform.", link: "https://www.compass.com", platform: "Compass" },
+            { name: "Homes.com USA", country: "🇺🇸 США", desc: "USA real estate marketplace.", link: "https://www.homes.com", platform: "Homes.com" },
+            { name: "Coldwell Banker USA", country: "🇺🇸 США", desc: "International real estate franchise.", link: "https://www.coldwellbanker.com", platform: "Coldwell Banker" },
+            { name: "Century 21 USA", country: "🇺🇸 США", desc: "Global real estate network.", link: "https://www.century21.com", platform: "Century 21" },
+            { name: "RE/MAX USA", country: "🇺🇸 США", desc: "International real estate network.", link: "https://www.remax.com", platform: "RE/MAX" },
+            { name: "Keller Williams USA", country: "🇺🇸 США", desc: "USA's largest real estate franchise.", link: "https://www.kw.com", platform: "Keller Williams" },
+            { name: "Sotheby's USA", country: "🇺🇸 США", desc: "Luxury real estate by Sotheby's.", link: "https://www.sothebysrealty.com", platform: "Sotheby's" },
+            { name: "Christie's USA", country: "🇺🇸 США", desc: "Luxury real estate by Christie's.", link: "https://www.christiesrealestate.com", platform: "Christie's" },
+            { name: "Douglas Elliman USA", country: "🇺🇸 США", desc: "USA real estate brokerage.", link: "https://www.elliman.com", platform: "Douglas Elliman" },
+            { name: "Corcoran USA", country: "🇺🇸 США", desc: "New York real estate specialists.", link: "https://www.corcoran.com", platform: "Corcoran" },
+            { name: "Brown Harris USA", country: "🇺🇸 США", desc: "Luxury real estate in USA.", link: "https://www.bhsusa.com", platform: "Brown Harris" },
 
-            // ===== 🇸🇬 Сингапур — 10 платформ =====
-            { name: "PropertyGuru Marina Bay", country: "🇸🇬 Сингапур", desc: "Luxury apartment in Marina Bay. 3 beds, 200 sqm. 10% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-marina-bay-residences-123456", platform: "PropertyGuru" },
-            { name: "PropertyGuru Sentosa", country: "🇸🇬 Сингапур", desc: "Beachfront villa in Sentosa. 5 beds, private pool. 12% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-sentosa-cove-789012", platform: "PropertyGuru" },
-            { name: "PropertyGuru Orchard", country: "🇸🇬 Сингапур", desc: "Luxury apartment on Orchard Road. 4 beds, 250 sqm. 8% yield.", link: "https://www.propertyguru.com.sg/listing/for-sale-orchard-road-345678", platform: "PropertyGuru" },
-            { name: "PropertyGuru Robertson", country: "🇸🇬 Сингапур", desc: "Modern apartment in Robertson Quay. 3 beds, river views.", link: "https://www.propertyguru.com.sg/listing/for-sale-robertson-quay-901234", platform: "PropertyGuru" },
-            { name: "PropertyGuru Holland", country: "🇸🇬 Сингапур", desc: "Premium apartment in Holland Village. 3 beds, 180 sqm.", link: "https://www.propertyguru.com.sg/listing/for-sale-holland-village-567890", platform: "PropertyGuru" },
-            { name: "99.co Marina Bay", country: "🇸🇬 Сингапур", desc: "Luxury residence in Marina Bay. 4 beds, 200 sqm.", link: "https://www.99.co/singapore/sale/marina-bay", platform: "99.co" },
-            { name: "99.co Sentosa", country: "🇸🇬 Сингапур", desc: "Beachfront villa in Sentosa. 5 beds, private pool.", link: "https://www.99.co/singapore/sale/sentosa", platform: "99.co" },
-            { name: "99.co Orchard", country: "🇸🇬 Сингапур", desc: "Luxury apartment on Orchard Road. 4 beds, 250 sqm.", link: "https://www.99.co/singapore/sale/orchard", platform: "99.co" },
-            { name: "EdgeProp Marina Bay", country: "🇸🇬 Сингапур", desc: "Premium residence in Marina Bay. 3 beds, city views.", link: "https://www.edgeprop.sg/property/project/marina-bay", platform: "EdgeProp" },
-            { name: "EdgeProp Sentosa", country: "🇸🇬 Сингапур", desc: "Luxury villa in Sentosa. 5 beds, private beach.", link: "https://www.edgeprop.sg/property/project/sentosa", platform: "EdgeProp" },
+            // ===== 🇨🇦 Канада — 10 платформ =====
+            { name: "Realtor.ca Canada", country: "🇨🇦 Канада", desc: "Canada's official real estate website.", link: "https://www.realtor.ca", platform: "Realtor.ca" },
+            { name: "Zoocasa Canada", country: "🇨🇦 Канада", desc: "Canadian real estate marketplace.", link: "https://www.zoocasa.com", platform: "Zoocasa" },
+            { name: "Royal LePage Canada", country: "🇨🇦 Канада", desc: "Canada's premier real estate brokerage.", link: "https://www.royallepage.ca", platform: "Royal LePage" },
+            { name: "RE/MAX Canada", country: "🇨🇦 Канада", desc: "International real estate in Canada.", link: "https://www.remax.ca", platform: "RE/MAX Canada" },
+            { name: "Century 21 Canada", country: "🇨🇦 Канада", desc: "Global real estate in Canada.", link: "https://www.century21.ca", platform: "Century 21" },
+            { name: "Sutton Group Canada", country: "🇨🇦 Канада", desc: "Canadian real estate network.", link: "https://www.sutton.com", platform: "Sutton Group" },
+            { name: "Engel & Völkers Canada", country: "🇨🇦 Канада", desc: "Luxury real estate in Canada.", link: "https://www.engelvoelkers.com/canada", platform: "Engel & Völkers" },
+            { name: "Sotheby's Canada", country: "🇨🇦 Канада", desc: "Luxury real estate in Canada.", link: "https://www.sothebysrealty.ca", platform: "Sotheby's" },
+            { name: "Christie's Canada", country: "🇨🇦 Канада", desc: "Luxury property in Canada.", link: "https://www.christiesrealestate.com/canada", platform: "Christie's" },
+            { name: "Knight Frank Canada", country: "🇨🇦 Канада", desc: "Prime property in Canada.", link: "https://www.knightfrank.ca", platform: "Knight Frank" },
 
             // ===== 🇦🇺 Австралия — 10 платформ =====
-            { name: "Realestate Sydney Opera", country: "🇦🇺 Австралия", desc: "Luxury apartment near Sydney Opera. 3 beds, harbour views.", link: "https://www.realestate.com.au/buy/property-apartment-near-sydney-opera-house/", platform: "Realestate.com.au" },
-            { name: "Realestate Sydney Bondi", country: "🇦🇺 Австралия", desc: "Beachfront apartment in Bondi Beach. 2 beds, ocean views.", link: "https://www.realestate.com.au/buy/property-apartment-bondi-beach/", platform: "Realestate.com.au" },
-            { name: "Realestate Melbourne CBD", country: "🇦🇺 Австралия", desc: "Modern apartment in Melbourne CBD. 2 beds, city views.", link: "https://www.realestate.com.au/buy/property-apartment-melbourne-cbd/", platform: "Realestate.com.au" },
-            { name: "Realestate Brisbane River", country: "🇦🇺 Австралия", desc: "Luxury apartment with river views. 3 beds, 180 sqm.", link: "https://www.realestate.com.au/buy/property-apartment-brisbane-river/", platform: "Realestate.com.au" },
-            { name: "Realestate Perth City", country: "🇦🇺 Австралия", desc: "Modern apartment in Perth CBD. 2 beds, city views.", link: "https://www.realestate.com.au/buy/property-apartment-perth-cbd/", platform: "Realestate.com.au" },
-            { name: "Domain Sydney Opera", country: "🇦🇺 Австралия", desc: "Luxury apartment near Sydney Opera. 3 beds, harbour views.", link: "https://www.domain.com.au/sale/sydney-nsw-2000/", platform: "Domain" },
-            { name: "Domain Sydney Bondi", country: "🇦🇺 Австралия", desc: "Beachfront apartment in Bondi Beach. 2 beds, ocean views.", link: "https://www.domain.com.au/sale/bondi-beach-nsw-2026/", platform: "Domain" },
-            { name: "Domain Melbourne CBD", country: "🇦🇺 Австралия", desc: "Modern apartment in Melbourne CBD. 2 beds, city views.", link: "https://www.domain.com.au/sale/melbourne-vic-3000/", platform: "Domain" },
-            { name: "Homely Sydney", country: "🇦🇺 Австралия", desc: "Luxury home in Sydney. 4 beds, harbour views.", link: "https://www.homely.com.au/homes/sydney-nsw", platform: "Homely" },
-            { name: "Homely Melbourne", country: "🇦🇺 Австралия", desc: "Modern home in Melbourne. 4 beds, garden, pool.", link: "https://www.homely.com.au/homes/melbourne-vic", platform: "Homely" },
+            { name: "Realestate.com.au Australia", country: "🇦🇺 Австралия", desc: "Australia's #1 property website.", link: "https://www.realestate.com.au", platform: "Realestate.com.au" },
+            { name: "Domain Australia", country: "🇦🇺 Австралия", desc: "Australian property and real estate.", link: "https://www.domain.com.au", platform: "Domain" },
+            { name: "Homely Australia", country: "🇦🇺 Австралия", desc: "Australian property marketplace.", link: "https://www.homely.com.au", platform: "Homely" },
+            { name: "Allhomes Australia", country: "🇦🇺 Австралия", desc: "Australian property listings.", link: "https://www.allhomes.com.au", platform: "Allhomes" },
+            { name: "RE/MAX Australia", country: "🇦🇺 Австралия", desc: "International real estate in Australia.", link: "https://www.remax.com.au", platform: "RE/MAX Australia" },
+            { name: "Century 21 Australia", country: "🇦🇺 Австралия", desc: "Global real estate in Australia.", link: "https://www.century21.com.au", platform: "Century 21" },
+            { name: "Ray White Australia", country: "🇦🇺 Австралия", desc: "Australian real estate group.", link: "https://www.raywhite.com", platform: "Ray White" },
+            { name: "LJ Hooker Australia", country: "🇦🇺 Австралия", desc: "Australian real estate network.", link: "https://www.ljhooker.com.au", platform: "LJ Hooker" },
+            { name: "McGrath Australia", country: "🇦🇺 Австралия", desc: "Australian real estate agency.", link: "https://www.mcgrath.com.au", platform: "McGrath" },
+            { name: "Belle Property Australia", country: "🇦🇺 Австралия", desc: "Australian real estate specialists.", link: "https://belleproperty.com", platform: "Belle Property" },
 
             // ===== 🇩🇪 Германия — 10 платформ =====
-            { name: "ImmoScout Berlin", country: "🇩🇪 Германия", desc: "Modern apartment in Berlin. 3 beds, city views. 5% yield.", link: "https://www.immobilienscout24.de/berlin/", platform: "ImmoScout24" },
-            { name: "ImmoScout Munich", country: "🇩🇪 Германия", desc: "Luxury apartment in Munich. 4 beds, 200 sqm. 6% yield.", link: "https://www.immobilienscout24.de/muenchen/", platform: "ImmoScout24" },
-            { name: "ImmoScout Frankfurt", country: "🇩🇪 Германия", desc: "Modern apartment in Frankfurt. 3 beds, 150 sqm.", link: "https://www.immobilienscout24.de/frankfurt-am-main/", platform: "ImmoScout24" },
-            { name: "ImmoScout Hamburg", country: "🇩🇪 Германия", desc: "Luxury apartment in Hamburg. 4 beds, river views.", link: "https://www.immobilienscout24.de/hamburg/", platform: "ImmoScout24" },
-            { name: "ImmoScout Cologne", country: "🇩🇪 Германия", desc: "Modern apartment in Cologne. 3 beds, 140 sqm.", link: "https://www.immobilienscout24.de/koeln/", platform: "ImmoScout24" },
-            { name: "Immowelt Berlin", country: "🇩🇪 Германия", desc: "Modern apartment in Berlin. 3 beds, city views.", link: "https://www.immowelt.de/berlin/", platform: "Immowelt" },
-            { name: "Immowelt Munich", country: "🇩🇪 Германия", desc: "Luxury apartment in Munich. 4 beds, 200 sqm.", link: "https://www.immowelt.de/muenchen/", platform: "Immowelt" },
-            { name: "Immowelt Frankfurt", country: "🇩🇪 Германия", desc: "Modern apartment in Frankfurt. 3 beds, 150 sqm.", link: "https://www.immowelt.de/frankfurt-am-main/", platform: "Immowelt" },
-            { name: "Immowelt Hamburg", country: "🇩🇪 Германия", desc: "Luxury apartment in Hamburg. 4 beds, river views.", link: "https://www.immowelt.de/hamburg/", platform: "Immowelt" },
-            { name: "Immowelt Cologne", country: "🇩🇪 Германия", desc: "Modern apartment in Cologne. 3 beds, 140 sqm.", link: "https://www.immowelt.de/koeln/", platform: "Immowelt" },
+            { name: "ImmoScout24 Germany", country: "🇩🇪 Германия", desc: "Germany's largest property portal.", link: "https://www.immobilienscout24.de", platform: "ImmoScout24" },
+            { name: "Immowelt Germany", country: "🇩🇪 Германия", desc: "German real estate marketplace.", link: "https://www.immowelt.de", platform: "Immowelt" },
+            { name: "Vonovia Germany", country: "🇩🇪 Германия", desc: "Germany's leading real estate company.", link: "https://www.vonovia.de", platform: "Vonovia" },
+            { name: "Engel & Völkers Germany", country: "🇩🇪 Германия", desc: "Luxury real estate in Germany.", link: "https://www.engelvoelkers.com/de", platform: "Engel & Völkers" },
+            { name: "JLL Germany", country: "🇩🇪 Германия", desc: "German commercial real estate.", link: "https://www.jll.de", platform: "JLL" },
+            { name: "Savills Germany", country: "🇩🇪 Германия", desc: "International real estate in Germany.", link: "https://www.savills.de", platform: "Savills" },
+            { name: "Knight Frank Germany", country: "🇩🇪 Германия", desc: "Prime property in Germany.", link: "https://www.knightfrank.de", platform: "Knight Frank" },
+            { name: "CBRE Germany", country: "🇩🇪 Германия", desc: "Commercial real estate in Germany.", link: "https://www.cbre.de", platform: "CBRE" },
+            { name: "Colliers Germany", country: "🇩🇪 Германия", desc: "Real estate services in Germany.", link: "https://www.colliers.de", platform: "Colliers" },
+            { name: "BNP Paribas Germany", country: "🇩🇪 Германия", desc: "Real estate in Germany.", link: "https://www.bnpparibas-realestate.de", platform: "BNP Paribas" },
 
             // ===== 🇫🇷 Франция — 10 платформ =====
-            { name: "SeLoger Paris Eiffel", country: "🇫🇷 Франция", desc: "Luxury apartment near Eiffel Tower. 4 beds, 200 sqm.", link: "https://www.seloger.com/annonces/vente/paris-1er/", platform: "SeLoger" },
-            { name: "SeLoger Paris Louvre", country: "🇫🇷 Франция", desc: "Modern apartment near Louvre. 3 beds, 180 sqm.", link: "https://www.seloger.com/annonces/vente/paris-2e/", platform: "SeLoger" },
-            { name: "SeLoger Paris Champs", country: "🇫🇷 Франция", desc: "Luxury apartment near Champs-Élysées. 5 beds, 250 sqm.", link: "https://www.seloger.com/annonces/vente/paris-8e/", platform: "SeLoger" },
-            { name: "SeLoger Nice", country: "🇫🇷 Франция", desc: "Beachfront apartment in Nice. 3 beds, sea views.", link: "https://www.seloger.com/annonces/vente/nice/", platform: "SeLoger" },
-            { name: "SeLoger Marseille", country: "🇫🇷 Франция", desc: "Modern apartment in Marseille. 4 beds, sea views.", link: "https://www.seloger.com/annonces/vente/marseille/", platform: "SeLoger" },
-            { name: "BienIci Paris Eiffel", country: "🇫🇷 Франция", desc: "Luxury apartment near Eiffel Tower. 4 beds, 200 sqm.", link: "https://www.bienici.com/paris-1er", platform: "BienIci" },
-            { name: "BienIci Paris Louvre", country: "🇫🇷 Франция", desc: "Modern apartment near Louvre. 3 beds, 180 sqm.", link: "https://www.bienici.com/paris-2e", platform: "BienIci" },
-            { name: "BienIci Paris Champs", country: "🇫🇷 Франция", desc: "Luxury apartment near Champs-Élysées. 5 beds, 250 sqm.", link: "https://www.bienici.com/paris-8e", platform: "BienIci" },
-            { name: "BienIci Nice", country: "🇫🇷 Франция", desc: "Beachfront apartment in Nice. 3 beds, sea views.", link: "https://www.bienici.com/nice", platform: "BienIci" },
-            { name: "BienIci Marseille", country: "🇫🇷 Франция", desc: "Modern apartment in Marseille. 4 beds, sea views.", link: "https://www.bienici.com/marseille", platform: "BienIci" },
+            { name: "SeLoger France", country: "🇫🇷 Франция", desc: "France's #1 real estate portal.", link: "https://www.seloger.com", platform: "SeLoger" },
+            { name: "BienIci France", country: "🇫🇷 Франция", desc: "French real estate listings.", link: "https://www.bienici.com", platform: "BienIci" },
+            { name: "LeBonCoin France", country: "🇫🇷 Франция", desc: "French classifieds with real estate.", link: "https://www.leboncoin.fr", platform: "LeBonCoin" },
+            { name: "Immobilier France", country: "🇫🇷 Франция", desc: "French property marketplace.", link: "https://www.immobilier.com", platform: "Immobilier" },
+            { name: "Orpi France", country: "🇫🇷 Франция", desc: "French real estate network.", link: "https://www.orpi.com", platform: "Orpi" },
+            { name: "FNAIM France", country: "🇫🇷 Франция", desc: "French real estate federation.", link: "https://www.fnaim.fr", platform: "FNAIM" },
+            { name: "Engel & Völkers France", country: "🇫🇷 Франция", desc: "Luxury real estate in France.", link: "https://www.engelvoelkers.com/fr", platform: "Engel & Völkers" },
+            { name: "Knight Frank France", country: "🇫🇷 Франция", desc: "Prime property in France.", link: "https://www.knightfrank.fr", platform: "Knight Frank" },
+            { name: "Savills France", country: "🇫🇷 Франция", desc: "International real estate in France.", link: "https://www.savills.fr", platform: "Savills" },
+            { name: "CBRE France", country: "🇫🇷 Франция", desc: "Commercial real estate in France.", link: "https://www.cbre.fr", platform: "CBRE" },
 
             // ===== 🇪🇸 Испания — 10 платформ =====
-            { name: "Idealista Barcelona", country: "🇪🇸 Испания", desc: "Luxury apartment in Barcelona. 4 beds, sea views. 8% yield.", link: "https://www.idealista.com/venta-viviendas/barcelona/", platform: "Idealista" },
-            { name: "Idealista Madrid", country: "🇪🇸 Испания", desc: "Modern apartment in Madrid. 3 beds, city views. 7% yield.", link: "https://www.idealista.com/venta-viviendas/madrid/", platform: "Idealista" },
-            { name: "Idealista Valencia", country: "🇪🇸 Испания", desc: "Beachfront apartment in Valencia. 3 beds, sea views.", link: "https://www.idealista.com/venta-viviendas/valencia/", platform: "Idealista" },
-            { name: "Idealista Marbella", country: "🇪🇸 Испания", desc: "Luxury villa in Marbella. 5 beds, pool, garden. 10% yield.", link: "https://www.idealista.com/venta-viviendas/marbella/", platform: "Idealista" },
-            { name: "Idealista Ibiza", country: "🇪🇸 Испания", desc: "Modern villa in Ibiza. 4 beds, private pool.", link: "https://www.idealista.com/venta-viviendas/ibiza/", platform: "Idealista" },
-            { name: "Fotocasa Barcelona", country: "🇪🇸 Испания", desc: "Luxury apartment in Barcelona. 4 beds, sea views.", link: "https://www.fotocasa.es/es/comprar/viviendas/barcelona/", platform: "Fotocasa" },
-            { name: "Fotocasa Madrid", country: "🇪🇸 Испания", desc: "Modern apartment in Madrid. 3 beds, city views.", link: "https://www.fotocasa.es/es/comprar/viviendas/madrid/", platform: "Fotocasa" },
-            { name: "Fotocasa Valencia", country: "🇪🇸 Испания", desc: "Beachfront apartment in Valencia. 3 beds, sea views.", link: "https://www.fotocasa.es/es/comprar/viviendas/valencia/", platform: "Fotocasa" },
-            { name: "Fotocasa Marbella", country: "🇪🇸 Испания", desc: "Luxury villa in Marbella. 5 beds, pool, garden.", link: "https://www.fotocasa.es/es/comprar/viviendas/marbella/", platform: "Fotocasa" },
-            { name: "Fotocasa Ibiza", country: "🇪🇸 Испания", desc: "Modern villa in Ibiza. 4 beds, private pool.", link: "https://www.fotocasa.es/es/comprar/viviendas/ibiza/", platform: "Fotocasa" },
+            { name: "Idealista Spain", country: "🇪🇸 Испания", desc: "Spain's #1 real estate marketplace.", link: "https://www.idealista.com", platform: "Idealista" },
+            { name: "Fotocasa Spain", country: "🇪🇸 Испания", desc: "Spanish real estate portal.", link: "https://www.fotocasa.es", platform: "Fotocasa" },
+            { name: "Pisos.com Spain", country: "🇪🇸 Испания", desc: "Spanish property marketplace.", link: "https://www.pisos.com", platform: "Pisos.com" },
+            { name: "Kyero Spain", country: "🇪🇸 Испания", desc: "Spanish property for international buyers.", link: "https://www.kyero.com", platform: "Kyero" },
+            { name: "SpainHouses Spain", country: "🇪🇸 Испания", desc: "Spanish real estate properties.", link: "https://www.spainhouses.net", platform: "SpainHouses" },
+            { name: "Engel & Völkers Spain", country: "🇪🇸 Испания", desc: "Luxury real estate in Spain.", link: "https://www.engelvoelkers.com/es", platform: "Engel & Völkers" },
+            { name: "Lucas Fox Spain", country: "🇪🇸 Испания", desc: "Spanish luxury properties.", link: "https://www.lucasfox.com", platform: "Lucas Fox" },
+            { name: "Coldwell Banker Spain", country: "🇪🇸 Испания", desc: "International real estate in Spain.", link: "https://www.coldwellbanker.es", platform: "Coldwell Banker" },
+            { name: "RE/MAX Spain", country: "🇪🇸 Испания", desc: "International real estate in Spain.", link: "https://www.remax.es", platform: "RE/MAX Spain" },
+            { name: "Century 21 Spain", country: "🇪🇸 Испания", desc: "Global real estate in Spain.", link: "https://www.century21.es", platform: "Century 21" },
 
             // ===== 🇮🇹 Италия — 10 платформ =====
-            { name: "Immobiliare Milano", country: "🇮🇹 Италия", desc: "Modern apartment in Milan. 3 beds, 150 sqm. 6% yield.", link: "https://www.immobiliare.it/vendita/milano/", platform: "Immobiliare.it" },
-            { name: "Immobiliare Roma", country: "🇮🇹 Италия", desc: "Luxury apartment in Rome. 4 beds, city views. 7% yield.", link: "https://www.immobiliare.it/vendita/roma/", platform: "Immobiliare.it" },
-            { name: "Immobiliare Firenze", country: "🇮🇹 Италия", desc: "Historic apartment in Florence. 3 beds, 160 sqm.", link: "https://www.immobiliare.it/vendita/firenze/", platform: "Immobiliare.it" },
-            { name: "Immobiliare Napoli", country: "🇮🇹 Италия", desc: "Modern apartment in Naples. 3 beds, sea views.", link: "https://www.immobiliare.it/vendita/napoli/", platform: "Immobiliare.it" },
-            { name: "Immobiliare Torino", country: "🇮🇹 Италия", desc: "Luxury apartment in Turin. 4 beds, 180 sqm.", link: "https://www.immobiliare.it/vendita/torino/", platform: "Immobiliare.it" },
-            { name: "Casa.it Milano", country: "🇮🇹 Италия", desc: "Modern apartment in Milan. 3 beds, 150 sqm.", link: "https://www.casa.it/vendita/milano/", platform: "Casa.it" },
-            { name: "Casa.it Roma", country: "🇮🇹 Италия", desc: "Luxury apartment in Rome. 4 beds, city views.", link: "https://www.casa.it/vendita/roma/", platform: "Casa.it" },
-            { name: "Casa.it Firenze", country: "🇮🇹 Италия", desc: "Historic apartment in Florence. 3 beds, 160 sqm.", link: "https://www.casa.it/vendita/firenze/", platform: "Casa.it" },
-            { name: "Casa.it Napoli", country: "🇮🇹 Италия", desc: "Modern apartment in Naples. 3 beds, sea views.", link: "https://www.casa.it/vendita/napoli/", platform: "Casa.it" },
-            { name: "Casa.it Torino", country: "🇮🇹 Италия", desc: "Luxury apartment in Turin. 4 beds, 180 sqm.", link: "https://www.casa.it/vendita/torino/", platform: "Casa.it" },
+            { name: "Immobiliare Italy", country: "🇮🇹 Италия", desc: "Italy's #1 real estate platform.", link: "https://www.immobiliare.it", platform: "Immobiliare.it" },
+            { name: "Casa.it Italy", country: "🇮🇹 Италия", desc: "Italian real estate marketplace.", link: "https://www.casa.it", platform: "Casa.it" },
+            { name: "Idealista Italy", country: "🇮🇹 Италия", desc: "Italian real estate listings.", link: "https://www.idealista.it", platform: "Idealista Italia" },
+            { name: "Gabetti Italy", country: "🇮🇹 Италия", desc: "Italian real estate network.", link: "https://www.gabetti.com", platform: "Gabetti" },
+            { name: "Tecnocasa Italy", country: "🇮🇹 Италия", desc: "Italian real estate agency.", link: "https://www.tecnocasa.it", platform: "Tecnocasa" },
+            { name: "Engel & Völkers Italy", country: "🇮🇹 Италия", desc: "Luxury real estate in Italy.", link: "https://www.engelvoelkers.com/it", platform: "Engel & Völkers" },
+            { name: "Knight Frank Italy", country: "🇮🇹 Италия", desc: "Prime property in Italy.", link: "https://www.knightfrank.it", platform: "Knight Frank" },
+            { name: "Savills Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.savills.it", platform: "Savills" },
+            { name: "Coldwell Banker Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.coldwellbanker.it", platform: "Coldwell Banker" },
+            { name: "RE/MAX Italy", country: "🇮🇹 Италия", desc: "International real estate in Italy.", link: "https://www.remax.it", platform: "RE/MAX Italy" },
 
             // ===== 🇹🇷 Турция — 10 платформ =====
-            { name: "Sahibinden Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Historic villa on Bosphorus. 5 beds, 450 sqm. 12% yield.", link: "https://www.sahibinden.com/istanbul-bosphorus-villa", platform: "Sahibinden" },
-            { name: "Sahibinden Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm. 10% yield.", link: "https://www.sahibinden.com/istanbul-levent-apartment", platform: "Sahibinden" },
-            { name: "Sahibinden Istanbul Besiktas", country: "🇹🇷 Турция", desc: "Luxury apartment in Besiktas. 4 beds, sea views.", link: "https://www.sahibinden.com/istanbul-besiktas", platform: "Sahibinden" },
-            { name: "Sahibinden Istanbul Sisli", country: "🇹🇷 Турция", desc: "Modern apartment in Sisli. 3 beds, 160 sqm.", link: "https://www.sahibinden.com/istanbul-sisli", platform: "Sahibinden" },
-            { name: "Sahibinden Istanbul Nisantasi", country: "🇹🇷 Турция", desc: "Luxury apartment in Nisantasi. 4 beds, 200 sqm.", link: "https://www.sahibinden.com/istanbul-nisantasi", platform: "Sahibinden" },
-            { name: "HepsiEmlak Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Historic villa on Bosphorus. 5 beds, 450 sqm.", link: "https://www.hepsiemlak.com/istanbul-bosphorus-villa", platform: "HepsiEmlak" },
-            { name: "HepsiEmlak Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm.", link: "https://www.hepsiemlak.com/istanbul-levent", platform: "HepsiEmlak" },
-            { name: "HepsiEmlak Istanbul Besiktas", country: "🇹🇷 Турция", desc: "Luxury apartment in Besiktas. 4 beds, sea views.", link: "https://www.hepsiemlak.com/istanbul-besiktas", platform: "HepsiEmlak" },
-            { name: "Emlakjet Istanbul Bosphorus", country: "🇹🇷 Турция", desc: "Villa on Bosphorus. 5 beds, 450 sqm.", link: "https://www.emlakjet.com/istanbul-bosphorus-villa", platform: "Emlakjet" },
-            { name: "Emlakjet Istanbul Levent", country: "🇹🇷 Турция", desc: "Modern apartment in Levent. 3 beds, 180 sqm.", link: "https://www.emlakjet.com/istanbul-levent", platform: "Emlakjet" },
+            { name: "Sahibinden Turkey", country: "🇹🇷 Турция", desc: "Turkey's #1 classifieds with real estate.", link: "https://www.sahibinden.com", platform: "Sahibinden" },
+            { name: "HepsiEmlak Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate portal.", link: "https://www.hepsiemlak.com", platform: "HepsiEmlak" },
+            { name: "Emlakjet Turkey", country: "🇹🇷 Турция", desc: "Turkish property marketplace.", link: "https://www.emlakjet.com", platform: "Emlakjet" },
+            { name: "Zingat Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate platform.", link: "https://www.zingat.com", platform: "Zingat" },
+            { name: "HurriyetEmlak Turkey", country: "🇹🇷 Турция", desc: "Turkish real estate by Hurriyet.", link: "https://www.hurriyetemlak.com", platform: "HurriyetEmlak" },
+            { name: "Engel & Völkers Turkey", country: "🇹🇷 Турция", desc: "Luxury real estate in Turkey.", link: "https://www.engelvoelkers.com/tr", platform: "Engel & Völkers" },
+            { name: "Savills Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.savills.com.tr", platform: "Savills" },
+            { name: "Knight Frank Turkey", country: "🇹🇷 Турция", desc: "Prime property in Turkey.", link: "https://www.knightfrank.com.tr", platform: "Knight Frank" },
+            { name: "Coldwell Banker Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.coldwellbanker.com.tr", platform: "Coldwell Banker" },
+            { name: "RE/MAX Turkey", country: "🇹🇷 Турция", desc: "International real estate in Turkey.", link: "https://www.remax.com.tr", platform: "RE/MAX Turkey" },
 
-            // ===== 🇹🇭 Таиланд — 10 платформ =====
-            { name: "DDproperty Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views. 8% yield.", link: "https://www.ddproperty.com/en/property-for-sale/bangkok", platform: "DDproperty" },
-            { name: "DDproperty Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool. 12% yield.", link: "https://www.ddproperty.com/en/property-for-sale/phuket", platform: "DDproperty" },
-            { name: "DDproperty Pattaya", country: "🇹🇭 Таиланд", desc: "Modern apartment in Pattaya. 3 beds, sea views.", link: "https://www.ddproperty.com/en/property-for-sale/pattaya", platform: "DDproperty" },
-            { name: "DDproperty Chiang Mai", country: "🇹🇭 Таиланд", desc: "Modern home in Chiang Mai. 4 beds, garden.", link: "https://www.ddproperty.com/en/property-for-sale/chiang-mai", platform: "DDproperty" },
-            { name: "DDproperty Hua Hin", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Hua Hin. 4 beds, pool.", link: "https://www.ddproperty.com/en/property-for-sale/hua-hin", platform: "DDproperty" },
-            { name: "Hipflat Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views.", link: "https://www.hipflat.com/en/sale/bangkok", platform: "Hipflat" },
-            { name: "Hipflat Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool.", link: "https://www.hipflat.com/en/sale/phuket", platform: "Hipflat" },
-            { name: "Hipflat Pattaya", country: "🇹🇭 Таиланд", desc: "Modern apartment in Pattaya. 3 beds, sea views.", link: "https://www.hipflat.com/en/sale/pattaya", platform: "Hipflat" },
-            { name: "FazWaz Bangkok", country: "🇹🇭 Таиланд", desc: "Luxury apartment in Bangkok. 3 beds, city views.", link: "https://www.fazwaz.com/bangkok", platform: "FazWaz" },
-            { name: "FazWaz Phuket", country: "🇹🇭 Таиланд", desc: "Beachfront villa in Phuket. 4 beds, pool.", link: "https://www.fazwaz.com/phuket", platform: "FazWaz" },
+            // ===== 🇹🇭 Таиланд — 8 платформ =====
+            { name: "DDproperty Thailand", country: "🇹🇭 Таиланд", desc: "Thailand's leading property portal.", link: "https://www.ddproperty.com", platform: "DDproperty" },
+            { name: "Hipflat Thailand", country: "🇹🇭 Таиланд", desc: "Thai real estate marketplace.", link: "https://www.hipflat.com", platform: "Hipflat" },
+            { name: "FazWaz Thailand", country: "🇹🇭 Таиланд", desc: "Thai property specialists.", link: "https://www.fazwaz.com", platform: "FazWaz" },
+            { name: "Thailand-Property", country: "🇹🇭 Таиланд", desc: "Thailand property for international buyers.", link: "https://www.thailand-property.com", platform: "Thailand-Property" },
+            { name: "BangkokPost Property", country: "🇹🇭 Таиланд", desc: "Thai real estate by Bangkok Post.", link: "https://www.bangkokpost.com/property", platform: "BangkokPost" },
+            { name: "Engel & Völkers Thailand", country: "🇹🇭 Таиланд", desc: "Luxury real estate in Thailand.", link: "https://www.engelvoelkers.com/th", platform: "Engel & Völkers" },
+            { name: "Savills Thailand", country: "🇹🇭 Таиланд", desc: "International real estate in Thailand.", link: "https://www.savills.co.th", platform: "Savills" },
+            { name: "Knight Frank Thailand", country: "🇹🇭 Таиланд", desc: "Prime property in Thailand.", link: "https://www.knightfrank.co.th", platform: "Knight Frank" },
 
-            // ===== 🇮🇳 Индия — 10 платформ =====
-            { name: "99acres Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views. 8% yield.", link: "https://www.99acres.com/mumbai-property", platform: "99acres" },
-            { name: "99acres Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views. 7% yield.", link: "https://www.99acres.com/delhi-property", platform: "99acres" },
-            { name: "99acres Bangalore", country: "🇮🇳 Индия", desc: "Luxury apartment in Bangalore. 3 beds, 200 sqm.", link: "https://www.99acres.com/bangalore-property", platform: "99acres" },
-            { name: "99acres Chennai", country: "🇮🇳 Индия", desc: "Modern apartment in Chennai. 3 beds, 180 sqm.", link: "https://www.99acres.com/chennai-property", platform: "99acres" },
-            { name: "99acres Hyderabad", country: "🇮🇳 Индия", desc: "Luxury apartment in Hyderabad. 4 beds, 220 sqm.", link: "https://www.99acres.com/hyderabad-property", platform: "99acres" },
-            { name: "Magicbricks Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views.", link: "https://www.magicbricks.com/property-for-sale-in-mumbai", platform: "Magicbricks" },
-            { name: "Magicbricks Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views.", link: "https://www.magicbricks.com/property-for-sale-in-delhi", platform: "Magicbricks" },
-            { name: "Magicbricks Bangalore", country: "🇮🇳 Индия", desc: "Luxury apartment in Bangalore. 3 beds, 200 sqm.", link: "https://www.magicbricks.com/property-for-sale-in-bangalore", platform: "Magicbricks" },
-            { name: "Housing Mumbai", country: "🇮🇳 Индия", desc: "Luxury apartment in Mumbai. 3 beds, sea views.", link: "https://housing.com/mumbai", platform: "Housing" },
-            { name: "Housing Delhi", country: "🇮🇳 Индия", desc: "Modern apartment in Delhi. 4 beds, city views.", link: "https://housing.com/delhi", platform: "Housing" },
+            // ===== 🇮🇳 Индия — 8 платформ =====
+            { name: "99acres India", country: "🇮🇳 Индия", desc: "India's leading property portal.", link: "https://www.99acres.com", platform: "99acres" },
+            { name: "Magicbricks India", country: "🇮🇳 Индия", desc: "Indian real estate marketplace.", link: "https://www.magicbricks.com", platform: "Magicbricks" },
+            { name: "Housing India", country: "🇮🇳 Индия", desc: "Indian property search platform.", link: "https://housing.com", platform: "Housing" },
+            { name: "CommonFloor India", country: "🇮🇳 Индия", desc: "Indian real estate portal.", link: "https://www.commonfloor.com", platform: "CommonFloor" },
+            { name: "IndiaProperty India", country: "🇮🇳 Индия", desc: "Indian property listings.", link: "https://www.indiaproperty.com", platform: "IndiaProperty" },
+            { name: "Makaan India", country: "🇮🇳 Индия", desc: "Indian real estate platform.", link: "https://www.makaan.com", platform: "Makaan" },
+            { name: "PropTiger India", country: "🇮🇳 Индия", desc: "Indian real estate services.", link: "https://www.proptiger.com", platform: "PropTiger" },
+            { name: "NoBroker India", country: "🇮🇳 Индия", desc: "Indian no-brokerage real estate.", link: "https://www.nobroker.in", platform: "NoBroker" },
 
             // ===== 🇨🇳 Китай — 6 платформ =====
-            { name: "Anjuke Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.anjuke.com", platform: "Anjuke" },
-            { name: "Anjuke Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.anjuke.com", platform: "Anjuke" },
-            { name: "Beike Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.ke.com", platform: "Beike" },
-            { name: "Beike Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.ke.com", platform: "Beike" },
-            { name: "Fang Shanghai", country: "🇨🇳 Китай", desc: "Luxury apartment in Shanghai. 3 beds, city views.", link: "https://shanghai.fang.com", platform: "Fang" },
-            { name: "Fang Beijing", country: "🇨🇳 Китай", desc: "Modern apartment in Beijing. 4 beds, 200 sqm.", link: "https://beijing.fang.com", platform: "Fang" },
+            { name: "Anjuke China", country: "🇨🇳 Китай", desc: "Chinese real estate platform.", link: "https://www.anjuke.com", platform: "Anjuke" },
+            { name: "Beike China", country: "🇨🇳 Китай", desc: "Chinese real estate marketplace.", link: "https://www.ke.com", platform: "Beike" },
+            { name: "Fang China", country: "🇨🇳 Китай", desc: "Chinese property portal.", link: "https://www.fang.com", platform: "Fang" },
+            { name: "Soufun China", country: "🇨🇳 Китай", desc: "Chinese real estate platform.", link: "https://www.soufun.com", platform: "Soufun" },
+            { name: "Lianjia China", country: "🇨🇳 Китай", desc: "Chinese real estate brokerage.", link: "https://www.lianjia.com", platform: "Lianjia" },
+            { name: "5i5j China", country: "🇨🇳 Китай", desc: "Chinese property platform.", link: "https://www.5i5j.com", platform: "5i5j" },
 
             // ===== 🇯🇵 Япония — 6 платформ =====
-            { name: "Suumo Tokyo", country: "🇯🇵 Япония", desc: "Modern apartment in Tokyo. 3 beds, city views.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC001/", platform: "Suumo" },
-            { name: "Suumo Osaka", country: "🇯🇵 Япония", desc: "Luxury apartment in Osaka. 3 beds, 200 sqm.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC002/", platform: "Suumo" },
-            { name: "Suumo Yokohama", country: "🇯🇵 Япония", desc: "Modern apartment in Yokohama. 4 beds, sea views.", link: "https://suumo.jp/jj/chintai/ichiran/FR301FC003/", platform: "Suumo" },
-            { name: "Homes Tokyo", country: "🇯🇵 Япония", desc: "Modern apartment in Tokyo. 3 beds, city views.", link: "https://www.homes.co.jp/chintai/tokyo/", platform: "Homes" },
-            { name: "Homes Osaka", country: "🇯🇵 Япония", desc: "Luxury apartment in Osaka. 3 beds, 200 sqm.", link: "https://www.homes.co.jp/chintai/osaka/", platform: "Homes" },
-            { name: "Homes Yokohama", country: "🇯🇵 Япония", desc: "Modern apartment in Yokohama. 4 beds, sea views.", link: "https://www.homes.co.jp/chintai/yokohama/", platform: "Homes" },
+            { name: "Suumo Japan", country: "🇯🇵 Япония", desc: "Japanese property portal.", link: "https://suumo.jp", platform: "Suumo" },
+            { name: "Homes Japan", country: "🇯🇵 Япония", desc: "Japanese real estate listings.", link: "https://www.homes.co.jp", platform: "Homes" },
+            { name: "Athome Japan", country: "🇯🇵 Япония", desc: "Japanese property search.", link: "https://www.athome.co.jp", platform: "Athome" },
+            { name: "Mitsui Japan", country: "🇯🇵 Япония", desc: "Japanese real estate development.", link: "https://www.mitsui.co.jp", platform: "Mitsui" },
+            { name: "Sumitomo Japan", country: "🇯🇵 Япония", desc: "Japanese real estate group.", link: "https://www.sumitomo.co.jp", platform: "Sumitomo" },
+            { name: "Tokyu Land Japan", country: "🇯🇵 Япония", desc: "Japanese real estate developer.", link: "https://www.tokyu-land.co.jp", platform: "Tokyu Land" },
 
             // ===== 🇧🇷 Бразилия — 6 платформ =====
-            { name: "ZapImoveis Sao Paulo", country: "🇧🇷 Бразилия", desc: "Luxury apartment in São Paulo. 4 beds, city views.", link: "https://www.zapimoveis.com.br/sao-paulo/", platform: "ZapImoveis" },
-            { name: "ZapImoveis Rio", country: "🇧🇷 Бразилия", desc: "Beachfront apartment in Rio de Janeiro. 3 beds, sea views.", link: "https://www.zapimoveis.com.br/rio-de-janeiro/", platform: "ZapImoveis" },
-            { name: "ZapImoveis Brasilia", country: "🇧🇷 Бразилия", desc: "Modern apartment in Brasília. 3 beds, 180 sqm.", link: "https://www.zapimoveis.com.br/brasilia/", platform: "ZapImoveis" },
-            { name: "VivaReal Sao Paulo", country: "🇧🇷 Бразилия", desc: "Luxury apartment in São Paulo. 4 beds, city views.", link: "https://www.vivareal.com.br/sp/sao-paulo/", platform: "VivaReal" },
-            { name: "VivaReal Rio", country: "🇧🇷 Бразилия", desc: "Beachfront apartment in Rio de Janeiro. 3 beds, sea views.", link: "https://www.vivareal.com.br/rj/rio-de-janeiro/", platform: "VivaReal" },
-            { name: "VivaReal Brasilia", country: "🇧🇷 Бразилия", desc: "Modern apartment in Brasília. 3 beds, 180 sqm.", link: "https://www.vivareal.com.br/df/brasilia/", platform: "VivaReal" },
+            { name: "ZapImoveis Brazil", country: "🇧🇷 Бразилия", desc: "Brazil's leading real estate portal.", link: "https://www.zapimoveis.com.br", platform: "ZapImoveis" },
+            { name: "VivaReal Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian property marketplace.", link: "https://www.vivareal.com.br", platform: "VivaReal" },
+            { name: "Lopes Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian real estate services.", link: "https://www.lopes.com.br", platform: "Lopes" },
+            { name: "QuintoAndar Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian rental platform.", link: "https://www.quintoandar.com.br", platform: "QuintoAndar" },
+            { name: "Loft Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian real estate platform.", link: "https://www.loft.com.br", platform: "Loft" },
+            { name: "ImovelWeb Brazil", country: "🇧🇷 Бразилия", desc: "Brazilian property portal.", link: "https://www.imovelweb.com.br", platform: "ImovelWeb" },
 
             // ===== 🇿🇦 ЮАР — 6 платформ =====
-            { name: "Property24 Cape Town", country: "🇿🇦 ЮАР", desc: "Luxury apartment in Cape Town. 3 beds, sea views.", link: "https://www.property24.com/for-sale/cape-town/", platform: "Property24" },
-            { name: "Property24 Johannesburg", country: "🇿🇦 ЮАР", desc: "Modern apartment in Johannesburg. 4 beds, city views.", link: "https://www.property24.com/for-sale/johannesburg/", platform: "Property24" },
-            { name: "Property24 Durban", country: "🇿🇦 ЮАР", desc: "Beachfront apartment in Durban. 3 beds, sea views.", link: "https://www.property24.com/for-sale/durban/", platform: "Property24" },
-            { name: "PrivateProperty Cape Town", country: "🇿🇦 ЮАР", desc: "Luxury apartment in Cape Town. 3 beds, sea views.", link: "https://www.privateproperty.co.za/cape-town/", platform: "PrivateProperty" },
-            { name: "PrivateProperty Johannesburg", country: "🇿🇦 ЮАР", desc: "Modern apartment in Johannesburg. 4 beds, city views.", link: "https://www.privateproperty.co.za/johannesburg/", platform: "PrivateProperty" },
-            { name: "PrivateProperty Durban", country: "🇿🇦 ЮАР", desc: "Beachfront apartment in Durban. 3 beds, sea views.", link: "https://www.privateproperty.co.za/durban/", platform: "PrivateProperty" },
+            { name: "Property24 South Africa", country: "🇿🇦 ЮАР", desc: "South Africa's leading property portal.", link: "https://www.property24.com", platform: "Property24" },
+            { name: "PrivateProperty South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate.", link: "https://www.privateproperty.co.za", platform: "PrivateProperty" },
+            { name: "Seeff South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate agency.", link: "https://www.seeff.com", platform: "Seeff" },
+            { name: "PamGolding South Africa", country: "🇿🇦 ЮАР", desc: "South African property specialists.", link: "https://www.pamgolding.co.za", platform: "PamGolding" },
+            { name: "ChasEveritt South Africa", country: "🇿🇦 ЮАР", desc: "South African real estate.", link: "https://www.chaseveritt.co.za", platform: "ChasEveritt" },
+            { name: "Rawson South Africa", country: "🇿🇦 ЮАР", desc: "South African property platform.", link: "https://www.rawson.co.za", platform: "Rawson" },
 
-            // ===== 🇨🇦 Канада — 6 платформ =====
-            { name: "Realtor.ca Toronto", country: "🇨🇦 Канада", desc: "Luxury apartment in Toronto. 3 beds, city views.", link: "https://www.realtor.ca/on/toronto/", platform: "Realtor.ca" },
-            { name: "Realtor.ca Vancouver", country: "🇨🇦 Канада", desc: "Modern apartment in Vancouver. 3 beds, sea views.", link: "https://www.realtor.ca/bc/vancouver/", platform: "Realtor.ca" },
-            { name: "Realtor.ca Montreal", country: "🇨🇦 Канада", desc: "Luxury apartment in Montreal. 4 beds, city views.", link: "https://www.realtor.ca/qc/montreal/", platform: "Realtor.ca" },
-            { name: "Zoocasa Toronto", country: "🇨🇦 Канада", desc: "Luxury apartment in Toronto. 3 beds, city views.", link: "https://www.zoocasa.com/toronto", platform: "Zoocasa" },
-            { name: "Zoocasa Vancouver", country: "🇨🇦 Канада", desc: "Modern apartment in Vancouver. 3 beds, sea views.", link: "https://www.zoocasa.com/vancouver", platform: "Zoocasa" },
-            { name: "Zoocasa Montreal", country: "🇨🇦 Канада", desc: "Luxury apartment in Montreal. 4 beds, city views.", link: "https://www.zoocasa.com/montreal", platform: "Zoocasa" },
+            // ===== 🇲🇽 Мексика — 6 платформ =====
+            { name: "Lamudi Mexico", country: "🇲🇽 Мексика", desc: "Mexican real estate marketplace.", link: "https://www.lamudi.com.mx", platform: "Lamudi" },
+            { name: "Inmuebles24 Mexico", country: "🇲🇽 Мексика", desc: "Mexican property portal.", link: "https://www.inmuebles24.com", platform: "Inmuebles24" },
+            { name: "Propiedades Mexico", country: "🇲🇽 Мексика", desc: "Mexican real estate platform.", link: "https://www.propiedades.com", platform: "Propiedades" },
+            { name: "Vivanuncios Mexico", country: "🇲🇽 Мексика", desc: "Mexican classifieds with real estate.", link: "https://www.vivanuncios.com.mx", platform: "Vivanuncios" },
+            { name: "Segundamano Mexico", country: "🇲🇽 Мексика", desc: "Mexican property classifieds.", link: "https://www.segundamano.mx", platform: "Segundamano" },
+            { name: "Century 21 Mexico", country: "🇲🇽 Мексика", desc: "International real estate in Mexico.", link: "https://www.century21.mx", platform: "Century 21" },
 
             // ===== 🇦🇷 Аргентина — 6 платформ =====
-            { name: "ZonaProp Buenos Aires", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Buenos Aires. 3 beds, city views.", link: "https://www.zonaprop.com.ar/buenos-aires/", platform: "ZonaProp" },
-            { name: "ZonaProp Cordoba", country: "🇦🇷 Аргентина", desc: "Modern apartment in Córdoba. 3 beds, 180 sqm.", link: "https://www.zonaprop.com.ar/cordoba/", platform: "ZonaProp" },
-            { name: "ZonaProp Mendoza", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Mendoza. 3 beds, 200 sqm.", link: "https://www.zonaprop.com.ar/mendoza/", platform: "ZonaProp" },
-            { name: "Properati Buenos Aires", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Buenos Aires. 3 beds, city views.", link: "https://www.properati.com.ar/buenos-aires/", platform: "Properati" },
-            { name: "Properati Cordoba", country: "🇦🇷 Аргентина", desc: "Modern apartment in Córdoba. 3 beds, 180 sqm.", link: "https://www.properati.com.ar/cordoba/", platform: "Properati" },
-            { name: "Properati Mendoza", country: "🇦🇷 Аргентина", desc: "Luxury apartment in Mendoza. 3 beds, 200 sqm.", link: "https://www.properati.com.ar/mendoza/", platform: "Properati" },
+            { name: "ZonaProp Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate portal.", link: "https://www.zonaprop.com.ar", platform: "ZonaProp" },
+            { name: "Properati Argentina", country: "🇦🇷 Аргентина", desc: "Argentine property marketplace.", link: "https://www.properati.com.ar", platform: "Properati" },
+            { name: "Argenprop Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate listings.", link: "https://www.argenprop.com", platform: "Argenprop" },
+            { name: "Soloduenos Argentina", country: "🇦🇷 Аргентина", desc: "Argentine property platform.", link: "https://www.soloduenos.com", platform: "Soloduenos" },
+            { name: "Inmoclick Argentina", country: "🇦🇷 Аргентина", desc: "Argentine real estate marketplace.", link: "https://www.inmoclick.com.ar", platform: "Inmoclick" },
+            { name: "Remax Argentina", country: "🇦🇷 Аргентина", desc: "International real estate in Argentina.", link: "https://www.remax.com.ar", platform: "Remax" },
 
             // ===== 🇪🇬 Египет — 6 платформ =====
-            { name: "PropertyFinder Cairo", country: "🇪🇬 Египет", desc: "Luxury apartment in Cairo. 4 beds, city views.", link: "https://www.propertyfinder.eg/en/plp/rent/apartment-for-rent-cairo/", platform: "PropertyFinder" },
-            { name: "PropertyFinder Alexandria", country: "🇪🇬 Египет", desc: "Beachfront apartment in Alexandria. 3 beds, sea views.", link: "https://www.propertyfinder.eg/en/plp/rent/apartment-for-rent-alexandria/", platform: "PropertyFinder" },
-            { name: "PropertyFinder Hurghada", country: "🇪🇬 Египет", desc: "Modern villa in Hurghada. 4 beds, pool.", link: "https://www.propertyfinder.eg/en/plp/rent/villa-for-rent-hurghada/", platform: "PropertyFinder" },
-            { name: "Aqarmap Cairo", country: "🇪🇬 Египет", desc: "Luxury apartment in Cairo. 4 beds, city views.", link: "https://www.aqarmap.com.eg/en/real-estate/cairo/", platform: "Aqarmap" },
-            { name: "Aqarmap Alexandria", country: "🇪🇬 Египет", desc: "Beachfront apartment in Alexandria. 3 beds, sea views.", link: "https://www.aqarmap.com.eg/en/real-estate/alexandria/", platform: "Aqarmap" },
-            { name: "Aqarmap Hurghada", country: "🇪🇬 Египет", desc: "Modern villa in Hurghada. 4 beds, pool.", link: "https://www.aqarmap.com.eg/en/real-estate/hurghada/", platform: "Aqarmap" },
+            { name: "PropertyFinder Egypt", country: "🇪🇬 Египет", desc: "Egypt's leading property portal.", link: "https://www.propertyfinder.eg", platform: "PropertyFinder" },
+            { name: "Aqarmap Egypt", country: "🇪🇬 Египет", desc: "Egyptian real estate platform.", link: "https://www.aqarmap.com.eg", platform: "Aqarmap" },
+            { name: "Hometime Egypt", country: "🇪🇬 Египет", desc: "Egyptian property listings.", link: "https://hometime.com.eg", platform: "Hometime" },
+            { name: "RealEstateEgypt", country: "🇪🇬 Египет", desc: "Egyptian real estate portal.", link: "https://www.realestate-egypt.com", platform: "RealEstateEgypt" },
+            { name: "EgyHomes Egypt", country: "🇪🇬 Египет", desc: "Egyptian property marketplace.", link: "https://www.egyhomes.com", platform: "EgyHomes" },
+            { name: "Bayut Egypt", country: "🇪🇬 Египет", desc: "Egyptian property portal.", link: "https://www.bayut.com.eg", platform: "Bayut" },
 
             // ===== 🇸🇦 Саудовская Аравия — 6 платформ =====
-            { name: "Aqar Riyadh", country: "🇸🇦 Саудовская Аравия", desc: "Luxury apartment in Riyadh. 4 beds, city views.", link: "https://www.aqar.sa/riyadh/", platform: "Aqar" },
-            { name: "Aqar Jeddah", country: "🇸🇦 Саудовская Аравия", desc: "Beachfront villa in Jeddah. 5 beds, sea views.", link: "https://www.aqar.sa/jeddah/", platform: "Aqar" },
-            { name: "Aqar Dammam", country: "🇸🇦 Саудовская Аравия", desc: "Modern apartment in Dammam. 3 beds, city views.", link: "https://www.aqar.sa/dammam/", platform: "Aqar" },
-            { name: "Haraj Riyadh", country: "🇸🇦 Саудовская Аравия", desc: "Luxury apartment in Riyadh. 4 beds, city views.", link: "https://www.haraj.com.sa/riyadh/", platform: "Haraj" },
-            { name: "Haraj Jeddah", country: "🇸🇦 Саудовская Аравия", desc: "Beachfront villa in Jeddah. 5 beds, sea views.", link: "https://www.haraj.com.sa/jeddah/", platform: "Haraj" },
-            { name: "Haraj Dammam", country: "🇸🇦 Саудовская Аравия", desc: "Modern apartment in Dammam. 3 beds, city views.", link: "https://www.haraj.com.sa/dammam/", platform: "Haraj" },
+            { name: "Aqar Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Saudi real estate platform.", link: "https://www.aqar.sa", platform: "Aqar" },
+            { name: "Haraj Saudi Arabia", country: "🇸🇦 Саудовская Аравия", desc: "Saudi classifieds with real estate.", link: "https://www.haraj.com.sa", platform: "Haraj" },
+            { name: "Bayut Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi property portal.", link: "https://www.bayut.sa", platform: "Bayut" },
+            { name: "PropertyFinder Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi real estate listings.", link: "https://www.propertyfinder.sa", platform: "PropertyFinder" },
+            { name: "RealEstate Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Saudi property marketplace.", link: "https://www.saudi-realestate.com", platform: "RealEstate" },
+            { name: "Engel & Völkers Saudi", country: "🇸🇦 Саудовская Аравия", desc: "Luxury real estate in Saudi.", link: "https://www.engelvoelkers.com/sa", platform: "Engel & Völkers" },
 
             // ===== 🇳🇬 Нигерия — 6 платформ =====
-            { name: "PropertyPro Lagos", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Lagos. 4 beds, city views.", link: "https://www.propertypro.ng/lagos/", platform: "PropertyPro" },
-            { name: "PropertyPro Abuja", country: "🇳🇬 Нигерия", desc: "Modern apartment in Abuja. 3 beds, city views.", link: "https://www.propertypro.ng/abuja/", platform: "PropertyPro" },
-            { name: "PropertyPro Port Harcourt", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Port Harcourt. 4 beds, 200 sqm.", link: "https://www.propertypro.ng/port-harcourt/", platform: "PropertyPro" },
-            { name: "NigeriaProperty Lagos", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Lagos. 4 beds, city views.", link: "https://www.nigeriaproperty.com/lagos/", platform: "NigeriaProperty" },
-            { name: "NigeriaProperty Abuja", country: "🇳🇬 Нигерия", desc: "Modern apartment in Abuja. 3 beds, city views.", link: "https://www.nigeriaproperty.com/abuja/", platform: "NigeriaProperty" },
-            { name: "NigeriaProperty Port Harcourt", country: "🇳🇬 Нигерия", desc: "Luxury apartment in Port Harcourt. 4 beds, 200 sqm.", link: "https://www.nigeriaproperty.com/port-harcourt/", platform: "NigeriaProperty" },
+            { name: "PropertyPro Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate platform.", link: "https://www.propertypro.ng", platform: "PropertyPro" },
+            { name: "NigeriaProperty", country: "🇳🇬 Нигерия", desc: "Nigerian property listings.", link: "https://www.nigeriaproperty.com", platform: "NigeriaProperty" },
+            { name: "PrivateProperty Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate.", link: "https://www.privateproperty.com.ng", platform: "PrivateProperty" },
+            { name: "RealEstate Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian property marketplace.", link: "https://www.realestate.com.ng", platform: "RealEstate" },
+            { name: "Homes Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian real estate portal.", link: "https://www.homes.com.ng", platform: "Homes" },
+            { name: "Lamudi Nigeria", country: "🇳🇬 Нигерия", desc: "Nigerian property platform.", link: "https://www.lamudi.com.ng", platform: "Lamudi" },
 
             // ===== 🇰🇪 Кения — 6 платформ =====
-            { name: "BuyRentKenya Nairobi", country: "🇰🇪 Кения", desc: "Luxury apartment in Nairobi. 3 beds, city views.", link: "https://www.buyrentkenya.com/nairobi/", platform: "BuyRentKenya" },
-            { name: "BuyRentKenya Mombasa", country: "🇰🇪 Кения", desc: "Beachfront villa in Mombasa. 4 beds, sea views.", link: "https://www.buyrentkenya.com/mombasa/", platform: "BuyRentKenya" },
-            { name: "BuyRentKenya Kisumu", country: "🇰🇪 Кения", desc: "Modern apartment in Kisumu. 3 beds, lake views.", link: "https://www.buyrentkenya.com/kisumu/", platform: "BuyRentKenya" },
-            { name: "PropertyKenya Nairobi", country: "🇰🇪 Кения", desc: "Luxury apartment in Nairobi. 3 beds, city views.", link: "https://www.propertykenya.com/nairobi/", platform: "PropertyKenya" },
-            { name: "PropertyKenya Mombasa", country: "🇰🇪 Кения", desc: "Beachfront villa in Mombasa. 4 beds, sea views.", link: "https://www.propertykenya.com/mombasa/", platform: "PropertyKenya" },
-            { name: "PropertyKenya Kisumu", country: "🇰🇪 Кения", desc: "Modern apartment in Kisumu. 3 beds, lake views.", link: "https://www.propertykenya.com/kisumu/", platform: "PropertyKenya" }
+            { name: "BuyRentKenya", country: "🇰🇪 Кения", desc: "Kenyan real estate platform.", link: "https://www.buyrentkenya.com", platform: "BuyRentKenya" },
+            { name: "PropertyKenya", country: "🇰🇪 Кения", desc: "Kenyan property listings.", link: "https://www.propertykenya.com", platform: "PropertyKenya" },
+            { name: "Lamudi Kenya", country: "🇰🇪 Кения", desc: "Kenyan real estate marketplace.", link: "https://www.lamudi.co.ke", platform: "Lamudi" },
+            { name: "RealEstate Kenya", country: "🇰🇪 Кения", desc: "Kenyan property portal.", link: "https://www.real-estate.co.ke", platform: "RealEstate" },
+            { name: "KenyaProperty", country: "🇰🇪 Кения", desc: "Kenyan real estate platform.", link: "https://www.kenyaproperty.com", platform: "KenyaProperty" },
+            { name: "Homes Kenya", country: "🇰🇪 Кения", desc: "Kenyan property marketplace.", link: "https://www.homeskenya.com", platform: "Homes" }
         ];
 
         // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
@@ -400,34 +396,29 @@
 
             // Дополнительные уникальные функции для заполнения до 300+
             const extras = [
-                // 🇲🇽 Мексика
-                { name: "Lamudi Mexico City", country: "🇲🇽 Мексика", desc: "Luxury apartment in Mexico City. 4 beds, 200 sqm.", link: "https://www.lamudi.com.mx/mexico-city/", platform: "Lamudi" },
-                { name: "Lamudi Guadalajara", country: "🇲🇽 Мексика", desc: "Modern apartment in Guadalajara. 3 beds, 180 sqm.", link: "https://www.lamudi.com.mx/guadalajara/", platform: "Lamudi" },
-                { name: "Lamudi Monterrey", country: "🇲🇽 Мексика", desc: "Luxury apartment in Monterrey. 4 beds, 220 sqm.", link: "https://www.lamudi.com.mx/monterrey/", platform: "Lamudi" },
-                // 🇻🇳 Вьетнам
-                { name: "Batdongsan Ho Chi Minh", country: "🇻🇳 Вьетнам", desc: "Luxury apartment in Ho Chi Minh City. 3 beds, 180 sqm.", link: "https://batdongsan.com.vn/ho-chi-minh/", platform: "Batdongsan" },
-                { name: "Batdongsan Hanoi", country: "🇻🇳 Вьетнам", desc: "Modern apartment in Hanoi. 3 beds, 160 sqm.", link: "https://batdongsan.com.vn/hanoi/", platform: "Batdongsan" },
-                { name: "Batdongsan Da Nang", country: "🇻🇳 Вьетнам", desc: "Beachfront apartment in Da Nang. 3 beds, sea views.", link: "https://batdongsan.com.vn/da-nang/", platform: "Batdongsan" },
                 // 🇵🇹 Португалия
-                { name: "Idealista Lisbon", country: "🇵🇹 Португалия", desc: "Luxury apartment in Lisbon. 3 beds, city views.", link: "https://www.idealista.pt/compra-casas/lisboa/", platform: "Idealista" },
-                { name: "Idealista Porto", country: "🇵🇹 Португалия", desc: "Modern apartment in Porto. 3 beds, 180 sqm.", link: "https://www.idealista.pt/compra-casas/porto/", platform: "Idealista" },
-                { name: "Idealista Algarve", country: "🇵🇹 Португалия", desc: "Beachfront villa in Algarve. 4 beds, pool.", link: "https://www.idealista.pt/compra-casas/algarve/", platform: "Idealista" },
+                { name: "Idealista Portugal", country: "🇵🇹 Португалия", desc: "Portuguese real estate marketplace.", link: "https://www.idealista.pt", platform: "Idealista" },
+                { name: "Imovirtual Portugal", country: "🇵🇹 Португалия", desc: "Portuguese property portal.", link: "https://www.imovirtual.com", platform: "Imovirtual" },
+                { name: "CasaSapo Portugal", country: "🇵🇹 Португалия", desc: "Portuguese real estate platform.", link: "https://www.casasapo.pt", platform: "CasaSapo" },
                 // 🇬🇷 Греция
-                { name: "Spitogatos Athens", country: "🇬🇷 Греция", desc: "Luxury apartment in Athens. 3 beds, city views.", link: "https://www.spitogatos.gr/athens/", platform: "Spitogatos" },
-                { name: "Spitogatos Thessaloniki", country: "🇬🇷 Греция", desc: "Modern apartment in Thessaloniki. 3 beds, 180 sqm.", link: "https://www.spitogatos.gr/thessaloniki/", platform: "Spitogatos" },
-                { name: "Spitogatos Crete", country: "🇬🇷 Греция", desc: "Beachfront villa in Crete. 4 beds, sea views.", link: "https://www.spitogatos.gr/crete/", platform: "Spitogatos" },
+                { name: "Spitogatos Greece", country: "🇬🇷 Греция", desc: "Greek real estate portal.", link: "https://www.spitogatos.gr", platform: "Spitogatos" },
+                { name: "Xe.gr Greece", country: "🇬🇷 Греция", desc: "Greek property listings.", link: "https://www.xe.gr", platform: "Xe.gr" },
                 // 🇵🇭 Филиппины
-                { name: "Lamudi Manila", country: "🇵🇭 Филиппины", desc: "Luxury apartment in Manila. 3 beds, city views.", link: "https://www.lamudi.com.ph/manila/", platform: "Lamudi" },
-                { name: "Lamudi Cebu", country: "🇵🇭 Филиппины", desc: "Modern apartment in Cebu. 3 beds, 180 sqm.", link: "https://www.lamudi.com.ph/cebu/", platform: "Lamudi" },
-                { name: "Lamudi Davao", country: "🇵🇭 Филиппины", desc: "Luxury apartment in Davao. 4 beds, 200 sqm.", link: "https://www.lamudi.com.ph/davao/", platform: "Lamudi" },
+                { name: "Lamudi Philippines", country: "🇵🇭 Филиппины", desc: "Philippines real estate platform.", link: "https://www.lamudi.com.ph", platform: "Lamudi" },
+                { name: "Property24 Philippines", country: "🇵🇭 Филиппины", desc: "Philippines property portal.", link: "https://www.property24.com.ph", platform: "Property24" },
+                // 🇻🇳 Вьетнам
+                { name: "Batdongsan Vietnam", country: "🇻🇳 Вьетнам", desc: "Vietnamese real estate portal.", link: "https://batdongsan.com.vn", platform: "Batdongsan" },
                 // 🇷🇺 Россия
-                { name: "Avito Moscow", country: "🇷🇺 Россия", desc: "Luxury apartment in Moscow. 4 beds, city views.", link: "https://www.avito.ru/moskva/nedvizhimost", platform: "Avito" },
-                { name: "Avito Saint Petersburg", country: "🇷🇺 Россия", desc: "Modern apartment in Saint Petersburg. 3 beds, 180 sqm.", link: "https://www.avito.ru/sankt-peterburg/nedvizhimost", platform: "Avito" },
-                { name: "Avito Kazan", country: "🇷🇺 Россия", desc: "Luxury apartment in Kazan. 4 beds, 200 sqm.", link: "https://www.avito.ru/kazan/nedvizhimost", platform: "Avito" },
+                { name: "Avito Russia", country: "🇷🇺 Россия", desc: "Russian classifieds with real estate.", link: "https://www.avito.ru/nedvizhimost", platform: "Avito" },
+                { name: "Cian Russia", country: "🇷🇺 Россия", desc: "Russian real estate platform.", link: "https://www.cian.ru", platform: "Cian" },
                 // 🇰🇷 Южная Корея
-                { name: "Naver Seoul", country: "🇰🇷 Южная Корея", desc: "Luxury apartment in Seoul. 3 beds, city views.", link: "https://land.naver.com/", platform: "Naver" },
-                { name: "Naver Busan", country: "🇰🇷 Южная Корея", desc: "Modern apartment in Busan. 3 beds, sea views.", link: "https://land.naver.com/busan/", platform: "Naver" },
-                { name: "Naver Incheon", country: "🇰🇷 Южная Корея", desc: "Luxury apartment in Incheon. 4 beds, 200 sqm.", link: "https://land.naver.com/incheon/", platform: "Naver" }
+                { name: "Naver Real Estate Korea", country: "🇰🇷 Южная Корея", desc: "Korean real estate platform.", link: "https://land.naver.com", platform: "Naver" },
+                // 🇮🇩 Индонезия
+                { name: "Lamudi Indonesia", country: "🇮🇩 Индонезия", desc: "Indonesian real estate marketplace.", link: "https://www.lamudi.co.id", platform: "Lamudi" },
+                { name: "99.co Indonesia", country: "🇮🇩 Индонезия", desc: "Indonesian property portal.", link: "https://www.99.co/id", platform: "99.co" },
+                // 🇲🇾 Малайзия
+                { name: "PropertyGuru Malaysia", country: "🇲🇾 Малайзия", desc: "Malaysian real estate platform.", link: "https://www.propertyguru.com.my", platform: "PropertyGuru" },
+                { name: "iProperty Malaysia", country: "🇲🇾 Малайзия", desc: "Malaysian property portal.", link: "https://www.iproperty.com.my", platform: "iProperty" }
             ];
 
             extras.forEach(f => {
@@ -494,7 +485,7 @@
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = f.country;
             document.getElementById('modalPrice').textContent = 'Price on request';
-            document.getElementById('modalDescFull').textContent = f.desc + '\n\nPlatform: ' + f.platform + '\n\nClick "View Property" to see the listing on the platform.';
+            document.getElementById('modalDescFull').textContent = f.desc + '\n\nPlatform: ' + f.platform + '\n\nClick "View Property" to visit the platform.';
             document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
             document.getElementById('modalMeta').textContent = `Country: ${f.country} · Platform: ${f.platform}`;
@@ -538,42 +529,4 @@
                 propertiesLabel: 'Всего объектов',
                 yieldLabel: 'Средняя доходность',
                 buyLabel: 'Купить ADNA',
-                nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
-            }
-        };
-
-        let currentLang = 'en';
-        function setLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang] || translations.en;
-            document.getElementById('mainTitle').innerText = t.title;
-            document.getElementById('subhead').innerText = t.sub;
-            document.getElementById('walletLabel').innerText = t.walletLabel;
-            document.getElementById('propertiesLabel').innerText = t.propertiesLabel;
-            document.getElementById('yieldLabel').innerText = t.yieldLabel;
-            document.getElementById('buyLabel').innerText = t.buyLabel;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.dataset.key;
-                if (t[key]) el.innerText = t[key];
-            });
-            document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
-            localStorage.setItem('adna_lang', lang);
-        }
-
-        document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => {
-            e.preventDefault();
-            setLanguage(a.dataset.lang);
-            document.getElementById('langMenu').classList.remove('show');
-        });
-        document.onclick = (e) => {
-            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
-                document.getElementById('langMenu').classList.remove('show');
-        };
-
-        // ========== INIT ==========
-        renderFunctions();
-        setLanguage(localStorage.getItem('adna_lang') || 'en');
-    </script>
-</body>
-</html>
+                nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта',
