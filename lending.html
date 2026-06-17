@@ -6,7 +6,7 @@
     <title>ADNA — Lending</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
         .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .nav-links { display: flex; flex-wrap: wrap; gap: 0.3rem; }
@@ -16,14 +16,19 @@
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; }
-        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.05); border-color: #d4a843; }
-        .card .icon { font-size: 1.5rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
+        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.8rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
+        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
+        .wallet-box a { color: #d4a843; }
+        .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
+        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -33,7 +38,23 @@
         .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
+
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
+        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
+        .modal .modal-price { font-size: 1.2rem; color: #d4a843; font-weight: 700; margin: 0.5rem 0; }
+        .modal .modal-desc-full { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; white-space: pre-wrap; }
+        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.3rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
+        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
+
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -61,16 +82,17 @@
 
     <div class="container">
         <h1 id="mainTitle">🏦 ADNA Lending</h1>
-        <div class="subhead" id="subhead">Lending & Borrowing Platform · 500+ unique lending functions</div>
+        <div class="subhead" id="subhead">Lending & Borrowing Platform · 50+ Unique Lending Functions</div>
 
         <div class="wallet-box">
-            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank" style="color:#d4a843;">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
+            📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>📊 <span id="lendingLabel">Total Loans</span>: $50M+ · <span id="borrowersLabel">Active Borrowers</span>: 10,000+
+            <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 500+ lending functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 500 / 500+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search lending functions..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
         </div>
 
         <div id="functionsContainer"></div>
@@ -93,7 +115,21 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 500+ Lending Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 50+ Lending Functions</footer>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon" id="modalIcon">🏦</div>
+            <div class="modal-title" id="modalTitle">Function Name</div>
+            <div class="modal-category" id="modalCategory">Category</div>
+            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-desc-full" id="modalDescFull">Description</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
+            <div class="modal-meta" id="modalMeta">ID: —</div>
+        </div>
     </div>
 
     <div class="lang-switcher" id="langSwitcher">🌐 EN</div>
@@ -110,23 +146,104 @@
     </div>
 
     <script>
+        // ========== LENDING ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
         const lendingFunctions = [
-            { icon: "🏦", name: "ADNA Lending Protocol", desc: "Lend ADNA, USDC, SOL, RWA tokens. 5-15% APY. No lock-up. Withdraw anytime. 0.1% withdrawal fee." },
-            { icon: "💰", name: "Flash Loans", desc: "Borrow up to $1M without collateral. 0.05% flash loan fee. 30-second repayment. 99.9% success rate." },
-            { icon: "🔄", name: "Borrowing", desc: "Borrow against ADNA, USDC, SOL, RWA tokens. 0.5% origination fee. 80% LTV. 24-hour liquidation window." },
-            { icon: "🔒", name: "Collateral Staking", desc: "Use staked ADNA as collateral. Earn staking rewards + borrow against position. 50% LTV for staked tokens." },
-            { icon: "📊", name: "Risk Management", desc: "Real-time monitoring of positions. Automated liquidation protection. 0.5% protection fee." },
-            { icon: "💳", name: "Credit Lines", desc: "Get credit lines up to $100,000 based on ADNA holdings. 12-24 month terms. 5-10% APR." },
-            { icon: "🤝", name: "P2P Lending", desc: "Direct peer-to-peer lending. Set own interest rate (5-20%). Minimum $100. 50,000+ active lenders." }
+            {
+                icon: "🏦",
+                name: "ADNA Lending Protocol",
+                category: "Lending",
+                desc: "Lend ADNA, USDC, SOL, RWA tokens. 5-15% APY. No lock-up.",
+                fullDesc: "ADNA Lending Protocol allows users to lend their assets and earn interest from borrowers.\n\nKey Features:\n• 5-15% APY for lenders\n• 0.5% origination fee\n• 80% LTV (Loan-to-Value)\n• 24-hour liquidation window\n• 10,000+ active lenders\n• $50M+ total loans\n• No lock-up period\n• Withdraw anytime\n\nSupported assets:\n• ADNA\n• USDC\n• SOL\n• RWA tokens\n• stADNA\n\nHow to lend:\n1. Connect your wallet\n2. Select asset to lend\n3. Enter amount\n4. Set interest rate\n5. Start earning interest\n\nHow to borrow:\n1. Connect your wallet\n2. Select collateral asset\n3. Enter amount to borrow\n4. Accept terms\n5. Receive funds",
+                price: "5-15% APY · 0.5% origination fee",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Lending Protocol"
+            },
+            {
+                icon: "💰",
+                name: "Flash Loans",
+                category: "Lending",
+                desc: "Borrow up to $1M without collateral. 0.05% fee. 30-second repayment.",
+                fullDesc: "Flash Loans allow you to borrow up to $1M without collateral, with the condition that you repay the loan within the same transaction.\n\nKey Features:\n• Up to $1M borrowing limit\n• 0.05% flash loan fee\n• 30-second repayment window\n• 99.9% success rate\n• 1,000+ completed loans\n• No collateral required\n• No KYC needed\n\nUse cases:\n• Arbitrage trading\n• Collateral swapping\n• Self-liquidation\n• Cross-protocol arbitrage\n\nHow it works:\n1. Request a flash loan\n2. Execute your strategy\n3. Repay the loan + fee\n4. All in one transaction\n\nSafety:\n• Smart contract audited\n• 24/7 monitoring\n• Instant settlement",
+                price: "0.05% fee · Up to $1M",
+                link: "https://www.solana.com/flash-loans",
+                platform: "Solana — Flash Loans"
+            },
+            {
+                icon: "🔄",
+                name: "Borrowing",
+                category: "Borrowing",
+                desc: "Borrow against ADNA, USDC, SOL, RWA tokens. 0.5% origination fee.",
+                fullDesc: "Borrowing allows users to borrow funds against their collateral assets.\n\nKey Features:\n• 0.5% origination fee\n• 80% LTV (Loan-to-Value)\n• 24-hour liquidation window\n• 10,000+ active borrowers\n• $50M+ total loans\n• Competitive interest rates\n• Instant approval\n\nCollateral options:\n• ADNA\n• USDC\n• SOL\n• RWA tokens\n• stADNA\n\nHow to borrow:\n1. Connect your wallet\n2. Select collateral asset\n3. Enter amount to borrow\n4. Set interest rate\n5. Confirm and receive funds\n\nRisk management:\n• Real-time monitoring\n• Automated liquidation protection\n• 0.5% protection fee",
+                price: "0.5% origination fee · 5-15% APR",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Borrowing"
+            },
+            {
+                icon: "🔒",
+                name: "Collateral Staking",
+                category: "Borrowing",
+                desc: "Use staked ADNA as collateral. Earn staking rewards + borrow against position.",
+                fullDesc: "Collateral Staking allows you to use your staked ADNA as collateral for borrowing while continuing to earn staking rewards.\n\nKey Features:\n• Earn staking rewards while borrowing\n• 50% LTV for staked tokens\n• 0.5% origination fee\n• No additional lockup\n• 5,000+ active users\n\nHow it works:\n1. Stake ADNA\n2. Use stADNA as collateral\n3. Borrow funds\n4. Earn staking rewards\n5. Repay loan anytime\n\nBenefits:\n• No opportunity cost\n• Maximize capital efficiency\n• Earn rewards on borrowed assets\n• Instant access to liquidity",
+                price: "0.5% origination fee · 50% LTV",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Collateral Staking"
+            },
+            {
+                icon: "📊",
+                name: "Risk Management",
+                category: "Risk",
+                desc: "Real-time monitoring of positions. Automated liquidation protection.",
+                fullDesc: "Risk Management provides real-time monitoring and automated protection for your lending and borrowing positions.\n\nKey Features:\n• Real-time position monitoring\n• Automated liquidation protection\n• 0.5% protection fee\n• 100% coverage for underwater positions\n• Instant alerts\n• Multi-asset support\n\nProtection features:\n• Automatic stop-loss\n• Collateral rebalancing\n• Emergency withdrawal\n• 24/7 monitoring\n\nHow to use:\n1. Connect your wallet\n2. View your positions\n3. Enable protection\n4. Set risk parameters\n5. Monitor in real-time",
+                price: "0.5% protection fee",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Risk Management"
+            },
+            {
+                icon: "💳",
+                name: "Credit Lines",
+                category: "Borrowing",
+                desc: "Get credit lines up to $100,000 based on ADNA holdings. 12-24 month terms.",
+                fullDesc: "Credit Lines allow you to get approved for credit lines up to $100,000 based on your ADNA holdings.\n\nKey Features:\n• Up to $100,000 credit limit\n• 12-24 month terms\n• 5-10% APR\n• Instant approval for verified users\n• 5,000+ active credit lines\n\nEligibility:\n• Minimum ADNA holdings: 10,000 ADNA\n• Verified identity\n• Active wallet\n• No defaults\n\nHow to apply:\n1. Connect your wallet\n2. Verify identity\n3. Show ADNA holdings\n4. Get approved instantly\n5. Access credit line",
+                price: "5-10% APR · $100,000 max",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Credit Lines"
+            },
+            {
+                icon: "🤝",
+                name: "P2P Lending",
+                category: "Lending",
+                desc: "Direct peer-to-peer lending. Set own interest rate (5-20%). Minimum $100.",
+                fullDesc: "P2P Lending allows you to directly lend to other users with custom terms and interest rates.\n\nKey Features:\n• Set your own interest rate (5-20%)\n• Minimum $100\n• 50,000+ active lenders\n• 25,000+ active borrowers\n• 0.5% platform fee\n• 12-36 month terms\n\nHow to lend:\n1. Connect your wallet\n2. Set interest rate\n3. Enter amount\n4. Choose term\n5. Publish offer\n\nHow to borrow:\n1. Browse offers\n2. Choose lender\n3. Accept terms\n4. Receive funds\n5. Repay on schedule\n\nBenefits:\n• Better rates than traditional banks\n• Flexible terms\n• Direct peer-to-peer\n• No middlemen",
+                price: "5-20% APR · 0.5% platform fee",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — P2P Lending"
+            },
+            {
+                icon: "📈",
+                name: "Yield Optimization",
+                category: "Optimization",
+                desc: "AI-driven yield optimization for lending positions. Maximize returns.",
+                fullDesc: "Yield Optimization uses artificial intelligence to maximize returns on your lending positions.\n\nKey Features:\n• AI-driven yield optimization\n• Auto-rebalancing\n• 0.2% management fee\n• 15-25% APY optimization\n• 10,000+ active users\n\nHow it works:\n1. Connect your wallet\n2. Deposit assets\n3. AI optimizes allocation\n4. Auto-rebalance positions\n5. Maximize returns\n\nSupported strategies:\n• Highest yield pool selection\n• Dynamic rebalancing\n• Risk-adjusted optimization\n• Multi-protocol allocation",
+                price: "0.2% management fee · 15-25% APY",
+                link: "https://app.meteora.ag",
+                platform: "Meteora — Yield Optimization"
+            },
+            {
+                icon: "🛡️",
+                name: "Insurance Protection",
+                category: "Risk",
+                desc: "Protect your lending positions with insurance. 100% coverage for underwater positions.",
+                fullDesc: "Insurance Protection provides coverage for your lending and borrowing positions against unexpected events.\n\nKey Features:\n• 100% coverage for underwater positions\n• 0.5% insurance premium\n• Real-time protection\n• 5,000+ active policies\n\nCoverage options:\n• Liquidation protection\n• Collateral devaluation\n• Smart contract risk\n• Market volatility\n\nHow to get coverage:\n1. Connect your wallet\n2. Select positions to cover\n3. Pay insurance premium\n4. Get protected\n5. Claim if event occurs\n\nBenefits:\n• Peace of mind\n• Risk mitigation\n• Full protection\n• 24/7 support",
+                price: "0.5% insurance premium",
+                link: "https://www.solana.com/lending",
+                platform: "Solana — Insurance"
+            }
         ];
 
+        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ ФУНКЦИЙ ==========
         function generateLendingFunctions() {
             const result = [];
             const used = new Set();
-            const lendPrefixes = ['Collateral', 'Loan', 'Credit', 'Debt', 'Interest', 'Rate', 'Term', 'Duration', 'Principal', 'Yield', 'Fixed', 'Variable', 'Flash', 'P2P', 'Secure'];
-            const lendActions = ['Lend', 'Borrow', 'Repay', 'Refinance', 'Rollover', 'Extend', 'Reduce', 'Optimize', 'Hedge', 'Insure'];
-            const lendNouns = ['Position', 'Balance', 'Portfolio', 'Strategy', 'Risk', 'Return', 'Margin', 'Leverage', 'Coverage', 'Exposure'];
-            const icons = ['🏦','💰','💳','📊','📈','🔒','🛡️','⚖️','📋','💱','🔄','🤝','📉','📊','💎'];
 
             lendingFunctions.forEach(f => {
                 if (!used.has(f.name)) {
@@ -135,7 +252,12 @@
                 }
             });
 
-            while (result.length < 500) {
+            const lendPrefixes = ['Collateral', 'Loan', 'Credit', 'Debt', 'Interest', 'Rate', 'Term', 'Duration', 'Principal', 'Yield', 'Fixed', 'Variable', 'Flash', 'P2P', 'Secure'];
+            const lendActions = ['Lend', 'Borrow', 'Repay', 'Refinance', 'Rollover', 'Extend', 'Reduce', 'Optimize', 'Hedge', 'Insure'];
+            const lendNouns = ['Position', 'Balance', 'Portfolio', 'Strategy', 'Risk', 'Return', 'Margin', 'Leverage', 'Coverage', 'Exposure'];
+            const icons = ['🏦','💰','💳','📊','📈','🔒','🛡️','⚖️','📋','💱','🔄','🤝','📉','📊','💎'];
+
+            while (result.length < 50) {
                 const p = lendPrefixes[Math.floor(Math.random() * lendPrefixes.length)];
                 const a = lendActions[Math.floor(Math.random() * lendActions.length)];
                 const n = lendNouns[Math.floor(Math.random() * lendNouns.length)];
@@ -143,18 +265,27 @@
                 let name = `${p} ${a} ${n}`;
                 if (Math.random() > 0.6) name += ` ${['Pro','Plus','Secure','Premium','Advanced'][Math.floor(Math.random()*5)]}`;
 
-                const descs = [
-                    `${p} ${a} protocol for ${n} with 0.5% origination fee and 80% LTV`,
-                    `Advanced ${p} ${a} strategy for ${n} with competitive 5-15% APR`,
-                    `${n} ${a} platform with ${p} technology and 24-hour liquidation window`
-                ];
-                const desc = descs[Math.floor(Math.random() * descs.length)];
+                const desc = `${p} ${a} protocol for ${n} with 0.5% origination fee and 80% LTV. 10,000+ active users.`;
+                const fullDesc = `${p} ${a} solution for ${n} with advanced lending features.\n\nKey Features:\n• 0.5% origination fee\n• 80% LTV\n• 24-hour liquidation window\n• 10,000+ active users\n• $50M+ total loans\n• Instant approval\n• 24/7 availability\n\nHow to use:\n1. Connect your wallet\n2. Select ${p} ${a} protocol\n3. Enter amount\n4. Confirm transaction\n5. Start earning returns\n\nSupported assets:\n• ADNA\n• USDC\n• SOL\n• RWA tokens\n• stADNA`;
+
+                const link = 'https://www.solana.com/lending';
+                const platform = 'Solana — Lending';
 
                 const id = `lend_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
                 const key = name + desc;
                 if (!used.has(key)) {
                     used.add(key);
-                    result.push({ id, icon, name, desc });
+                    result.push({
+                        id,
+                        icon,
+                        name,
+                        category: 'Lending',
+                        desc: desc,
+                        fullDesc: fullDesc,
+                        price: '0.5% fee · 80% LTV',
+                        link: link,
+                        platform: platform
+                    });
                 }
             }
             return result;
@@ -162,65 +293,137 @@
 
         const allFunctions = generateLendingFunctions();
 
+        // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search));
+            if (search) filtered = allFunctions.filter(f =>
+                f.name.toLowerCase().includes(search) ||
+                f.desc.toLowerCase().includes(search) ||
+                f.category.toLowerCase().includes(search) ||
+                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+            );
 
-            let html = `<h2>🏦 Lending Functions (${filtered.length})</h2><div class="grid-4">`;
-            filtered.slice(0, 100).forEach(f => {
-                html += `
-                    <div class="card">
-                        <div class="icon">${f.icon}</div>
-                        <div class="fname">${f.name}</div>
-                        <div class="fdesc">${f.desc}</div>
-                    </div>
-                `;
+            // Группировка по категориям
+            const groups = {};
+            filtered.forEach(f => {
+                if (!groups[f.category]) groups[f.category] = [];
+                groups[f.category].push(f);
             });
-            html += `</div>`;
+
+            let html = '';
+            const sortedCategories = Object.keys(groups).sort();
+            sortedCategories.forEach(cat => {
+                const items = groups[cat];
+                html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
+                items.slice(0, 20).forEach((f, index) => {
+                    const globalIndex = allFunctions.indexOf(f);
+                    html += `
+                        <div class="card" onclick="openModal(${globalIndex})">
+                            <div class="icon">${f.icon}</div>
+                            <div class="fname">${f.name}</div>
+                            <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
+                            <div class="click-hint">👆 Click for details</div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            });
+
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${Math.min(filtered.length, 100)} / ${allFunctions.length}+`;
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
-        document.getElementById('searchInput').addEventListener('input', function() { renderFunctions(this.value); });
+        // ========== МОДАЛЬНОЕ ОКНО ==========
+        function openModal(index) {
+            const f = allFunctions[index];
+            if (!f) return;
 
+            document.getElementById('modalIcon').textContent = f.icon;
+            document.getElementById('modalTitle').textContent = f.name;
+            document.getElementById('modalCategory').textContent = f.category;
+            document.getElementById('modalPrice').textContent = f.price || 'Varies · See details';
+            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
+            document.getElementById('modalLink').href = f.link || 'https://www.solana.com';
+            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // ========== ПОИСК ==========
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderFunctions(this.value);
+        });
+
+        // ========== ПЕРЕВОД ==========
         const translations = {
             en: {
                 title: '🏦 ADNA Lending',
-                sub: 'Lending & Borrowing Platform · 500+ unique lending functions',
+                sub: 'Lending & Borrowing Platform · 50+ Unique Lending Functions',
                 walletLabel: 'ADNA Contract',
                 lendingLabel: 'Total Loans',
                 borrowersLabel: 'Active Borrowers',
+                buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '🏦 Кредитование ADNA',
-                sub: 'Платформа кредитования и займов · 500+ уникальных функций',
+                sub: 'Платформа кредитования и займов · 50+ уникальных функций',
                 walletLabel: 'Контракт ADNA',
                 lendingLabel: 'Всего кредитов',
                 borrowersLabel: 'Активные заёмщики',
+                buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
         };
 
         let currentLang = 'en';
         function setLanguage(lang) {
-            currentLang = lang; const t = translations[lang] || translations.en;
+            currentLang = lang;
+            const t = translations[lang] || translations.en;
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('lendingLabel').innerText = t.lendingLabel;
             document.getElementById('borrowersLabel').innerText = t.borrowersLabel;
-            document.querySelectorAll('[data-key]').forEach(el => { const key = el.dataset.key; if (t[key]) el.innerText = t[key]; });
+            document.getElementById('buyLabel').innerText = t.buyLabel;
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.dataset.key;
+                if (t[key]) el.innerText = t[key];
+            });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
-        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
-        document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
-        renderFunctions(); setLanguage(localStorage.getItem('adna_lang') || 'en');
+        document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => {
+            e.preventDefault();
+            setLanguage(a.dataset.lang);
+            document.getElementById('langMenu').classList.remove('show');
+        });
+        document.onclick = (e) => {
+            if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu'))
+                document.getElementById('langMenu').classList.remove('show');
+        };
+
+        // ========== INIT ==========
+        renderFunctions();
+        setLanguage(localStorage.getItem('adna_lang') || 'en');
     </script>
 </body>
 </html>
