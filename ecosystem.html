@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADNA Ecosystem — Luxury Sensory Wellness</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.6; }
+        .navbar { max-width: 1400px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .logo { font-size: 1.5rem; font-weight: 800; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .nav-links a { color: #e8ddd0; text-decoration: none; font-weight: 500; transition: 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: #d4a843; border-bottom: 2px solid #d4a843; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212,168,67,0.2); }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        h2 { font-size: 1.6rem; margin: 2rem 0 1rem; border-left: 6px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin: 1.5rem 0; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 1.2rem; border: 1px solid rgba(212,168,67,0.15); transition: 0.2s; }
+        .card:hover { transform: translateY(-3px); background: rgba(212,168,67,0.05); border-color: #d4a843; }
+        .wallet-box { background: rgba(0,0,0,0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.5rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; }
+        .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 10px 20px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; }
+        .lang-menu { position: fixed; bottom: 80px; right: 20px; background: #1a0e08; border-radius: 20px; padding: 10px 0; display: none; flex-direction: column; z-index: 1000; min-width: 160px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 8px 20px; text-decoration: none; color: #e8ddd0; display: block; }
+        .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
+        .lang-menu.show { display: flex; }
+        footer { text-align: center; margin-top: 2rem; font-size: 0.7rem; opacity: 0.7; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">🌿 ADNA</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ecosystem.html" class="active">🌿 Ecosystem</a>
+        <a href="defi-hub.html">💰 DeFi Hub</a>
+        <a href="lending.html">🏦 Lending</a>
+        <a href="trading.html">📈 Trading</a>
+        <a href="earn.html">💸 Earn</a>
+        <a href="card.html">💳 Card</a>
+        <a href="bridge.html">🌉 Bridge</a>
+        <a href="islamic.html">🕌 Islamic</a>
+        <a href="precious.html">💎 Precious</a>
+        <a href="mining.html">⛏️ Mining</a>
+        <a href="whitepaper.html">📄 WP</a>
+        <a href="investors.html">📊 Investors</a>
+        <a href="how-to-buy.html">🇹🇲 How to Buy</a>
+    </div>
+</div>
+<div class="container" id="ecoContainer">
+    <h1 id="ecoTitle">🌿 ADNA Ecosystem</h1>
+    <div class="subhead" id="ecoSubhead" style="color:#b8a890;">Luxury Sensory Wellness · 50+ Products</div>
+    <div class="wallet-box">📤 ADNA Wallet: F9vGgzKayqAUcbedagXzMhgXUfs5ranRftwGASALRvK9</div>
+    <div id="ecoContent"></div>
+    <footer>© 2025 ADNA — Muslim Usmanov Ecosystem</footer>
+</div>
+<div class="lang-switcher" id="langSwitcher">🌐 EN</div>
+<div class="lang-menu" id="langMenu">
+    <a href="#" data-lang="en">🇬🇧 English</a><a href="#" data-lang="ru">🇷🇺 Русский</a><a href="#" data-lang="tr">🇹🇷 Türkçe</a>
+    <a href="#" data-lang="ar">🇦🇪 العربية</a><a href="#" data-lang="fa">🇮🇷 فارسی</a>
+</div>
+<script>
+const ecoProducts = [
+    { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
+    { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
+    { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
+    { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
+    { icon: "🔬", name: "Aroma Magna", desc: "Research & molecule intelligence" },
+    { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" },
+    { icon: "🏦", name: "DeFi Staking", desc: "8-16% APY" },
+    { icon: "💳", name: "ADNA Card", desc: "3% cashback" },
+    { icon: "🌊", name: "Meteora LP", desc: "Dynamic AMM" },
+    { icon: "🪐", name: "Jupiter Aggregator", desc: "Best price" },
+    { icon: "📈", name: "Copy Trading", desc: "Top traders" },
+    { icon: "🤖", name: "Grid Bot", desc: "15% monthly" },
+    { icon: "📉", name: "DCA Bot", desc: "Auto buy" },
+    { icon: "⚡", name: "Perpetuals 50x", desc: "Leverage" },
+    { icon: "🎯", name: "Options Trading", desc: "Call/Put" },
+    { icon: "🌾", name: "Yield Farming", desc: "Up to 25%" },
+    { icon: "🏦", name: "Lending", desc: "Up to 15%" },
+    { icon: "🔄", name: "Arbitrage", desc: "Risk-free" },
+    { icon: "📊", name: "TWAP Orders", desc: "Large orders" },
+    { icon: "📈", name: "Limit Orders", desc: "Target price" },
+    { icon: "🔒", name: "Hedging", desc: "Portfolio protection" },
+    { icon: "💰", name: "Liquid Staking", desc: "stADNA" },
+    { icon: "🔄", name: "Restaking", desc: "Additional yield" },
+    { icon: "🏦", name: "Auto Vaults", desc: "15-35% APY" },
+    { icon: "📊", name: "Charting", desc: "50+ indicators" },
+    { icon: "📰", name: "News Feed", desc: "Real-time" },
+    { icon: "📊", name: "Portfolio Tracker", desc: "Real-time" },
+    { icon: "🔍", name: "On-Chain Analysis", desc: "Holders, tx" },
+    { icon: "📊", name: "Volume Analysis", desc: "All DEXes" },
+    { icon: "📊", name: "Market Depth", desc: "Order book" },
+    { icon: "📊", name: "Heatmap", desc: "Price zones" },
+    { icon: "📈", name: "Momentum Trading", desc: "Trends" },
+    { icon: "📊", name: "Swing Trading", desc: "2-5 days" },
+    { icon: "📉", name: "Scalping", desc: "1-5 min" },
+    { icon: "📊", name: "Range Trading", desc: "Defined range" },
+    { icon: "📊", name: "Mean Reversion", desc: "Average return" },
+    { icon: "📊", name: "Breakout Trading", desc: "Resistance/support" },
+    { icon: "📊", name: "Price Alerts", desc: "Target price" },
+    { icon: "🥇", name: "Gold Trading", desc: "Live prices" },
+    { icon: "🥈", name: "Silver Trading", desc: "Live prices" },
+    { icon: "🔷", name: "Platinum Trading", desc: "Live prices" },
+    { icon: "⛏️", name: "Mining", desc: "Exploration projects" },
+    { icon: "🕌", name: "Islamic Finance", desc: "Sharia-compliant" },
+    { icon: "💱", name: "Currency Exchange", desc: "12 currencies" },
+    { icon: "🌉", name: "Cross-Chain Bridge", desc: "10+ chains" },
+    { icon: "🗳️", name: "DAO Governance", desc: "Voting" },
+    { icon: "🎮", name: "Social Feed", desc: "Community" },
+    { icon: "🎯", name: "Quest Board", desc: "Rewards" },
+    { icon: "👥", name: "Referral Program", desc: "5%" }
+];
+const content = {
+    en: { title: "🌿 ADNA Ecosystem", sub: "Luxury Sensory Wellness · 50+ Products" },
+    ru: { title: "🌿 Экосистема ADNA", sub: "Роскошное сенсорное благополучие · 50+ продуктов" }
+};
+function renderEco() {
+    const t = content[currentLang] || content.en;
+    let html = `<h2>📦 Ecosystem Products</h2><div class="grid-4">`;
+    ecoProducts.forEach(p => {
+        html += `<div class="card"><div style="font-size:2rem;">${p.icon}</div><strong>${p.name}</strong><br><small>${p.desc}</small></div>`;
+    });
+    html += `</div>`;
+    document.getElementById('ecoContent').innerHTML = html;
+    document.getElementById('ecoTitle').innerText = t.title;
+    document.getElementById('ecoSubhead').innerText = t.sub;
+}
+let currentLang = 'en';
+function setLanguage(lang) {
+    currentLang = lang;
+    const t = content[lang] || content.en;
+    document.getElementById('ecoTitle').innerText = t.title;
+    document.getElementById('ecoSubhead').innerText = t.sub;
+    renderEco();
+    document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
+    localStorage.setItem('adna_eco_lang', lang);
+}
+document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
+document.querySelectorAll('.lang-menu a').forEach(a => a.onclick = (e) => { e.preventDefault(); setLanguage(a.dataset.lang); document.getElementById('langMenu').classList.remove('show'); });
+document.onclick = (e) => { if (!e.target.closest('.lang-switcher') && !e.target.closest('.lang-menu')) document.getElementById('langMenu').classList.remove('show'); };
+renderEco();
+setLanguage(localStorage.getItem('adna_eco_lang') || 'en');
+</script>
+</body>
+</html>
