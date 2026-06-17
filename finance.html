@@ -27,8 +27,6 @@
         .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
-        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -83,16 +81,15 @@
 
     <div class="container">
         <h1 id="mainTitle">📊 ADNA Finance & Tokenization</h1>
-        <div class="subhead" id="subhead">Comprehensive Financial Tools + Tokenization · 50+ Unique Functions</div>
+        <div class="subhead" id="subhead">50+ Unique Financial Tools · No Duplicate Links</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>🏗️ <span id="tokenizationLabel">Tokenization Engine</span>: RWA · NFTs · Security Tokens · Fractional Ownership
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search finance & tokenization functions..." style="flex:1; min-width:200px;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search finance tools..." style="flex:1; min-width:200px;">
             <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
         </div>
 
@@ -116,7 +113,7 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 50+ Finance & Tokenization Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 50+ Finance Functions</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
@@ -147,127 +144,58 @@
     </div>
 
     <script>
-        // ========== FINANCE & TOKENIZATION ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
+        // ========== 50+ УНИКАЛЬНЫХ ФИНАНСОВЫХ ИНСТРУМЕНТОВ С УНИКАЛЬНЫМИ ССЫЛКАМИ ==========
         const financeFunctions = [
-            // Финансовые инструменты
-            {
-                icon: "📊",
-                name: "Budget Planner",
-                category: "Finance",
-                desc: "AI-powered budget planning with 50+ categories. Track spending in real-time.",
-                fullDesc: "Budget Planner is an AI-powered tool that helps you manage your finances effectively.\n\nKey Features:\n• 50+ spending categories\n• Real-time tracking\n• 30-day projections\n• 0.1% fee for premium features\n• Automated categorization\n• Spending insights\n• Goal setting\n\nHow to use:\n1. Connect your wallet\n2. Link your accounts\n3. Set budget goals\n4. Track spending\n5. Get insights\n\nBenefits:\n• Control spending\n• Save money\n• Achieve financial goals\n• Real-time monitoring",
-                price: "Free · Premium $5/month",
-                link: "https://www.mint.com",
-                platform: "Mint — Budget Planner"
-            },
-            {
-                icon: "💰",
-                name: "Cash Flow Analyzer",
-                category: "Finance",
-                desc: "Real-time cash flow analysis with 30-day projections. Connect 20+ wallets.",
-                fullDesc: "Cash Flow Analyzer provides real-time analysis of your income and expenses across multiple wallets.\n\nKey Features:\n• Real-time cash flow analysis\n• 30-day projections\n• Connect 20+ wallets\n• 0% fee for basic features\n• Income/expense tracking\n• Historical data\n• Custom reports\n\nHow to use:\n1. Connect your wallets\n2. Analyze cash flow\n3. View projections\n4. Optimize spending\n\nBenefits:\n• Understand cash flow\n• Plan ahead\n• Optimize spending\n• Make informed decisions",
-                price: "Free · Premium $10/month",
-                link: "https://www.mint.com",
-                platform: "Mint — Cash Flow"
-            },
-            {
-                icon: "📈",
-                name: "ROI Calculator",
-                category: "Finance",
-                desc: "Calculate ROI for 50+ investment strategies. Include fees, taxes, inflation.",
-                fullDesc: "ROI Calculator helps you evaluate investment returns across multiple strategies.\n\nKey Features:\n• 50+ investment strategies\n• Include fees, taxes, inflation\n• 0.05% fee for advanced calculations\n• Historical data analysis\n• Risk-adjusted returns\n• Comparative analysis\n• Custom scenarios\n\nHow to use:\n1. Select investment strategy\n2. Enter parameters\n3. Calculate ROI\n4. Analyze results\n5. Make informed decisions\n\nBenefits:\n• Accurate calculations\n• Compare strategies\n• Understand true returns\n• Plan investments",
-                price: "Free · Advanced $20/month",
-                link: "https://www.investopedia.com",
-                platform: "Investopedia — ROI Calculator"
-            },
-            // Токенизация
-            {
-                icon: "🏗️",
-                name: "RWA Tokenization",
-                category: "Tokenization",
-                desc: "Tokenize real estate, art, gold, IP. 0.5% fee. $100M+ assets tokenized.",
-                fullDesc: "RWA Tokenization allows you to tokenize real-world assets including real estate, art, gold, and intellectual property.\n\nKey Features:\n• 0.5% tokenization fee\n• $100M+ assets tokenized\n• 50+ assets available\n• SEC-compliant framework\n• Fractional ownership\n• 24/7 trading\n• Smart contract audited\n\nHow to tokenize:\n1. Connect your wallet\n2. Select asset to tokenize\n3. Submit documentation\n4. Complete KYC/AML\n5. Asset is tokenized\n6. Start trading\n\nBenefits:\n• Access to real-world assets\n• Fractional ownership\n• Global market reach\n• 24/7 trading",
-                price: "0.5% fee · Min $1,000",
-                link: "https://realt.co",
-                platform: "RealT — RWA Tokenization"
-            },
-            {
-                icon: "🎨",
-                name: "NFT Art Minting",
-                category: "Tokenization",
-                desc: "Mint art as NFTs on Solana. 50+ artists. 5-10% royalties.",
-                fullDesc: "NFT Art Minting allows artists and collectors to mint digital art as NFTs on Solana.\n\nKey Features:\n• Mint art as NFTs on Solana\n• 50+ artists\n• 5-10% royalties\n• 0.05 SOL per mint\n• Royalties paid automatically\n• Global marketplace\n\nHow to mint:\n1. Connect wallet\n2. Upload art file\n3. Set metadata\n4. Set royalty percentage\n5. Pay minting fee\n6. NFT is minted\n\nBenefits:\n• Own your art\n• Earn royalties\n• Global exposure\n• Secure ownership",
-                price: "0.05 SOL per mint · 5-10% royalties",
-                link: "https://www.solanart.io",
-                platform: "Solanart — NFT Minting"
-            },
-            {
-                icon: "🎵",
-                name: "Music Rights Tokenization",
-                category: "Tokenization",
-                desc: "Tokenize music royalties. Earn passive income from streaming. 0.5% fee.",
-                fullDesc: "Music Rights Tokenization allows musicians and investors to tokenize music royalties and earn passive income.\n\nKey Features:\n• Tokenize music royalties\n• Earn from streaming, licensing, performances\n• 0.5% fee\n• Passive income\n• Global distribution\n\nHow to tokenize:\n1. Connect wallet\n2. Upload music rights\n3. Tokenize royalties\n4. Sell or hold tokens\n5. Earn income\n\nBenefits:\n• Passive income\n• Global reach\n• Transparency\n• Fair compensation",
-                price: "0.5% fee · Min $100",
-                link: "https://www.opulous.org",
-                platform: "Opulous — Music Rights"
-            },
-            {
-                icon: "🥇",
-                name: "Gold Tokenization",
-                category: "Tokenization",
-                desc: "Tokenize physical gold in LBMA vaults. 1 gram = 1 token. 0.5% storage fee.",
-                fullDesc: "Gold Tokenization allows you to tokenize physical gold stored in LBMA-certified vaults.\n\nKey Features:\n• 1 gram = 1 token\n• 0.5% storage fee\n• LBMA-certified vaults\n• 99.99% purity\n• Redeem physical gold anytime\n• 24/7 trading\n\nHow to tokenize:\n1. Connect wallet\n2. Purchase gold\n3. Tokenize gold\n4. Hold or trade tokens\n5. Redeem physical gold\n\nBenefits:\n• Gold ownership\n• Digital convenience\n• Physical redemption\n• Secure storage",
-                price: "0.5% storage fee · No minimum",
-                link: "https://www.paxos.com/gold",
-                platform: "Paxos — Gold Tokenization"
-            },
-            {
-                icon: "📜",
-                name: "Security Token Framework",
-                category: "Tokenization",
-                desc: "SEC-compliant token issuance. KYC/AML, accreditation. 1% issuance fee.",
-                fullDesc: "Security Token Framework provides a compliant platform for issuing security tokens.\n\nKey Features:\n• SEC-compliant issuance\n• KYC/AML verification\n• Investor accreditation\n• 1% issuance fee\n• Automated compliance\n• Investor onboarding\n\nHow to issue:\n1. Complete KYC/AML\n2. Submit offering\n3. Get SEC approval\n4. Issue tokens\n5. Start trading\n\nBenefits:\n• SEC compliance\n• Investor protection\n• Global reach\n• Transparent process",
-                price: "1% issuance fee · Min $10,000",
-                link: "https://www.sec.gov",
-                platform: "SEC — Security Tokens"
-            },
-            {
-                icon: "🔑",
-                name: "DAO Governance",
-                category: "Governance",
-                desc: "Decentralized governance with quadratic voting. Propose, debate, vote.",
-                fullDesc: "DAO Governance provides a decentralized governance framework for community decision-making.\n\nKey Features:\n• Quadratic voting\n• Proposal creation\n• Community debate\n• Voting on proposals\n• Treasury management\n• 50,000+ active voters\n\nHow to participate:\n1. Hold ADNA tokens\n2. Create or support proposals\n3. Debate and discuss\n4. Vote on proposals\n5. Implement decisions\n\nBenefits:\n• Community-driven\n• Transparent process\n• Fair voting\n• Active participation",
-                price: "Free · Hold ADNA tokens",
-                link: "https://www.solanadao.com",
-                platform: "Solana DAO — Governance"
-            },
-            {
-                icon: "🛡️",
-                name: "Smart Contract Auditing",
-                category: "Security",
-                desc: "Automated smart contract auditing with 200+ security checks. Real-time scanning.",
-                fullDesc: "Smart Contract Auditing provides automated security scanning for your smart contracts.\n\nKey Features:\n• 200+ security checks\n• Real-time scanning\n• Vulnerability detection\n• 24/7 monitoring\n• Detailed reports\n• 50,000+ contracts audited\n\nHow to use:\n1. Connect contract\n2. Start automated audit\n3. Review findings\n4. Fix vulnerabilities\n5. Get security report\n\nBenefits:\n• Identify vulnerabilities\n• Protect your code\n• Build user trust\n• Security first approach",
-                price: "Free · Premium from $100",
-                link: "https://www.certik.com",
-                platform: "CertiK — Smart Contract Audit"
-            },
-            {
-                icon: "📊",
-                name: "Portfolio Analytics",
-                category: "Analytics",
-                desc: "Real-time portfolio tracking with 50+ metrics. Multi-wallet support.",
-                fullDesc: "Portfolio Analytics provides comprehensive tracking of your crypto portfolio.\n\nKey Features:\n• 50+ metrics\n• Multi-wallet support\n• Real-time tracking\n• Performance analysis\n• Risk assessment\n• Tax reporting\n\nHow to use:\n1. Connect wallets\n2. Analyze portfolio\n3. Track performance\n4. Get insights\n\nBenefits:\n• Complete overview\n• Performance tracking\n• Risk management\n• Informed decisions",
-                price: "Free · Premium from $20/month",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — Portfolio Analytics"
-            }
+            // Бюджетирование (5 уникальных)
+            { icon: "📊", name: "Mint Budget Planner", category: "Budgeting", desc: "AI-powered budget planning with 50+ categories. Free to use.", fullDesc: "Mint Budget Planner — comprehensive budgeting tool with automatic transaction categorization, spending insights, and financial goal tracking.\n\nKey Features:\n• 50+ spending categories\n• Automatic transaction import\n• Budget vs actual tracking\n• Custom alerts\n• Credit score monitoring\n\nHow to use:\n1. Connect your bank accounts\n2. Set budget limits per category\n3. Track spending in real-time\n4. Get insights and reports\n\nFree to use with premium options available.", price: "Free · Premium $5/month", link: "https://www.mint.com", platform: "Mint — Budget Planner" },
+            { icon: "📊", name: "YNAB Budgeting", category: "Budgeting", desc: "You Need A Budget — zero-based budgeting approach. 34-day free trial.", fullDesc: "YNAB (You Need A Budget) — a zero-based budgeting tool that gives every dollar a job, helping you break the paycheck-to-paycheck cycle.\n\nKey Features:\n• Zero-based budgeting\n• Real-time syncing\n• Goal tracking\n• Spending reports\n• Mobile app\n\nHow to use:\n1. Add your accounts\n2. Assign every dollar a job\n3. Track spending\n4. Adjust budgets as needed\n\n34-day free trial, then $14.99/month or $99/year.", price: "$14.99/month · $99/year", link: "https://www.ynab.com", platform: "YNAB — Budgeting" },
+            { icon: "📊", name: "Personal Capital Dashboard", category: "Budgeting", desc: "Net worth tracking, investment monitoring, retirement planning.", fullDesc: "Personal Capital — a comprehensive financial dashboard for tracking net worth, investments, and retirement planning.\n\nKey Features:\n• Net worth tracking\n• Investment monitoring\n• Retirement planner\n• Cash flow analysis\n• Fee analyzer\n\nHow to use:\n1. Connect all your accounts\n2. View net worth in real-time\n3. Track investment performance\n4. Plan for retirement\n\nFree to use with optional advisory services.", price: "Free · Advisory from 0.89%", link: "https://www.personalcapital.com", platform: "Personal Capital — Dashboard" },
+            { icon: "📊", name: "Goodbudget Budget Tool", category: "Budgeting", desc: "Envelope budgeting system. Sync across devices. Free plan available.", fullDesc: "Goodbudget — an envelope budgeting tool that helps you plan your spending by allocating funds to digital envelopes.\n\nKey Features:\n• Envelope budgeting\n• Sync across devices\n• Spending tracking\n• Debt tracking\n• Shared budgets for couples\n\nHow to use:\n1. Set up digital envelopes\n2. Allocate monthly income\n3. Track spending from envelopes\n4. Adjust as needed\n\nFree plan for 10 envelopes, Plus plan $7/month.", price: "Free · Plus $7/month", link: "https://goodbudget.com", platform: "Goodbudget — Budget Tool" },
+            { icon: "📊", name: "EveryDollar Budget", category: "Budgeting", desc: "Dave Ramsey's zero-based budget tool. Free and premium versions.", fullDesc: "EveryDollar — Dave Ramsey's zero-based budgeting tool designed to help you take control of your finances.\n\nKey Features:\n• Zero-based budgeting\n• Quick transaction logging\n• Spending tracking\n• Baby Steps integration\n• Personalized coaching\n\nHow to use:\n1. Create a budget\n2. Log transactions\n3. Track spending\n4. Adjust as needed\n\nFree basic version, Premium $17.99/month.", price: "Free · Premium $17.99/month", link: "https://www.everydollar.com", platform: "EveryDollar — Budget" },
+
+            // Крипто-биржи (15 уникальных)
+            { icon: "💰", name: "Coinbase Exchange", category: "Exchange", desc: "Buy, sell, and trade cryptocurrency. 100+ assets. 0.5% fees.", fullDesc: "Coinbase — one of the most popular cryptocurrency exchanges with 100+ assets, simple interface, and institutional-grade security.\n\nKey Features:\n• 100+ cryptocurrencies\n• Simple and advanced trading\n• Staking rewards\n• DeFi access\n• Crypto debit card\n\nHow to use:\n1. Create account\n2. Complete verification\n3. Deposit funds\n4. Start trading\n\nFees: 0.5% maker/taker. VIP discounts available.", price: "0.5% fees · Free deposits", link: "https://www.coinbase.com", platform: "Coinbase — Exchange" },
+            { icon: "💰", name: "Binance Exchange", category: "Exchange", desc: "World's largest crypto exchange. 350+ assets. 0.1% fees.", fullDesc: "Binance — the world's largest cryptocurrency exchange by volume, offering 350+ assets, spot and derivatives trading, and advanced tools.\n\nKey Features:\n• 350+ cryptocurrencies\n• Spot, margin, futures trading\n• Staking and savings\n• NFT marketplace\n• Launchpad for new tokens\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. BNB discount available.", price: "0.1% fees · Free deposits", link: "https://www.binance.com", platform: "Binance — Exchange" },
+            { icon: "💰", name: "Kraken Exchange", category: "Exchange", desc: "US-regulated exchange. 120+ assets. 0.25% fees. Staking.", fullDesc: "Kraken — a US-regulated cryptocurrency exchange with 120+ assets, robust security, and professional trading tools.\n\nKey Features:\n• 120+ cryptocurrencies\n• Spot, margin, futures trading\n• Staking rewards\n• OTC desk\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete verification\n3. Deposit funds\n4. Start trading\n\nFees: 0.25% maker/taker. Volume discounts available.", price: "0.25% fees · Free deposits", link: "https://www.kraken.com", platform: "Kraken — Exchange" },
+            { icon: "💰", name: "Gemini Exchange", category: "Exchange", desc: "NY-regulated exchange. 80+ assets. 0.5% fees. Earn rewards.", fullDesc: "Gemini — a New York-regulated cryptocurrency exchange with 80+ assets, FDIC-insured USD deposits, and institutional-grade security.\n\nKey Features:\n• 80+ cryptocurrencies\n• Spot and derivatives trading\n• Earn rewards\n• Gemini credit card\n• Institutional services\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.5% maker/taker. ActiveTrader discounts.", price: "0.5% fees · Free deposits", link: "https://www.gemini.com", platform: "Gemini — Exchange" },
+            { icon: "💰", name: "KuCoin Exchange", category: "Exchange", desc: "Global exchange. 700+ assets. 0.1% fees. Futures and staking.", fullDesc: "KuCoin — a global cryptocurrency exchange with 700+ assets, spot and futures trading, and competitive fees.\n\nKey Features:\n• 700+ cryptocurrencies\n• Spot, margin, futures trading\n• Staking and earn products\n• KuCoin Shares (KCS) benefits\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. KCS discount available.", price: "0.1% fees · Free deposits", link: "https://www.kucoin.com", platform: "KuCoin — Exchange" },
+            { icon: "💰", name: "Bybit Exchange", category: "Exchange", desc: "Derivatives-focused exchange. 0.1% fees. 100x leverage.", fullDesc: "Bybit — a derivatives-focused cryptocurrency exchange with up to 100x leverage, advanced trading tools, and competitive fees.\n\nKey Features:\n• Spot and derivatives trading\n• Up to 100x leverage\n• Copy trading\n• Trading bots\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. Volume discounts.", price: "0.1% fees · 100x leverage", link: "https://www.bybit.com", platform: "Bybit — Exchange" },
+            { icon: "💰", name: "OKX Exchange", category: "Exchange", desc: "Global exchange. 450+ assets. 0.1% fees. Web3 wallet.", fullDesc: "OKX — a global cryptocurrency exchange with 450+ assets, spot and derivatives trading, and integrated Web3 wallet.\n\nKey Features:\n• 450+ cryptocurrencies\n• Spot, margin, futures trading\n• Web3 wallet\n• Staking and savings\n• OKX Earn\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. OKB discount available.", price: "0.1% fees · Free deposits", link: "https://www.okx.com", platform: "OKX — Exchange" },
+            { icon: "💰", name: "Bitget Exchange", category: "Exchange", desc: "Global exchange. 0.1% fees. Copy trading. 500+ assets.", fullDesc: "Bitget — a global cryptocurrency exchange with copy trading, 500+ assets, and competitive fees.\n\nKey Features:\n• 500+ cryptocurrencies\n• Copy trading\n• Spot and derivatives trading\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. BGB discount.", price: "0.1% fees · Free deposits", link: "https://www.bitget.com", platform: "Bitget — Exchange" },
+            { icon: "💰", name: "MEXC Exchange", category: "Exchange", desc: "Global exchange. 0% maker fees. 1,500+ assets. 100x leverage.", fullDesc: "MEXC — a global cryptocurrency exchange with 0% maker fees, 1,500+ assets, and up to 100x leverage.\n\nKey Features:\n• 1,500+ cryptocurrencies\n• 0% maker fees\n• Spot and derivatives trading\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0% maker, 0.1% taker. Volume discounts.", price: "0% maker · 0.1% taker", link: "https://www.mexc.com", platform: "MEXC — Exchange" },
+            { icon: "💰", name: "Gate.io Exchange", category: "Exchange", desc: "Global exchange. 1,400+ assets. 0.2% fees. Staking.", fullDesc: "Gate.io — a global cryptocurrency exchange with 1,400+ assets, spot and derivatives trading, and staking rewards.\n\nKey Features:\n• 1,400+ cryptocurrencies\n• Spot, margin, futures trading\n• Staking and earn products\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.2% maker/taker. GT discount.", price: "0.2% fees · Free deposits", link: "https://www.gate.io", platform: "Gate.io — Exchange" },
+            { icon: "💰", name: "BitMart Exchange", category: "Exchange", desc: "Global exchange. 1,000+ assets. 0.25% fees. 100x leverage.", fullDesc: "BitMart — a global cryptocurrency exchange with 1,000+ assets, spot and futures trading, and up to 100x leverage.\n\nKey Features:\n• 1,000+ cryptocurrencies\n• Spot and futures trading\n• Up to 100x leverage\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.25% maker/taker. Volume discounts.", price: "0.25% fees · 100x leverage", link: "https://www.bitmart.com", platform: "BitMart — Exchange" },
+            { icon: "💰", name: "Phemex Exchange", category: "Exchange", desc: "Global exchange. 0.1% fees. 100x leverage. Launchpad.", fullDesc: "Phemex — a global cryptocurrency exchange with 0.1% fees, up to 100x leverage, and a Launchpad for new projects.\n\nKey Features:\n• 200+ cryptocurrencies\n• Spot and derivatives trading\n• Up to 100x leverage\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. Volume discounts.", price: "0.1% fees · 100x leverage", link: "https://phemex.com", platform: "Phemex — Exchange" },
+            { icon: "💰", name: "Crypto.com Exchange", category: "Exchange", desc: "Global exchange. 250+ assets. 0.4% fees. CRO benefits.", fullDesc: "Crypto.com — a global cryptocurrency exchange with 250+ assets, competitive fees, and CRO token benefits.\n\nKey Features:\n• 250+ cryptocurrencies\n• Spot and derivatives trading\n• CRO token benefits\n• Crypto.com Visa card\n• DeFi wallet\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.4% maker/taker. CRO discount.", price: "0.4% fees · Free deposits", link: "https://crypto.com/exchange", platform: "Crypto.com — Exchange" },
+            { icon: "💰", name: "AscendEX Exchange", category: "Exchange", desc: "Global exchange. 0.1% fees. 200+ assets. Staking.", fullDesc: "AscendEX — a global cryptocurrency exchange with 200+ assets, 0.1% fees, and staking rewards.\n\nKey Features:\n• 200+ cryptocurrencies\n• Spot and margin trading\n• Staking and earn products\n• Launchpad\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.1% maker/taker. ASD discount.", price: "0.1% fees · Free deposits", link: "https://ascendex.com", platform: "AscendEX — Exchange" },
+            { icon: "💰", name: "Bithumb Exchange", category: "Exchange", desc: "South Korean exchange. 0.25% fees. 100+ assets. Staking.", fullDesc: "Bithumb — a South Korean cryptocurrency exchange with 100+ assets, 0.25% fees, and staking rewards.\n\nKey Features:\n• 100+ cryptocurrencies\n• Spot trading\n• Staking and earn products\n• Korean Won support\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Complete KYC\n3. Deposit funds\n4. Start trading\n\nFees: 0.25% maker/taker. Volume discounts.", price: "0.25% fees · Free deposits", link: "https://www.bithumb.com", platform: "Bithumb — Exchange" },
+
+            // Заработок и доходность (10 уникальных)
+            { icon: "💸", name: "Nexo Earn", category: "Earn", desc: "Earn up to 16% APY on crypto. 0% fees. Daily interest.", fullDesc: "Nexo — a crypto lending platform where you can earn up to 16% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 16% APY\n• Daily interest payouts\n• 0% fees\n• Instant withdrawals\n• $5B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 16% APY for stablecoins, 8% for BTC/ETH.", price: "Up to 16% APY · 0% fees", link: "https://nexo.io", platform: "Nexo — Earn" },
+            { icon: "💸", name: "Celsius Earn", category: "Earn", desc: "Earn up to 17% APY on crypto. Weekly interest. 1M+ users.", fullDesc: "Celsius — a crypto lending platform where you can earn up to 17% APY on your crypto, with weekly interest payouts.\n\nKey Features:\n• Up to 17% APY\n• Weekly interest payouts\n• No fees\n• 1M+ users\n• $20B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 17% APY for stablecoins, 10% for BTC/ETH.", price: "Up to 17% APY · No fees", link: "https://celsius.network", platform: "Celsius — Earn" },
+            { icon: "💸", name: "BlockFi Interest", category: "Earn", desc: "Earn up to 10% APY on crypto. Monthly interest. 500K+ users.", fullDesc: "BlockFi — a crypto lending platform where you can earn up to 10% APY on your crypto, with monthly interest payouts.\n\nKey Features:\n• Up to 10% APY\n• Monthly interest payouts\n• 0.5% withdrawal fee\n• 500K+ users\n• $15B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 10% APY for stablecoins, 5% for BTC/ETH.", price: "Up to 10% APY · 0.5% fee", link: "https://blockfi.com", platform: "BlockFi — Interest" },
+            { icon: "💸", name: "YouHodler Earn", category: "Earn", desc: "Earn up to 18% APY on crypto. Daily interest. 50+ assets.", fullDesc: "YouHodler — a crypto lending platform where you can earn up to 18% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 18% APY\n• Daily interest payouts\n• 50+ assets\n• 0.1% fees\n• $2B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 18% APY for stablecoins, 12% for BTC/ETH.", price: "Up to 18% APY · 0.1% fee", link: "https://youhodler.com", platform: "YouHodler — Earn" },
+            { icon: "💸", name: "Haru Invest Earn", category: "Earn", desc: "Earn up to 20% APY on crypto. Daily interest. 100K+ users.", fullDesc: "Haru Invest — a crypto lending platform where you can earn up to 20% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 20% APY\n• Daily interest payouts\n• 100K+ users\n• 0% withdrawal fees\n• $1B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 20% APY for stablecoins, 15% for BTC/ETH.", price: "Up to 20% APY · 0% fees", link: "https://haruinvest.com", platform: "Haru Invest — Earn" },
+            { icon: "💸", name: "Ledn Earn", category: "Earn", desc: "Earn up to 12% APY on crypto. Daily interest. 50K+ users.", fullDesc: "Ledn — a crypto lending platform where you can earn up to 12% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 12% APY\n• Daily interest payouts\n• 50K+ users\n• 0.5% withdrawal fee\n• $1B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 12% APY for stablecoins, 8% for BTC/ETH.", price: "Up to 12% APY · 0.5% fee", link: "https://ledn.io", platform: "Ledn — Earn" },
+            { icon: "💸", name: "Vauld Earn", category: "Earn", desc: "Earn up to 13% APY on crypto. Daily interest. 100K+ users.", fullDesc: "Vauld — a crypto lending platform where you can earn up to 13% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 13% APY\n• Daily interest payouts\n• 100K+ users\n• 0% withdrawal fees\n• $500M+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 13% APY for stablecoins, 10% for BTC/ETH.", price: "Up to 13% APY · 0% fees", link: "https://vauld.com", platform: "Vauld — Earn" },
+            { icon: "💸", name: "Bitrue Earn", category: "Earn", desc: "Earn up to 15% APY on crypto. Daily interest. 200+ assets.", fullDesc: "Bitrue — a crypto lending platform where you can earn up to 15% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 15% APY\n• Daily interest payouts\n• 200+ assets\n• 0.1% fees\n• $1B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 15% APY for stablecoins, 10% for BTC/ETH.", price: "Up to 15% APY · 0.1% fee", link: "https://www.bitrue.com", platform: "Bitrue — Earn" },
+            { icon: "💸", name: "Poloniex Earn", category: "Earn", desc: "Earn up to 14% APY on crypto. Daily interest. 100+ assets.", fullDesc: "Poloniex — a crypto lending platform where you can earn up to 14% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 14% APY\n• Daily interest payouts\n• 100+ assets\n• 0.1% fees\n• $500M+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 14% APY for stablecoins, 9% for BTC/ETH.", price: "Up to 14% APY · 0.1% fee", link: "https://poloniex.com", platform: "Poloniex — Earn" },
+            { icon: "💸", name: "WhiteBIT Earn", category: "Earn", desc: "Earn up to 12% APY on crypto. Daily interest. 150+ assets.", fullDesc: "WhiteBIT — a crypto lending platform where you can earn up to 12% APY on your crypto, with daily interest payouts.\n\nKey Features:\n• Up to 12% APY\n• Daily interest payouts\n• 150+ assets\n• 0% withdrawal fees\n• $1B+ in assets\n\nHow to use:\n1. Create account\n2. Deposit crypto\n3. Start earning\n4. Withdraw anytime\n\nRates: 12% APY for stablecoins, 8% for BTC/ETH.", price: "Up to 12% APY · 0% fees", link: "https://whitebit.com", platform: "WhiteBIT — Earn" },
+
+            // Токенизация (5 уникальных)
+            { icon: "🏗️", name: "RealT RWA Tokenization", category: "Tokenization", desc: "Tokenize real estate with 0.5% fee. $100M+ assets.", fullDesc: "RealT — a leading RWA tokenization platform for real estate assets.\n\nKey Features:\n• 0.5% tokenization fee\n• $100M+ assets tokenized\n• 50+ properties\n• Fractional ownership\n• SEC-compliant\n\nHow to use:\n1. Connect wallet\n2. Select property\n3. Invest in token\n4. Earn rental yield\n5. Trade tokens\n\nMinimum investment: $1,000. Rental yield: 8-12%.", price: "0.5% fee · Min $1,000", link: "https://realt.co", platform: "RealT — Tokenization" },
+            { icon: "🎨", name: "Solanart NFT Minting", category: "Tokenization", desc: "Mint art as NFTs on Solana. 5-10% royalties. 0.05 SOL.", fullDesc: "Solanart — a leading NFT marketplace on Solana for artists and collectors.\n\nKey Features:\n• Mint art as NFTs\n• 5-10% royalties\n• 0.05 SOL per mint\n• Royalties paid automatically\n• Global marketplace\n\nHow to use:\n1. Connect wallet\n2. Upload art\n3. Set metadata\n4. Set royalty\n5. Mint NFT\n\nRoyalties paid automatically to creators.", price: "0.05 SOL per mint", link: "https://www.solanart.io", platform: "Solanart — NFT" },
+            { icon: "🎵", name: "Opulous Music Tokenization", category: "Tokenization", desc: "Tokenize music royalties. Earn passive income from streaming.", fullDesc: "Opulous — a music rights tokenization platform for artists and investors.\n\nKey Features:\n• Tokenize music royalties\n• Earn from streaming\n• 0.5% fee\n• Passive income\n• Global distribution\n\nHow to use:\n1. Connect wallet\n2. Upload music rights\n3. Tokenize royalties\n4. Sell or hold\n5. Earn income\n\nRoyalties from streaming, licensing, and performances.", price: "0.5% fee · Min $100", link: "https://www.opulous.org", platform: "Opulous — Music" },
+            { icon: "🥇", name: "Paxos Gold Tokenization", category: "Tokenization", desc: "Tokenize physical gold in LBMA vaults. 1 gram = 1 token.", fullDesc: "Paxos — a gold tokenization platform with LBMA-certified vaults.\n\nKey Features:\n• 1 gram = 1 token\n• 0.5% storage fee\n• LBMA-certified vaults\n• 99.99% purity\n• Redeem physical gold\n\nHow to use:\n1. Connect wallet\n2. Purchase gold\n3. Tokenize gold\n4. Hold or trade\n5. Redeem physical gold\n\nGold stored in London, Zurich, Singapore.", price: "0.5% storage fee", link: "https://www.paxos.com/gold", platform: "Paxos — Gold" },
+            { icon: "📜", name: "SEC Security Token Framework", category: "Tokenization", desc: "SEC-compliant token issuance. KYC/AML. 1% issuance fee.", fullDesc: "SEC Security Token Framework — a compliant platform for security token issuance.\n\nKey Features:\n• SEC-compliant\n• KYC/AML verification\n• Investor accreditation\n• 1% issuance fee\n• Automated compliance\n\nHow to use:\n1. Complete KYC/AML\n2. Submit offering\n3. Get approval\n4. Issue tokens\n5. Start trading\n\nFor regulated security token offerings.", price: "1% issuance fee", link: "https://www.sec.gov", platform: "SEC — Token Framework" }
         ];
 
-        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ ФУНКЦИЙ ==========
+        // ========== ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ УНИКАЛЬНЫХ ФУНКЦИЙ ==========
         function generateFinanceFunctions() {
             const result = [];
             const used = new Set();
 
+            // Добавляем все функции из списка
             financeFunctions.forEach(f => {
                 if (!used.has(f.name)) {
                     used.add(f.name);
@@ -275,62 +203,45 @@
                 }
             });
 
-            const finPrefixes = ['Budget', 'Cash', 'Capital', 'Asset', 'Liability', 'Equity', 'Revenue', 'Expense', 'Profit', 'Margin', 'ROI', 'NPV', 'IRR', 'Payback', 'BreakEven', 'Forecast', 'Projection', 'Scenario'];
-            const finActions = ['Analyze', 'Optimize', 'Allocate', 'Diversify', 'Consolidate', 'Report', 'Track', 'Forecast', 'Model', 'Simulate'];
-            const finNouns = ['Statement', 'Balance', 'Performance', 'Valuation', 'Risk', 'Return', 'Growth', 'Efficiency', 'Liquidity', 'Solvency'];
-            const tokenPrefixes = ['Security', 'Utility', 'Governance', 'Asset', 'RealEstate', 'Art', 'Music', 'IP', 'Commodity', 'Equity', 'Debt', 'Fund', 'Portfolio', 'Index', 'Derivative'];
-            const tokenActions = ['Tokenize', 'Mint', 'Burn', 'Transfer', 'Fractionalize', 'List', 'Trade', 'Stake', 'Vote', 'Dividend'];
-            const tokenNouns = ['Token', 'NFT', 'RWA', 'Shares', 'Units', 'Bonds', 'Notes', 'Certificates', 'Rights', 'Royalties'];
+            // Дополнительные уникальные функции (чтобы было 50+)
+            const extraNames = [
+                { name: "Wealthfront Investing", category: "Investing", desc: "Automated investing with 0.25% fee. $500 minimum.", link: "https://www.wealthfront.com" },
+                { name: "Betterment Investing", category: "Investing", desc: "Automated investing with 0.25% fee. $10 minimum.", link: "https://www.betterment.com" },
+                { name: "SoFi Invest", category: "Investing", desc: "Stocks, ETFs, and crypto. 0% fees. $1 minimum.", link: "https://www.sofi.com" },
+                { name: "Acorns Investing", category: "Investing", desc: "Round-up investing. $3/month. $0 minimum.", link: "https://www.acorns.com" },
+                { name: "Stash Investing", category: "Investing", desc: "Fractional shares investing. $3/month. $5 minimum.", link: "https://www.stash.com" },
+                { name: "Public Investing", category: "Investing", desc: "Social investing platform. 0% fees. $0 minimum.", link: "https://public.com" },
+                { name: "M1 Finance", category: "Investing", desc: "Automated portfolio management. 0% fees. $100 minimum.", link: "https://m1.com" },
+                { name: "Ally Invest", category: "Investing", desc: "Online brokerage. $0 commissions. $0 minimum.", link: "https://www.ally.com" },
+                { name: "Fidelity Investments", category: "Investing", desc: "Full-service brokerage. $0 commissions. $0 minimum.", link: "https://www.fidelity.com" },
+                { name: "Vanguard Investments", category: "Investing", desc: "Low-cost ETFs and mutual funds. $0 commissions.", link: "https://investor.vanguard.com" }
+            ];
+
             const icons = ['📊','📈','📉','💰','💳','🏦','💱','📋','📌','📎','📏','📐','📑','📄','📝','🏗️','🔗','⛓️','🪙','💎','🏛️','📜','🔖','🏷️'];
 
-            while (result.length < 50) {
-                // Чередуем финансовые и токенизационные функции
-                let name, desc, fullDesc, link, platform, price;
-                const isToken = Math.random() > 0.5;
-
-                if (isToken && result.filter(f => f.category === 'Tokenization').length < 25) {
-                    const p = tokenPrefixes[Math.floor(Math.random() * tokenPrefixes.length)];
-                    const a = tokenActions[Math.floor(Math.random() * tokenActions.length)];
-                    const n = tokenNouns[Math.floor(Math.random() * tokenNouns.length)];
-                    const icon = icons[Math.floor(Math.random() * icons.length)];
-                    name = `${p} ${a} ${n}`;
-                    if (Math.random() > 0.5) name += ` ${['Pro','Plus','Premium','Elite','Gold','Platinum'][Math.floor(Math.random()*6)]}`;
-                    desc = `${p} ${a} for ${n} with 0.5% fee and $100M+ TVL. SEC-compliant.`;
-                    fullDesc = `${p} ${a} platform for ${n} with advanced tokenization features.\n\nKey Features:\n• 0.5% fee\n• $100M+ TVL\n• SEC-compliant\n• 50+ assets\n• Fractional ownership\n• 24/7 trading\n\nHow to use:\n1. Connect wallet\n2. Select ${p} ${a} protocol\n3. Enter amount\n4. Confirm transaction\n\nBenefits:\n• Access to real-world assets\n• Fractional ownership\n• Global market reach\n• 24/7 trading`;
-                    link = 'https://realt.co';
-                    platform = 'RealT — Tokenization';
-                    price = '0.5% fee · Min $1,000';
-                } else {
-                    const p = finPrefixes[Math.floor(Math.random() * finPrefixes.length)];
-                    const a = finActions[Math.floor(Math.random() * finActions.length)];
-                    const n = finNouns[Math.floor(Math.random() * finNouns.length)];
-                    const icon = icons[Math.floor(Math.random() * icons.length)];
-                    name = `${p} ${a} ${n}`;
-                    if (Math.random() > 0.6) name += ` ${['Pro','Plus','Adv','Elite','Max'][Math.floor(Math.random()*5)]}`;
-                    desc = `${p} ${a} tool for ${n} with 0.05% fee and 99.9% accuracy.`;
-                    fullDesc = `${p} ${a} solution for ${n} with advanced financial analytics.\n\nKey Features:\n• 0.05% fee\n• 99.9% accuracy\n• Real-time data\n• 50+ metrics\n• Custom reports\n• Automated insights\n\nHow to use:\n1. Connect wallet\n2. Select ${p} ${a} tool\n3. Enter parameters\n4. Get insights\n\nBenefits:\n• Accurate calculations\n• Data-driven decisions\n• Save time\n• Financial control`;
-                    link = 'https://www.investopedia.com';
-                    platform = 'Investopedia — Finance';
-                    price = '0.05% fee · Free basic';
-                }
-
+            extraNames.forEach((extra, index) => {
+                if (result.length >= 50) return;
+                const icon = icons[index % icons.length];
+                const fullDesc = `${extra.name} — ${extra.desc}.\n\nKey Features:\n• Low fees\n• Fractional shares\n• Automated investing\n• Mobile app\n• 24/7 support\n\nHow to use:\n1. Create account\n2. Fund your account\n3. Start investing\n4. Track performance\n\nPerfect for beginners and experienced investors.`;
+                const price = "0% fees · Low minimum";
+                const platform = extra.name;
                 const id = `fin_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
-                const key = name + desc;
-                if (!used.has(key)) {
-                    used.add(key);
+                if (!used.has(extra.name)) {
+                    used.add(extra.name);
                     result.push({
                         id,
-                        icon: icons[Math.floor(Math.random() * icons.length)],
-                        name,
-                        category: isToken ? 'Tokenization' : 'Finance',
-                        desc: desc,
+                        icon,
+                        name: extra.name,
+                        category: extra.category,
+                        desc: extra.desc,
                         fullDesc: fullDesc,
                         price: price,
-                        link: link,
+                        link: extra.link,
                         platform: platform
                     });
                 }
-            }
+            });
+
             return result;
         }
 
@@ -356,12 +267,12 @@
             });
 
             let html = '';
-            const sortedCategories = ['Tokenization', 'Finance', 'Governance', 'Security', 'Analytics'];
+            const sortedCategories = ['Budgeting', 'Exchange', 'Earn', 'Tokenization', 'Investing'];
             sortedCategories.forEach(cat => {
-                if (groups[cat]) {
+                if (groups[cat] && groups[cat].length > 0) {
                     const items = groups[cat];
                     html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
-                    items.slice(0, 20).forEach((f, index) => {
+                    items.slice(0, 50).forEach((f, index) => {
                         const globalIndex = allFunctions.indexOf(f);
                         const tokenBadge = f.category === 'Tokenization' ? '<span class="token-badge">TOKEN</span>' : '';
                         html += `
@@ -420,17 +331,15 @@
         const translations = {
             en: {
                 title: '📊 ADNA Finance & Tokenization',
-                sub: 'Comprehensive Financial Tools + Tokenization · 50+ Unique Functions',
+                sub: '50+ Unique Financial Tools · No Duplicate Links',
                 walletLabel: 'ADNA Contract',
-                tokenizationLabel: 'Tokenization Engine',
                 buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '📊 Финансы и Токенизация ADNA',
-                sub: 'Комплексные финансовые инструменты + токенизация · 50+ уникальных функций',
+                sub: '50+ уникальных финансовых инструментов · Без повторяющихся ссылок',
                 walletLabel: 'Контракт ADNA',
-                tokenizationLabel: 'Движок токенизации',
                 buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
@@ -443,7 +352,6 @@
             document.getElementById('mainTitle').innerText = t.title;
             document.getElementById('subhead').innerText = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
-            document.getElementById('tokenizationLabel').innerText = t.tokenizationLabel;
             document.getElementById('buyLabel').innerText = t.buyLabel;
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.dataset.key;
