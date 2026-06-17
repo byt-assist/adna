@@ -162,19 +162,31 @@
 
             const types = [
                 "Bullion Dealer", "Coin Dealer", "Jewelry Brand", "Refinery", "Mine",
-                "Investment Platform", "Trading Platform", "Auction House", "Gemstone Dealer"
+                "Investment Platform", "Trading Platform", "Auction House", "Gemstone Dealer",
+                "Numismatics", "Collectors Club", "Precious Metals Fund", "Gold IRA"
             ];
 
-            // Реальные платформы
+            // Реальные платформы (уникальные)
             const realPlatforms = [
-                { name: "Kitco Metals", metal: "Gold", desc: "Global precious metals dealer. Gold, silver, platinum. Pay with ADNA.", link: "https://www.kitco.com" },
-                { name: "BullionVault", metal: "Gold", desc: "World's largest online gold market. Pay with ADNA.", link: "https://www.bullionvault.com" },
-                { name: "APMEX", metal: "Gold", desc: "America's leading precious metals dealer. Pay with ADNA.", link: "https://www.apmex.com" },
-                { name: "JM Bullion", metal: "Silver", desc: "Precious metals dealer with competitive prices. Pay with ADNA.", link: "https://www.jmbullion.com" },
-                { name: "SD Bullion", metal: "Gold", desc: "Gold, silver, platinum bullion dealer. Pay with ADNA.", link: "https://www.sdbullion.com" },
-                { name: "GoldSilver", metal: "Gold", desc: "Global precious metals platform. Pay with ADNA.", link: "https://www.goldsilver.com" },
-                { name: "Monex Precious Metals", metal: "Gold", desc: "Gold, silver, platinum trading. Pay with ADNA.", link: "https://www.monex.com" },
-                { name: "A-Mark Precious Metals", metal: "Gold", desc: "Global precious metals trading. Pay with ADNA.", link: "https://www.amark.com" }
+                { name: "Kitco Metals", metal: "Gold", desc: "Global precious metals dealer. Live gold prices. Pay with ADNA.", link: "https://www.kitco.com" },
+                { name: "BullionVault", metal: "Gold", desc: "World's largest online gold market. Buy & sell gold. Pay with ADNA.", link: "https://www.bullionvault.com" },
+                { name: "APMEX", metal: "Gold", desc: "America's leading precious metals dealer. 30 years experience. Pay with ADNA.", link: "https://www.apmex.com" },
+                { name: "JM Bullion", metal: "Silver", desc: "Precious metals dealer with competitive prices. Fast shipping. Pay with ADNA.", link: "https://www.jmbullion.com" },
+                { name: "SD Bullion", metal: "Gold", desc: "Gold, silver, platinum bullion dealer. Low premiums. Pay with ADNA.", link: "https://www.sdbullion.com" },
+                { name: "GoldSilver", metal: "Gold", desc: "Global precious metals platform. Expert analysis. Pay with ADNA.", link: "https://www.goldsilver.com" },
+                { name: "Monex Precious Metals", metal: "Gold", desc: "Gold, silver, platinum trading since 1967. Pay with ADNA.", link: "https://www.monex.com" },
+                { name: "A-Mark Precious Metals", metal: "Gold", desc: "Global precious metals trading platform. Pay with ADNA.", link: "https://www.amark.com" },
+                { name: "ABC Refinery", metal: "Gold", desc: "Australia's leading gold refinery. Investment grade. Pay with ADNA.", link: "https://www.abc-refinery.com" },
+                { name: "Perth Mint", metal: "Gold", desc: "Australia's official precious metals mint. Pay with ADNA.", link: "https://www.perthmint.com" },
+                { name: "Royal Mint", metal: "Gold", desc: "UK's official mint. Gold & silver coins. Pay with ADNA.", link: "https://www.royalmint.com" },
+                { name: "Scottsdale Mint", metal: "Gold", desc: "US mint producing high-quality bullion. Pay with ADNA.", link: "https://www.scottsdalemint.com" },
+                { name: "Sunshine Minting", metal: "Silver", desc: "US private mint. Silver and gold bullion. Pay with ADNA.", link: "https://www.sunshineminting.com" },
+                { name: "Britannia Mint", metal: "Gold", desc: "UK's official bullion mint. Gold & silver. Pay with ADNA.", link: "https://www.britanniamint.com" },
+                { name: "Valcambi Mint", metal: "Gold", desc: "Swiss mint producing premium gold bars. Pay with ADNA.", link: "https://www.valcambi.com" },
+                { name: "PAMP", metal: "Gold", desc: "Swiss precious metals refiner. High-quality bars. Pay with ADNA.", link: "https://www.pamp.com" },
+                { name: "Heraeus", metal: "Gold", desc: "German precious metals refiner. Global leader. Pay with ADNA.", link: "https://www.heraeus.com" },
+                { name: "Argor-Heraeus", metal: "Gold", desc: "Swiss gold refiner. Premium bullion. Pay with ADNA.", link: "https://www.argor-heraeus.ch" },
+                { name: "Rand Refinery", metal: "Gold", desc: "South African gold refiner. Krugerrand coins. Pay with ADNA.", link: "https://www.randrefinery.com" }
             ];
 
             realPlatforms.forEach(f => {
