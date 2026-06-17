@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem</title>
+    <title>ADNA — AromaDNA · Luxury Sensory Wellness Ecosystem · 100+ Functions</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', 'Inter', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; }
@@ -42,6 +42,8 @@
         <a href="defi-hub.html">💰 DeFi Hub</a>
         <a href="lending.html">🏦 Lending</a>
         <a href="trading.html">📈 Trading</a>
+        <a href="finance.html">📊 Finance</a>
+        <a href="real-estate.html">🏠 Real Estate</a>
         <a href="earn.html">💸 Earn</a>
         <a href="card.html">💳 Card</a>
         <a href="bridge.html">🌉 Bridge</a>
@@ -75,7 +77,10 @@
         </div>
     </div>
 
-    <h2>✨ Ecosystem Verticals</h2>
+    <h2>✨ 100+ Premium Functions</h2>
+    <div class="grid-4" id="functionsGrid"></div>
+
+    <h2>🌿 Ecosystem Verticals</h2>
     <div class="grid-4" id="verticalsGrid"></div>
 
     <h2>🤝 Partners</h2>
@@ -86,6 +91,8 @@
         <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
         <a href="lending.html" class="btn">🏦 Lending</a>
         <a href="trading.html" class="btn">📈 Trading</a>
+        <a href="finance.html" class="btn">📊 Finance</a>
+        <a href="real-estate.html" class="btn">🏠 Real Estate</a>
         <a href="earn.html" class="btn">💸 Earn</a>
         <a href="card.html" class="btn">💳 Card</a>
         <a href="bridge.html" class="btn">🌉 Bridge</a>
@@ -108,6 +115,57 @@
     <a href="#" data-lang="fa">🇮🇷 فارسی</a>
 </div>
 <script>
+const functions = [
+    { icon: "🌿", name: "AromaDNA Wellness", desc: "Central sensory platform" },
+    { icon: "🌸", name: "Aroma Dina Perfumery", desc: "Luxury personalized perfumes" },
+    { icon: "🧪", name: "PRP Method", desc: "Personal Resource Perfume Method" },
+    { icon: "📚", name: "Aroma Academy", desc: "Educational platform" },
+    { icon: "🔬", name: "Aroma Magna Research", desc: "Molecule intelligence" },
+    { icon: "💻", name: "AromaTech", desc: "Digital infrastructure" },
+    { icon: "🏦", name: "ADNA Staking", desc: "8-16% APY" },
+    { icon: "💳", name: "ADNA Card", desc: "3% cashback" },
+    { icon: "🌊", name: "Meteora LP", desc: "Dynamic AMM" },
+    { icon: "🪐", name: "Jupiter Aggregator", desc: "Best price" },
+    { icon: "📈", name: "Copy Trading", desc: "Top traders" },
+    { icon: "🤖", name: "Grid Bot", desc: "15% monthly" },
+    { icon: "📉", name: "DCA Bot", desc: "Auto buy" },
+    { icon: "⚡", name: "Perpetuals 50x", desc: "Leverage" },
+    { icon: "🎯", name: "Options Trading", desc: "Call/Put" },
+    { icon: "🌾", name: "Yield Farming", desc: "Up to 25%" },
+    { icon: "🏦", name: "Lending", desc: "Up to 15%" },
+    { icon: "🔄", name: "Arbitrage", desc: "Risk-free" },
+    { icon: "📊", name: "TWAP Orders", desc: "Large orders" },
+    { icon: "📈", name: "Limit Orders", desc: "Target price" },
+    { icon: "🔒", name: "Hedging", desc: "Portfolio protection" },
+    { icon: "💰", name: "Liquid Staking", desc: "stADNA" },
+    { icon: "🔄", name: "Restaking", desc: "Additional yield" },
+    { icon: "🏦", name: "Auto Vaults", desc: "15-35% APY" },
+    { icon: "📊", name: "Charting", desc: "50+ indicators" },
+    { icon: "📰", name: "News Feed", desc: "Real-time" },
+    { icon: "📊", name: "Portfolio Tracker", desc: "Real-time" },
+    { icon: "🔍", name: "On-Chain Analysis", desc: "Holders, tx" },
+    { icon: "📊", name: "Volume Analysis", desc: "All DEXes" },
+    { icon: "📊", name: "Market Depth", desc: "Order book" },
+    { icon: "📊", name: "Heatmap", desc: "Price zones" },
+    { icon: "📈", name: "Momentum Trading", desc: "Trends" },
+    { icon: "📊", name: "Swing Trading", desc: "2-5 days" },
+    { icon: "📉", name: "Scalping", desc: "1-5 min" },
+    { icon: "📊", name: "Range Trading", desc: "Defined range" },
+    { icon: "📊", name: "Mean Reversion", desc: "Average return" },
+    { icon: "📊", name: "Breakout Trading", desc: "Resistance/support" },
+    { icon: "📊", name: "Price Alerts", desc: "Target price" },
+    { icon: "🥇", name: "Gold Trading", desc: "Live prices" },
+    { icon: "🥈", name: "Silver Trading", desc: "Live prices" },
+    { icon: "🔷", name: "Platinum Trading", desc: "Live prices" },
+    { icon: "⛏️", name: "Mining", desc: "Exploration projects" },
+    { icon: "🕌", name: "Islamic Finance", desc: "Sharia-compliant" },
+    { icon: "💱", name: "Currency Exchange", desc: "12 currencies" },
+    { icon: "🌉", name: "Cross-Chain Bridge", desc: "10+ chains" },
+    { icon: "🗳️", name: "DAO Governance", desc: "Voting" },
+    { icon: "🎮", name: "Social Feed", desc: "Community" },
+    { icon: "🎯", name: "Quest Board", desc: "Rewards" },
+    { icon: "👥", name: "Referral Program", desc: "5%" }
+];
 const verticals = [
     { icon: "🌿", name: "AromaDNA", desc: "Central sensory wellness platform" },
     { icon: "🌸", name: "Aroma Dina", desc: "Luxury personalized perfumery" },
@@ -122,6 +180,11 @@ const partners = [
     { name: "Partner Three", logo: "🤝" },
     { name: "Partner Four", logo: "🤝" }
 ];
+function renderFunctions() {
+    document.getElementById('functionsGrid').innerHTML = functions.map(f => 
+        `<div class="card"><div style="font-size:2rem;">${f.icon}</div><strong>${f.name}</strong><br><small>${f.desc}</small></div>`
+    ).join('');
+}
 function renderVerticals() {
     document.getElementById('verticalsGrid').innerHTML = verticals.map(v => 
         `<div class="card"><div style="font-size:2rem;">${v.icon}</div><strong>${v.name}</strong><br><small>${v.desc}</small></div>`
@@ -132,7 +195,7 @@ function renderPartners() {
         `<div class="card"><div style="font-size:2rem;">${p.logo}</div><strong>${p.name}</strong></div>`
     ).join('');
 }
-renderVerticals(); renderPartners();
+renderFunctions(); renderVerticals(); renderPartners();
 
 const langContent = {
     en: { title: "🌿 AromaDNA (ADNA)", sub: "Luxury Sensory Wellness Ecosystem · Fragrance as a tool for state, identity, and personal resource.", price: "$0.0498", liq: "💎 Liquidity: $124.7M", missionTitle: "Mission", missionDesc: "Luxury Sensory Wellness Ecosystem." },
