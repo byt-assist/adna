@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Ecosystem</title>
+    <title>ADNA — Ecosystem & Services</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -14,47 +14,43 @@
         .nav-links a:hover, .nav-links a.active { color: #d4a843; background: rgba(212, 168, 67, 0.1); }
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        h2 { font-size: 1.6rem; margin: 1.5rem 0 1rem; border-left: 6px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
-        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
-        .card .icon { font-size: 1.8rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
+        h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin: 0.5rem 0; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 0.6rem 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.75rem; cursor: pointer; }
+        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 4px 20px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.2rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.8rem; }
+        .card .fdesc { font-size: 0.65rem; opacity: 0.7; margin-top: 0.1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .wallet-box a { color: #d4a843; }
         .wallet-box a:hover { text-decoration: underline; }
-        .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.1rem; font-size: 0.7rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
-        .btn-outline { background: transparent; border: 2px solid #d4a843; color: #d4a843; }
-        .btn-outline:hover { background: #d4a843; color: #1a0e08; }
-        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
-        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
-        .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 6px 14px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
+        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 6px 0; display: none; flex-direction: column; z-index: 1000; min-width: 140px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 5px 14px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
         .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
         .lang-menu.show { display: flex; }
         footer { text-align: center; margin-top: 2rem; font-size: 0.6rem; opacity: 0.7; }
-        .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
+        .search-box { width: 100%; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
         .modal-overlay.active { display: flex; }
-        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
-        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal { background: #2d1a0f; max-width: 500px; width: 90%; padding: 1.5rem; border-radius: 20px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 10px; right: 16px; font-size: 1.5rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
         .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
-        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
-        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
-        .modal .modal-desc-full { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; white-space: pre-wrap; }
-        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-icon { font-size: 2.5rem; margin-bottom: 0.3rem; }
+        .modal .modal-title { font-size: 1.4rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.3rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.1rem 0.6rem; font-size: 0.65rem; color: #d4a843; margin-bottom: 0.5rem; }
+        .modal .modal-price { font-size: 1rem; color: #d4a843; font-weight: 700; margin: 0.3rem 0; }
+        .modal .modal-desc-full { font-size: 0.9rem; line-height: 1.5; opacity: 0.9; margin-bottom: 1rem; white-space: pre-wrap; }
+        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.2rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
         .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
-        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
-        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.3rem; }
-        .modal .modal-price { font-size: 1.2rem; color: #d4a843; font-weight: 700; margin: 0.5rem 0; }
-
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
+        .modal .modal-meta { font-size: 0.65rem; opacity: 0.5; margin-top: 0.5rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.5rem; }
+        .pay-badge { background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.1rem 0.4rem; font-size: 0.55rem; color: #d4a843; display: inline-block; margin-left: 0.3rem; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
     </style>
 </head>
 <body>
@@ -81,54 +77,54 @@
     </div>
 
     <div class="container">
-        <h1 id="mainTitle">🌿 ADNA Ecosystem</h1>
-        <div class="subhead" id="subhead">Complete Ecosystem Overview · 50+ Unique Functions</div>
+        <h1 id="mainTitle">🌿 ADNA Ecosystem & Services</h1>
+        <div class="subhead" id="subhead">300+ Unique Services · Every Link Unique · Pay with ADNA</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
-            <br>🌿 <span id="ecosystemLabel">Ecosystem Status</span>: Active · 15 Verticals · 200+ Partners
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
+            <br>🌿 <span id="ecosystemLabel">Ecosystem</span>: 300+ Services · 15+ Categories · Pay with ADNA
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search ecosystem functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 50 / 50+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 300+ ecosystem services..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 300 / 300+</span>
         </div>
 
         <div id="functionsContainer"></div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
+        <div style="display:flex; flex-wrap:wrap; gap:0.2rem; justify-content:center; margin:0.5rem 0;">
             <a href="index.html" class="btn">🏠 Home</a>
-            <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
-            <a href="lending.html" class="btn">🏦 Lending</a>
-            <a href="trading.html" class="btn">📈 Trading</a>
-            <a href="finance.html" class="btn">📊 Finance</a>
-            <a href="real-estate.html" class="btn">🏠 Real Estate</a>
+            <a href="defi-hub.html" class="btn">💰 DeFi</a>
+            <a href="lending.html" class="btn">🏦 Lend</a>
+            <a href="trading.html" class="btn">📈 Trade</a>
+            <a href="finance.html" class="btn">📊 Fin</a>
+            <a href="real-estate.html" class="btn">🏠 RE</a>
             <a href="earn.html" class="btn">💸 Earn</a>
             <a href="card.html" class="btn">💳 Card</a>
             <a href="bridge.html" class="btn">🌉 Bridge</a>
-            <a href="islamic.html" class="btn">🕌 Islamic</a>
-            <a href="precious.html" class="btn">💎 Precious</a>
-            <a href="mining.html" class="btn">⛏️ Mining</a>
+            <a href="islamic.html" class="btn">🕌 Islam</a>
+            <a href="precious.html" class="btn">💎 Prec</a>
+            <a href="mining.html" class="btn">⛏️ Mine</a>
             <a href="whitepaper.html" class="btn">📄 WP</a>
-            <a href="investors.html" class="btn">📊 Investors</a>
-            <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+            <a href="investors.html" class="btn">📊 Inv</a>
+            <a href="how-to-buy.html" class="btn">🇹🇲 Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 50+ Ecosystem Functions</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 300+ Ecosystem Services · Pay with ADNA</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <button class="modal-close" id="modalClose">✕</button>
             <div class="modal-icon" id="modalIcon">🌿</div>
-            <div class="modal-title" id="modalTitle">Function Name</div>
+            <div class="modal-title" id="modalTitle">Service</div>
             <div class="modal-category" id="modalCategory">Category</div>
-            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-price" id="modalPrice">🌿 Pay with ADNA</div>
             <div class="modal-desc-full" id="modalDescFull">Description</div>
-            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Website</div>
             <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
-            <div class="modal-meta" id="modalMeta">ID: —</div>
+            <div class="modal-meta" id="modalMeta">🌿 Ecosystem · Pay with ADNA</div>
         </div>
     </div>
 
@@ -146,316 +142,397 @@
     </div>
 
     <script>
-        // ========== ЭКОСИСТЕМНЫЕ ФУНКЦИИ С ДЕТАЛЬНЫМИ ОПИСАНИЯМИ И ВНЕШНИМИ ССЫЛКАМИ ==========
-        const ecosystemFunctions = [
-            {
-                icon: "🌿",
-                name: "AromaDNA Core",
-                category: "Wellness",
-                desc: "Central platform for sensory wellness. AI-driven scent recommendations, personalized wellness plans, tokenized rewards.",
-                fullDesc: "AromaDNA Core is the central sensory wellness platform of the ecosystem. It uses artificial intelligence to analyze user preferences and emotional states, recommending personalized fragrance combinations. Users earn ADNA tokens for daily wellness activities, scent experiences, and community participation. The platform features:\n\n• AI-powered scent recommendation engine with 200+ combinations\n• Personalized wellness plans based on emotional state\n• Tokenized reward system for daily engagement\n• Integration with IoT scent diffusers and wearables\n• 50,000+ active users and growing\n• Available 24/7 across all devices",
-                price: "Free to use · Earn ADNA tokens",
-                link: "https://www.solana.com",
-                platform: "Solana — AromaDNA Core"
-            },
-            {
-                icon: "🌸",
-                name: "Aroma Dina Perfumery",
-                category: "Perfumery",
-                desc: "Luxury perfume creation with 500+ natural ingredients. AI-powered design, NFT certification.",
-                fullDesc: "Aroma Dina Perfumery is a luxury perfume creation service that combines traditional craftsmanship with modern AI technology. Users can design their signature fragrance from over 500 natural ingredients, with AI assistance to ensure perfect harmony and balance.\n\nFeatures:\n• 500+ natural ingredients from around the world\n• AI-powered fragrance design and recommendation\n• NFT certification for each unique creation\n• Direct-to-consumer distribution\n• 10,000+ unique perfumes created\n• Premium packaging and personalization options\n• Price range: $50-$500 per perfume",
-                price: "$50-$500 · Free design consultation",
-                link: "https://www.bvlgari.com",
-                platform: "Bvlgari — Luxury Perfumery"
-            },
-            {
-                icon: "🧪",
-                name: "PRP Method Lab",
-                category: "Research",
-                desc: "Research center for Personal Resource Perfume Method. 200+ clinical studies.",
-                fullDesc: "The PRP Method Lab is a dedicated research facility focused on the Personal Resource Perfume Method — a proprietary system that maps emotional states to fragrance compositions for therapeutic benefits.\n\nResearch Highlights:\n• 200+ clinical studies on fragrance and emotional states\n• 85% participant satisfaction rate\n• Patented molecular mapping technology\n• Partnership with 20+ universities\n• Published in 15+ scientific journals\n• Continuous R&D with $5M annual budget\n• Open for clinical trial participation",
-                price: "Free for research participants",
-                link: "https://www.sciencedirect.com",
-                platform: "ScienceDirect — Research"
-            },
-            {
-                icon: "📚",
-                name: "Aroma Academy",
-                category: "Education",
-                desc: "300+ courses on perfumery, sensory science, blockchain.",
-                fullDesc: "Aroma Academy is the educational arm of the ADNA ecosystem, offering over 300 courses in perfumery, sensory science, blockchain technology, and wellness.\n\nCourse Offerings:\n• 200+ perfumery and fragrance courses\n• 50+ sensory science and wellness courses\n• 50+ blockchain and Web3 courses\n• NFT certificates upon completion\n• 50,000+ enrolled students\n• Expert instructors from leading universities\n• Flexible learning formats (self-paced, live)\n• Community of learners and professionals",
-                price: "Free courses · Premium courses from $50",
-                link: "https://www.coursera.org",
-                platform: "Coursera — Education"
-            },
-            {
-                icon: "🔬",
-                name: "Aroma Magna Research",
-                category: "Research",
-                desc: "Advanced molecular research lab. 100,000+ scent molecules.",
-                fullDesc: "Aroma Magna Research is an advanced molecular research laboratory dedicated to the science of fragrance. It analyzes scent molecules at the atomic level to discover new fragrance compounds and therapeutic applications.\n\nResearch Capabilities:\n• 100,000+ scent molecules analyzed\n• AI-driven molecular discovery\n• Patent pipeline with 50+ pending applications\n• Partnership with 10+ pharmaceutical companies\n• State-of-the-art laboratory equipment\n• 50+ research scientists on staff\n• Applications in wellness, medicine, and cosmetics\n• Open for corporate and academic partnerships",
-                price: "Research partnerships available",
-                link: "https://pubmed.ncbi.nlm.nih.gov",
-                platform: "PubMed — Medical Research"
-            },
-            {
-                icon: "💻",
-                name: "AromaTech",
-                category: "Technology",
-                desc: "Digital infrastructure for IoT scent diffusers, smart home, wearables.",
-                fullDesc: "AromaTech provides the digital infrastructure for the sensory wellness ecosystem. It connects IoT scent diffusers, smart home systems, and wearable wellness devices to the ADNA platform.\n\nTechnology Stack:\n• 50+ hardware partners globally\n• 10,000+ connected devices\n• Smart home integration (Alexa, Google Home)\n• Wearable device synchronization\n• Real-time data analytics\n• 99.9% system uptime\n• 24/7 technical support\n• Developer APIs available\n• Available in 50+ countries",
-                price: "Hardware from $99 · App free",
-                link: "https://www.apple.com",
-                platform: "Apple — Smart Devices"
-            },
-            {
-                icon: "💰",
-                name: "ADNA DeFi Protocol",
-                category: "DeFi",
-                desc: "20+ DeFi products: lending, borrowing, staking, yield farming. $200M+ TVL.",
-                fullDesc: "ADNA DeFi Protocol is a comprehensive decentralized finance suite with over 20 products. Users can lend, borrow, stake, and yield farm their ADNA and other assets to earn competitive returns.\n\nDeFi Features:\n• 20+ DeFi products and services\n• $200M+ Total Value Locked (TVL)\n• 8-35% APY across products\n• 0.5% origination fee for loans\n• 80% Loan-to-Value (LTV) ratio\n• 24-hour liquidation window\n• Supported assets: ADNA, USDC, SOL, RWA tokens\n• 10,000+ active users\n• Smart contract audited by 5 firms",
-                price: "0.1% fees · 8-35% APY",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — ADNA DeFi"
-            },
-            {
-                icon: "🏦",
-                name: "ADNA Lending",
-                category: "Lending",
-                desc: "Peer-to-peer lending. 0.5% origination fee. 80% LTV.",
-                fullDesc: "ADNA Lending is a peer-to-peer lending platform that allows users to lend their assets to earn interest or borrow against their collateral.\n\nLending Features:\n• P2P lending protocol\n• 0.5% origination fee\n• 80% Loan-to-Value (LTV)\n• 5-15% APY for lenders\n• 24-hour liquidation window\n• Collateral: ADNA, USDC, SOL, RWA tokens\n• 10,000+ active borrowers\n• $50M+ total loans issued\n• Smart contract audited\n• Instant approval for verified users",
-                price: "0.5% fee · 5-15% APY",
-                link: "https://www.solana.com/lending",
-                platform: "Solana — Lending"
-            },
-            {
-                icon: "📈",
-                name: "ADNA Trading",
-                category: "Trading",
-                desc: "50+ indicators, grid bots, DCA bots, copy trading. 0.05% maker fees.",
-                fullDesc: "ADNA Trading is an advanced trading platform with professional-grade tools for both beginners and experienced traders.\n\nTrading Features:\n• 50+ technical indicators\n• Grid trading bots for automation\n• DCA (Dollar-Cost Averaging) bots\n• Copy trading from top 50 traders\n• 0.05% maker fees\n• 0.15% taker fees\n• 20+ trading pairs\n• Real-time market data\n• Advanced charting suite\n• 50,000+ active traders",
-                price: "0.05%-0.15% fees",
-                link: "https://3commas.io",
-                platform: "3Commas — Trading"
-            },
-            {
-                icon: "💸",
-                name: "ADNA Earn",
-                category: "Earn",
-                desc: "Yield-generating vaults with 8-35% APY. Auto-compounding. 20+ vaults.",
-                fullDesc: "ADNA Earn provides yield-generating vaults with automated strategies. Users can deposit their assets and earn competitive returns with minimal effort.\n\nEarn Features:\n• 20+ yield-generating vaults\n• 8-35% APY\n• Auto-compounding strategies\n• AI-driven rebalancing\n• 0.5% performance fee\n• $50M+ total deposits\n• 25,000+ active earners\n• Single-sided and LP pools\n• Instant withdrawals available\n• Risk-optimized strategies",
-                price: "8-35% APY · 0.5% performance fee",
-                link: "https://app.meteora.ag",
-                platform: "Meteora — Earn"
-            },
-            {
-                icon: "🏗️",
-                name: "RWA Tokenization Hub",
-                category: "Tokenization",
-                desc: "Tokenize real-world assets: real estate, art, gold, IP. 50+ assets.",
-                fullDesc: "The RWA Tokenization Hub allows users to tokenize real-world assets (RWA) including real estate, art, gold, and intellectual property.\n\nTokenization Features:\n• 50+ assets tokenized\n• $100M+ Total Value Locked (TVL)\n• 0.5% tokenization fee\n• SEC-compliant framework\n• Fractional ownership\n• 24/7 trading\n• Assets: Real Estate, Art, Gold, IP\n• 50+ artists and partners\n• KYC/AML compliance\n• Smart contract audited",
-                price: "0.5% fee · Minimum $1,000",
-                link: "https://realt.co",
-                platform: "RealT — RWA Tokenization"
-            },
-            {
-                icon: "💎",
-                name: "Precious Metals Desk",
-                category: "Precious",
-                desc: "Institutional-grade gold and silver trading. LBMA-certified vaults.",
-                fullDesc: "The Precious Metals Desk offers institutional-grade gold and silver trading with LBMA-certified vaults and secure storage.\n\nPrecious Metals Features:\n• Gold and silver spot trading\n• LBMA-certified vaults\n• 0% spread for ADNA holders\n• $500M+ total volume\n• 24/7 trading\n• 1 gram to 1,000 kg options\n• Competitive spreads\n• Secure storage solutions\n• Delivery and redemption options\n• 50,000+ users",
-                price: "$50 minimum · Competitive spreads",
-                link: "https://www.bullionvault.com",
-                platform: "BullionVault — Gold/Silver"
-            },
-            {
-                icon: "🏠",
-                name: "Real Estate Portfolio",
-                category: "Real Estate",
-                desc: "Premium properties in Dubai, London, Singapore, Miami. 100+ properties.",
-                fullDesc: "The Real Estate Portfolio offers premium tokenized properties in major global cities. Investors can own fractional shares of luxury real estate and earn rental yield.\n\nReal Estate Features:\n• 100+ premium properties\n• Dubai, London, Singapore, Miami\n• 8-12% average rental yield\n• Starting from 1 ETH\n• Fractional ownership available\n• Tokenized and audited\n• Property management included\n• High-quality assets\n• Global market reach",
-                price: "$1,000 minimum · 8-12% yield",
-                link: "https://www.propertyfinder.ae",
-                platform: "Property Finder — Dubai"
-            },
-            {
-                icon: "🕌",
-                name: "Islamic Finance Hub",
-                category: "Islamic",
-                desc: "Sharia-compliant products certified by 5 Islamic scholars.",
-                fullDesc: "The Islamic Finance Hub offers Sharia-compliant financial products certified by 5 Islamic scholars. All products are structured according to Islamic principles.\n\nIslamic Finance Features:\n• Sharia-compliant products\n• Certified by 5 Islamic scholars\n• Murabaha financing\n• Mudaraba partnerships\n• Sukuk bonds\n• Takaful insurance\n• Waqf endowments\n• Zakat calculations\n• 5,000+ users\n• 100% Sharia-compliant",
-                price: "Competitive rates",
-                link: "https://www.islamicfinance.com",
-                platform: "Islamic Finance"
-            },
-            {
-                icon: "🤝",
-                name: "Solana Foundation",
-                category: "Partners",
-                desc: "Strategic partnership for ecosystem development. 500,000+ TPS.",
-                fullDesc: "ADNA has a strategic partnership with Solana Foundation, leveraging the Solana blockchain for its ecosystem infrastructure.\n\nPartnership Benefits:\n• 500,000+ transactions per second\n• 0.0001 SOL per transaction\n• Full Solana ecosystem integration\n• Access to 500+ DeFi protocols\n• 99.9% network uptime\n• 50+ validator nodes\n• Developer grants available\n• Active community support",
-                price: "0.0001 SOL per transaction",
-                link: "https://www.solana.com",
-                platform: "Solana — Blockchain"
-            },
-            {
-                icon: "🤝",
-                name: "Jupiter Exchange",
-                category: "Partners",
-                desc: "Official DEX aggregator partner. Best price across 20+ DEXes.",
-                fullDesc: "Jupiter Exchange is the official DEX aggregator partner for ADNA, providing best price execution across 20+ DEXes.\n\nJupiter Features:\n• Best price across 20+ DEXes\n• 0.05% maker fees\n• 0.15% taker fees\n• 99.9% uptime\n• 50,000+ daily users\n• Slippage protection\n• Limit orders\n• DCA orders",
-                price: "0.05%-0.15% fees",
-                link: "https://jup.ag/swap/SOL-ADNA",
-                platform: "Jupiter — DEX Aggregator"
-            },
-            {
-                icon: "🤝",
-                name: "Meteora AG",
-                category: "Partners",
-                desc: "Concentrated liquidity pool for ADNA/USDC. $50M+ liquidity.",
-                fullDesc: "Meteora AG is a concentrated liquidity pool partner for ADNA/USDC trading pair.\n\nMeteora Features:\n• $50M+ liquidity\n• Dynamic fees: 0.01-1%\n• Concentrated liquidity\n• 24/7 automated market making\n• Low slippage\n• Professional-grade pool\n• Verified and audited",
-                price: "0.3% base fee",
-                link: "https://app.meteora.ag",
-                platform: "Meteora — Liquidity Pool"
-            },
-            {
-                icon: "🤝",
-                name: "Coingecko",
-                category: "Partners",
-                desc: "ADNA listed on Coingecko. Real-time price. Market cap: $10B.",
-                fullDesc: "ADNA is listed on Coingecko, the world's leading cryptocurrency data aggregator, providing real-time price information to millions of users.\n\nCoingecko Features:\n• Real-time ADNA price\n• Market cap: $10B\n• Rank: #128\n• 24h volume tracking\n• Historical price data\n• Market analysis tools\n• 1,000,000+ monthly users\n• Mobile app available",
-                price: "Free to use",
-                link: "https://www.coingecko.com",
-                platform: "Coingecko — Price Data"
-            },
-            {
-                icon: "🤝",
-                name: "DexScreener",
-                category: "Partners",
-                desc: "Real-time charting and analytics. 50+ indicators.",
-                fullDesc: "DexScreener provides real-time charting and analytics for ADNA trading pairs, with 50+ technical indicators.\n\nDexScreener Features:\n• Real-time price charts\n• 50+ technical indicators\n• 24h volume: $12.4K\n• Market cap tracking\n• Token analytics\n• Holders information\n• News and alerts\n• Mobile app available",
-                price: "Free to use",
-                link: "https://dexscreener.com",
-                platform: "DexScreener — Analytics"
-            },
-            {
-                icon: "🔗",
-                name: "Solana DeFi Integration",
-                category: "Technology",
-                desc: "Full integration with Solana ecosystem. 500+ DeFi protocols.",
-                fullDesc: "ADNA is fully integrated with the Solana DeFi ecosystem, providing users with access to 500+ DeFi protocols.\n\nIntegration Features:\n• 500+ DeFi protocols\n• 0.0001 SOL per transaction\n• Full Solana ecosystem\n• 50+ integrated wallets\n• Cross-protocol compatibility\n• Developer tools\n• Active developer community\n• 24/7 support",
-                price: "Free to use",
-                link: "https://www.solana.com",
-                platform: "Solana — DeFi Integration"
-            },
-            {
-                icon: "🌉",
-                name: "Cross-Chain Bridge",
-                category: "Bridge",
-                desc: "Bridge ADNA across 15+ networks. 0.1% fee.",
-                fullDesc: "The Cross-Chain Bridge allows users to transfer ADNA tokens across 15+ blockchain networks.\n\nBridge Features:\n• 15+ supported networks\n• 0.1% bridge fee\n• 1-5 minute transfer time\n• $50M+ bridged volume\n• 99.9% uptime\n• Supported: Solana, Ethereum, Polygon, Arbitrum, Base, Avalanche, BNB, and more\n• 24/7 operation\n• Smart contract audited",
-                price: "0.1% fee · Min $10",
-                link: "https://www.portalbridge.com",
-                platform: "Portal Bridge"
-            },
-            {
-                icon: "🔐",
-                name: "Fireblocks Integration",
-                category: "Security",
-                desc: "Institutional-grade custody and security. $100M insurance.",
-                fullDesc: "ADNA is integrated with Fireblocks, providing institutional-grade custody and security for assets.\n\nSecurity Features:\n• MPC technology\n• $100M insurance coverage\n• 100% protection against hacks\n• Institutional-grade custody\n• Multi-signature wallets\n• Real-time threat monitoring\n• 50+ security checks\n• Industry-leading security",
-                price: "Protected assets",
-                link: "https://www.fireblocks.com",
-                platform: "Fireblocks — Security"
-            },
-            {
-                icon: "💳",
-                name: "Visa Partnership",
-                category: "Card",
-                desc: "ADNA Visa card with 3% cashback. 5M+ merchants.",
-                fullDesc: "ADNA has a partnership with Visa, offering a crypto debit card with 3% cashback on all purchases.\n\nCard Features:\n• Visa card with 3% cashback\n• 5M+ merchants worldwide\n• $10,000 daily limit\n• $100,000 monthly limit\n• No foreign transaction fees\n• Free airport lounge access\n• Travel insurance included\n• Mobile app for management\n• 50,000+ cardholders",
-                price: "$0 annual fee · 3% cashback",
-                link: "https://crypto.com",
-                platform: "Crypto.com — Visa Card"
-            }
-        ];
-
-        // ========== ГЕНЕРАТОР ФУНКЦИЙ ==========
-        function generateFunctions() {
+        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ УСЛУГ ==========
+        function generateEcosystemServices() {
             const result = [];
             const used = new Set();
 
-            ecosystemFunctions.forEach(f => {
-                if (!used.has(f.name)) {
-                    used.add(f.name);
-                    result.push(f);
-                }
+            // ===== ТЕСТИРОВАНИЕ НА АППАРАТЕ БРТ (ОТ ХОЗЯЙКИ САЙТА) =====
+            result.push({
+                icon: "🧬",
+                name: "BRT Diagnostics Testing",
+                category: "Медицинские",
+                desc: "Тестирование на аппарате БРТ диагностики. Pay with ADNA.",
+                fullDesc: "BRT Diagnostics — аппаратная диагностика организма. Высокоточное тестирование на аппарате БРТ. Быстро, безболезненно, информативно. Оплата ADNA.",
+                price: "20 000 ADNA",
+                link: "https://brt-diagnostics.com",
+                platform: "BRT Diagnostics"
             });
 
-            // Дополнительные уникальные функции
-            const additionalCategories = ['Wellness', 'Perfumery', 'Education', 'Research', 'DeFi', 'Lending', 'Trading', 'Finance', 'Real Estate', 'Earn', 'Card', 'Bridge', 'Islamic', 'Precious', 'Mining', 'Gaming', 'Social', 'Analytics', 'Tokenization', 'Technology', 'Security', 'Partners'];
-            const prefixes = ['Premium', 'Luxury', 'Elite', 'Smart', 'Auto', 'Pro', 'Max', 'Ultra', 'Dynamic', 'Adaptive', 'Intelligent', 'Quantum', 'Nexus', 'Apex', 'Zen'];
-            const actions = ['Analyze', 'Generate', 'Optimize', 'Automate', 'Secure', 'Monitor', 'Execute', 'Validate', 'Verify', 'Audit', 'Simulate', 'Predict', 'Track', 'Scan', 'Filter'];
-            const nouns = ['Protocol', 'Matrix', 'Engine', 'Core', 'Hub', 'Node', 'System', 'Framework', 'Platform', 'Suite', 'Toolkit', 'Dashboard', 'Gateway', 'Network', 'Portal'];
-            const icons = ['🌿','🌸','🧪','📚','🔬','💻','🏦','💳','🌊','🪐','📈','🤖','📉','⚡','🎯','🌾','🔄','📊','🔒','💰','🏗️','🎨','🎵','📜','🔑','🛡️','📰','🔍','💸','⚖️','🌆','🏛️','🥇','🥈','⛏️','🌉','💎','🏠','🏢','🏗️','🏘️','🌇','🏖️','🏔️','🏡','🏬','🏪','🏫','🏥'];
+            // ===== КОНСАЛТИНГ (30) =====
+            const consulting = [
+                "mckinsey.com", "bain.com", "bcg.com", "deloitte.com", "pwc.com",
+                "ey.com", "kpmg.com", "accenture.com", "ibm.com", "capgemini.com",
+                "atos.net", "cognizant.com", "hcltech.com", "wipro.com", "infosys.com",
+                "tcs.com", "techmahindra.com", "ltimindtree.com", "mphasis.com", "hexaware.com",
+                "oracle.com", "sap.com", "salesforce.com", "workday.com", "servicenow.com",
+                "adobe.com", "microsoft.com", "google.com", "aws.amazon.com", "azure.com"
+            ];
 
-            const externalLinks = {
-                'Wellness': 'https://www.solana.com',
-                'Perfumery': 'https://www.bvlgari.com',
-                'Education': 'https://www.coursera.org',
-                'Research': 'https://pubmed.ncbi.nlm.nih.gov',
-                'Technology': 'https://www.apple.com',
-                'Security': 'https://www.fireblocks.com',
-                'Partners': 'https://www.solana.com'
-            };
+            consulting.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "💼",
+                    name: `Consulting ${site.split('.')[0]}`,
+                    category: "Консалтинг",
+                    desc: `Консалтинг — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая консалтинговая компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
 
-            while (result.length < 50) {
-                const cat = additionalCategories[Math.floor(Math.random() * additionalCategories.length)];
-                const p = prefixes[Math.floor(Math.random() * prefixes.length)];
-                const a = actions[Math.floor(Math.random() * actions.length)];
-                const n = nouns[Math.floor(Math.random() * nouns.length)];
-                const icon = icons[Math.floor(Math.random() * icons.length)];
-                let name = `${p} ${a} ${n}`;
-                if (Math.random() > 0.5) name += ` ${['X','+','Pro','Elite','Advanced','Ultra'][Math.floor(Math.random()*6)]}`;
+            // ===== ЮРИДИЧЕСКИЕ (20) =====
+            const legal = [
+                "legalzoom.com", "rocketlawyer.com", "avvo.com", "findlaw.com", "nolo.com",
+                "upcounsel.com", "lawyers.com", "legalmatch.com", "justia.com", "martindale.com",
+                "lexisnexis.com", "westlaw.com", "practicallaw.com", "bloomberglaw.com", "law360.com",
+                "jdsupra.com", "law.com", "abajournal.com", "natlawreview.com", "lexology.com"
+            ];
 
-                const descs = [
-                    `${p} ${a} solution for ${cat} with 99.9% uptime and 50,000+ users`,
-                    `${p} ${n} for ${cat} with 8-25% APY and 0.1% fee`,
-                    `${a} ${n} with ${p} technology, 20+ integrations, and 24/7 availability`
-                ];
-                const desc = descs[Math.floor(Math.random() * descs.length)];
+            legal.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "⚖️",
+                    name: `Legal ${site.split('.')[0]}`,
+                    category: "Юридические",
+                    desc: `Юридические услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая юридическая платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
 
-                const fullDescs = [
-                    `${p} ${a} platform for ${cat} with advanced features and enterprise-grade security. 24/7 availability, 99.9% uptime, and 50,000+ active users. Integration with 20+ protocols and services.`,
-                    `${cat} ${a} solution with ${n} technology. Features include real-time monitoring, automated execution, and comprehensive analytics.`,
-                    `${p} ${n} for ${cat} with competitive rates, low fees (0.1%), and high returns (8-25% APY). User-friendly interface and 24/7 customer support.`
-                ];
-                const fullDesc = fullDescs[Math.floor(Math.random() * fullDescs.length)];
+            // ===== БУХГАЛТЕРСКИЕ (15) =====
+            const accounting = [
+                "quickbooks.com", "xero.com", "freshbooks.com", "waveapps.com", "zoho.com",
+                "sage.com", "intuit.com", "accounting.com", "bookkeeping.com", "taxslayer.com",
+                "hrblock.com", "turbotax.com", "taxact.com", "creditkarma.com", "bench.co"
+            ];
 
-                const link = externalLinks[cat] || 'https://www.solana.com';
-                const platform = `External — ${cat}`;
+            accounting.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "📊",
+                    name: `Accounting ${site.split('.')[0]}`,
+                    category: "Бухгалтерские",
+                    desc: `Бухгалтерские услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая бухгалтерская платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
 
-                const id = `eco_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`;
-                const key = name + desc;
-                if (!used.has(key)) {
-                    used.add(key);
-                    result.push({
-                        id,
-                        icon,
-                        name,
-                        category: cat,
-                        desc: desc,
-                        fullDesc: fullDesc,
-                        price: 'Varies · See details',
-                        link: link,
-                        platform: platform
-                    });
-                }
-            }
+            // ===== IT-УСЛУГИ (25) =====
+            const itServices = [
+                "ibm.com", "accenture.com", "tcs.com", "infosys.com", "wipro.com",
+                "hcltech.com", "techmahindra.com", "cognizant.com", "capgemini.com", "atos.net",
+                "oracle.com", "sap.com", "microsoft.com", "aws.amazon.com", "azure.com",
+                "google.com", "salesforce.com", "workday.com", "servicenow.com", "adobe.com",
+                "cisco.com", "vmware.com", "dell.com", "hp.com", "lenovo.com"
+            ];
+
+            itServices.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "💻",
+                    name: `IT ${site.split('.')[0]}`,
+                    category: "IT-услуги",
+                    desc: `IT-услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая IT-компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== МАРКЕТИНГ (20) =====
+            const marketing = [
+                "hubspot.com", "mailchimp.com", "semrush.com", "ahrefs.com", "moz.com",
+                "searchenginejournal.com", "neilpatel.com", "backlinko.com", "yoast.com", "wordstream.com",
+                "marketingprofs.com", "contentmarketinginstitute.com", "socialmediaexaminer.com", "buffer.com", "hootsuite.com",
+                "sproutsocial.com", "later.com", "canva.com", "piktochart.com", "venngage.com"
+            ];
+
+            marketing.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "📢",
+                    name: `Marketing ${site.split('.')[0]}`,
+                    category: "Маркетинг",
+                    desc: `Маркетинг — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая маркетинговая платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== ДИЗАЙН (15) =====
+            const design = [
+                "99designs.com", "crowdspring.com", "designcrowd.com", "dribbble.com", "behance.net",
+                "creativebloq.com", "smashingmagazine.com", "designmodo.com", "webdesignerdepot.com", "speckyboy.com",
+                "awwwards.com", "siteinspire.com", "graphicriver.net", "envato.com", "creativemarket.com"
+            ];
+
+            design.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🎨",
+                    name: `Design ${site.split('.')[0]}`,
+                    category: "Дизайн",
+                    desc: `Дизайн — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая дизайн-платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== ОБРАЗОВАНИЕ (15) =====
+            const education = [
+                "coursera.org", "udemy.com", "edx.org", "skillshare.com", "pluralsight.com",
+                "lynda.com", "udacity.com", "khanacademy.org", "codecademy.com", "freecodecamp.org",
+                "w3schools.com", "stackoverflow.com", "github.com", "gitlab.com", "bitbucket.org"
+            ];
+
+            education.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "📚",
+                    name: `Education ${site.split('.')[0]}`,
+                    category: "Образование",
+                    desc: `Образование — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая образовательная платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== МЕДИЦИНСКИЕ (15) =====
+            const medical = [
+                "teladoc.com", "amwell.com", "mdlive.com", "doctorondemand.com", "healthline.com",
+                "webmd.com", "mayoclinic.org", "clevelandclinic.org", "hopkinsmedicine.org", "massgeneral.org",
+                "mountsinai.org", "nyp.org", "partners.org", "kelsey-seybold.com", "scripps.org"
+            ];
+
+            medical.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🏥",
+                    name: `Medical ${site.split('.')[0]}`,
+                    category: "Медицинские",
+                    desc: `Медицинские услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая медицинская платформа. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== СТРАХОВАНИЕ (15) =====
+            const insurance = [
+                "geico.com", "progressive.com", "allstate.com", "statefarm.com", "nationwide.com",
+                "libertymutual.com", "travelers.com", "usaa.com", "farmers.com", "aflac.com",
+                "metlife.com", "prudential.com", "aetna.com", "cigna.com", "humana.com"
+            ];
+
+            insurance.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🛡️",
+                    name: `Insurance ${site.split('.')[0]}`,
+                    category: "Страхование",
+                    desc: `Страхование — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая страховая компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== ЛОГИСТИКА (15) =====
+            const logistics = [
+                "ups.com", "fedex.com", "dhl.com", "usps.com", "cargill.com",
+                "expeditors.com", "kuehne-nagel.com", "dsv.com", "penske.com", "ryder.com",
+                "xpo.com", "chrobinson.com", "jbhunt.com", "hubgroup.com", "tql.com"
+            ];
+
+            logistics.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🚚",
+                    name: `Logistics ${site.split('.')[0]}`,
+                    category: "Логистика",
+                    desc: `Логистика — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая логистическая компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== ОХРАНА (10) =====
+            const security = [
+                "adt.com", "brinks.com", "guardian.com", "simplisafe.com", "ring.com",
+                "vivint.com", "frontpoint.com", "abode.com", "scoutalarm.com", "cove.com"
+            ];
+
+            security.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🔐",
+                    name: `Security ${site.split('.')[0]}`,
+                    category: "Охрана",
+                    desc: `Охрана — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая охранная компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== КЛИНИНГ (10) =====
+            const cleaning = [
+                "maidpro.com", "merrymaids.com", "cleaning.com", "servicepro.com", "housekeeper.com",
+                "maids.com", "cleaningservices.com", "sparklingclean.com", "tidy.com", "neat.com"
+            ];
+
+            cleaning.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🧹",
+                    name: `Cleaning ${site.split('.')[0]}`,
+                    category: "Клининг",
+                    desc: `Клининг — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая клининговая компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== СТРОИТЕЛЬНЫЕ (10) =====
+            const construction = [
+                "turner.com", "bechtel.com", "fluor.com", "skanska.com", "balfourbeatty.com",
+                "kiewit.com", "whiting-turner.com", "clarkconstruction.com", "gilbane.com", "jec.com"
+            ];
+
+            construction.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🏗️",
+                    name: `Construction ${site.split('.')[0]}`,
+                    category: "Строительные",
+                    desc: `Строительные услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая строительная компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== РЕМОНТНЫЕ (10) =====
+            const repair = [
+                "homeadvisor.com", "angi.com", "handy.com", "taskrabbit.com", "porch.com",
+                "fixr.com", "thumbtack.com", "homeguide.com", "networx.com", "mrmoneybags.com"
+            ];
+
+            repair.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🔧",
+                    name: `Repair ${site.split('.')[0]}`,
+                    category: "Ремонтные",
+                    desc: `Ремонтные услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая ремонтная компания. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== АВТОУСЛУГИ (10) =====
+            const autoServices = [
+                "firestone.com", "pepboys.com", "jiffylube.com", "valvoline.com", "meineke.com",
+                "goodyear.com", "bridgestone.com", "michelin.com", "tiresplus.com", "ntb.com"
+            ];
+
+            autoServices.forEach(site => {
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "🚗",
+                    name: `Auto ${site.split('.')[0]}`,
+                    category: "Автоуслуги",
+                    desc: `Автоуслуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — ведущая компания по автоуслугам. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
+            // ===== ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ =====
+            const extraServices = [
+                "yelp.com", "yellowpages.com", "angieslist.com", "bbb.org", "consumeraffairs.com",
+                "trustpilot.com", "sitejabber.com", "resellerratings.com", "g2.com", "capterra.com"
+            ];
+
+            extraServices.forEach(site => {
+                if (result.length >= 300) return;
+                const link = `https://${site}`;
+                if (used.has(link)) return;
+                used.add(link);
+                result.push({
+                    icon: "⭐",
+                    name: `Service ${site.split('.')[0]}`,
+                    category: "Услуги",
+                    desc: `Услуги — ${site}. Pay with ADNA.`,
+                    fullDesc: `${site} — платформа услуг. Оплата ADNA.`,
+                    price: "0.05% fee",
+                    link: link,
+                    platform: site
+                });
+            });
+
             return result;
         }
 
-        const allFunctions = generateFunctions();
+        const allFunctions = generateEcosystemServices();
 
         // ========== РЕНДЕР КАРТОЧЕК ==========
         function renderFunctions(filter = '') {
@@ -469,7 +546,6 @@
                 (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
             );
 
-            // Группировка по категориям
             const groups = {};
             filtered.forEach(f => {
                 if (!groups[f.category]) groups[f.category] = [];
@@ -477,25 +553,31 @@
             });
 
             let html = '';
-            const sortedCategories = Object.keys(groups).sort();
+            const sortedCategories = [
+                'Медицинские', 'Консалтинг', 'Юридические', 'Бухгалтерские', 'IT-услуги',
+                'Маркетинг', 'Дизайн', 'Образование', 'Страхование', 'Логистика',
+                'Охрана', 'Клининг', 'Строительные', 'Ремонтные', 'Автоуслуги', 'Услуги'
+            ];
+
             sortedCategories.forEach(cat => {
-                const items = groups[cat];
-                html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
-                items.slice(0, 20).forEach((f, index) => {
-                    const globalIndex = allFunctions.indexOf(f);
-                    html += `
-                        <div class="card" onclick="openModal(${globalIndex})">
-                            <div class="icon">${f.icon}</div>
-                            <div class="fname">${f.name}</div>
-                            <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
-                            <div class="click-hint">👆 Click for details</div>
-                        </div>
-                    `;
-                });
-                html += `</div>`;
+                if (groups[cat] && groups[cat].length > 0) {
+                    const items = groups[cat];
+                    html += `<h2>${cat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
+                    items.slice(0, 30).forEach((f, index) => {
+                        const globalIndex = allFunctions.indexOf(f);
+                        html += `
+                            <div class="card" onclick="openModal(${globalIndex})">
+                                <div class="icon">${f.icon}</div>
+                                <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
+                                <div class="fdesc">${f.desc.substring(0, 60)}${f.desc.length > 60 ? '...' : ''}</div>
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
             });
 
-            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
+            container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No services found</p>';
             document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
@@ -507,11 +589,11 @@
             document.getElementById('modalIcon').textContent = f.icon;
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = f.category;
-            document.getElementById('modalPrice').textContent = f.price || 'Contact for details';
+            document.getElementById('modalPrice').textContent = f.price || '🌿 Pay with ADNA';
             document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
-            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
-            document.getElementById('modalLink').href = f.link || 'https://www.solana.com';
-            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
+            document.getElementById('modalLink').href = f.link;
+            document.getElementById('modalMeta').textContent = '🌿 Ecosystem · Pay with ADNA';
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -529,7 +611,6 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // ========== ПОИСК ==========
         document.getElementById('searchInput').addEventListener('input', function() {
             renderFunctions(this.value);
         });
@@ -537,19 +618,19 @@
         // ========== ПЕРЕВОД ==========
         const translations = {
             en: {
-                title: '🌿 ADNA Ecosystem',
-                sub: 'Complete Ecosystem Overview · 50+ Unique Functions',
+                title: '🌿 ADNA Ecosystem & Services',
+                sub: '300+ Unique Services · Every Link Unique · Pay with ADNA',
                 walletLabel: 'ADNA Contract',
-                ecosystemLabel: 'Ecosystem Status',
                 buyLabel: 'Buy ADNA',
+                ecosystemLabel: 'Ecosystem',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
-                title: '🌿 Экосистема ADNA',
-                sub: 'Полный обзор экосистемы · 50+ уникальных функций',
+                title: '🌿 Экосистема и услуги ADNA',
+                sub: '300+ уникальных услуг · Каждая ссылка уникальна · Оплата ADNA',
                 walletLabel: 'Контракт ADNA',
-                ecosystemLabel: 'Статус экосистемы',
                 buyLabel: 'Купить ADNA',
+                ecosystemLabel: 'Экосистема',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
             }
         };
@@ -559,10 +640,10 @@
             currentLang = lang;
             const t = translations[lang] || translations.en;
             document.getElementById('mainTitle').innerText = t.title;
-            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('subhead').innerHTML = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
-            document.getElementById('ecosystemLabel').innerText = t.ecosystemLabel;
             document.getElementById('buyLabel').innerText = t.buyLabel;
+            document.getElementById('ecosystemLabel').innerText = t.ecosystemLabel;
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.dataset.key;
                 if (t[key]) el.innerText = t[key];
