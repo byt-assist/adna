@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Trading (1000+ Real Unique Links)</title>
+    <title>ADNA — Trading</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -141,13 +141,28 @@
     </div>
 
     <script>
-        // ========== 1000+ РЕАЛЬНЫХ УНИКАЛЬНЫХ ССЫЛОК ==========
-        function generateTradingFunctions() {
-            const result = [];
-            const used = new Set();
+        // ========== КАТЕГОРИИ НА АНГЛИЙСКОМ ==========
+        const categories = [
+            { id: "oil", name: "Oil & Gas", ru: "Нефтепродукты", icon: "🛢️" },
+            { id: "perfume", name: "Perfumery", ru: "Парфюмерия", icon: "🌸" },
+            { id: "chem", name: "Chemicals", ru: "Химикаты", icon: "🧪" },
+            { id: "fert", name: "Fertilizers", ru: "Удобрения", icon: "🌾" },
+            { id: "build", name: "Construction", ru: "Стройматериалы", icon: "🏗️" },
+            { id: "agri", name: "Agriculture", ru: "Сельхозпродукты", icon: "🌽" },
+            { id: "precious", name: "Precious Metals", ru: "Драгметаллы", icon: "💎" },
+            { id: "raw", name: "Raw Materials", ru: "Сырьё", icon: "⛏️" },
+            { id: "auto", name: "Automotive", ru: "Автотранспорт", icon: "🚗" },
+            { id: "service", name: "Services", ru: "Услуги", icon: "💼" },
+            { id: "sea", name: "Shipping", ru: "Морские перевозки", icon: "🚢" },
+            { id: "truck", name: "Trucking", ru: "Автоперевозки", icon: "🚛" },
+            { id: "energy", name: "Energy", ru: "Энергетика", icon: "⚡" },
+            { id: "metal", name: "Metals", ru: "Металлы", icon: "🔩" },
+            { id: "trade", name: "Import/Export", ru: "Экспорт/Импорт", icon: "📦" }
+        ];
 
-            // ===== НЕФТЕПРОДУКТЫ (50) =====
-            const oilSites = [
+        // ========== РЕАЛЬНЫЕ САЙТЫ ПО КАТЕГОРИЯМ ==========
+        const siteData = {
+            "Oil & Gas": [
                 "oilprice.com", "barchart.com", "cmegroup.com", "tradingview.com", "oilandgasiq.com",
                 "rigzone.com", "worldoil.com", "petroleum.co.uk", "opec.org", "iea.org",
                 "eia.gov", "platts.com", "argusmedia.com", "reuters.com", "bloomberg.com",
@@ -158,26 +173,8 @@
                 "petroleumtraders.com", "fueloil.com", "dieselprice.com", "gasolines.com", "aviationfuel.com",
                 "marinefuel.com", "lubricants.com", "bitumen.com", "kerosene.com", "propane.com",
                 "butane.com", "lpgprice.com", "methanol.org", "ethanol.com", "oilgas.com"
-            ];
-
-            oilSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🛢️",
-                    name: `Oil ${i + 1}`,
-                    category: "Нефтепродукты",
-                    desc: `Нефтепродукты — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по нефтепродуктам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ПАРФЮМЕРИЯ (50) — РЕАЛЬНЫЕ РАБОТАЮЩИЕ САЙТЫ =====
-            const perfumeSites = [
+            ],
+            "Perfumery": [
                 "fragrantica.com", "basenotes.net", "perfume.com", "fragrancex.com", "fragrancenet.com",
                 "luckyscent.com", "twistedlily.com", "scentbird.com", "chanel.com", "dior.com",
                 "tomford.com", "creed.com", "gucci.com", "versace.com", "armani.com",
@@ -188,26 +185,8 @@
                 "attar.com", "oud.com", "bukhoor.com", "perfumeoil.com", "bodymist.com",
                 "eaudeparfum.com", "eaudetoilette.com", "eaudecologne.com", "parfumextrait.com", "perfumesamples.com",
                 "vintageperfume.com", "nicheperfume.com", "luxuryperfume.com", "exclusiveperfume.com", "naturalperfume.com"
-            ];
-
-            perfumeSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🌸",
-                    name: `Perfume ${i + 1}`,
-                    category: "Парфюмерия",
-                    desc: `Парфюмерия — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по парфюмерии. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ХИМИКАТЫ (40) =====
-            const chemSites = [
+            ],
+            "Chemicals": [
                 "icis.com", "chemorbis.com", "echemi.com", "chemicalbook.com", "lookchem.com",
                 "chemnet.com", "alibaba.com", "made-in-china.com", "globalsources.com", "tradekey.com",
                 "chemicalmarket.com", "chemindustry.com", "chemicalsmarket.com", "chemicalprice.com", "methanol.org",
@@ -216,351 +195,108 @@
                 "nitricacid.com", "hydrochloricacid.com", "phosphoricacid.com", "aceticacid.com", "formicacid.com",
                 "acrylicacid.com", "stearicacid.com", "oleicacid.com", "palmiticacid.com", "urea.com",
                 "ammoniumnitrate.com", "potassiumchloride.com", "ammoniumsulfate.com", "superphosphate.com", "chemical.com"
-            ];
-
-            chemSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🧪",
-                    name: `Chem ${i + 1}`,
-                    category: "Химикаты",
-                    desc: `Химикаты — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по химикатам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== УДОБРЕНИЯ (30) =====
-            const fertSites = [
+            ],
+            "Fertilizers": [
                 "yara.com", "nutrien.com", "mosaicco.com", "phosagro.com", "eurochem.com",
                 "icl-group.com", "sqm.com", "k-plus-s.com", "cfindustries.com", "oci.nl",
                 "acron.ru", "uralchem.com", "fosagro.com", "ammofos.com", "fertilizergranules.com",
                 "fertilizerliquid.com", "fertilizerpowder.com", "fertilizercrystal.com", "watersolublefertilizer.com", "slowreleasefertilizer.com",
                 "bacterialfertilizer.com", "fungalfertilizer.com", "biofertilizer.com", "greenfertilizer.com", "humus.com",
                 "siderates.com", "micronutrient.com", "chelated.com", "nitrogenfertilizer.com", "phosphatefertilizer.com"
-            ];
-
-            fertSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🌾",
-                    name: `Fert ${i + 1}`,
-                    category: "Удобрения",
-                    desc: `Удобрения — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по удобрениям. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== СТРОЙМАТЕРИАЛЫ (30) =====
-            const buildSites = [
+            ],
+            "Construction": [
                 "alibaba.com", "made-in-china.com", "globalsources.com", "builddirect.com", "materialbank.com",
                 "construction.com", "building.co.uk", "architect.com", "metalbuilding.com", "concrete.com",
                 "steelconstruction.com", "timber.com", "bricks.com", "roofing.com", "drywall.com",
                 "insulation.com", "paint.com", "plumbing.com", "electrical.com", "glass.com",
                 "ceramic.com", "tiles.com", "flooring.com", "windows.com", "doors.com",
                 "cement.com", "sand.com", "gravel.com", "granite.com", "marble.com"
-            ];
-
-            buildSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🏗️",
-                    name: `Build ${i + 1}`,
-                    category: "Стройматериалы",
-                    desc: `Стройматериалы — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по стройматериалам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== СЕЛЬХОЗПРОДУКТЫ (30) =====
-            const agriSites = [
+            ],
+            "Agriculture": [
                 "cmegroup.com", "indexmundi.com", "tridge.com", "usda.gov", "fao.org",
                 "agmarket.com", "agricultural.com", "farming.com", "grain.com", "wheat.com",
                 "corn.com", "barley.com", "oats.com", "rye.com", "soybean.com",
                 "peas.com", "lentils.com", "beans.com", "sugar.com", "coffee.com",
                 "cocoa.com", "tea.com", "cotton.com", "flax.com", "wool.com",
                 "silk.com", "sunflower.com", "rapeseed.com", "peanut.com", "sesame.com"
-            ];
-
-            agriSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🌽",
-                    name: `Agri ${i + 1}`,
-                    category: "Сельхозпродукты",
-                    desc: `Сельхозпродукты — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по сельхозпродуктам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ДРАГМЕТАЛЛЫ (30) =====
-            const preciousSites = [
+            ],
+            "Precious Metals": [
                 "kitco.com", "bullionvault.com", "apmex.com", "jmbullion.com", "sdbullion.com",
                 "goldsilver.com", "monex.com", "amark.com", "goldcore.com", "silvergoldbull.com",
                 "bgasc.com", "monumentmetals.com", "boldpreciousmetals.com", "moneymetals.com", "usgoldbureau.com",
                 "goldprice.org", "silverprice.org", "platinumprice.org", "palladiumprice.org", "goldmining.com",
                 "silvermining.com", "diamond.com", "ruby.com", "emerald.com", "sapphire.com",
                 "pearl.com", "opal.com", "amethyst.com", "topaz.com", "garnet.com"
-            ];
-
-            preciousSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "💎",
-                    name: `Precious ${i + 1}`,
-                    category: "Драгметаллы",
-                    desc: `Драгметаллы — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по драгметаллам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== СЫРЬЁ (20) =====
-            const rawSites = [
+            ],
+            "Raw Materials": [
                 "lme.com", "shanghaimetal.com", "comex.com", "nymex.com", "sgx.com",
                 "tocom.com", "moex.com", "mineral.com", "ore.com", "coal.com",
                 "ironore.com", "copperore.com", "bauxite.com", "zincore.com", "leadore.com",
                 "nickelore.com", "lithiumore.com", "cobaltore.com", "rareearth.com", "quartz.com"
-            ];
-
-            rawSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "⛏️",
-                    name: `Raw ${i + 1}`,
-                    category: "Сырьё",
-                    desc: `Сырьё — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по сырью. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== АВТОТРАНСПОРТ (20) =====
-            const autoSites = [
+            ],
+            "Automotive": [
                 "autotrader.com", "cargurus.com", "cars.com", "truecar.com", "edmunds.com",
                 "autoblog.com", "motortrend.com", "carvana.com", "vroom.com", "shift.com",
                 "toyota.com", "honda.com", "bmw.com", "mercedes-benz.com", "audi.com",
                 "ford.com", "chevrolet.com", "nissan.com", "tesla.com", "volkswagen.com"
-            ];
-
-            autoSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🚗",
-                    name: `Auto ${i + 1}`,
-                    category: "Автотранспорт",
-                    desc: `Автотранспорт — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по автотранспорту. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== УСЛУГИ (15) =====
-            const serviceSites = [
+            ],
+            "Services": [
                 "upwork.com", "fiverr.com", "freelancer.com", "toptal.com", "guru.com",
                 "99designs.com", "designcrowd.com", "taskrabbit.com", "thumbtack.com", "handy.com",
                 "rover.com", "care.com", "consulting.com", "legal.com", "accounting.com"
-            ];
-
-            serviceSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "💼",
-                    name: `Service ${i + 1}`,
-                    category: "Услуги",
-                    desc: `Услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по услугам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== МОРСКИЕ ПЕРЕВОЗКИ (15) =====
-            const seaSites = [
+            ],
+            "Shipping": [
                 "marinetraffic.com", "vesselfinder.com", "clarksons.com", "balticstate.com", "lloydslist.com",
                 "shipserv.com", "marinelink.com", "containershipping.com", "tankershipping.com", "bulkershipping.com",
                 "reefership.com", "roroship.com", "heavyliftship.com", "lclship.com", "fclship.com"
-            ];
-
-            seaSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🚢",
-                    name: `Sea ${i + 1}`,
-                    category: "Морские перевозки",
-                    desc: `Морские перевозки — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по морским перевозкам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== АВТОПЕРЕВОЗКИ (15) =====
-            const truckSites = [
+            ],
+            "Trucking": [
                 "uship.com", "freightos.com", "cargomatic.com", "truckstop.com", "dat.com",
                 "transfix.com", "convoy.com", "loadsmart.com", "uberfreight.com", "flockfreight.com",
                 "freightbroker.com", "truckload.com", "ltl.com", "intermodal.com", "flatbed.com"
-            ];
-
-            truckSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🚛",
-                    name: `Truck ${i + 1}`,
-                    category: "Автоперевозки",
-                    desc: `Автоперевозки — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по автоперевозкам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ЭНЕРГЕТИКА (15) =====
-            const energySites = [
+            ],
+            "Energy": [
                 "eex.com", "ice.com", "cme.com", "newexchange.com", "aemo.com.au",
                 "iexindia.com", "krx.co.kr", "sgx.com", "tocom.co.jp", "electricity.com",
                 "naturalgas.com", "solarenergy.com", "windenergy.com", "hydroenergy.com", "nuclear.com"
-            ];
-
-            energySites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "⚡",
-                    name: `Energy ${i + 1}`,
-                    category: "Энергетика",
-                    desc: `Энергетика — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по энергетике. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== МЕТАЛЛЫ (15) =====
-            const metalSites = [
+            ],
+            "Metals": [
                 "lme.com", "shanghaimetal.com", "comex.com", "nymex.com", "sgx.com",
                 "tocom.com", "aluminum.com", "copper.com", "zinc.com", "lead.com",
                 "nickel.com", "steel.com", "titanium.com", "lithium.com", "cobalt.com"
-            ];
-
-            metalSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🔩",
-                    name: `Metal ${i + 1}`,
-                    category: "Металлы",
-                    desc: `Металлы — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по металлам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ЭКСПОРТ/ИМПОРТ (15) =====
-            const tradeSites = [
+            ],
+            "Import/Export": [
                 "alibaba.com", "globalsources.com", "made-in-china.com", "tradekey.com", "ec21.com",
                 "exporthub.com", "indiamart.com", "kompass.com", "thomasnet.com", "tradeindia.com",
                 "export.gov", "wto.org", "worldbank.org", "imf.org", "unctad.org"
-            ];
+            ]
+        };
 
-            tradeSites.forEach((site, i) => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "📦",
-                    name: `Trade ${i + 1}`,
-                    category: "Экспорт/Импорт",
-                    desc: `Экспорт/Импорт — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая платформа по экспорту/импорту. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
+        // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
+        function generateTradingFunctions() {
+            const result = [];
+            const used = new Set();
 
-            // ===== ГЕНЕРИРУЕМ ДОПОЛНИТЕЛЬНЫЕ УНИКАЛЬНЫЕ ССЫЛКИ ДО 1000+ =====
-            const extraSites = [
-                "oilandgas.com", "energyglobal.com", "petroleumworld.com", "oilnow.com", "gasexport.com",
-                "perfumeclub.com", "fragranceworld.com", "scentstore.com", "aromaessence.com", "perfumeboutique.com",
-                "chemworld.com", "chemicaltrade.com", "industrialchem.com", "chemportal.com", "chemicalexchange.com",
-                "fertilizerworld.com", "agrofert.com", "fertglobal.com", "plantfood.com", "soilnutrition.com",
-                "buildmart.com", "constructionhub.com", "buildingzone.com", "materialworld.com", "structurals.com",
-                "agriworld.com", "farmmarket.com", "cropglobal.com", "harvesttrade.com", "fieldcrops.com",
-                "goldbullion.com", "silvercoins.com", "platinumgroup.com", "palladiumtrade.com", "gemstones.com",
-                "rawmaterials.com", "resourceworld.com", "mineralhub.com", "oreportal.com", "commodityexchange.com",
-                "autoworld.com", "carhub.com", "vehiclemarket.com", "autoportal.com", "driveglobal.com",
-                "servicehub.com", "workglobal.com", "freelanceworld.com", "expertportal.com", "taskmarket.com",
-                "seaglobal.com", "shippinghub.com", "vesseltrade.com", "marineportal.com", "cargoworld.com",
-                "truckhub.com", "freightworld.com", "transportportal.com", "logisticshub.com", "deliveryglobal.com",
-                "energytrade.com", "powerhub.com", "gridglobal.com", "solarworld.com", "windhub.com",
-                "metalhub.com", "steelglobal.com", "coppertrade.com", "aluminumhub.com", "alloyportal.com",
-                "tradeportal.com", "exportworld.com", "importglobal.com", "b2bhub.com", "trademarket.com"
-            ];
-
-            extraSites.forEach((site, i) => {
-                if (result.length >= 1050) return;
-                const link = `https://www.${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                const categories = ["Нефтепродукты", "Парфюмерия", "Химикаты", "Удобрения", "Стройматериалы", "Сельхозпродукты", "Драгметаллы", "Сырьё", "Автотранспорт", "Услуги", "Морские перевозки", "Автоперевозки", "Энергетика", "Металлы", "Экспорт/Импорт"];
-                const cat = categories[i % categories.length];
-                const icons = ["🛢️", "🌸", "🧪", "🌾", "🏗️", "🌽", "💎", "⛏️", "🚗", "💼", "🚢", "🚛", "⚡", "🔩", "📦"];
-                const icon = icons[i % icons.length];
-                result.push({
-                    icon: icon,
-                    name: `${cat} ${i + 1}`,
-                    category: cat,
-                    desc: `${cat} — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — платформа в категории ${cat}. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
+            // Проходим по категориям
+            categories.forEach(cat => {
+                const sites = siteData[cat.name] || [];
+                let counter = 0;
+                sites.forEach(site => {
+                    const link = `https://${site}`;
+                    if (used.has(link)) return;
+                    used.add(link);
+                    counter++;
+                    result.push({
+                        icon: cat.icon,
+                        name: site.split('.')[0].charAt(0).toUpperCase() + site.split('.')[0].slice(1),
+                        category: cat.name,
+                        categoryRu: cat.ru,
+                        desc: `${cat.name} — ${site.split('.')[0]}. Pay with ADNA.`,
+                        descRu: `${cat.ru} — ${site.split('.')[0]}. Оплата ADNA.`,
+                        price: "0.05% fee",
+                        link: link,
+                        platform: site
+                    });
                 });
             });
 
@@ -570,6 +306,14 @@
         const allFunctions = generateTradingFunctions();
 
         // ========== РЕНДЕР КАРТОЧЕК ==========
+        let currentLang = 'en';
+
+        function getCategoryDisplay(catName) {
+            const cat = categories.find(c => c.name === catName);
+            if (!cat) return catName;
+            return currentLang === 'en' ? cat.name : cat.ru;
+        }
+
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
@@ -577,34 +321,36 @@
             if (search) filtered = allFunctions.filter(f =>
                 f.name.toLowerCase().includes(search) ||
                 f.desc.toLowerCase().includes(search) ||
-                f.category.toLowerCase().includes(search) ||
-                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+                f.category.toLowerCase().includes(search)
             );
 
             const groups = {};
             filtered.forEach(f => {
-                if (!groups[f.category]) groups[f.category] = [];
-                groups[f.category].push(f);
+                const displayCat = getCategoryDisplay(f.category);
+                if (!groups[displayCat]) groups[displayCat] = [];
+                groups[displayCat].push(f);
             });
 
             let html = '';
             const sortedCategories = [
-                'Нефтепродукты', 'Парфюмерия', 'Химикаты', 'Удобрения', 'Стройматериалы',
-                'Сельхозпродукты', 'Драгметаллы', 'Сырьё', 'Автотранспорт', 'Услуги',
-                'Морские перевозки', 'Автоперевозки', 'Энергетика', 'Металлы', 'Экспорт/Импорт'
+                'Oil & Gas', 'Perfumery', 'Chemicals', 'Fertilizers', 'Construction',
+                'Agriculture', 'Precious Metals', 'Raw Materials', 'Automotive', 'Services',
+                'Shipping', 'Trucking', 'Energy', 'Metals', 'Import/Export'
             ];
 
-            sortedCategories.forEach(cat => {
-                if (groups[cat] && groups[cat].length > 0) {
-                    const items = groups[cat];
-                    html += `<h2>${cat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
+            sortedCategories.forEach(catName => {
+                const displayCat = currentLang === 'en' ? catName : categories.find(c => c.name === catName)?.ru || catName;
+                const items = groups[displayCat];
+                if (items && items.length > 0) {
+                    html += `<h2>${displayCat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
                     items.slice(0, 70).forEach((f, index) => {
                         const globalIndex = allFunctions.indexOf(f);
+                        const desc = currentLang === 'en' ? f.desc : f.descRu;
                         html += `
                             <div class="card" onclick="openModal(${globalIndex})">
                                 <div class="icon">${f.icon}</div>
                                 <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
-                                <div class="fdesc">${f.desc.substring(0, 60)}${f.desc.length > 60 ? '...' : ''}</div>
+                                <div class="fdesc">${desc.substring(0, 60)}${desc.length > 60 ? '...' : ''}</div>
                             </div>
                         `;
                     });
@@ -621,11 +367,14 @@
             const f = allFunctions[index];
             if (!f) return;
 
+            const desc = currentLang === 'en' ? f.desc : f.descRu;
+            const categoryDisplay = currentLang === 'en' ? f.category : f.categoryRu;
+
             document.getElementById('modalIcon').textContent = f.icon;
             document.getElementById('modalTitle').textContent = f.name;
-            document.getElementById('modalCategory').textContent = f.category;
-            document.getElementById('modalPrice').textContent = f.price || '📈 Pay with ADNA';
-            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalCategory').textContent = categoryDisplay;
+            document.getElementById('modalPrice').textContent = '📈 Pay with ADNA';
+            document.getElementById('modalDescFull').textContent = desc + '\n\nCategory: ' + categoryDisplay + '\n\n✅ Accepted payment: ADNA token\n\nClick "Visit Website" to start trading with ADNA.';
             document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
             document.getElementById('modalMeta').textContent = '📈 Trading · Pay with ADNA';
@@ -668,7 +417,6 @@
             }
         };
 
-        let currentLang = 'en';
         function setLanguage(lang) {
             currentLang = lang;
             const t = translations[lang] || translations.en;
@@ -682,6 +430,7 @@
             });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
+            renderFunctions(document.getElementById('searchInput').value);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
