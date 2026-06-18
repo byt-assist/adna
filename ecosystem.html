@@ -24,6 +24,8 @@
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .wallet-box a { color: #d4a843; }
         .wallet-box a:hover { text-decoration: underline; }
+        .wallet-box .copy-wallet-btn { background: #4caf50; color: #fff; border: none; border-radius: 4px; padding: 2px 10px; cursor: pointer; font-size: 0.6rem; font-family: sans-serif; transition: 0.2s; }
+        .wallet-box .copy-wallet-btn:hover { background: #66bb6a; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.1rem; font-size: 0.7rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
         .btn-pay { background: #4caf50; color: #fff; padding: 0.2rem 0.6rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; font-size: 0.6rem; margin-top: 0.2rem; }
@@ -63,7 +65,7 @@
         .payment-modal .pay-icon { font-size: 3rem; }
         .payment-modal .pay-title { font-size: 1.5rem; font-weight: 700; color: #4caf50; }
         .pay-badge { background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.1rem 0.4rem; font-size: 0.55rem; color: #d4a843; display: inline-block; margin-left: 0.3rem; }
-
+        .payment-wallet-display { color: #4caf50; font-family: monospace; font-size: 0.7rem; }
         @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } .payment-modal { padding: 1.5rem; } }
     </style>
 </head>
@@ -98,6 +100,8 @@
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
             <br>🌿 <span id="ecosystemLabel">Ecosystem</span>: 300+ Services · 16 Categories · Pay with ADNA
+            <br>💳 <strong>Payment Wallet:</strong> <span class="payment-wallet-display" id="displayWallet">CVzSC3bBHqxPNd3L2GJFVxFRJAAV6DAa7euFQU5NBAq3</span>
+            <button class="copy-wallet-btn" onclick="copyDisplayWallet()">📋 Copy</button>
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
@@ -174,6 +178,26 @@
     <script>
         // ===== КОШЕЛЁК ДЛЯ ПРИЁМА ОПЛАТЫ =====
         const PAYMENT_WALLET = "CVzSC3bBHqxPNd3L2GJFVxFRJAAV6DAa7euFQU5NBAq3";
+
+        // ===== КОПИРОВАНИЕ КОШЕЛЬКА С СТРАНИЦЫ =====
+        function copyDisplayWallet() {
+            const wallet = document.getElementById('displayWallet').textContent;
+            navigator.clipboard.writeText(wallet).then(() => {
+                const btn = event.target;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => btn.textContent = '📋 Copy', 2000);
+            }).catch(() => {
+                const input = document.createElement('input');
+                input.value = wallet;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                const btn = event.target;
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => btn.textContent = '📋 Copy', 2000);
+            });
+        }
 
         // ===== ФУНКЦИЯ ОПЛАТЫ =====
         function openPaymentModal(serviceName, price) {
@@ -343,11 +367,7 @@
 
         function generateEcosystemFunctions() {
             const result = [];
-
-            // Добавляем BRT Diagnostics первым
             result.push(brtDiagnostics);
-
-            // Проходим по категориям
             categories.forEach(cat => {
                 const sites = siteData[cat.name] || [];
                 sites.forEach(site => {
@@ -366,13 +386,12 @@
                     });
                 });
             });
-
             return result;
         }
 
         const allFunctions = generateEcosystemFunctions();
 
-        // ========== РЕНДЕР КАРТОЧЕК (ИСПРАВЛЕН) ==========
+        // ========== РЕНДЕР КАРТОЧЕК ==========
         function getCategoryDisplay(catName) {
             const cat = categories.find(c => c.name === catName);
             if (!cat) return catName;
@@ -391,7 +410,6 @@
                 );
             }
 
-            // Группируем по отображаемому имени категории
             const groups = {};
             filtered.forEach(f => {
                 const displayCat = getCategoryDisplay(f.category);
@@ -399,17 +417,14 @@
                 groups[displayCat].push(f);
             });
 
-            // Сортируем категории в нужном порядке
             const sortedCategoryNames = categories.map(cat => {
                 return currentLang === 'en' ? cat.name : cat.ru;
             });
 
-            // Строим список ключей для отображения в правильном порядке
             const orderedKeys = [];
             sortedCategoryNames.forEach(catName => {
                 if (groups[catName]) orderedKeys.push(catName);
             });
-            // Добавляем остальные категории, которых нет в списке
             Object.keys(groups).forEach(key => {
                 if (!orderedKeys.includes(key)) orderedKeys.push(key);
             });
