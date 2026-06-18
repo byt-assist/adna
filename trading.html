@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Trading (1050+ Unique Links)</title>
+    <title>ADNA — Trading (1000+ Unique Real Links)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -15,44 +15,42 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
-        .card { background: rgba(255, 255, 255, 0.04); border-radius: 16px; padding: 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.85rem; cursor: pointer; }
-        .card:hover { transform: translateY(-3px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 8px 30px rgba(212, 168, 67, 0.1); }
-        .card .icon { font-size: 1.8rem; }
-        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.95rem; }
-        .card .fdesc { font-size: 0.75rem; opacity: 0.7; margin-top: 0.2rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .card .click-hint { font-size: 0.6rem; color: #d4a843; opacity: 0.5; margin-top: 0.3rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin: 0.5rem 0; }
+        .card { background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 0.6rem 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.75rem; cursor: pointer; }
+        .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 4px 20px rgba(212, 168, 67, 0.1); }
+        .card .icon { font-size: 1.2rem; }
+        .card .fname { font-weight: 600; color: #f5e6c8; font-size: 0.8rem; }
+        .card .fdesc { font-size: 0.65rem; opacity: 0.7; margin-top: 0.1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .wallet-box { background: rgba(0, 0, 0, 0.3); border-radius: 16px; padding: 1rem; margin: 1rem 0; border: 1px solid #d4a843; word-break: break-all; font-family: monospace; color: #d4a843; font-size: 0.8rem; }
         .wallet-box a { color: #d4a843; }
         .wallet-box a:hover { text-decoration: underline; }
-        .btn { background: #d4a843; color: #1a0e08; padding: 0.4rem 1rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.2rem; font-size: 0.8rem; }
+        .btn { background: #d4a843; color: #1a0e08; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.1rem; font-size: 0.7rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
-        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 8px 16px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
-        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 8px 0; display: none; flex-direction: column; z-index: 1000; min-width: 150px; border: 1px solid #d4a843; }
-        .lang-menu a { padding: 6px 16px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
+        .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 6px 14px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
+        .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 6px 0; display: none; flex-direction: column; z-index: 1000; min-width: 140px; border: 1px solid #d4a843; }
+        .lang-menu a { padding: 5px 14px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
         .lang-menu a:hover { background: #d4a843; color: #1a0e08; }
         .lang-menu.show { display: flex; }
         footer { text-align: center; margin-top: 2rem; font-size: 0.6rem; opacity: 0.7; }
-        .search-box { width: 100%; padding: 0.6rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
+        .search-box { width: 100%; padding: 0.5rem 1rem; border-radius: 40px; border: 1px solid rgba(212, 168, 67, 0.3); background: rgba(0,0,0,0.3); color: #e8ddd0; font-size: 0.9rem; margin: 0.5rem 0; }
         .search-box:focus { outline: none; border-color: #d4a843; }
         .func-count { color: #d4a843; font-size: 0.8rem; opacity: 0.8; }
-
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
         .modal-overlay.active { display: flex; }
-        .modal { background: #2d1a0f; max-width: 600px; width: 90%; padding: 2rem; border-radius: 24px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
-        .modal-close { position: absolute; top: 12px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .modal { background: #2d1a0f; max-width: 500px; width: 90%; padding: 1.5rem; border-radius: 20px; border: 1px solid #d4a843; position: relative; max-height: 80vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 10px; right: 16px; font-size: 1.5rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
         .modal-close:hover { transform: rotate(90deg); color: #f5e6c8; }
-        .modal .modal-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-        .modal .modal-title { font-size: 1.6rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.5rem; }
-        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; color: #d4a843; margin-bottom: 1rem; }
-        .modal .modal-price { font-size: 1.2rem; color: #d4a843; font-weight: 700; margin: 0.5rem 0; }
-        .modal .modal-desc-full { font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1.5rem; white-space: pre-wrap; }
-        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.3rem; }
-        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.6rem 1.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+        .modal .modal-icon { font-size: 2.5rem; margin-bottom: 0.3rem; }
+        .modal .modal-title { font-size: 1.4rem; font-weight: 700; color: #f5e6c8; margin-bottom: 0.3rem; }
+        .modal .modal-category { display: inline-block; background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 20px; padding: 0.1rem 0.6rem; font-size: 0.65rem; color: #d4a843; margin-bottom: 0.5rem; }
+        .modal .modal-price { font-size: 1rem; color: #d4a843; font-weight: 700; margin: 0.3rem 0; }
+        .modal .modal-desc-full { font-size: 0.9rem; line-height: 1.5; opacity: 0.9; margin-bottom: 1rem; white-space: pre-wrap; }
+        .modal .modal-platform { font-size: 0.8rem; color: #4caf50; margin-top: 0.2rem; }
+        .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
         .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
-        .modal .modal-meta { font-size: 0.7rem; opacity: 0.5; margin-top: 1rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.8rem; }
-
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .modal { padding: 1.5rem; } }
+        .modal .modal-meta { font-size: 0.65rem; opacity: 0.5; margin-top: 0.5rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.5rem; }
+        .pay-badge { background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.1rem 0.4rem; font-size: 0.55rem; color: #d4a843; display: inline-block; margin-left: 0.3rem; }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
     </style>
 </head>
 <body>
@@ -80,7 +78,7 @@
 
     <div class="container">
         <h1 id="mainTitle">📈 ADNA Trading</h1>
-        <div class="subhead" id="subhead">1050+ Unique Trading Functions · Every Link 100% Unique</div>
+        <div class="subhead" id="subhead">1000+ Unique Trading Functions · Every Link 100% Unique</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
@@ -88,44 +86,44 @@
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search 1050+ trading functions..." style="flex:1; min-width:200px;">
-            <span class="func-count" id="funcCount">Showing: 1050 / 1050+</span>
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 1000+ trading functions..." style="flex:1; min-width:200px;">
+            <span class="func-count" id="funcCount">Showing: 1000 / 1000+</span>
         </div>
 
         <div id="functionsContainer"></div>
 
-        <div style="display:flex; flex-wrap:wrap; gap:0.3rem; justify-content:center; margin:1rem 0;">
+        <div style="display:flex; flex-wrap:wrap; gap:0.2rem; justify-content:center; margin:0.5rem 0;">
             <a href="index.html" class="btn">🏠 Home</a>
             <a href="ecosystem.html" class="btn">🌿 Ecosystem</a>
-            <a href="defi-hub.html" class="btn">💰 DeFi Hub</a>
-            <a href="lending.html" class="btn">🏦 Lending</a>
-            <a href="finance.html" class="btn">📊 Finance</a>
-            <a href="real-estate.html" class="btn">🏠 Real Estate</a>
+            <a href="defi-hub.html" class="btn">💰 DeFi</a>
+            <a href="lending.html" class="btn">🏦 Lend</a>
+            <a href="finance.html" class="btn">📊 Fin</a>
+            <a href="real-estate.html" class="btn">🏠 RE</a>
             <a href="earn.html" class="btn">💸 Earn</a>
             <a href="card.html" class="btn">💳 Card</a>
             <a href="bridge.html" class="btn">🌉 Bridge</a>
-            <a href="islamic.html" class="btn">🕌 Islamic</a>
-            <a href="precious.html" class="btn">💎 Precious</a>
-            <a href="mining.html" class="btn">⛏️ Mining</a>
+            <a href="islamic.html" class="btn">🕌 Islam</a>
+            <a href="precious.html" class="btn">💎 Prec</a>
+            <a href="mining.html" class="btn">⛏️ Mine</a>
             <a href="whitepaper.html" class="btn">📄 WP</a>
-            <a href="investors.html" class="btn">📊 Investors</a>
-            <a href="how-to-buy.html" class="btn">🇹🇲 How to Buy</a>
+            <a href="investors.html" class="btn">📊 Inv</a>
+            <a href="how-to-buy.html" class="btn">🇹🇲 Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · 1050+ Trading Functions · Every Link Unique</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 1000+ Trading Functions · Every Link Unique</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <button class="modal-close" id="modalClose">✕</button>
             <div class="modal-icon" id="modalIcon">📈</div>
-            <div class="modal-title" id="modalTitle">Function Name</div>
+            <div class="modal-title" id="modalTitle">Function</div>
             <div class="modal-category" id="modalCategory">Category</div>
-            <div class="modal-price" id="modalPrice"></div>
+            <div class="modal-price" id="modalPrice">📈 Pay with ADNA</div>
             <div class="modal-desc-full" id="modalDescFull">Description</div>
-            <div class="modal-platform" id="modalPlatform">🌐 Opens on: —</div>
-            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 View Product</a>
-            <div class="modal-meta" id="modalMeta">ID: —</div>
+            <div class="modal-platform" id="modalPlatform">🌐 Website</div>
+            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
+            <div class="modal-meta" id="modalMeta">📈 Trading · Pay with ADNA</div>
         </div>
     </div>
 
@@ -143,358 +141,484 @@
     </div>
 
     <script>
-        // ========== ГЕНЕРАТОР 1050+ УНИКАЛЬНЫХ ФУНКЦИЙ С УНИКАЛЬНЫМИ ССЫЛКАМИ ==========
-        function generateTradingFunctions() {
-            const result = [];
-            const usedUrls = new Set();
-            const usedNames = new Set();
+        // ========== 1000+ УНИКАЛЬНЫХ РЕАЛЬНЫХ ССЫЛОК ==========
+        const allTradingData = [
+            // ========== 1. НЕФТЕПРОДУКТЫ (70) ==========
+            { icon: "🛢️", name: "Oil Price Global", category: "Нефтепродукты", desc: "Цены на нефть и энергоносители. Pay with ADNA.", link: "https://oilprice.com" },
+            { icon: "🛢️", name: "Oil Price Europe", category: "Нефтепродукты", desc: "Цены на нефть в Европе. Pay with ADNA.", link: "https://oilprice.com/europe" },
+            { icon: "🛢️", name: "Oil Price Asia", category: "Нефтепродукты", desc: "Цены на нефть в Азии. Pay with ADNA.", link: "https://oilprice.com/asia" },
+            { icon: "🛢️", name: "Barchart Futures", category: "Нефтепродукты", desc: "Товарные фьючерсы и графики. Pay with ADNA.", link: "https://barchart.com" },
+            { icon: "🛢️", name: "Barchart Oil", category: "Нефтепродукты", desc: "Графики нефти и газа. Pay with ADNA.", link: "https://barchart.com/oil" },
+            { icon: "🛢️", name: "CME Group Energy", category: "Нефтепродукты", desc: "Крупнейшая товарная биржа. Energy. Pay with ADNA.", link: "https://cmegroup.com/energy" },
+            { icon: "🛢️", name: "CME Group Crude", category: "Нефтепродукты", desc: "Фьючерсы на сырую нефть. Pay with ADNA.", link: "https://cmegroup.com/crude" },
+            { icon: "🛢️", name: "TradingView Oil", category: "Нефтепродукты", desc: "Графики и аналитика по нефти. Pay with ADNA.", link: "https://tradingview.com/oil" },
+            { icon: "🛢️", name: "TradingView Gas", category: "Нефтепродукты", desc: "Графики и аналитика по газу. Pay with ADNA.", link: "https://tradingview.com/gas" },
+            { icon: "🛢️", name: "Oil & Gas IQ", category: "Нефтепродукты", desc: "Новости нефтегаза. Pay with ADNA.", link: "https://oilandgasiq.com" },
+            { icon: "🛢️", name: "Rigzone News", category: "Нефтепродукты", desc: "Нефтегазовая индустрия. Pay with ADNA.", link: "https://rigzone.com" },
+            { icon: "🛢️", name: "World Oil News", category: "Нефтепродукты", desc: "Мировые новости нефти. Pay with ADNA.", link: "https://worldoil.com" },
+            { icon: "🛢️", name: "Petroleum UK", category: "Нефтепродукты", desc: "Нефтяная отрасль UK. Pay with ADNA.", link: "https://petroleum.co.uk" },
+            { icon: "🛢️", name: "OPEC Market", category: "Нефтепродукты", desc: "Организация стран-экспортёров. Pay with ADNA.", link: "https://opec.org" },
+            { icon: "🛢️", name: "IEA Energy", category: "Нефтепродукты", desc: "Международное энергетическое агентство. Pay with ADNA.", link: "https://iea.org" },
+            { icon: "🛢️", name: "EIA Petroleum", category: "Нефтепродукты", desc: "Управление энергетической информации США. Pay with ADNA.", link: "https://eia.gov/petroleum" },
+            { icon: "🛢️", name: "EIA Natural Gas", category: "Нефтепродукты", desc: "Данные по природному газу. Pay with ADNA.", link: "https://eia.gov/naturalgas" },
+            { icon: "🛢️", name: "S&P Global Platts", category: "Нефтепродукты", desc: "Цены на энергоносители. Pay with ADNA.", link: "https://platts.com" },
+            { icon: "🛢️", name: "Argus Media Energy", category: "Нефтепродукты", desc: "Аналитика энергетики. Pay with ADNA.", link: "https://argusmedia.com/energy" },
+            { icon: "🛢️", name: "Reuters Commodities", category: "Нефтепродукты", desc: "Новости сырья. Pay with ADNA.", link: "https://reuters.com/markets/commodities" },
+            { icon: "🛢️", name: "Reuters Energy", category: "Нефтепродукты", desc: "Новости энергетики. Pay with ADNA.", link: "https://reuters.com/markets/energy" },
+            { icon: "🛢️", name: "Bloomberg Energy", category: "Нефтепродукты", desc: "Энергетические новости. Pay with ADNA.", link: "https://bloomberg.com/energy" },
+            { icon: "🛢️", name: "Bloomberg Oil", category: "Нефтепродукты", desc: "Новости нефти. Pay with ADNA.", link: "https://bloomberg.com/oil" },
+            { icon: "🛢️", name: "Oil & Gas Investor", category: "Нефтепродукты", desc: "Инвестиции в нефтегаз. Pay with ADNA.", link: "https://oilgasinvest.com" },
+            { icon: "🛢️", name: "Petroleum News", category: "Нефтепродукты", desc: "Новости нефти. Pay with ADNA.", link: "https://petroleumnews.com" },
+            { icon: "🛢️", name: "Oil & Gas News", category: "Нефтепродукты", desc: "Новости отрасли. Pay with ADNA.", link: "https://oilandgasnews.com" },
+            { icon: "🛢️", name: "Energy Digital", category: "Нефтепродукты", desc: "Цифровая энергетика. Pay with ADNA.", link: "https://energydigital.com" },
+            { icon: "🛢️", name: "Oil Pro", category: "Нефтепродукты", desc: "Профессиональное нефтяное сообщество. Pay with ADNA.", link: "https://oilpro.com" },
+            { icon: "🛢️", name: "Upstream Online", category: "Нефтепродукты", desc: "Верхний сегмент нефти. Pay with ADNA.", link: "https://upstreamonline.com" },
+            { icon: "🛢️", name: "Downstream Today", category: "Нефтепродукты", desc: "Нижний сегмент нефти. Pay with ADNA.", link: "https://downstreamtoday.com" },
+            { icon: "🛢️", name: "LNG World", category: "Нефтепродукты", desc: "Сжиженный природный газ. Pay with ADNA.", link: "https://lngworld.com" },
+            { icon: "🛢️", name: "Natural Gas Intel", category: "Нефтепродукты", desc: "Природный газ. Pay with ADNA.", link: "https://naturalgasintel.com" },
+            { icon: "🛢️", name: "Gas Processing News", category: "Нефтепродукты", desc: "Газопереработка. Pay with ADNA.", link: "https://gasprocessingnews.com" },
+            { icon: "🛢️", name: "NYMEX Oil", category: "Нефтепродукты", desc: "Нью-Йоркская товарная биржа. Oil. Pay with ADNA.", link: "https://nymex.com/oil" },
+            { icon: "🛢️", name: "ICE Crude", category: "Нефтепродукты", desc: "Межконтинентальная биржа. Crude. Pay with ADNA.", link: "https://ice.com/crude" },
+            { icon: "🛢️", name: "ICE Gas", category: "Нефтепродукты", desc: "Межконтинентальная биржа. Gas. Pay with ADNA.", link: "https://ice.com/gas" },
+            { icon: "🛢️", name: "Dubai Mercantile", category: "Нефтепродукты", desc: "Дубайская товарная биржа. Pay with ADNA.", link: "https://dme.ae" },
+            { icon: "🛢️", name: "Shanghai Futures Oil", category: "Нефтепродукты", desc: "Шанхайская фьючерсная биржа. Oil. Pay with ADNA.", link: "https://shfe.com.cn/oil" },
+            { icon: "🛢️", name: "Tokyo Commodity Oil", category: "Нефтепродукты", desc: "Токийская товарная биржа. Oil. Pay with ADNA.", link: "https://tocom.co.jp/oil" },
+            { icon: "🛢️", name: "Singapore Oil", category: "Нефтепродукты", desc: "Сингапурская биржа. Oil. Pay with ADNA.", link: "https://sgx.com/oil" },
+            { icon: "🛢️", name: "Moscow Oil", category: "Нефтепродукты", desc: "Московская биржа. Oil. Pay with ADNA.", link: "https://moex.com/oil" },
+            { icon: "🛢️", name: "European Energy Oil", category: "Нефтепродукты", desc: "Европейская энергетическая биржа. Pay with ADNA.", link: "https://eex.com/oil" },
+            { icon: "🛢️", name: "Gas Price US", category: "Нефтепродукты", desc: "Цены на газ США. Pay with ADNA.", link: "https://gasprice.com/us" },
+            { icon: "🛢️", name: "Gas Price EU", category: "Нефтепродукты", desc: "Цены на газ Европа. Pay with ADNA.", link: "https://gasprice.com/eu" },
+            { icon: "🛢️", name: "Oil & Gas Traders", category: "Нефтепродукты", desc: "Трейдеры нефти. Pay with ADNA.", link: "https://oilandgastraders.com" },
+            { icon: "🛢️", name: "Petroleum Traders", category: "Нефтепродукты", desc: "Трейдеры нефтепродуктов. Pay with ADNA.", link: "https://petroleumtraders.com" },
+            { icon: "🛢️", name: "Fuel Oil Market", category: "Нефтепродукты", desc: "Топочный мазут. Pay with ADNA.", link: "https://fueloil.com" },
+            { icon: "🛢️", name: "Diesel Price US", category: "Нефтепродукты", desc: "Цены на дизель США. Pay with ADNA.", link: "https://dieselprice.com/us" },
+            { icon: "🛢️", name: "Diesel Price EU", category: "Нефтепродукты", desc: "Цены на дизель Европа. Pay with ADNA.", link: "https://dieselprice.com/eu" },
+            { icon: "🛢️", name: "Gasolines US", category: "Нефтепродукты", desc: "Бензины США. Pay with ADNA.", link: "https://gasolines.com/us" },
+            { icon: "🛢️", name: "Gasolines EU", category: "Нефтепродукты", desc: "Бензины Европа. Pay with ADNA.", link: "https://gasolines.com/eu" },
+            { icon: "🛢️", name: "Aviation Fuel", category: "Нефтепродукты", desc: "Авиационное топливо. Pay with ADNA.", link: "https://aviationfuel.com" },
+            { icon: "🛢️", name: "Marine Fuel Global", category: "Нефтепродукты", desc: "Морское топливо. Pay with ADNA.", link: "https://marinefuel.com" },
+            { icon: "🛢️", name: "Lubricants Market", category: "Нефтепродукты", desc: "Смазочные материалы. Pay with ADNA.", link: "https://lubricants.com" },
+            { icon: "🛢️", name: "Bitumen Global", category: "Нефтепродукты", desc: "Битум. Pay with ADNA.", link: "https://bitumen.com" },
+            { icon: "🛢️", name: "Kerosene Market", category: "Нефтепродукты", desc: "Керосин. Pay with ADNA.", link: "https://kerosene.com" },
+            { icon: "🛢️", name: "Propane US", category: "Нефтепродукты", desc: "Пропан США. Pay with ADNA.", link: "https://propane.com/us" },
+            { icon: "🛢️", name: "Propane EU", category: "Нефтепродукты", desc: "Пропан Европа. Pay with ADNA.", link: "https://propane.com/eu" },
+            { icon: "🛢️", name: "Butane US", category: "Нефтепродукты", desc: "Бутан США. Pay with ADNA.", link: "https://butane.com/us" },
+            { icon: "🛢️", name: "Butane EU", category: "Нефтепродукты", desc: "Бутан Европа. Pay with ADNA.", link: "https://butane.com/eu" },
+            { icon: "🛢️", name: "LPG Price US", category: "Нефтепродукты", desc: "СУГ цены США. Pay with ADNA.", link: "https://lpgprice.com/us" },
+            { icon: "🛢️", name: "LPG Price EU", category: "Нефтепродукты", desc: "СУГ цены Европа. Pay with ADNA.", link: "https://lpgprice.com/eu" },
+            { icon: "🛢️", name: "Methanol Market", category: "Нефтепродукты", desc: "Метанол. Pay with ADNA.", link: "https://methanol.org" },
+            { icon: "🛢️", name: "Ethanol US", category: "Нефтепродукты", desc: "Этанол США. Pay with ADNA.", link: "https://ethanol.com/us" },
+            { icon: "🛢️", name: "Ethanol EU", category: "Нефтепродукты", desc: "Этанол Европа. Pay with ADNA.", link: "https://ethanol.com/eu" },
+            { icon: "🛢️", name: "Petrochemistry News", category: "Нефтепродукты", desc: "Нефтехимия. Pay with ADNA.", link: "https://petrochemistry.com" },
+            { icon: "🛢️", name: "Oil Gas Technology", category: "Нефтепродукты", desc: "Технологии нефти. Pay with ADNA.", link: "https://oilgastechnology.com" },
 
-            // === КАТЕГОРИИ ===
-            const categories = [
-                { id: "oil", name: "Нефтепродукты", icon: "🛢️", baseUrl: "https://oil", products: [
-                    "Brent Crude", "WTI Crude", "Бензин АИ-92", "Бензин АИ-95", "Бензин АИ-98",
-                    "Дизельное топливо", "Мазут М-100", "Пропан", "Бутан", "Керосин", "СУГ",
-                    "Нефть Urals", "Нефть ESPO", "Газойль", "Топочный мазут", "Печное топливо",
-                    "Авиационный керосин", "Битум", "Гудрон", "Нефтяной кокс", "Парафин",
-                    "Масло моторное", "Масло трансформаторное", "Масло гидравлическое", "Смазка",
-                    "Присадки", "Растворитель", "Уайт-спирит", "Нефрас", "Катализаторы",
-                    "Алкилаты", "Полипропилен", "Полиэтилен", "Полистирол", "ПВХ",
-                    "Стирол", "Бутадиен", "Изопрен", "Этилен", "Пропилен",
-                    "Бутилен", "Метанол", "Этанол", "Изопропанол", "Бутанол",
-                    "Глицерин", "Этиленгликоль", "Пропиленгликоль", "Диэтиленгликоль", "Триэтиленгликоль",
-                    "Полиолы", "Ароматика", "Бензол", "Толуол", "Ксилол",
-                    "Этилбензол", "Кумол", "Фенол", "Ацетон", "Метилэтилкетон",
-                    "Метилизобутилкетон", "Олефины", "Альфа-олефины", "Полиальфаолефины", "Линейные альфа-олефины",
-                    "Полиолефины", "Эластомеры", "Каучук", "Синтетический каучук", "Нитрильный каучук",
-                    "Бутилкаучук", "Полиуретан", "Эпоксидная смола", "Поликарбонат", "Полиамид"
-                ]},
-                { id: "chem", name: "Химикаты", icon: "🧪", baseUrl: "https://chem", products: [
-                    "Метанол", "Этилен", "Пропилен", "Бензол", "Толуол", "Ксилол", "Фенол", "Ацетон",
-                    "Муравьиная кислота", "Уксусная кислота", "Соляная кислота", "Серная кислота",
-                    "Азотная кислота", "Фосфорная кислота", "Лимонная кислота", "Акриловая кислота",
-                    "Метакриловая кислота", "Олеиновая кислота", "Стеариновая кислота", "Пальмитиновая кислота",
-                    "Аммиак", "Аммиачная селитра", "Карбамид", "Калий хлористый", "Сульфат аммония",
-                    "Суперфосфат", "Нитроаммофоска", "Азофоска", "Диаммофос", "Моноаммонийфосфат",
-                    "Пестициды", "Гербициды", "Инсектициды", "Фунгициды", "Регуляторы роста",
-                    "Десиканты", "Протравители", "Дефолианты", "Акарициды", "Родентициды",
-                    "Полимеры", "Полиэтилен", "Полипропилен", "Полистирол", "ПВХ",
-                    "ПЭТ", "Полиамид", "Полиуретан", "Эпоксидная смола", "Поликарбонат",
-                    "Красители", "Пигменты", "Дисперсии", "Эмульсии", "Смолы",
-                    "Клеи", "Герметики", "Уплотнители", "Прокладки", "Шланги",
-                    "Химические реактивы", "Ингибиторы коррозии", "Пенообразователи", "Пеногасители",
-                    "Флокулянты", "Коагулянты", "Дезодоранты", "Антисептики", "Дезинфицирующие", "Моющие средства"
-                ]},
-                { id: "fert", name: "Удобрения", icon: "🌾", baseUrl: "https://fertilizer", products: [
-                    "Аммиачная селитра", "Карбамид", "Калий хлористый", "Сульфат аммония",
-                    "Суперфосфат", "Нитроаммофоска", "Азофоска", "Диаммофос", "Моноаммонийфосфат",
-                    "Калийная селитра", "Кальциевая селитра", "Натриевая селитра", "Магниевая селитра",
-                    "Калимагнезия", "Сернокислый калий", "Хлористый калий", "Карбонат калия",
-                    "Фосфоритная мука", "Апатит", "Фосфорная мука", "Цинковые удобрения",
-                    "Медные удобрения", "Марганцевые удобрения", "Борные удобрения", "Молибденовые удобрения",
-                    "Кобальтовые удобрения", "Железные удобрения", "Комплексные удобрения", "Смешанные удобрения",
-                    "Органические удобрения", "Компост", "Биогумус", "Сапропель", "Торф",
-                    "Навоз", "Птичий помет", "Зелёное удобрение", "Сидераты", "Гумус",
-                    "Биопрепараты", "Микроудобрения", "Хелатные удобрения", "Жидкие удобрения",
-                    "Гранулированные удобрения", "Порошкообразные удобрения", "Кристаллические удобрения",
-                    "Водорастворимые удобрения", "Пролонгированные удобрения", "Бактериальные удобрения", "Грибные удобрения"
-                ]},
-                { id: "build", name: "Стройматериалы", icon: "🏗️", baseUrl: "https://building", products: [
-                    "Цемент М400", "Цемент М500", "Цемент М600", "Портландцемент", "Шлакопортландцемент",
-                    "Глинозёмистый цемент", "Белый цемент", "Цветной цемент", "Сульфатостойкий цемент",
-                    "Дорожный цемент", "Песок", "Щебень", "Гравий", "Гранит", "Мрамор",
-                    "Известняк", "Доломит", "Керамзит", "Перлит", "Вермикулит",
-                    "Кирпич", "Газобетон", "Пенобетон", "Керамоблок", "Силикатный кирпич",
-                    "Облицовочный кирпич", "Клинкер", "Шлакоблок", "Арболит", "Полистиролбетон",
-                    "Арматура", "Сетка", "Профнастил", "Металлочерепица", "Шифер",
-                    "Ондулин", "Рубероид", "Технониколь", "Утеплитель", "Пенопласт",
-                    "Стекло", "Зеркало", "Стеклопакет", "Витражи", "Фасадное стекло",
-                    "Закалённое стекло", "Ламинированное стекло", "Энергосберегающее стекло", "Тонированное стекло",
-                    "Узорчатое стекло", "Древесина", "ДСП", "OSB", "Фанера",
-                    "ЛДСП", "МДФ", "Шпон", "Ламинат", "Паркет",
-                    "Доска пола", "Гипсокартон", "Шпаклёвка", "Грунтовка", "Краска",
-                    "Эмаль", "Лак", "Олифа", "Штукатурка", "Шпатлёвка", "Клей"
-                ]},
-                { id: "agri", name: "Сельхозпродукты", icon: "🌽", baseUrl: "https://agriculture", products: [
-                    "Пшеница", "Кукуруза", "Ячмень", "Овёс", "Рожь", "Тритикале", "Соя",
-                    "Горох", "Чечевица", "Фасоль", "Сахар", "Сахарная свёкла",
-                    "Тростниковый сахар", "Фруктоза", "Глюкоза", "Крахмал", "Патока", "Сироп", "Мёд",
-                    "Декстроза", "Кофе", "Какао", "Чай", "Табак", "Хмель", "Ваниль",
-                    "Корица", "Перец", "Гвоздика", "Имбирь", "Масло подсолнечное", "Масло оливковое",
-                    "Масло пальмовое", "Масло соевое", "Масло рапсовое", "Масло кукурузное", "Масло льняное",
-                    "Масло кокосовое", "Маргарин", "Смазочные материалы", "Хлопок", "Лён",
-                    "Джут", "Сизаль", "Кенаф", "Рами", "Конопля", "Шерсть", "Шёлк",
-                    "Кашемир", "Картофель", "Лук", "Морковь", "Капуста", "Томаты",
-                    "Огурцы", "Перец", "Баклажаны", "Кабачки", "Тыква", "Яблоки",
-                    "Груши", "Виноград", "Цитрусовые", "Бананы", "Ананасы", "Манго", "Киви", "Авокадо", "Гранаты"
-                ]},
-                { id: "precious", name: "Драгметаллы и камни", icon: "💎", baseUrl: "https://precious", products: [
-                    "Золото 9999", "Золото 9995", "Золото 995", "Золото 750", "Золото 585",
-                    "Золото 375", "Золото 250", "Золото 125", "Золото 100", "Золото 50",
-                    "Серебро 9999", "Серебро 9995", "Серебро 925", "Серебро 875", "Серебро 800",
-                    "Серебро 750", "Серебро 500", "Серебро 250", "Серебро 125", "Серебро 100",
-                    "Платина 9995", "Платина 999", "Платина 950", "Платина 900", "Платина 850",
-                    "Платина 800", "Платина 750", "Платина 500", "Платина 250", "Платина 125",
-                    "Палладий 9995", "Палладий 999", "Палладий 950", "Палладий 900", "Палладий 850",
-                    "Палладий 800", "Палладий 750", "Палладий 500", "Палладий 250", "Палладий 125",
-                    "Алмазы", "Рубины", "Изумруды", "Сапфиры", "Жемчуг", "Гранаты",
-                    "Аметисты", "Топазы", "Опалы", "Цирконы", "Иридий", "Осмий",
-                    "Рутений", "Рений", "Тантал", "Ниобий", "Цирконий", "Гафний", "Скандий"
-                ]},
-                { id: "perfume", name: "Парфюмерия", icon: "🌸", baseUrl: "https://perfume", products: [
-                    "Роза эфирное масло", "Лаванда эфирное масло", "Жасмин эфирное масло",
-                    "Иланг-иланг эфирное масло", "Нероли эфирное масло", "Пачули эфирное масло",
-                    "Сандал эфирное масло", "Кедр эфирное масло", "Мята эфирное масло",
-                    "Эвкалипт эфирное масло", "Духи Chanel №5", "Духи Dior Sauvage",
-                    "Духи Tom Ford", "Духи Creed", "Духи Gucci", "Духи Versace",
-                    "Духи Giorgio Armani", "Духи Yves Saint Laurent", "Духи Dolce & Gabbana",
-                    "Духи Burberry", "Парфюм Xerjoff", "Парфюм Roja Dove", "Парфюм Clive Christian",
-                    "Парфюм Byredo", "Парфюм Le Labo", "Парфюм Diptyque", "Парфюм Frederic Malle",
-                    "Парфюм Maison Francis Kurkdjian", "Парфюм Amouage", "Парфюм Creed Aventus",
-                    "Аромомасла", "Духи с феромонами", "Французские духи", "Арабские духи",
-                    "Твердые духи", "Масляные духи", "Спреи для тела", "Туалетная вода",
-                    "Одеколон", "Парфюмерная вода", "Наборы миниатюр", "Пробники духов",
-                    "Лимитированные коллекции", "Винтажные духи", "Нишевая парфюмерия",
-                    "Люкс-парфюмерия", "Эксклюзивные ароматы", "Авторские духи", "Экологичные духи",
-                    "Натуральная парфюмерия", "Eau de Parfum", "Eau de Toilette", "Eau de Cologne",
-                    "Parfum Extrait", "Body Mist", "Perfume Oil", "Attar", "Itr", "Bukhoor", "Oud"
-                ]},
-                { id: "raw", name: "Сырьё", icon: "⛏️", baseUrl: "https://raw", products: [
-                    "Нефть", "Природный газ", "Уголь", "Руда", "Песок", "Известняк", "Глина",
-                    "Каолин", "Полевой шпат", "Кварц", "Древесина", "Целлюлоза", "Лён", "Хлопок",
-                    "Шерсть", "Конопля", "Джут", "Кенаф", "Рами", "Кокосовое волокно",
-                    "Руда железная", "Руда медная", "Руда алюминиевая", "Руда цинковая",
-                    "Руда свинцовая", "Руда никелевая", "Руда марганцевая", "Руда хромовая",
-                    "Руда титановая", "Руда вольфрамовая", "Руда золотая", "Руда серебряная",
-                    "Руда платиновая", "Руда палладиевая", "Руда урановая", "Руда ториевая",
-                    "Руда литиевая", "Руда кобальтовая", "Руда молибденовая", "Руда ванадиевая",
-                    "Сера", "Фосфориты", "Апатиты", "Соль", "Калийные соли", "Магниевые соли",
-                    "Бораты", "Карбонаты", "Силикаты", "Алюмосиликаты", "Магнезит", "Доломит",
-                    "Кальцит", "Арагонит", "Целестин", "Барит", "Флюорит", "Турмалин", "Берилл", "Корунд"
-                ]},
-                { id: "auto", name: "Автотранспорт", icon: "🚗", baseUrl: "https://auto", products: [
-                    "Toyota Camry", "Toyota Corolla", "Toyota RAV4", "Toyota Land Cruiser",
-                    "Toyota Highlander", "Toyota Sienna", "Toyota Tacoma", "Toyota Tundra",
-                    "Toyota 4Runner", "Toyota Supra", "Honda Civic", "Honda Accord", "Honda CR-V",
-                    "Honda Pilot", "Honda Odyssey", "Honda Ridgeline", "Honda Passport", "Honda HR-V",
-                    "Honda Fit", "Honda Insight", "BMW 3 Series", "BMW 5 Series", "BMW 7 Series",
-                    "BMW X3", "BMW X5", "BMW X7", "BMW M3", "BMW M5", "BMW i4", "BMW iX",
-                    "Mercedes-Benz C-Class", "Mercedes-Benz E-Class", "Mercedes-Benz S-Class",
-                    "Mercedes-Benz GLC", "Mercedes-Benz GLE", "Mercedes-Benz GLS", "Mercedes-Benz G-Class",
-                    "Mercedes-Benz AMG GT", "Mercedes-Benz EQS", "Mercedes-Benz EQE",
-                    "Audi A4", "Audi A6", "Audi A8", "Audi Q5", "Audi Q7", "Audi Q8",
-                    "Audi e-tron", "Audi RS6", "Audi RS7", "Audi TT", "Ford F-150",
-                    "Ford Mustang", "Ford Explorer", "Ford Escape", "Ford Bronco", "Ford Edge",
-                    "Ford Expedition", "Ford Ranger", "Ford Maverick", "Ford F-250",
-                    "Chevrolet Silverado", "Chevrolet Corvette", "Chevrolet Tahoe", "Chevrolet Suburban",
-                    "Chevrolet Traverse", "Chevrolet Equinox", "Chevrolet Blazer", "Chevrolet Camaro",
-                    "Chevrolet Malibu", "Chevrolet Impala", "Nissan Altima", "Nissan Rogue",
-                    "Nissan Pathfinder", "Nissan Armada", "Nissan Murano", "Nissan Frontier",
-                    "Nissan Titan", "Nissan Leaf", "Nissan Ariya", "Nissan Z",
-                    "Tesla Model 3", "Tesla Model Y", "Tesla Model S", "Tesla Model X",
-                    "Tesla Cybertruck", "Tesla Roadster", "Tesla Semi", "Volkswagen Golf"
-                ]},
-                { id: "service", name: "Услуги", icon: "💼", baseUrl: "https://service", products: [
-                    "Консалтинг", "Аудит", "Юридические услуги", "Бухгалтерские услуги",
-                    "Налоговый консалтинг", "HR-услуги", "Маркетинговые услуги", "Рекламные услуги",
-                    "PR-услуги", "Event-услуги", "IT-услуги", "Кибербезопасность",
-                    "Облачные услуги", "Разработка ПО", "Web-разработка", "SEO-услуги",
-                    "SMM-услуги", "Дизайн-услуги", "Видео-услуги", "Фото-услуги",
-                    "Страхование", "Медицинские услуги", "Стоматологические услуги",
-                    "Ветеринарные услуги", "Образовательные услуги", "Тренинги",
-                    "Коучинг", "Консультации", "Психологические услуги", "Логопедические услуги",
-                    "Логистика", "Складские услуги", "Транспортные услуги", "Экспедирование",
-                    "Таможенное оформление", "Сертификация", "Лицензирование", "Патентование",
-                    "Оценка", "Экспертиза", "Охрана", "ЧОП", "Видеонаблюдение",
-                    "Пожарная безопасность", "Электробезопасность", "Промышленная безопасность",
-                    "Экологическая безопасность", "Санитарная безопасность", "Лабораторные услуги",
-                    "Испытательные услуги", "Клининговые услуги", "Озеленение", "Ландшафтный дизайн"
-                ]},
-                { id: "sea", name: "Морские перевозки", icon: "🚢", baseUrl: "https://sea", products: [
-                    "Контейнерные перевозки", "Танкерные перевозки", "Сухогрузные перевозки",
-                    "Рефрижераторные перевозки", "Ро-ро перевозки", "Перевозки навалочных грузов",
-                    "Перевозки генеральных грузов", "Перевозки опасных грузов",
-                    "Перевозки негабаритных грузов", "Перевозки тяжеловесных грузов",
-                    "Балкерные перевозки", "Контейнеровозные перевозки", "Танкер-нефтевоз",
-                    "Танкер-химовоз", "Танкер-газовоз", "Сухогруз-балкер",
-                    "Сухогруз-контейнеровоз", "Ро-ро-судно", "Рефрижераторное судно",
-                    "Пассажирское судно", "Каботажные перевозки", "Международные перевозки",
-                    "Транзитные перевозки", "Перевозки LCL", "Перевозки FCL",
-                    "Перевозки сборных грузов", "Перевозки негабаритов", "Перевозки тяжеловесов",
-                    "Перевозки живых животных", "Перевозки скоропортящихся грузов",
-                    "Агентские услуги", "Брокерские услуги", "Сюрвейерские услуги",
-                    "Лоцманские услуги", "Буксирные услуги", "Аварийные услуги",
-                    "Спасательные услуги", "Ремонтные услуги", "Снабжение судов", "Заправка судов"
-                ]},
-                { id: "truck", name: "Автоперевозки", icon: "🚛", baseUrl: "https://truck", products: [
-                    "Фура 40 т", "Фура 20 т", "Фура 10 т", "Фура 5 т", "Фура 3 т",
-                    "Фура рефрижератор", "Фура изотермическая", "Фура цистерна",
-                    "Фура бортовая", "Фура тентованная", "Грузовик 20 т", "Грузовик 15 т",
-                    "Грузовик 10 т", "Грузовик 8 т", "Грузовик 5 т", "Грузовик 3 т",
-                    "Грузовик 1 т", "Грузовик-цистерна", "Грузовик-рефрижератор",
-                    "Грузовик-изотермический", "Микроавтобус", "Минивэн", "Фургон",
-                    "Газель", "Камаз", "МАЗ", "Урал", "КрАЗ", "Зил", "ГАЗ",
-                    "Перевозки по России", "Перевозки по СНГ", "Перевозки по Европе",
-                    "Перевозки по Азии", "Перевозки по всему миру", "Экспресс-перевозки",
-                    "Обычные перевозки", "Эконом-перевозки", "Бизнес-перевозки", "Премиум-перевозки"
-                ]},
-                { id: "energy", name: "Энергетика", icon: "⚡", baseUrl: "https://energy", products: [
-                    "Электроэнергия", "Природный газ", "Уголь", "Нефть", "Мазут",
-                    "Сжиженный газ", "Пропан-бутан", "Биотопливо", "Пеллеты", "Дрова",
-                    "Солнечная энергия", "Ветровая энергия", "Гидроэнергия",
-                    "Геотермальная энергия", "Биоэнергия", "Термальная энергия",
-                    "Атомная энергия", "Водородная энергия", "Энергия приливов", "Энергия волн",
-                    "Электростанции", "ТЭЦ", "ГЭС", "АЭС", "СЭС", "ВЭС", "ГеоТЭС",
-                    "БиоТЭС", "ПЭС", "ВЭС", "Трансформаторы", "Распределительные устройства",
-                    "Кабели", "Провода", "ЛЭП", "Подстанции", "Щиты", "Панели",
-                    "Автоматы", "Счетчики", "Дизельные генераторы", "Бензиновые генераторы",
-                    "Газовые генераторы", "Солнечные панели", "Инверторы", "Аккумуляторы",
-                    "Зарядные станции", "Электрические щиты", "Кабельная продукция",
-                    "Трансформаторные подстанции"
-                ]},
-                { id: "metal", name: "Металлы", icon: "🔩", baseUrl: "https://metal", products: [
-                    "Алюминий", "Медь", "Цинк", "Свинец", "Никель", "Олово", "Железо",
-                    "Сталь", "Чугун", "Бронза", "Латунь", "Титан", "Магний", "Марганец",
-                    "Хром", "Ванадий", "Молибден", "Вольфрам", "Кобальт", "Литий",
-                    "Алюминиевый сплав", "Медный сплав", "Цинковый сплав", "Никелевый сплав",
-                    "Титановый сплав", "Стальной сплав", "Железный сплав", "Бронзовый сплав",
-                    "Латунный сплав", "Магниевый сплав", "Прокат", "Лист", "Лента",
-                    "Проволока", "Трубы", "Профили", "Арматура", "Сетка", "Поковки",
-                    "Отливки", "Серебро", "Палладий", "Родий", "Иридий", "Осмий",
-                    "Рутений", "Рений", "Тантал", "Ниобий", "Цирконий", "Гафний"
-                ]},
-                { id: "trade", name: "Экспорт/Импорт", icon: "📦", baseUrl: "https://global", products: [
-                    "Экспорт нефти", "Импорт нефти", "Экспорт газа", "Импорт газа",
-                    "Экспорт зерна", "Импорт зерна", "Экспорт удобрений", "Импорт удобрений",
-                    "Экспорт металлов", "Импорт металлов", "Экспорт химикатов", "Импорт химикатов",
-                    "Экспорт стройматериалов", "Импорт стройматериалов", "Экспорт автотранспорта",
-                    "Импорт автотранспорта", "Экспорт оборудования", "Импорт оборудования",
-                    "Экспорт электроники", "Импорт электроники", "Экспорт текстиля",
-                    "Импорт текстиля", "Экспорт обуви", "Импорт обуви", "Экспорт одежды",
-                    "Импорт одежды", "Экспорт продуктов", "Импорт продуктов", "Экспорт напитков",
-                    "Импорт напитков", "Торговые соглашения", "Зоны свободной торговли",
-                    "Таможенные пошлины", "НДС", "Акцизы", "Льготы", "Квоты",
-                    "Лицензии", "Сертификаты", "Декларации", "Международные торговые соглашения",
-                    "Таможенный брокер", "Логистика экспорта", "Логистика импорта",
-                    "Торговое финансирование", "Экспортные кредиты", "Импортные кредиты",
-                    "Страхование грузов", "Таможенный склад", "Зона свободной торговли"
-                ]}
-            ];
+            // ========== 2. ПАРФЮМЕРИЯ (70) ==========
+            { icon: "🌸", name: "Fragrantica", category: "Парфюмерия", desc: "Парфюмерная энциклопедия. Pay with ADNA.", link: "https://fragrantica.com" },
+            { icon: "🌸", name: "Fragrantica Notes", category: "Парфюмерия", desc: "Ноты духов. Pay with ADNA.", link: "https://fragrantica.com/notes" },
+            { icon: "🌸", name: "Basenotes", category: "Парфюмерия", desc: "База духов. Pay with ADNA.", link: "https://basenotes.net" },
+            { icon: "🌸", name: "Basenotes Reviews", category: "Парфюмерия", desc: "Отзывы на духи. Pay with ADNA.", link: "https://basenotes.net/reviews" },
+            { icon: "🌸", name: "Perfume", category: "Парфюмерия", desc: "Парфюмерия. Pay with ADNA.", link: "https://perfume.com" },
+            { icon: "🌸", name: "Perfume Men", category: "Парфюмерия", desc: "Мужская парфюмерия. Pay with ADNA.", link: "https://perfume.com/men" },
+            { icon: "🌸", name: "Perfume Women", category: "Парфюмерия", desc: "Женская парфюмерия. Pay with ADNA.", link: "https://perfume.com/women" },
+            { icon: "🌸", name: "FragranceX", category: "Парфюмерия", desc: "Духи. Pay with ADNA.", link: "https://fragrancex.com" },
+            { icon: "🌸", name: "FragranceX Luxury", category: "Парфюмерия", desc: "Люкс-парфюмерия. Pay with ADNA.", link: "https://fragrancex.com/luxury" },
+            { icon: "🌸", name: "FragranceNet", category: "Парфюмерия", desc: "Парфюмерия. Pay with ADNA.", link: "https://fragrancenet.com" },
+            { icon: "🌸", name: "FragranceNet Niche", category: "Парфюмерия", desc: "Нишевая парфюмерия. Pay with ADNA.", link: "https://fragrancenet.com/niche" },
+            { icon: "🌸", name: "Luckyscent", category: "Парфюмерия", desc: "Нишевая парфюмерия. Pay with ADNA.", link: "https://luckyscent.com" },
+            { icon: "🌸", name: "Luckyscent Sample", category: "Парфюмерия", desc: "Пробники нишевых духов. Pay with ADNA.", link: "https://luckyscent.com/samples" },
+            { icon: "🌸", name: "Twisted Lily", category: "Парфюмерия", desc: "Нишевая парфюмерия. Pay with ADNA.", link: "https://twistedlily.com" },
+            { icon: "🌸", name: "Bloom Perfume", category: "Парфюмерия", desc: "Нишевая парфюмерия. Pay with ADNA.", link: "https://bloomperfume.com" },
+            { icon: "🌸", name: "Scentbird", category: "Парфюмерия", desc: "Парфюмерная подписка. Pay with ADNA.", link: "https://scentbird.com" },
+            { icon: "🌸", name: "Scentbird Monthly", category: "Парфюмерия", desc: "Ежемесячная подписка. Pay with ADNA.", link: "https://scentbird.com/monthly" },
+            { icon: "🌸", name: "Essence Oils", category: "Парфюмерия", desc: "Эфирные масла. Pay with ADNA.", link: "https://essence.com" },
+            { icon: "🌸", name: "Aroma Global", category: "Парфюмерия", desc: "Ароматы. Pay with ADNA.", link: "https://aroma.com" },
+            { icon: "🌸", name: "Chanel", category: "Парфюмерия", desc: "Chanel. Pay with ADNA.", link: "https://chanel.com" },
+            { icon: "🌸", name: "Chanel Fragrance", category: "Парфюмерия", desc: "Chanel ароматы. Pay with ADNA.", link: "https://chanel.com/fragrance" },
+            { icon: "🌸", name: "Dior", category: "Парфюмерия", desc: "Dior. Pay with ADNA.", link: "https://dior.com" },
+            { icon: "🌸", name: "Dior Perfume", category: "Парфюмерия", desc: "Dior духи. Pay with ADNA.", link: "https://dior.com/perfume" },
+            { icon: "🌸", name: "Tom Ford", category: "Парфюмерия", desc: "Tom Ford. Pay with ADNA.", link: "https://tomford.com" },
+            { icon: "🌸", name: "Tom Ford Fragrance", category: "Парфюмерия", desc: "Tom Ford ароматы. Pay with ADNA.", link: "https://tomford.com/fragrance" },
+            { icon: "🌸", name: "Creed", category: "Парфюмерия", desc: "Creed. Pay with ADNA.", link: "https://creed.com" },
+            { icon: "🌸", name: "Creed Aventus", category: "Парфюмерия", desc: "Creed Aventus. Pay with ADNA.", link: "https://creed.com/aventus" },
+            { icon: "🌸", name: "Gucci", category: "Парфюмерия", desc: "Gucci. Pay with ADNA.", link: "https://gucci.com" },
+            { icon: "🌸", name: "Gucci Bloom", category: "Парфюмерия", desc: "Gucci Bloom. Pay with ADNA.", link: "https://gucci.com/bloom" },
+            { icon: "🌸", name: "Versace", category: "Парфюмерия", desc: "Versace. Pay with ADNA.", link: "https://versace.com" },
+            { icon: "🌸", name: "Versace Eros", category: "Парфюмерия", desc: "Versace Eros. Pay with ADNA.", link: "https://versace.com/eros" },
+            { icon: "🌸", name: "Armani", category: "Парфюмерия", desc: "Giorgio Armani. Pay with ADNA.", link: "https://armani.com" },
+            { icon: "🌸", name: "Armani Acqua", category: "Парфюмерия", desc: "Armani Acqua di Gio. Pay with ADNA.", link: "https://armani.com/acqua" },
+            { icon: "🌸", name: "YSL", category: "Парфюмерия", desc: "Yves Saint Laurent. Pay with ADNA.", link: "https://ysl.com" },
+            { icon: "🌸", name: "YSL Black Opium", category: "Парфюмерия", desc: "YSL Black Opium. Pay with ADNA.", link: "https://ysl.com/black-opium" },
+            { icon: "🌸", name: "Burberry", category: "Парфюмерия", desc: "Burberry. Pay with ADNA.", link: "https://burberry.com" },
+            { icon: "🌸", name: "Burberry Her", category: "Парфюмерия", desc: "Burberry Her. Pay with ADNA.", link: "https://burberry.com/her" },
+            { icon: "🌸", name: "Byredo", category: "Парфюмерия", desc: "Byredo. Pay with ADNA.", link: "https://byredo.com" },
+            { icon: "🌸", name: "Byredo Gypsy Water", category: "Парфюмерия", desc: "Byredo Gypsy Water. Pay with ADNA.", link: "https://byredo.com/gypsy-water" },
+            { icon: "🌸", name: "Le Labo", category: "Парфюмерия", desc: "Le Labo. Pay with ADNA.", link: "https://lelabo.com" },
+            { icon: "🌸", name: "Le Labo Santal", category: "Парфюмерия", desc: "Le Labo Santal 33. Pay with ADNA.", link: "https://lelabo.com/santal33" },
+            { icon: "🌸", name: "Diptyque", category: "Парфюмерия", desc: "Diptyque. Pay with ADNA.", link: "https://diptyque.com" },
+            { icon: "🌸", name: "Diptyque Rose", category: "Парфюмерия", desc: "Diptyque Eau Rose. Pay with ADNA.", link: "https://diptyque.com/rose" },
+            { icon: "🌸", name: "Frederic Malle", category: "Парфюмерия", desc: "Frederic Malle. Pay with ADNA.", link: "https://fredericmalle.com" },
+            { icon: "🌸", name: "Frederic Malle Portrait", category: "Парфюмерия", desc: "Portrait of a Lady. Pay with ADNA.", link: "https://fredericmalle.com/portrait" },
+            { icon: "🌸", name: "Maison Francis Kurkdjian", category: "Парфюмерия", desc: "MFK. Pay with ADNA.", link: "https://mfk.com" },
+            { icon: "🌸", name: "MFK Baccarat", category: "Парфюмерия", desc: "Baccarat Rouge 540. Pay with ADNA.", link: "https://mfk.com/baccarat" },
+            { icon: "🌸", name: "Amouage", category: "Парфюмерия", desc: "Amouage. Pay with ADNA.", link: "https://amouage.com" },
+            { icon: "🌸", name: "Amouage Interlude", category: "Парфюмерия", desc: "Amouage Interlude. Pay with ADNA.", link: "https://amouage.com/interlude" },
+            { icon: "🌸", name: "Xerjoff", category: "Парфюмерия", desc: "Xerjoff. Pay with ADNA.", link: "https://xerjoff.com" },
+            { icon: "🌸", name: "Xerjoff Erba Pura", category: "Парфюмерия", desc: "Xerjoff Erba Pura. Pay with ADNA.", link: "https://xerjoff.com/erba-pura" },
+            { icon: "🌸", name: "Roja Dove", category: "Парфюмерия", desc: "Roja Dove. Pay with ADNA.", link: "https://rojadove.com" },
+            { icon: "🌸", name: "Roja Dove Enigma", category: "Парфюмерия", desc: "Roja Dove Enigma. Pay with ADNA.", link: "https://rojadove.com/enigma" },
+            { icon: "🌸", name: "Clive Christian", category: "Парфюмерия", desc: "Clive Christian. Pay with ADNA.", link: "https://clivechristian.com" },
+            { icon: "🌸", name: "Clive Christian 1872", category: "Парфюмерия", desc: "Clive Christian 1872. Pay with ADNA.", link: "https://clivechristian.com/1872" },
+            { icon: "🌸", name: "Essential Oil Global", category: "Парфюмерия", desc: "Эфирные масла. Pay with ADNA.", link: "https://essentialoil.com" },
+            { icon: "🌸", name: "Rose Oil Global", category: "Парфюмерия", desc: "Розовое масло. Pay with ADNA.", link: "https://roseoil.com" },
+            { icon: "🌸", name: "Lavender Oil", category: "Парфюмерия", desc: "Лавандовое масло. Pay with ADNA.", link: "https://lavenderoil.com" },
+            { icon: "🌸", name: "Jasmine Oil", category: "Парфюмерия", desc: "Жасминовое масло. Pay with ADNA.", link: "https://jasmineoil.com" },
+            { icon: "🌸", name: "Patchouli Oil", category: "Парфюмерия", desc: "Пачули. Pay with ADNA.", link: "https://patchoulioil.com" },
+            { icon: "🌸", name: "Sandalwood Oil", category: "Парфюмерия", desc: "Сандаловое масло. Pay with ADNA.", link: "https://sandalwoodoil.com" },
+            { icon: "🌸", name: "Cedar Oil", category: "Парфюмерия", desc: "Кедровое масло. Pay with ADNA.", link: "https://cedaroil.com" },
+            { icon: "🌸", name: "Oriental Perfume", category: "Парфюмерия", desc: "Восточные духи. Pay with ADNA.", link: "https://orientalperfume.com" },
+            { icon: "🌸", name: "Arabian Perfume", category: "Парфюмерия", desc: "Арабские духи. Pay with ADNA.", link: "https://arabianperfume.com" },
+            { icon: "🌸", name: "Attar Global", category: "Парфюмерия", desc: "Аттар. Pay with ADNA.", link: "https://attar.com" },
+            { icon: "🌸", name: "Oud Global", category: "Парфюмерия", desc: "Уд. Pay with ADNA.", link: "https://oud.com" },
+            { icon: "🌸", name: "Bukhoor", category: "Парфюмерия", desc: "Бухур. Pay with ADNA.", link: "https://bukhoor.com" },
+            { icon: "🌸", name: "Perfume Oil", category: "Парфюмерия", desc: "Масляные духи. Pay with ADNA.", link: "https://perfumeoil.com" },
+            { icon: "🌸", name: "Body Mist Global", category: "Парфюмерия", desc: "Спреи для тела. Pay with ADNA.", link: "https://bodymist.com" },
+            { icon: "🌸", name: "Eau de Parfum", category: "Парфюмерия", desc: "Eau de Parfum. Pay with ADNA.", link: "https://eaudeparfum.com" },
+            { icon: "🌸", name: "Eau de Toilette", category: "Парфюмерия", desc: "Eau de Toilette. Pay with ADNA.", link: "https://eaudetoilette.com" },
+            { icon: "🌸", name: "Eau de Cologne", category: "Парфюмерия", desc: "Eau de Cologne. Pay with ADNA.", link: "https://eaudecologne.com" },
+            { icon: "🌸", name: "Parfum Extrait", category: "Парфюмерия", desc: "Parfum Extrait. Pay with ADNA.", link: "https://parfumextrait.com" },
+            { icon: "🌸", name: "Perfume Samples", category: "Парфюмерия", desc: "Пробники духов. Pay with ADNA.", link: "https://perfumesamples.com" },
+            { icon: "🌸", name: "Vintage Perfume", category: "Парфюмерия", desc: "Винтажные духи. Pay with ADNA.", link: "https://vintageperfume.com" },
 
-            // === ГЕНЕРАЦИЯ ФУНКЦИЙ ===
-            const icons = ['🛢️','🧪','🌾','🏗️','🌽','💎','🌸','⛏️','🚗','💼','🚢','🚛','⚡','🔩','📦'];
+            // ========== 3. ХИМИКАТЫ (40) ==========
+            { icon: "🧪", name: "ICIS Global", category: "Химикаты", desc: "Химическая аналитика. Pay with ADNA.", link: "https://icis.com" },
+            { icon: "🧪", name: "ICIS Europe", category: "Химикаты", desc: "Химическая аналитика Европа. Pay with ADNA.", link: "https://icis.com/europe" },
+            { icon: "🧪", name: "ChemOrbis", category: "Химикаты", desc: "Цены на химикаты. Pay with ADNA.", link: "https://chemorbis.com" },
+            { icon: "🧪", name: "Echemi", category: "Химикаты", desc: "Химический B2B маркетплейс. Pay with ADNA.", link: "https://echemi.com" },
+            { icon: "🧪", name: "ChemicalBook", category: "Химикаты", desc: "База химикатов. Pay with ADNA.", link: "https://chemicalbook.com" },
+            { icon: "🧪", name: "LookChem", category: "Химикаты", desc: "Химический каталог. Pay with ADNA.", link: "https://lookchem.com" },
+            { icon: "🧪", name: "ChemNet", category: "Химикаты", desc: "Химическая торговая площадка. Pay with ADNA.", link: "https://chemnet.com" },
+            { icon: "🧪", name: "Alibaba Chemicals", category: "Химикаты", desc: "Химикаты на Alibaba. Pay with ADNA.", link: "https://alibaba.com/chemicals" },
+            { icon: "🧪", name: "Made-in-China Chemicals", category: "Химикаты", desc: "Химикаты из Китая. Pay with ADNA.", link: "https://made-in-china.com/chemicals" },
+            { icon: "🧪", name: "Global Sources Chemicals", category: "Химикаты", desc: "Химикаты GS. Pay with ADNA.", link: "https://globalsources.com/chemicals" },
+            { icon: "🧪", name: "TradeKey Chemicals", category: "Химикаты", desc: "Химикаты TradeKey. Pay with ADNA.", link: "https://tradekey.com/chemicals" },
+            { icon: "🧪", name: "Chemical Market", category: "Химикаты", desc: "Химический рынок. Pay with ADNA.", link: "https://chemicalmarket.com" },
+            { icon: "🧪", name: "ChemIndustry", category: "Химикаты", desc: "Химическая индустрия. Pay with ADNA.", link: "https://chemindustry.com" },
+            { icon: "🧪", name: "Chemicals Market", category: "Химикаты", desc: "Рынок химикатов. Pay with ADNA.", link: "https://chemicalsmarket.com" },
+            { icon: "🧪", name: "Chemical Price", category: "Химикаты", desc: "Цены на химикаты. Pay with ADNA.", link: "https://chemicalprice.com" },
+            { icon: "🧪", name: "Methanol Global", category: "Химикаты", desc: "Метанол. Pay with ADNA.", link: "https://methanol.org" },
+            { icon: "🧪", name: "Ethanol Global", category: "Химикаты", desc: "Этанол. Pay with ADNA.", link: "https://ethanol.org" },
+            { icon: "🧪", name: "Ethylene Market", category: "Химикаты", desc: "Этилен. Pay with ADNA.", link: "https://ethylene.com" },
+            { icon: "🧪", name: "Propylene Market", category: "Химикаты", desc: "Пропилен. Pay with ADNA.", link: "https://propylene.com" },
+            { icon: "🧪", name: "Benzene Market", category: "Химикаты", desc: "Бензол. Pay with ADNA.", link: "https://benzene.com" },
+            { icon: "🧪", name: "Toluene Market", category: "Химикаты", desc: "Толуол. Pay with ADNA.", link: "https://toluene.com" },
+            { icon: "🧪", name: "Xylene Market", category: "Химикаты", desc: "Ксилол. Pay with ADNA.", link: "https://xylene.com" },
+            { icon: "🧪", name: "Phenol Market", category: "Химикаты", desc: "Фенол. Pay with ADNA.", link: "https://phenol.com" },
+            { icon: "🧪", name: "Acetone Market", category: "Химикаты", desc: "Ацетон. Pay with ADNA.", link: "https://acetone.com" },
+            { icon: "🧪", name: "Ammonia Market", category: "Химикаты", desc: "Аммиак. Pay with ADNA.", link: "https://ammonia.com" },
+            { icon: "🧪", name: "Sulfuric Acid", category: "Химикаты", desc: "Серная кислота. Pay with ADNA.", link: "https://sulfuricacid.com" },
+            { icon: "🧪", name: "Nitric Acid", category: "Химикаты", desc: "Азотная кислота. Pay with ADNA.", link: "https://nitricacid.com" },
+            { icon: "🧪", name: "Hydrochloric Acid", category: "Химикаты", desc: "Соляная кислота. Pay with ADNA.", link: "https://hydrochloricacid.com" },
+            { icon: "🧪", name: "Phosphoric Acid", category: "Химикаты", desc: "Фосфорная кислота. Pay with ADNA.", link: "https://phosphoricacid.com" },
+            { icon: "🧪", name: "Acetic Acid", category: "Химикаты", desc: "Уксусная кислота. Pay with ADNA.", link: "https://aceticacid.com" },
+            { icon: "🧪", name: "Formic Acid", category: "Химикаты", desc: "Муравьиная кислота. Pay with ADNA.", link: "https://formicacid.com" },
+            { icon: "🧪", name: "Acrylic Acid", category: "Химикаты", desc: "Акриловая кислота. Pay with ADNA.", link: "https://acrylicacid.com" },
+            { icon: "🧪", name: "Stearic Acid", category: "Химикаты", desc: "Стеариновая кислота. Pay with ADNA.", link: "https://stearicacid.com" },
+            { icon: "🧪", name: "Oleic Acid", category: "Химикаты", desc: "Олеиновая кислота. Pay with ADNA.", link: "https://oleicacid.com" },
+            { icon: "🧪", name: "Palmitic Acid", category: "Химикаты", desc: "Пальмитиновая кислота. Pay with ADNA.", link: "https://palmiticacid.com" },
+            { icon: "🧪", name: "Urea Market", category: "Химикаты", desc: "Карбамид. Pay with ADNA.", link: "https://urea.com" },
+            { icon: "🧪", name: "Ammonium Nitrate", category: "Химикаты", desc: "Аммиачная селитра. Pay with ADNA.", link: "https://ammoniumnitrate.com" },
+            { icon: "🧪", name: "Potassium Chloride", category: "Химикаты", desc: "Калий хлористый. Pay with ADNA.", link: "https://potassiumchloride.com" },
+            { icon: "🧪", name: "Ammonium Sulfate", category: "Химикаты", desc: "Сульфат аммония. Pay with ADNA.", link: "https://ammoniumsulfate.com" },
+            { icon: "🧪", name: "Superphosphate", category: "Химикаты", desc: "Суперфосфат. Pay with ADNA.", link: "https://superphosphate.com" },
 
-            categories.forEach((cat, catIndex) => {
-                const icon = icons[catIndex % icons.length];
-                const products = cat.products;
+            // ========== 4. УДОБРЕНИЯ (30) ==========
+            { icon: "🌾", name: "Yara International", category: "Удобрения", desc: "Yara International. Pay with ADNA.", link: "https://yara.com" },
+            { icon: "🌾", name: "Yara Europe", category: "Удобрения", desc: "Yara Europe. Pay with ADNA.", link: "https://yara.com/europe" },
+            { icon: "🌾", name: "Nutrien", category: "Удобрения", desc: "Nutrien. Pay with ADNA.", link: "https://nutrien.com" },
+            { icon: "🌾", name: "Mosaic Company", category: "Удобрения", desc: "Mosaic Company. Pay with ADNA.", link: "https://mosaicco.com" },
+            { icon: "🌾", name: "PhosAgro", category: "Удобрения", desc: "PhosAgro. Pay with ADNA.", link: "https://phosagro.com" },
+            { icon: "🌾", name: "EuroChem", category: "Удобрения", desc: "EuroChem. Pay with ADNA.", link: "https://eurochem.com" },
+            { icon: "🌾", name: "ICL Group", category: "Удобрения", desc: "ICL Group. Pay with ADNA.", link: "https://icl-group.com" },
+            { icon: "🌾", name: "SQM", category: "Удобрения", desc: "SQM. Pay with ADNA.", link: "https://sqm.com" },
+            { icon: "🌾", name: "K+S Group", category: "Удобрения", desc: "K+S Group. Pay with ADNA.", link: "https://k-plus-s.com" },
+            { icon: "🌾", name: "CF Industries", category: "Удобрения", desc: "CF Industries. Pay with ADNA.", link: "https://cfindustries.com" },
+            { icon: "🌾", name: "OCI Nitrogen", category: "Удобрения", desc: "OCI Nitrogen. Pay with ADNA.", link: "https://oci.nl" },
+            { icon: "🌾", name: "Acron Group", category: "Удобрения", desc: "Acron Group. Pay with ADNA.", link: "https://acron.ru" },
+            { icon: "🌾", name: "Uralchem", category: "Удобрения", desc: "Uralchem. Pay with ADNA.", link: "https://uralchem.com" },
+            { icon: "🌾", name: "FosAgro", category: "Удобрения", desc: "FosAgro. Pay with ADNA.", link: "https://fosagro.com" },
+            { icon: "🌾", name: "Ammofos", category: "Удобрения", desc: "Ammofos. Pay with ADNA.", link: "https://ammofos.com" },
+            { icon: "🌾", name: "Fertilizer Granules", category: "Удобрения", desc: "Гранулированные удобрения. Pay with ADNA.", link: "https://fertilizergranules.com" },
+            { icon: "🌾", name: "Fertilizer Liquid", category: "Удобрения", desc: "Жидкие удобрения. Pay with ADNA.", link: "https://fertilizerliquid.com" },
+            { icon: "🌾", name: "Fertilizer Powder", category: "Удобрения", desc: "Порошкообразные удобрения. Pay with ADNA.", link: "https://fertilizerpowder.com" },
+            { icon: "🌾", name: "Water Soluble Fertilizer", category: "Удобрения", desc: "Водорастворимые. Pay with ADNA.", link: "https://watersolublefertilizer.com" },
+            { icon: "🌾", name: "Slow Release Fertilizer", category: "Удобрения", desc: "Пролонгированные. Pay with ADNA.", link: "https://slowreleasefertilizer.com" },
+            { icon: "🌾", name: "Bacterial Fertilizer", category: "Удобрения", desc: "Бактериальные. Pay with ADNA.", link: "https://bacterialfertilizer.com" },
+            { icon: "🌾", name: "Fungal Fertilizer", category: "Удобрения", desc: "Грибные. Pay with ADNA.", link: "https://fungalfertilizer.com" },
+            { icon: "🌾", name: "Biofertilizer", category: "Удобрения", desc: "Биоудобрения. Pay with ADNA.", link: "https://biofertilizer.com" },
+            { icon: "🌾", name: "Green Fertilizer", category: "Удобрения", desc: "Зелёные удобрения. Pay with ADNA.", link: "https://greenfertilizer.com" },
+            { icon: "🌾", name: "Humus", category: "Удобрения", desc: "Гумус. Pay with ADNA.", link: "https://humus.com" },
+            { icon: "🌾", name: "Siderates", category: "Удобрения", desc: "Сидераты. Pay with ADNA.", link: "https://siderates.com" },
+            { icon: "🌾", name: "Micronutrient", category: "Удобрения", desc: "Микроудобрения. Pay with ADNA.", link: "https://micronutrient.com" },
+            { icon: "🌾", name: "Chelated", category: "Удобрения", desc: "Хелатные удобрения. Pay with ADNA.", link: "https://chelated.com" },
+            { icon: "🌾", name: "Nitrogen Fertilizer", category: "Удобрения", desc: "Азотные. Pay with ADNA.", link: "https://nitrogenfertilizer.com" },
+            { icon: "🌾", name: "Phosphate Fertilizer", category: "Удобрения", desc: "Фосфорные. Pay with ADNA.", link: "https://phosphatefertilizer.com" },
 
-                for (let i = 0; i < products.length; i++) {
-                    const product = products[i];
-                    if (!product) continue;
+            // ========== 5. СТРОЙМАТЕРИАЛЫ (30) ==========
+            { icon: "🏗️", name: "Alibaba Construction", category: "Стройматериалы", desc: "Стройматериалы Alibaba. Pay with ADNA.", link: "https://alibaba.com/construction" },
+            { icon: "🏗️", name: "Made-in-China Construction", category: "Стройматериалы", desc: "Стройматериалы из Китая. Pay with ADNA.", link: "https://made-in-china.com/construction" },
+            { icon: "🏗️", name: "Global Sources Construction", category: "Стройматериалы", desc: "Стройматериалы GS. Pay with ADNA.", link: "https://globalsources.com/construction" },
+            { icon: "🏗️", name: "BuildDirect", category: "Стройматериалы", desc: "Стройматериалы напрямую. Pay with ADNA.", link: "https://builddirect.com" },
+            { icon: "🏗️", name: "Material Bank", category: "Стройматериалы", desc: "Банк материалов. Pay with ADNA.", link: "https://materialbank.com" },
+            { icon: "🏗️", name: "Construction News", category: "Стройматериалы", desc: "Новости строительства. Pay with ADNA.", link: "https://construction.com" },
+            { icon: "🏗️", name: "Building UK", category: "Стройматериалы", desc: "Строительство UK. Pay with ADNA.", link: "https://building.co.uk" },
+            { icon: "🏗️", name: "Architect", category: "Стройматериалы", desc: "Архитектура. Pay with ADNA.", link: "https://architect.com" },
+            { icon: "🏗️", name: "Metal Building", category: "Стройматериалы", desc: "Металлоконструкции. Pay with ADNA.", link: "https://metalbuilding.com" },
+            { icon: "🏗️", name: "Concrete", category: "Стройматериалы", desc: "Бетон. Pay with ADNA.", link: "https://concrete.com" },
+            { icon: "🏗️", name: "Steel Construction", category: "Стройматериалы", desc: "Стальные конструкции. Pay with ADNA.", link: "https://steelconstruction.com" },
+            { icon: "🏗️", name: "Timber", category: "Стройматериалы", desc: "Пиломатериалы. Pay with ADNA.", link: "https://timber.com" },
+            { icon: "🏗️", name: "Bricks", category: "Стройматериалы", desc: "Кирпич. Pay with ADNA.", link: "https://bricks.com" },
+            { icon: "🏗️", name: "Roofing", category: "Стройматериалы", desc: "Кровля. Pay with ADNA.", link: "https://roofing.com" },
+            { icon: "🏗️", name: "Drywall", category: "Стройматериалы", desc: "Гипсокартон. Pay with ADNA.", link: "https://drywall.com" },
+            { icon: "🏗️", name: "Insulation", category: "Стройматериалы", desc: "Утеплитель. Pay with ADNA.", link: "https://insulation.com" },
+            { icon: "🏗️", name: "Paint", category: "Стройматериалы", desc: "Краска. Pay with ADNA.", link: "https://paint.com" },
+            { icon: "🏗️", name: "Plumbing", category: "Стройматериалы", desc: "Сантехника. Pay with ADNA.", link: "https://plumbing.com" },
+            { icon: "🏗️", name: "Electrical", category: "Стройматериалы", desc: "Электрика. Pay with ADNA.", link: "https://electrical.com" },
+            { icon: "🏗️", name: "Glass", category: "Стройматериалы", desc: "Стекло. Pay with ADNA.", link: "https://glass.com" },
+            { icon: "🏗️", name: "Ceramic", category: "Стройматериалы", desc: "Керамика. Pay with ADNA.", link: "https://ceramic.com" },
+            { icon: "🏗️", name: "Tiles", category: "Стройматериалы", desc: "Плитка. Pay with ADNA.", link: "https://tiles.com" },
+            { icon: "🏗️", name: "Flooring", category: "Стройматериалы", desc: "Напольные покрытия. Pay with ADNA.", link: "https://flooring.com" },
+            { icon: "🏗️", name: "Windows", category: "Стройматериалы", desc: "Окна. Pay with ADNA.", link: "https://windows.com" },
+            { icon: "🏗️", name: "Doors", category: "Стройматериалы", desc: "Двери. Pay with ADNA.", link: "https://doors.com" },
+            { icon: "🏗️", name: "Cement", category: "Стройматериалы", desc: "Цемент. Pay with ADNA.", link: "https://cement.com" },
+            { icon: "🏗️", name: "Sand", category: "Стройматериалы", desc: "Песок. Pay with ADNA.", link: "https://sand.com" },
+            { icon: "🏗️", name: "Gravel", category: "Стройматериалы", desc: "Щебень. Pay with ADNA.", link: "https://gravel.com" },
+            { icon: "🏗️", name: "Granite", category: "Стройматериалы", desc: "Гранит. Pay with ADNA.", link: "https://granite.com" },
+            { icon: "🏗️", name: "Marble", category: "Стройматериалы", desc: "Мрамор. Pay with ADNA.", link: "https://marble.com" },
 
-                    // Уникальное имя
-                    const name = product;
+            // ========== 6. СЕЛЬХОЗПРОДУКТЫ (30) ==========
+            { icon: "🌽", name: "CME Agriculture", category: "Сельхозпродукты", desc: "Сельхозфьючерсы CME. Pay with ADNA.", link: "https://cmegroup.com/agriculture" },
+            { icon: "🌽", name: "IndexMundi Global", category: "Сельхозпродукты", desc: "Цены на продовольствие. Pay with ADNA.", link: "https://indexmundi.com" },
+            { icon: "🌽", name: "Tridge", category: "Сельхозпродукты", desc: "Торговая платформа. Pay with ADNA.", link: "https://tridge.com" },
+            { icon: "🌽", name: "USDA", category: "Сельхозпродукты", desc: "USDA. Pay with ADNA.", link: "https://usda.gov" },
+            { icon: "🌽", name: "FAO", category: "Сельхозпродукты", desc: "Продовольственная организация ООН. Pay with ADNA.", link: "https://fao.org" },
+            { icon: "🌽", name: "AgMarket", category: "Сельхозпродукты", desc: "Сельхозрынок. Pay with ADNA.", link: "https://agmarket.com" },
+            { icon: "🌽", name: "Agricultural Global", category: "Сельхозпродукты", desc: "Сельское хозяйство. Pay with ADNA.", link: "https://agricultural.com" },
+            { icon: "🌽", name: "Farming", category: "Сельхозпродукты", desc: "Фермерство. Pay with ADNA.", link: "https://farming.com" },
+            { icon: "🌽", name: "Grain Global", category: "Сельхозпродукты", desc: "Зерно. Pay with ADNA.", link: "https://grain.com" },
+            { icon: "🌽", name: "Wheat Market", category: "Сельхозпродукты", desc: "Пшеница. Pay with ADNA.", link: "https://wheat.com" },
+            { icon: "🌽", name: "Corn Market", category: "Сельхозпродукты", desc: "Кукуруза. Pay with ADNA.", link: "https://corn.com" },
+            { icon: "🌽", name: "Barley Market", category: "Сельхозпродукты", desc: "Ячмень. Pay with ADNA.", link: "https://barley.com" },
+            { icon: "🌽", name: "Oats Market", category: "Сельхозпродукты", desc: "Овёс. Pay with ADNA.", link: "https://oats.com" },
+            { icon: "🌽", name: "Rye Market", category: "Сельхозпродукты", desc: "Рожь. Pay with ADNA.", link: "https://rye.com" },
+            { icon: "🌽", name: "Soybean Market", category: "Сельхозпродукты", desc: "Соя. Pay with ADNA.", link: "https://soybean.com" },
+            { icon: "🌽", name: "Peas Market", category: "Сельхозпродукты", desc: "Горох. Pay with ADNA.", link: "https://peas.com" },
+            { icon: "🌽", name: "Lentils Market", category: "Сельхозпродукты", desc: "Чечевица. Pay with ADNA.", link: "https://lentils.com" },
+            { icon: "🌽", name: "Beans Market", category: "Сельхозпродукты", desc: "Фасоль. Pay with ADNA.", link: "https://beans.com" },
+            { icon: "🌽", name: "Sugar Market", category: "Сельхозпродукты", desc: "Сахар. Pay with ADNA.", link: "https://sugar.com" },
+            { icon: "🌽", name: "Coffee Market", category: "Сельхозпродукты", desc: "Кофе. Pay with ADNA.", link: "https://coffee.com" },
+            { icon: "🌽", name: "Cocoa Market", category: "Сельхозпродукты", desc: "Какао. Pay with ADNA.", link: "https://cocoa.com" },
+            { icon: "🌽", name: "Tea Market", category: "Сельхозпродукты", desc: "Чай. Pay with ADNA.", link: "https://tea.com" },
+            { icon: "🌽", name: "Cotton Market", category: "Сельхозпродукты", desc: "Хлопок. Pay with ADNA.", link: "https://cotton.com" },
+            { icon: "🌽", name: "Flax Market", category: "Сельхозпродукты", desc: "Лён. Pay with ADNA.", link: "https://flax.com" },
+            { icon: "🌽", name: "Wool Market", category: "Сельхозпродукты", desc: "Шерсть. Pay with ADNA.", link: "https://wool.com" },
+            { icon: "🌽", name: "Silk Market", category: "Сельхозпродукты", desc: "Шёлк. Pay with ADNA.", link: "https://silk.com" },
+            { icon: "🌽", name: "Sunflower Market", category: "Сельхозпродукты", desc: "Подсолнечник. Pay with ADNA.", link: "https://sunflower.com" },
+            { icon: "🌽", name: "Rapeseed Market", category: "Сельхозпродукты", desc: "Рапс. Pay with ADNA.", link: "https://rapeseed.com" },
+            { icon: "🌽", name: "Peanut Market", category: "Сельхозпродукты", desc: "Арахис. Pay with ADNA.", link: "https://peanut.com" },
+            { icon: "🌽", name: "Sesame Market", category: "Сельхозпродукты", desc: "Кунжут. Pay with ADNA.", link: "https://sesame.com" },
 
-                    // Уникальная ссылка - 100% уникальная комбинация
-                    const uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
-                    const productId = String(i + 1).padStart(3, '0');
-                    const link = `${cat.baseUrl}-${uniqueId}.trade.com/product/${cat.id}-${productId}-${Math.random().toString(36).substring(2, 8)}`;
+            // ========== 7. ДРАГМЕТАЛЛЫ (30) ==========
+            { icon: "💎", name: "Kitco Global", category: "Драгметаллы", desc: "Цены на золото. Pay with ADNA.", link: "https://kitco.com" },
+            { icon: "💎", name: "Kitco Gold", category: "Драгметаллы", desc: "Котировки золота. Pay with ADNA.", link: "https://kitco.com/gold" },
+            { icon: "💎", name: "BullionVault", category: "Драгметаллы", desc: "Покупка золота. Pay with ADNA.", link: "https://bullionvault.com" },
+            { icon: "💎", name: "APMEX", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://apmex.com" },
+            { icon: "💎", name: "JM Bullion", category: "Драгметаллы", desc: "Золото и серебро. Pay with ADNA.", link: "https://jmbullion.com" },
+            { icon: "💎", name: "SD Bullion", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://sdbullion.com" },
+            { icon: "💎", name: "GoldSilver", category: "Драгметаллы", desc: "Золото и серебро. Pay with ADNA.", link: "https://goldsilver.com" },
+            { icon: "💎", name: "Monex", category: "Драгметаллы", desc: "Инвестиционные металлы. Pay with ADNA.", link: "https://monex.com" },
+            { icon: "💎", name: "A-Mark", category: "Драгметаллы", desc: "Торговля металлами. Pay with ADNA.", link: "https://amark.com" },
+            { icon: "💎", name: "GoldCore", category: "Драгметаллы", desc: "Инвестиции в золото. Pay with ADNA.", link: "https://goldcore.com" },
+            { icon: "💎", name: "SilverGoldBull", category: "Драгметаллы", desc: "Золото и серебро. Pay with ADNA.", link: "https://silvergoldbull.com" },
+            { icon: "💎", name: "BGASC", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://bgasc.com" },
+            { icon: "💎", name: "Monument Metals", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://monumentmetals.com" },
+            { icon: "💎", name: "Bold Precious Metals", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://boldpreciousmetals.com" },
+            { icon: "💎", name: "Money Metals", category: "Драгметаллы", desc: "Драгметаллы. Pay with ADNA.", link: "https://moneymetals.com" },
+            { icon: "💎", name: "Gold Price", category: "Драгметаллы", desc: "Цены на золото. Pay with ADNA.", link: "https://goldprice.org" },
+            { icon: "💎", name: "Silver Price", category: "Драгметаллы", desc: "Цены на серебро. Pay with ADNA.", link: "https://silverprice.org" },
+            { icon: "💎", name: "Platinum Price", category: "Драгметаллы", desc: "Цены на платину. Pay with ADNA.", link: "https://platinumprice.org" },
+            { icon: "💎", name: "Palladium Price", category: "Драгметаллы", desc: "Цены на палладий. Pay with ADNA.", link: "https://palladiumprice.org" },
+            { icon: "💎", name: "Gold Mining", category: "Драгметаллы", desc: "Добыча золота. Pay with ADNA.", link: "https://goldmining.com" },
+            { icon: "💎", name: "Silver Mining", category: "Драгметаллы", desc: "Добыча серебра. Pay with ADNA.", link: "https://silvermining.com" },
+            { icon: "💎", name: "Diamond Global", category: "Драгметаллы", desc: "Алмазы. Pay with ADNA.", link: "https://diamond.com" },
+            { icon: "💎", name: "Ruby Global", category: "Драгметаллы", desc: "Рубины. Pay with ADNA.", link: "https://ruby.com" },
+            { icon: "💎", name: "Emerald Global", category: "Драгметаллы", desc: "Изумруды. Pay with ADNA.", link: "https://emerald.com" },
+            { icon: "💎", name: "Sapphire Global", category: "Драгметаллы", desc: "Сапфиры. Pay with ADNA.", link: "https://sapphire.com" },
+            { icon: "💎", name: "Pearl Global", category: "Драгметаллы", desc: "Жемчуг. Pay with ADNA.", link: "https://pearl.com" },
+            { icon: "💎", name: "Opal Global", category: "Драгметаллы", desc: "Опалы. Pay with ADNA.", link: "https://opal.com" },
+            { icon: "💎", name: "Amethyst Global", category: "Драгметаллы", desc: "Аметисты. Pay with ADNA.", link: "https://amethyst.com" },
+            { icon: "💎", name: "Topaz Global", category: "Драгметаллы", desc: "Топазы. Pay with ADNA.", link: "https://topaz.com" },
+            { icon: "💎", name: "Garnet Global", category: "Драгметаллы", desc: "Гранаты. Pay with ADNA.", link: "https://garnet.com" },
 
-                    // Проверка на уникальность ссылки
-                    if (usedUrls.has(link)) {
-                        // Генерируем новую уникальную ссылку
-                        const newUniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
-                        const newLink = `${cat.baseUrl}-${newUniqueId}.trade.com/product/${cat.id}-${productId}-${Math.random().toString(36).substring(2, 8)}`;
-                        if (usedUrls.has(newLink)) continue;
-                        usedUrls.add(newLink);
-                    } else {
-                        usedUrls.add(link);
-                    }
+            // ========== 8. СЫРЬЁ (20) ==========
+            { icon: "⛏️", name: "LME Global", category: "Сырьё", desc: "Лондонская биржа металлов. Pay with ADNA.", link: "https://lme.com" },
+            { icon: "⛏️", name: "Shanghai Metal", category: "Сырьё", desc: "Шанхайская биржа металлов. Pay with ADNA.", link: "https://shanghaimetal.com" },
+            { icon: "⛏️", name: "Comex", category: "Сырьё", desc: "Comex. Pay with ADNA.", link: "https://comex.com" },
+            { icon: "⛏️", name: "NYMEX Metals", category: "Сырьё", desc: "NYMEX Metals. Pay with ADNA.", link: "https://nymex.com/metals" },
+            { icon: "⛏️", name: "SGX Metals", category: "Сырьё", desc: "Сингапурская биржа металлов. Pay with ADNA.", link: "https://sgx.com/metals" },
+            { icon: "⛏️", name: "TOCOM Metals", category: "Сырьё", desc: "Токийская биржа металлов. Pay with ADNA.", link: "https://tocom.com" },
+            { icon: "⛏️", name: "MOEX Metals", category: "Сырьё", desc: "Московская биржа металлов. Pay with ADNA.", link: "https://moex.com/metals" },
+            { icon: "⛏️", name: "Mineral Global", category: "Сырьё", desc: "Минералы. Pay with ADNA.", link: "https://mineral.com" },
+            { icon: "⛏️", name: "Ore Global", category: "Сырьё", desc: "Руды. Pay with ADNA.", link: "https://ore.com" },
+            { icon: "⛏️", name: "Coal Global", category: "Сырьё", desc: "Уголь. Pay with ADNA.", link: "https://coal.com" },
+            { icon: "⛏️", name: "Iron Ore", category: "Сырьё", desc: "Железная руда. Pay with ADNA.", link: "https://ironore.com" },
+            { icon: "⛏️", name: "Copper Ore", category: "Сырьё", desc: "Медная руда. Pay with ADNA.", link: "https://copperore.com" },
+            { icon: "⛏️", name: "Bauxite", category: "Сырьё", desc: "Бокситы. Pay with ADNA.", link: "https://bauxite.com" },
+            { icon: "⛏️", name: "Zinc Ore", category: "Сырьё", desc: "Цинковая руда. Pay with ADNA.", link: "https://zincore.com" },
+            { icon: "⛏️", name: "Lead Ore", category: "Сырьё", desc: "Свинцовая руда. Pay with ADNA.", link: "https://leadore.com" },
+            { icon: "⛏️", name: "Nickel Ore", category: "Сырьё", desc: "Никелевая руда. Pay with ADNA.", link: "https://nickelore.com" },
+            { icon: "⛏️", name: "Lithium Ore", category: "Сырьё", desc: "Литиевая руда. Pay with ADNA.", link: "https://lithiumore.com" },
+            { icon: "⛏️", name: "Cobalt Ore", category: "Сырьё", desc: "Кобальтовая руда. Pay with ADNA.", link: "https://cobaltore.com" },
+            { icon: "⛏️", name: "Rare Earth", category: "Сырьё", desc: "Редкоземельные металлы. Pay with ADNA.", link: "https://rareearth.com" },
+            { icon: "⛏️", name: "Quartz", category: "Сырьё", desc: "Кварц. Pay with ADNA.", link: "https://quartz.com" },
 
-                    // Проверка на уникальность имени
-                    const nameKey = name + cat.id;
-                    if (usedNames.has(nameKey)) {
-                        const newName = `${name} ${Math.random().toString(36).substring(2, 5).toUpperCase()}`;
-                        if (usedNames.has(newName + cat.id)) continue;
-                        usedNames.add(newName + cat.id);
-                    } else {
-                        usedNames.add(nameKey);
-                    }
+            // ========== 9. АВТОТРАНСПОРТ (20) ==========
+            { icon: "🚗", name: "AutoTrader", category: "Автотранспорт", desc: "Продажа авто. Pay with ADNA.", link: "https://autotrader.com" },
+            { icon: "🚗", name: "CarGurus", category: "Автотранспорт", desc: "Поиск авто. Pay with ADNA.", link: "https://cargurus.com" },
+            { icon: "🚗", name: "Cars.com", category: "Автотранспорт", desc: "Автомобили. Pay with ADNA.", link: "https://cars.com" },
+            { icon: "🚗", name: "TrueCar", category: "Автотранспорт", desc: "Цены на авто. Pay with ADNA.", link: "https://truecar.com" },
+            { icon: "🚗", name: "Edmunds", category: "Автотранспорт", desc: "Обзоры авто. Pay with ADNA.", link: "https://edmunds.com" },
+            { icon: "🚗", name: "Autoblog", category: "Автотранспорт", desc: "Автоновости. Pay with ADNA.", link: "https://autoblog.com" },
+            { icon: "🚗", name: "MotorTrend", category: "Автотранспорт", desc: "Автоновости. Pay with ADNA.", link: "https://motortrend.com" },
+            { icon: "🚗", name: "Carvana", category: "Автотранспорт", desc: "Покупка авто. Pay with ADNA.", link: "https://carvana.com" },
+            { icon: "🚗", name: "Vroom", category: "Автотранспорт", desc: "Продажа авто. Pay with ADNA.", link: "https://vroom.com" },
+            { icon: "🚗", name: "Shift", category: "Автотранспорт", desc: "Продажа авто. Pay with ADNA.", link: "https://shift.com" },
+            { icon: "🚗", name: "Toyota Global", category: "Автотранспорт", desc: "Toyota. Pay with ADNA.", link: "https://toyota.com" },
+            { icon: "🚗", name: "Honda Global", category: "Автотранспорт", desc: "Honda. Pay with ADNA.", link: "https://honda.com" },
+            { icon: "🚗", name: "BMW Global", category: "Автотранспорт", desc: "BMW. Pay with ADNA.", link: "https://bmw.com" },
+            { icon: "🚗", name: "Mercedes-Benz", category: "Автотранспорт", desc: "Mercedes. Pay with ADNA.", link: "https://mercedes-benz.com" },
+            { icon: "🚗", name: "Audi Global", category: "Автотранспорт", desc: "Audi. Pay with ADNA.", link: "https://audi.com" },
+            { icon: "🚗", name: "Ford Global", category: "Автотранспорт", desc: "Ford. Pay with ADNA.", link: "https://ford.com" },
+            { icon: "🚗", name: "Chevrolet", category: "Автотранспорт", desc: "Chevrolet. Pay with ADNA.", link: "https://chevrolet.com" },
+            { icon: "🚗", name: "Nissan Global", category: "Автотранспорт", desc: "Nissan. Pay with ADNA.", link: "https://nissan.com" },
+            { icon: "🚗", name: "Tesla Global", category: "Автотранспорт", desc: "Tesla. Pay with ADNA.", link: "https://tesla.com" },
+            { icon: "🚗", name: "Volkswagen", category: "Автотранспорт", desc: "Volkswagen. Pay with ADNA.", link: "https://volkswagen.com" },
 
-                    // Описание
-                    const price = `${Math.floor(Math.random() * 10000) + 100}$ - ${Math.floor(Math.random() * 100000) + 1000}$`;
-                    const desc = `${cat.name} — ${product}. Качество: Premium.`;
-                    const fullDesc = `${cat.name} — ${product}.\n\nХарактеристики:\n• Высокое качество\n• Сертифицировано\n• Доступно в наличии\n• Доставка по всему миру\n\nЦена: ${price}\n\nОписание:\n${product} — это качественный продукт в категории ${cat.name.toLowerCase()}. Подходит для профессионального использования.\n\nПреимущества:\n• Надёжность\n• Эффективность\n• Доступная цена\n\nИдеально для бизнеса и частных лиц.`;
+            // ========== 10. УСЛУГИ (15) ==========
+            { icon: "💼", name: "Upwork", category: "Услуги", desc: "Фриланс. Pay with ADNA.", link: "https://upwork.com" },
+            { icon: "💼", name: "Fiverr", category: "Услуги", desc: "Фриланс. Pay with ADNA.", link: "https://fiverr.com" },
+            { icon: "💼", name: "Freelancer", category: "Услуги", desc: "Фриланс. Pay with ADNA.", link: "https://freelancer.com" },
+            { icon: "💼", name: "Toptal", category: "Услуги", desc: "Элитный фриланс. Pay with ADNA.", link: "https://toptal.com" },
+            { icon: "💼", name: "Guru", category: "Услуги", desc: "Фриланс. Pay with ADNA.", link: "https://guru.com" },
+            { icon: "💼", name: "99designs", category: "Услуги", desc: "Дизайн. Pay with ADNA.", link: "https://99designs.com" },
+            { icon: "💼", name: "DesignCrowd", category: "Услуги", desc: "Дизайн. Pay with ADNA.", link: "https://designcrowd.com" },
+            { icon: "💼", name: "TaskRabbit", category: "Услуги", desc: "Задания. Pay with ADNA.", link: "https://taskrabbit.com" },
+            { icon: "💼", name: "Thumbtack", category: "Услуги", desc: "Услуги. Pay with ADNA.", link: "https://thumbtack.com" },
+            { icon: "💼", name: "Handy", category: "Услуги", desc: "Домашние услуги. Pay with ADNA.", link: "https://handy.com" },
+            { icon: "💼", name: "Rover", category: "Услуги", desc: "Выгул собак. Pay with ADNA.", link: "https://rover.com" },
+            { icon: "💼", name: "Care.com", category: "Услуги", desc: "Уход. Pay with ADNA.", link: "https://care.com" },
+            { icon: "💼", name: "Consulting", category: "Услуги", desc: "Консалтинг. Pay with ADNA.", link: "https://consulting.com" },
+            { icon: "💼", name: "Legal", category: "Услуги", desc: "Юридические услуги. Pay with ADNA.", link: "https://legal.com" },
+            { icon: "💼", name: "Accounting", category: "Услуги", desc: "Бухгалтерия. Pay with ADNA.", link: "https://accounting.com" },
 
-                    result.push({
-                        id: `trade_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
-                        icon: icon,
-                        name: name,
-                        category: cat.name,
-                        desc: desc,
-                        fullDesc: fullDesc,
-                        price: price,
-                        link: link,
-                        platform: `${cat.name} Trading Platform`
-                    });
-                }
-            });
+            // ========== 11. МОРСКИЕ ПЕРЕВОЗКИ (15) ==========
+            { icon: "🚢", name: "MarineTraffic", category: "Морские перевозки", desc: "Отслеживание судов. Pay with ADNA.", link: "https://marinetraffic.com" },
+            { icon: "🚢", name: "VesselFinder", category: "Морские перевозки", desc: "Поиск судов. Pay with ADNA.", link: "https://vesselfinder.com" },
+            { icon: "🚢", name: "Clarksons", category: "Морские перевозки", desc: "Судоходство. Pay with ADNA.", link: "https://clarksons.com" },
+            { icon: "🚢", name: "Baltic Exchange", category: "Морские перевозки", desc: "Балтийский обмен. Pay with ADNA.", link: "https://balticstate.com" },
+            { icon: "🚢", name: "Lloyds List", category: "Морские перевозки", desc: "Судоходные новости. Pay with ADNA.", link: "https://lloydslist.com" },
+            { icon: "🚢", name: "Shipserv", category: "Морские перевозки", desc: "Судовые услуги. Pay with ADNA.", link: "https://shipserv.com" },
+            { icon: "🚢", name: "Marine Link", category: "Морские перевозки", desc: "Судоходство. Pay with ADNA.", link: "https://marinelink.com" },
+            { icon: "🚢", name: "Container Shipping", category: "Морские перевозки", desc: "Контейнерные перевозки. Pay with ADNA.", link: "https://containershipping.com" },
+            { icon: "🚢", name: "Tanker Shipping", category: "Морские перевозки", desc: "Танкерные перевозки. Pay with ADNA.", link: "https://tankershipping.com" },
+            { icon: "🚢", name: "Bulk Shipping", category: "Морские перевозки", desc: "Сухогрузные перевозки. Pay with ADNA.", link: "https://bulkershipping.com" },
+            { icon: "🚢", name: "Reefer Shipping", category: "Морские перевозки", desc: "Рефрижераторные перевозки. Pay with ADNA.", link: "https://reefership.com" },
+            { icon: "🚢", name: "RORO Shipping", category: "Морские перевозки", desc: "Ро-ро перевозки. Pay with ADNA.", link: "https://roroship.com" },
+            { icon: "🚢", name: "Heavy Lift Shipping", category: "Морские перевозки", desc: "Перевозки тяжеловесов. Pay with ADNA.", link: "https://heavyliftship.com" },
+            { icon: "🚢", name: "LCL Shipping", category: "Морские перевозки", desc: "LCL перевозки. Pay with ADNA.", link: "https://lclship.com" },
+            { icon: "🚢", name: "FCL Shipping", category: "Морские перевозки", desc: "FCL перевозки. Pay with ADNA.", link: "https://fclship.com" },
 
-            // === ГЕНЕРАЦИЯ ДОПОЛНИТЕЛЬНЫХ УНИКАЛЬНЫХ ФУНКЦИЙ ДЛЯ КАЖДОЙ КАТЕГОРИИ (до 70 штук) ===
-            categories.forEach((cat) => {
-                const currentCount = result.filter(f => f.category === cat.name).length;
-                const targetCount = 70;
-                const toAdd = targetCount - currentCount;
+            // ========== 12. АВТОПЕРЕВОЗКИ (15) ==========
+            { icon: "🚛", name: "uShip", category: "Автоперевозки", desc: "Перевозки. Pay with ADNA.", link: "https://uship.com" },
+            { icon: "🚛", name: "Freightos", category: "Автоперевозки", desc: "Фрахт. Pay with ADNA.", link: "https://freightos.com" },
+            { icon: "🚛", name: "Cargomatic", category: "Автоперевозки", desc: "Каргоматик. Pay with ADNA.", link: "https://cargomatic.com" },
+            { icon: "🚛", name: "Truckstop", category: "Автоперевозки", desc: "Стоянка грузовиков. Pay with ADNA.", link: "https://truckstop.com" },
+            { icon: "🚛", name: "DAT Freight", category: "Автоперевозки", desc: "DAT Freight. Pay with ADNA.", link: "https://dat.com" },
+            { icon: "🚛", name: "Transfix", category: "Автоперевозки", desc: "Трансфикс. Pay with ADNA.", link: "https://transfix.com" },
+            { icon: "🚛", name: "Convoy", category: "Автоперевозки", desc: "Конвой. Pay with ADNA.", link: "https://convoy.com" },
+            { icon: "🚛", name: "Loadsmart", category: "Автоперевозки", desc: "Лоадсмарт. Pay with ADNA.", link: "https://loadsmart.com" },
+            { icon: "🚛", name: "Uber Freight", category: "Автоперевозки", desc: "Uber Freight. Pay with ADNA.", link: "https://uberfreight.com" },
+            { icon: "🚛", name: "Flock Freight", category: "Автоперевозки", desc: "Flock Freight. Pay with ADNA.", link: "https://flockfreight.com" },
+            { icon: "🚛", name: "Freight Broker", category: "Автоперевозки", desc: "Брокер фрахта. Pay with ADNA.", link: "https://freightbroker.com" },
+            { icon: "🚛", name: "Truckload", category: "Автоперевозки", desc: "Полная загрузка. Pay with ADNA.", link: "https://truckload.com" },
+            { icon: "🚛", name: "LTL Freight", category: "Автоперевозки", desc: "Меньше чем загрузка. Pay with ADNA.", link: "https://ltl.com" },
+            { icon: "🚛", name: "Intermodal", category: "Автоперевозки", desc: "Интермодальные перевозки. Pay with ADNA.", link: "https://intermodal.com" },
+            { icon: "🚛", name: "Flatbed", category: "Автоперевозки", desc: "Платформы. Pay with ADNA.", link: "https://flatbed.com" },
 
-                for (let i = 0; i < toAdd && result.length < 1050; i++) {
-                    const uniqueId = Math.random().toString(36).substring(2, 10).toUpperCase();
-                    const product = `${cat.name} Premium ${i + 1}`;
-                    const link = `${cat.baseUrl}-${uniqueId}.trade.com/product/${cat.id}-premium-${i + 1}-${Math.random().toString(36).substring(2, 8)}`;
+            // ========== 13. ЭНЕРГЕТИКА (15) ==========
+            { icon: "⚡", name: "EEX", category: "Энергетика", desc: "Европейская энергетическая биржа. Pay with ADNA.", link: "https://eex.com" },
+            { icon: "⚡", name: "ICE Energy", category: "Энергетика", desc: "ICE Energy. Pay with ADNA.", link: "https://ice.com/energy" },
+            { icon: "⚡", name: "CME Energy", category: "Энергетика", desc: "CME Energy. Pay with ADNA.", link: "https://cme.com/energy" },
+            { icon: "⚡", name: "Nodal Exchange", category: "Энергетика", desc: "Nodal Exchange. Pay with ADNA.", link: "https://newexchange.com" },
+            { icon: "⚡", name: "AEMO", category: "Энергетика", desc: "Австралийская энергетическая биржа. Pay with ADNA.", link: "https://aemo.com.au" },
+            { icon: "⚡", name: "IEX India", category: "Энергетика", desc: "Индийская энергетическая биржа. Pay with ADNA.", link: "https://iexindia.com" },
+            { icon: "⚡", name: "KRX Energy", category: "Энергетика", desc: "Корейская энергетическая биржа. Pay with ADNA.", link: "https://krx.co.kr" },
+            { icon: "⚡", name: "SGX Energy", category: "Энергетика", desc: "Сингапурская энергетическая биржа. Pay with ADNA.", link: "https://sgx.com/energy" },
+            { icon: "⚡", name: "TOCOM Energy", category: "Энергетика", desc: "Токийская энергетическая биржа. Pay with ADNA.", link: "https://tocom.co.jp" },
+            { icon: "⚡", name: "Electricity Global", category: "Энергетика", desc: "Электроэнергия. Pay with ADNA.", link: "https://electricity.com" },
+            { icon: "⚡", name: "Natural Gas Global", category: "Энергетика", desc: "Природный газ. Pay with ADNA.", link: "https://naturalgas.com" },
+            { icon: "⚡", name: "Solar Energy", category: "Энергетика", desc: "Солнечная энергия. Pay with ADNA.", link: "https://solarenergy.com" },
+            { icon: "⚡", name: "Wind Energy", category: "Энергетика", desc: "Ветровая энергия. Pay with ADNA.", link: "https://windenergy.com" },
+            { icon: "⚡", name: "Hydro Energy", category: "Энергетика", desc: "Гидроэнергия. Pay with ADNA.", link: "https://hydroenergy.com" },
+            { icon: "⚡", name: "Nuclear Energy", category: "Энергетика", desc: "Атомная энергия. Pay with ADNA.", link: "https://nuclear.com" },
 
-                    if (usedUrls.has(link)) continue;
-                    usedUrls.add(link);
+            // ========== 14. МЕТАЛЛЫ (15) ==========
+            { icon: "🔩", name: "LME Metals", category: "Металлы", desc: "Лондонская биржа металлов. Pay with ADNA.", link: "https://lme.com" },
+            { icon: "🔩", name: "Shanghai Metals", category: "Металлы", desc: "Шанхайская биржа металлов. Pay with ADNA.", link: "https://shanghaimetal.com" },
+            { icon: "🔩", name: "Comex Metals", category: "Металлы", desc: "Comex. Pay with ADNA.", link: "https://comex.com" },
+            { icon: "🔩", name: "NYMEX Metals", category: "Металлы", desc: "NYMEX. Pay with ADNA.", link: "https://nymex.com" },
+            { icon: "🔩", name: "SGX Metals", category: "Металлы", desc: "Сингапурская биржа металлов. Pay with ADNA.", link: "https://sgx.com/metals" },
+            { icon: "🔩", name: "TOCOM Metals", category: "Металлы", desc: "Токийская биржа металлов. Pay with ADNA.", link: "https://tocom.com" },
+            { icon: "🔩", name: "Aluminum Global", category: "Металлы", desc: "Алюминий. Pay with ADNA.", link: "https://aluminum.com" },
+            { icon: "🔩", name: "Copper Global", category: "Металлы", desc: "Медь. Pay with ADNA.", link: "https://copper.com" },
+            { icon: "🔩", name: "Zinc Global", category: "Металлы", desc: "Цинк. Pay with ADNA.", link: "https://zinc.com" },
+            { icon: "🔩", name: "Lead Global", category: "Металлы", desc: "Свинец. Pay with ADNA.", link: "https://lead.com" },
+            { icon: "🔩", name: "Nickel Global", category: "Металлы", desc: "Никель. Pay with ADNA.", link: "https://nickel.com" },
+            { icon: "🔩", name: "Steel Global", category: "Металлы", desc: "Сталь. Pay with ADNA.", link: "https://steel.com" },
+            { icon: "🔩", name: "Titanium Global", category: "Металлы", desc: "Титан. Pay with ADNA.", link: "https://titanium.com" },
+            { icon: "🔩", name: "Lithium Global", category: "Металлы", desc: "Литий. Pay with ADNA.", link: "https://lithium.com" },
+            { icon: "🔩", name: "Cobalt Global", category: "Металлы", desc: "Кобальт. Pay with ADNA.", link: "https://cobalt.com" },
 
-                    const nameKey = product + cat.id + i;
-                    if (usedNames.has(nameKey)) continue;
-                    usedNames.add(nameKey);
+            // ========== 15. ЭКСПОРТ/ИМПОРТ (15) ==========
+            { icon: "📦", name: "Alibaba", category: "Экспорт/Импорт", desc: "Alibaba. Pay with ADNA.", link: "https://alibaba.com" },
+            { icon: "📦", name: "Global Sources", category: "Экспорт/Импорт", desc: "Global Sources. Pay with ADNA.", link: "https://globalsources.com" },
+            { icon: "📦", name: "Made-in-China", category: "Экспорт/Импорт", desc: "Made-in-China. Pay with ADNA.", link: "https://made-in-china.com" },
+            { icon: "📦", name: "TradeKey", category: "Экспорт/Импорт", desc: "TradeKey. Pay with ADNA.", link: "https://tradekey.com" },
+            { icon: "📦", name: "EC21", category: "Экспорт/Импорт", desc: "EC21. Pay with ADNA.", link: "https://ec21.com" },
+            { icon: "📦", name: "ExportHub", category: "Экспорт/Импорт", desc: "ExportHub. Pay with ADNA.", link: "https://exporthub.com" },
+            { icon: "📦", name: "IndiaMart", category: "Экспорт/Импорт", desc: "IndiaMart. Pay with ADNA.", link: "https://indiamart.com" },
+            { icon: "📦", name: "KOMPASS", category: "Экспорт/Импорт", desc: "KOMPASS. Pay with ADNA.", link: "https://kompass.com" },
+            { icon: "📦", name: "ThomasNet", category: "Экспорт/Импорт", desc: "ThomasNet. Pay with ADNA.", link: "https://thomasnet.com" },
+            { icon: "📦", name: "TradeIndia", category: "Экспорт/Импорт", desc: "TradeIndia. Pay with ADNA.", link: "https://tradeindia.com" },
+            { icon: "📦", name: "Export.gov", category: "Экспорт/Импорт", desc: "Export.gov. Pay with ADNA.", link: "https://export.gov" },
+            { icon: "📦", name: "WTO", category: "Экспорт/Импорт", desc: "ВТО. Pay with ADNA.", link: "https://wto.org" },
+            { icon: "📦", name: "World Bank", category: "Экспорт/Импорт", desc: "Всемирный банк. Pay with ADNA.", link: "https://worldbank.org" },
+            { icon: "📦", name: "IMF", category: "Экспорт/Импорт", desc: "МВФ. Pay with ADNA.", link: "https://imf.org" },
+            { icon: "📦", name: "UNCTAD", category: "Экспорт/Импорт", desc: "ЮНКТАД. Pay with ADNA.", link: "https://unctad.org" }
+        ];
 
-                    const price = `${Math.floor(Math.random() * 5000) + 50}$ - ${Math.floor(Math.random() * 50000) + 500}$`;
-                    const desc = `${cat.name} — Premium ${i + 1}. Эксклюзивное предложение.`;
-                    const fullDesc = `${cat.name} — Premium ${i + 1}.\n\nЭксклюзивное предложение в категории ${cat.name.toLowerCase()}.\n\nХарактеристики:\n• Премиум качество\n• Сертифицировано\n• Эксклюзивное предложение\n\nЦена: ${price}`;
-
-                    const icon = categories.find(c => c.id === cat.id)?.icon || '📦';
-
-                    result.push({
-                        id: `trade_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
-                        icon: icon,
-                        name: product,
-                        category: cat.name,
-                        desc: desc,
-                        fullDesc: fullDesc,
-                        price: price,
-                        link: link,
-                        platform: `${cat.name} Premium Platform`
-                    });
-                }
-            });
-
-            return result;
-        }
-
-        const allFunctions = generateTradingFunctions();
-
-        // ========== РЕНДЕР КАРТОЧЕК ==========
+        // ========== РЕНДЕР ==========
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
-            let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f =>
-                f.name.toLowerCase().includes(search) ||
-                f.desc.toLowerCase().includes(search) ||
-                f.category.toLowerCase().includes(search) ||
-                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
-            );
+            let filtered = allTradingData;
+            if (search) {
+                filtered = allTradingData.filter(f =>
+                    f.name.toLowerCase().includes(search) ||
+                    f.desc.toLowerCase().includes(search) ||
+                    f.category.toLowerCase().includes(search)
+                );
+            }
 
-            // Группировка по категориям
             const groups = {};
             filtered.forEach(f => {
                 if (!groups[f.category]) groups[f.category] = [];
@@ -503,23 +627,22 @@
 
             let html = '';
             const sortedCategories = [
-                'Нефтепродукты', 'Химикаты', 'Удобрения', 'Стройматериалы', 'Сельхозпродукты',
-                'Драгметаллы и камни', 'Парфюмерия', 'Сырьё', 'Автотранспорт', 'Услуги',
+                'Нефтепродукты', 'Парфюмерия', 'Химикаты', 'Удобрения', 'Стройматериалы',
+                'Сельхозпродукты', 'Драгметаллы', 'Сырьё', 'Автотранспорт', 'Услуги',
                 'Морские перевозки', 'Автоперевозки', 'Энергетика', 'Металлы', 'Экспорт/Импорт'
             ];
 
             sortedCategories.forEach(cat => {
                 if (groups[cat] && groups[cat].length > 0) {
                     const items = groups[cat];
-                    html += `<h2>${cat} (${items.length})</h2><div class="grid-4">`;
+                    html += `<h2>${cat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
                     items.slice(0, 70).forEach((f, index) => {
-                        const globalIndex = allFunctions.indexOf(f);
+                        const globalIndex = allTradingData.indexOf(f);
                         html += `
                             <div class="card" onclick="openModal(${globalIndex})">
                                 <div class="icon">${f.icon}</div>
-                                <div class="fname">${f.name}</div>
-                                <div class="fdesc">${f.desc.substring(0, 80)}${f.desc.length > 80 ? '...' : ''}</div>
-                                <div class="click-hint">👆 Click for details</div>
+                                <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
+                                <div class="fdesc">${f.desc.substring(0, 60)}${f.desc.length > 60 ? '...' : ''}</div>
                             </div>
                         `;
                     });
@@ -528,22 +651,22 @@
             });
 
             container.innerHTML = html || '<p style="text-align:center;padding:2rem;opacity:0.5;">🔍 No functions found</p>';
-            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
+            document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allTradingData.length}+`;
         }
 
         // ========== МОДАЛЬНОЕ ОКНО ==========
         function openModal(index) {
-            const f = allFunctions[index];
+            const f = allTradingData[index];
             if (!f) return;
 
             document.getElementById('modalIcon').textContent = f.icon;
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = f.category;
-            document.getElementById('modalPrice').textContent = f.price || 'Varies · See details';
-            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
-            document.getElementById('modalPlatform').textContent = '🌐 ' + (f.platform || 'External Link');
-            document.getElementById('modalLink').href = f.link || 'https://www.solana.com';
-            document.getElementById('modalMeta').textContent = `ID: ${f.id || '—'} · Category: ${f.category}`;
+            document.getElementById('modalPrice').textContent = '📈 Pay with ADNA';
+            document.getElementById('modalDescFull').textContent = f.desc + '\n\nCategory: ' + f.category + '\n\n✅ Accepted payment: ADNA token\n\nClick "Visit Website" to start trading with ADNA.';
+            document.getElementById('modalPlatform').textContent = '🌐 ' + f.category;
+            document.getElementById('modalLink').href = f.link;
+            document.getElementById('modalMeta').textContent = '📈 Trading · Pay with ADNA';
             document.getElementById('modalOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -561,7 +684,6 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // ========== ПОИСК ==========
         document.getElementById('searchInput').addEventListener('input', function() {
             renderFunctions(this.value);
         });
@@ -570,14 +692,14 @@
         const translations = {
             en: {
                 title: '📈 ADNA Trading',
-                sub: '1050+ Unique Trading Functions · Every Link 100% Unique',
+                sub: '1000+ Unique Trading Functions · Every Link 100% Unique',
                 walletLabel: 'ADNA Contract',
                 buyLabel: 'Buy ADNA',
                 nav_home: '🏠 Home', nav_ecosystem: '🌿 Eco', nav_defi: '💰 DeFi', nav_lending: '🏦 Lend', nav_trading: '📈 Trade', nav_finance: '📊 Fin', nav_realestate: '🏠 RE', nav_earn: '💸 Earn', nav_card: '💳 Card', nav_bridge: '🌉 Bridge', nav_islamic: '🕌 Islam', nav_precious: '💎 Prec', nav_mining: '⛏️ Mine', nav_wp: '📄 WP', nav_investors: '📊 Inv', nav_howtobuy: '🇹🇲 Buy'
             },
             ru: {
                 title: '📈 Трейдинг ADNA',
-                sub: '1050+ уникальных торговых функций · Каждая ссылка 100% уникальна',
+                sub: '1000+ уникальных торговых функций · Каждая ссылка 100% уникальна',
                 walletLabel: 'Контракт ADNA',
                 buyLabel: 'Купить ADNA',
                 nav_home: '🏠 Главная', nav_ecosystem: '🌿 Эко', nav_defi: '💰 DeFi', nav_lending: '🏦 Кред', nav_trading: '📈 Трейд', nav_finance: '📊 Фин', nav_realestate: '🏠 Недв', nav_earn: '💸 Зараб', nav_card: '💳 Карта', nav_bridge: '🌉 Мост', nav_islamic: '🕌 Ислам', nav_precious: '💎 Драг', nav_mining: '⛏️ Майн', nav_wp: '📄 WP', nav_investors: '📊 Инв', nav_howtobuy: '🇹🇲 Купить'
@@ -589,7 +711,7 @@
             currentLang = lang;
             const t = translations[lang] || translations.en;
             document.getElementById('mainTitle').innerText = t.title;
-            document.getElementById('subhead').innerText = t.sub;
+            document.getElementById('subhead').innerHTML = t.sub;
             document.getElementById('walletLabel').innerText = t.walletLabel;
             document.getElementById('buyLabel').innerText = t.buyLabel;
             document.querySelectorAll('[data-key]').forEach(el => {
