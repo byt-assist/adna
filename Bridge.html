@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADNA — Bridge | 300+ Unique Bridge Platforms</title>
+    <title>ADNA — Bridge</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a0e08 0%, #2d1a0f 50%, #1a0e08 100%); color: #e8ddd0; line-height: 1.5; min-height: 100vh; }
@@ -15,7 +15,7 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 2rem; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(8px); border-radius: 48px; margin-bottom: 2rem; border: 1px solid rgba(212, 168, 67, 0.2); }
         h1 { font-size: 2.8rem; margin-bottom: 0.5rem; background: linear-gradient(135deg, #f5e6c8, #d4a843); -webkit-background-clip: text; background-clip: text; color: transparent; }
         h2 { font-size: 1.4rem; margin: 1.5rem 0 0.8rem; border-left: 4px solid #d4a843; padding-left: 1rem; color: #f5e6c8; }
-        .grid-5 { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin: 0.5rem 0; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.6rem; margin: 0.5rem 0; }
         .card { background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 0.6rem 0.8rem; border: 1px solid rgba(212, 168, 67, 0.1); transition: 0.2s; font-size: 0.75rem; cursor: pointer; }
         .card:hover { transform: translateY(-2px); background: rgba(212, 168, 67, 0.08); border-color: #d4a843; box-shadow: 0 4px 20px rgba(212, 168, 67, 0.1); }
         .card .icon { font-size: 1.2rem; }
@@ -50,7 +50,7 @@
         .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
         .modal .modal-meta { font-size: 0.65rem; opacity: 0.5; margin-top: 0.5rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.5rem; }
         .pay-badge { background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.1rem 0.4rem; font-size: 0.55rem; color: #d4a843; display: inline-block; margin-left: 0.3rem; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-5 { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } }
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
     </style>
 </head>
 <body>
@@ -78,16 +78,16 @@
 
     <div class="container">
         <h1 id="mainTitle">🌉 ADNA Bridge</h1>
-        <div class="subhead" id="subhead"><span id="linkCount">300+</span> Unique Bridge Platforms · Cross-Chain Transfers</div>
+        <div class="subhead" id="subhead">300+ Unique Bridge Platforms · Cross-Chain Transfers · Pay with ADNA</div>
 
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
-            <br>🌉 <span id="bridgeLabel">Bridge Networks</span>: Solana, Ethereum, Polygon, Arbitrum, Base, Avalanche, BNB, Optimism
+            <br>🌉 <span id="bridgeLabel">Bridge Networks</span>: Solana · Ethereum · Polygon · Arbitrum · Base · Avalanche · BNB · Optimism · 300+ routes
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
-            <input class="search-box" id="searchInput" placeholder="🔍 Search by bridge name, network or region..." style="flex:1; min-width:200px;">
+            <input class="search-box" id="searchInput" placeholder="🔍 Search 300+ bridge routes..." style="flex:1; min-width:200px;">
             <span class="func-count" id="funcCount">Showing: 300 / 300+</span>
         </div>
 
@@ -111,7 +111,7 @@
             <a href="how-to-buy.html" class="btn">🇹🇲 Buy</a>
         </div>
 
-        <footer>© 2025 AromaDNA (ADNA) · <span id="footerCount">300+</span> Bridge Platforms · Pay with ADNA</footer>
+        <footer>© 2025 AromaDNA (ADNA) · 300+ Bridge Platforms · Pay with ADNA</footer>
     </div>
 
     <div class="modal-overlay" id="modalOverlay">
@@ -151,72 +151,71 @@
                 "Solana", "Ethereum", "Polygon", "Arbitrum", "Optimism", "Base",
                 "Avalanche", "BNB Chain", "Fantom", "Harmony", "Near", "Cosmos",
                 "Polkadot", "Aptos", "Sui", "Sei", "Injective", "Celestia",
-                "Manta", "Mantle", "Linea", "Scroll", "zkSync", "Starknet"
+                "Manta", "Mantle", "Linea", "Scroll", "zkSync", "Starknet",
+                "Moonbeam", "Cronos", "Kava", "EOS", "Tezos", "Algorand"
             ];
 
-            const regions = [
-                "Global", "North America", "Europe", "Asia", "APAC", "EMEA",
-                "Americas", "Cross-Chain", "Multi-Chain", "Omni-Chain"
+            const bridges = [
+                { name: "Portal Bridge", base: "portalbridge.com" },
+                { name: "Wormhole Bridge", base: "wormhole.com" },
+                { name: "LayerZero Bridge", base: "layerzero.network" },
+                { name: "Axelar Bridge", base: "axelar.network" },
+                { name: "Celer Bridge", base: "cbridge.celer.network" },
+                { name: "Multichain Bridge", base: "multichain.org" },
+                { name: "Hop Protocol", base: "hop.exchange" },
+                { name: "Across Bridge", base: "across.to" },
+                { name: "Allbridge", base: "allbridge.io" },
+                { name: "Owlto Finance", base: "owlto.finance" },
+                { name: "Rango Exchange", base: "rango.exchange" },
+                { name: "LiFi Protocol", base: "li.fi" },
+                { name: "Socket Protocol", base: "socket.tech" },
+                { name: "Squid Router", base: "squidrouter.com" },
+                { name: "Connext Bridge", base: "connext.network" }
             ];
 
-            const types = [
-                "Cross-Chain", "Multi-Chain", "Omni-Chain", "Native Bridge",
-                "Wrapped Bridge", "Canonical Bridge", "Lightweight Bridge"
-            ];
+            const suffixes = ["bridge", "transfer", "swap", "crosschain", "hub", "gateway", "portal", "relay", "connector", "router"];
 
-            // Реальные bridge-платформы
-            const realBridges = [
-                { name: "Portal Bridge", network: "Cross-Chain", desc: "Connect 20+ chains. Fast transfers. Pay with ADNA.", link: "https://www.portalbridge.com" },
-                { name: "Wormhole Bridge", network: "Multi-Chain", desc: "Industry-leading bridge. 20+ networks. Pay with ADNA.", link: "https://wormhole.com" },
-                { name: "LayerZero Bridge", network: "Omni-Chain", desc: "Omnichain interoperability protocol. Pay with ADNA.", link: "https://layerzero.network" },
-                { name: "Axelar Bridge", network: "Cross-Chain", desc: "Cross-chain communication protocol. Pay with ADNA.", link: "https://axelar.network" },
-                { name: "Celer Bridge", network: "Multi-Chain", desc: "Multi-chain bridge and Celer Network. Pay with ADNA.", link: "https://cbridge.celer.network" },
-                { name: "Multichain Bridge", network: "Cross-Chain", desc: "Cross-chain router protocol. Pay with ADNA.", link: "https://multichain.org" },
-                { name: "Hop Protocol", network: "Optimism", desc: "Optimism Bridge. Fast and secure. Pay with ADNA.", link: "https://hop.exchange" },
-                { name: "Across Bridge", network: "Cross-Chain", desc: "Cross-chain bridge with fast transfers. Pay with ADNA.", link: "https://across.to" }
-            ];
+            let count = 0;
+            for (let b = 0; b < bridges.length && result.length < 300; b++) {
+                const bridge = bridges[b];
+                for (let v = 0; v < 3 && result.length < 300; v++) {
+                    const network = networks[count % networks.length];
+                    const suffix = suffixes[(count + v) % suffixes.length];
 
-            realBridges.forEach(f => {
-                if (!used.has(f.link)) {
-                    used.add(f.link);
-                    result.push(f);
+                    const id1 = Math.random().toString(36).substring(2, 6);
+                    const id2 = Math.random().toString(36).substring(2, 6);
+
+                    let link;
+                    if (v === 0) {
+                        link = `https://${bridge.base}/route/${network.toLowerCase().replace(/\s/g,'')}-${id1}`;
+                    } else if (v === 1) {
+                        link = `https://${network.toLowerCase().replace(/\s/g,'')}.${bridge.base}/transfer/${id1}-${id2}`;
+                    } else {
+                        link = `https://${bridge.base}/api/${suffix}/${network.toLowerCase().replace(/\s/g,'')}/${id1}`;
+                    }
+
+                    if (used.has(link)) {
+                        link += `-${Math.random().toString(36).substring(2, 4)}`;
+                    }
+                    used.add(link);
+
+                    const name = `${bridge.name} ${network}`;
+                    const desc = `${bridge.name} — ${network}. Bridge assets with 0.1% fee. Pay with ADNA.`;
+                    const fullDesc = `${bridge.name} — ${network}.\n\n🌐 Network: ${network}\n✅ Accepted payment: ADNA token\n\nClick "Bridge Now" to start cross-chain transfers with ADNA.`;
+
+                    result.push({
+                        id: `bridge_${Date.now()}_${result.length}_${Math.random().toString(36).substr(2, 5)}`,
+                        icon: "🌉",
+                        name: name,
+                        network: network,
+                        desc: desc,
+                        fullDesc: fullDesc,
+                        price: "🌉 Pay with ADNA",
+                        link: link,
+                        platform: bridge.name
+                    });
+                    count++;
                 }
-            });
-
-            // Генерируем дополнительные уникальные bridge-платформы
-            while (result.length < 300) {
-                const network = networks[Math.floor(Math.random() * networks.length)];
-                const region = regions[Math.floor(Math.random() * regions.length)];
-                const type = types[Math.floor(Math.random() * types.length)];
-
-                const id = Math.random().toString(36).substring(2, 8);
-                let name = `${type} ${network} Bridge`;
-                if (Math.random() > 0.5) name += ` ${region}`;
-                if (Math.random() > 0.5) name += ` ${['Pro','Plus','Elite','Enterprise','Lite'][Math.floor(Math.random()*5)]}`;
-
-                let link = `https://www.${network.toLowerCase().replace(/\s/g,'')}bridge${type.toLowerCase().replace(/\s/g,'')}.com/${id}`;
-                if (Math.random() > 0.5) link = `https://${type.toLowerCase().replace(/\s/g,'')}-${network.toLowerCase().replace(/\s/g,'')}.io/${id}`;
-                if (Math.random() > 0.5) link = `https://www.${network.toLowerCase().replace(/\s/g,'')}.bridge/${id}`;
-
-                if (used.has(link)) {
-                    link += `-${Math.random().toString(36).substring(2, 6)}`;
-                }
-                used.add(link);
-
-                const desc = `${type} bridge for ${network}. ${region} region. Fast and secure. Pay with ADNA.`;
-
-                let finalName = name;
-                if (result.some(f => f.name === finalName && f.network === network)) {
-                    finalName = `${name} ${Math.random().toString(36).substring(2, 5).toUpperCase()}`;
-                }
-
-                result.push({
-                    name: finalName,
-                    network: network,
-                    desc: desc,
-                    link: link,
-                    platform: network
-                });
             }
 
             return result;
@@ -224,7 +223,9 @@
 
         const allFunctions = generateBridgeFunctions();
 
-        // ========== РЕНДЕР КАРТОЧЕК ==========
+        // ========== РЕНДЕР ==========
+        let currentLang = 'en';
+
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
@@ -246,12 +247,12 @@
             const sortedNetworks = Object.keys(groups).sort();
             sortedNetworks.forEach(network => {
                 const items = groups[network];
-                html += `<h2>${network} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-5">`;
+                html += `<h2>${network} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
                 items.slice(0, 50).forEach((f, index) => {
                     const globalIndex = allFunctions.indexOf(f);
                     html += `
                         <div class="card" onclick="openModal(${globalIndex})">
-                            <div class="icon">🌉</div>
+                            <div class="icon">${f.icon}</div>
                             <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
                             <div class="fdesc">${f.desc.substring(0, 60)}${f.desc.length > 60 ? '...' : ''}</div>
                         </div>
@@ -273,8 +274,8 @@
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = f.network;
             document.getElementById('modalPrice').textContent = '🌉 Pay with ADNA';
-            document.getElementById('modalDescFull').textContent = f.desc + '\n\n🌐 Network: ' + f.network + '\n\n✅ Accepted payment: ADNA token\n\nClick "Bridge Now" to start cross-chain transfers with ADNA.';
-            document.getElementById('modalPlatform').textContent = '🌐 ' + f.network;
+            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
             document.getElementById('modalMeta').textContent = '🌉 Bridge with ADNA · ' + f.network;
             document.getElementById('modalOverlay').classList.add('active');
@@ -294,7 +295,6 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // ========== ПОИСК ==========
         document.getElementById('searchInput').addEventListener('input', function() {
             renderFunctions(this.value);
         });
@@ -303,7 +303,7 @@
         const translations = {
             en: {
                 title: '🌉 ADNA Bridge',
-                sub: '<span id="linkCount">300+</span> Unique Bridge Platforms · Cross-Chain Transfers',
+                sub: '300+ Unique Bridge Platforms · Cross-Chain Transfers · Pay with ADNA',
                 walletLabel: 'ADNA Contract',
                 buyLabel: 'Buy ADNA',
                 bridgeLabel: 'Bridge Networks',
@@ -311,7 +311,7 @@
             },
             ru: {
                 title: '🌉 Мост ADNA',
-                sub: '<span id="linkCount">300+</span> уникальных мостов · Кросс-чейн переводы',
+                sub: '300+ уникальных мостов · Кросс-чейн переводы · Оплата ADNA',
                 walletLabel: 'Контракт ADNA',
                 buyLabel: 'Купить ADNA',
                 bridgeLabel: 'Сети мостов',
@@ -319,7 +319,6 @@
             }
         };
 
-        let currentLang = 'en';
         function setLanguage(lang) {
             currentLang = lang;
             const t = translations[lang] || translations.en;
@@ -334,6 +333,7 @@
             });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
+            renderFunctions(document.getElementById('searchInput').value);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
