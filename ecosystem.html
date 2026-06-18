@@ -26,6 +26,8 @@
         .wallet-box a:hover { text-decoration: underline; }
         .btn { background: #d4a843; color: #1a0e08; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; margin: 0.1rem; font-size: 0.7rem; }
         .btn:hover { background: #f5e6c8; transform: scale(1.02); }
+        .btn-pay { background: #4caf50; color: #fff; padding: 0.2rem 0.6rem; border-radius: 40px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.2s; border: none; cursor: pointer; font-size: 0.6rem; margin-top: 0.2rem; }
+        .btn-pay:hover { background: #66bb6a; transform: scale(1.02); }
         .lang-switcher { position: fixed; bottom: 20px; right: 20px; background: #1a0e08; color: #d4a843; padding: 6px 14px; border-radius: 60px; cursor: pointer; z-index: 1000; border: 1px solid #d4a843; user-select: none; font-size: 0.8rem; }
         .lang-menu { position: fixed; bottom: 75px; right: 20px; background: #1a0e08; border-radius: 16px; padding: 6px 0; display: none; flex-direction: column; z-index: 1000; min-width: 140px; border: 1px solid #d4a843; }
         .lang-menu a { padding: 5px 14px; text-decoration: none; color: #e8ddd0; display: block; transition: 0.2s; cursor: pointer; font-size: 0.8rem; }
@@ -49,8 +51,22 @@
         .modal .modal-link { display: inline-block; background: #d4a843; color: #1a0e08; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.2s; }
         .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
         .modal .modal-meta { font-size: 0.65rem; opacity: 0.5; margin-top: 0.5rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.5rem; }
+
+        /* Payment Modal */
+        .payment-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
+        .payment-modal-overlay.active { display: flex; }
+        .payment-modal { background: #2d1a0f; max-width: 500px; width: 90%; padding: 2rem; border-radius: 24px; border: 2px solid #4caf50; position: relative; max-height: 80vh; overflow-y: auto; text-align: center; }
+        .payment-modal .wallet-address { background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 12px; font-family: monospace; color: #4caf50; word-break: break-all; font-size: 0.9rem; border: 1px solid #4caf50; margin: 0.5rem 0; cursor: pointer; }
+        .payment-modal .wallet-address:hover { background: rgba(76, 175, 80, 0.1); }
+        .payment-modal .copy-btn { background: #4caf50; color: #fff; padding: 0.5rem 1.5rem; border-radius: 40px; border: none; cursor: pointer; font-weight: 700; font-size: 0.9rem; transition: 0.2s; }
+        .payment-modal .copy-btn:hover { background: #66bb6a; transform: scale(1.02); }
+        .payment-modal .close-payment { position: absolute; top: 10px; right: 16px; font-size: 1.5rem; cursor: pointer; color: #d4a843; transition: 0.2s; background: none; border: none; }
+        .payment-modal .close-payment:hover { color: #f5e6c8; transform: rotate(90deg); }
+        .payment-modal .pay-icon { font-size: 3rem; }
+        .payment-modal .pay-title { font-size: 1.5rem; font-weight: 700; color: #4caf50; }
         .pay-badge { background: rgba(212, 168, 67, 0.15); border: 1px solid #d4a843; border-radius: 12px; padding: 0.1rem 0.4rem; font-size: 0.55rem; color: #d4a843; display: inline-block; margin-left: 0.3rem; }
-        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+
+        @media (max-width: 700px) { .container { padding: 1rem; } h1 { font-size: 1.8rem; } .nav-links a { font-size: 0.6rem; padding: 0.2rem 0.3rem; } .grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } .payment-modal { padding: 1.5rem; } }
     </style>
 </head>
 <body>
@@ -83,7 +99,7 @@
         <div class="wallet-box">
             📤 <span id="walletLabel">ADNA Contract</span>: <a href="https://solscan.io/token/DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E" target="_blank">DM3UBoJ4i7V7ueRFENCRaZA5DPzyF1BDo15gMnniBJ2E</a>
             <br>💡 <span id="buyLabel">Buy ADNA</span>: <a href="https://jup.ag/swap/SOL-ADNA" target="_blank">Jupiter</a> · <a href="https://app.meteora.ag" target="_blank">Meteora</a>
-            <br>🌿 <span id="ecosystemLabel">Ecosystem</span>: 300+ Services · 15+ Categories · Pay with ADNA
+            <br>🌿 <span id="ecosystemLabel">Ecosystem</span>: 300+ Services · 16 Categories · Pay with ADNA
         </div>
 
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin:0.5rem 0;">
@@ -114,17 +130,18 @@
         <footer>© 2025 AromaDNA (ADNA) · 300+ Ecosystem Services · Pay with ADNA</footer>
     </div>
 
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <button class="modal-close" id="modalClose">✕</button>
-            <div class="modal-icon" id="modalIcon">🌿</div>
-            <div class="modal-title" id="modalTitle">Service</div>
-            <div class="modal-category" id="modalCategory">Category</div>
-            <div class="modal-price" id="modalPrice">🌿 Pay with ADNA</div>
-            <div class="modal-desc-full" id="modalDescFull">Description</div>
-            <div class="modal-platform" id="modalPlatform">🌐 Website</div>
-            <a href="#" target="_blank" class="modal-link" id="modalLink">🔗 Visit Website</a>
-            <div class="modal-meta" id="modalMeta">🌿 Ecosystem · Pay with ADNA</div>
+    <!-- Payment Modal -->
+    <div class="payment-modal-overlay" id="paymentModal">
+        <div class="payment-modal">
+            <button class="close-payment" id="closePayment">✕</button>
+            <div class="pay-icon">💰</div>
+            <div class="pay-title">Pay with ADNA</div>
+            <div style="margin: 0.5rem 0; opacity: 0.7;">Service: <strong id="paymentService">—</strong></div>
+            <div style="margin: 0.5rem 0; opacity: 0.7;">Amount: <strong id="paymentPrice" style="color:#d4a843;">—</strong></div>
+            <div style="margin: 0.8rem 0; font-size: 0.8rem; opacity: 0.6;">Send ADNA to the wallet below:</div>
+            <div class="wallet-address" id="paymentWallet" onclick="copyWallet()">CVzSC3bBHqxPNd3L2GJFVxFRJAAV6DAa7euFQU5NBAq3</div>
+            <button class="copy-btn" id="copyBtn" onclick="copyWallet()">📋 Copy Address</button>
+            <div style="margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.5;">Transaction will be confirmed within 2-5 minutes</div>
         </div>
     </div>
 
@@ -142,399 +159,211 @@
     </div>
 
     <script>
-        // ========== 300+ УНИКАЛЬНЫХ РЕАЛЬНЫХ УСЛУГ ==========
-        function generateEcosystemServices() {
-            const result = [];
-            const used = new Set();
+        // ===== КОШЕЛЁК ДЛЯ ПРИЁМА ОПЛАТЫ =====
+        const PAYMENT_WALLET = "CVzSC3bBHqxPNd3L2GJFVxFRJAAV6DAa7euFQU5NBAq3";
 
-            // ===== ТЕСТИРОВАНИЕ НА АППАРАТЕ БРТ (ОТ ХОЗЯЙКИ САЙТА) =====
-            result.push({
-                icon: "🧬",
-                name: "BRT Diagnostics Testing",
-                category: "Медицинские",
-                desc: "Тестирование на аппарате БРТ диагностики. Pay with ADNA.",
-                fullDesc: "BRT Diagnostics — аппаратная диагностика организма. Высокоточное тестирование на аппарате БРТ. Быстро, безболезненно, информативно. Оплата ADNA.",
-                price: "20 000 ADNA",
-                link: "https://brt-diagnostics.com",
-                platform: "BRT Diagnostics"
+        // ===== ФУНКЦИЯ ОПЛАТЫ =====
+        function openPaymentModal(serviceName, price) {
+            const modal = document.getElementById('paymentModal');
+            document.getElementById('paymentService').textContent = serviceName;
+            document.getElementById('paymentPrice').textContent = price || 'Varies';
+            document.getElementById('paymentWallet').textContent = PAYMENT_WALLET;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function copyWallet() {
+            const wallet = document.getElementById('paymentWallet').textContent;
+            navigator.clipboard.writeText(wallet).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => btn.textContent = '📋 Copy', 2000);
+            }).catch(() => {
+                // Fallback
+                const input = document.createElement('input');
+                input.value = wallet;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => btn.textContent = '📋 Copy', 2000);
             });
+        }
 
-            // ===== КОНСАЛТИНГ (30) =====
-            const consulting = [
+        document.getElementById('closePayment').addEventListener('click', closePaymentModal);
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) closePaymentModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePaymentModal();
+        });
+
+        // ========== КАТЕГОРИИ НА АНГЛИЙСКОМ ==========
+        const categories = [
+            { id: "medical", name: "Medical", ru: "Медицинские", icon: "🧬" },
+            { id: "consulting", name: "Consulting", ru: "Консалтинг", icon: "💼" },
+            { id: "legal", name: "Legal", ru: "Юридические", icon: "⚖️" },
+            { id: "accounting", name: "Accounting", ru: "Бухгалтерские", icon: "📊" },
+            { id: "it", name: "IT Services", ru: "IT-услуги", icon: "💻" },
+            { id: "marketing", name: "Marketing", ru: "Маркетинг", icon: "📢" },
+            { id: "design", name: "Design", ru: "Дизайн", icon: "🎨" },
+            { id: "education", name: "Education", ru: "Образование", icon: "📚" },
+            { id: "insurance", name: "Insurance", ru: "Страхование", icon: "🛡️" },
+            { id: "logistics", name: "Logistics", ru: "Логистика", icon: "🚚" },
+            { id: "security", name: "Security", ru: "Охрана", icon: "🔐" },
+            { id: "cleaning", name: "Cleaning", ru: "Клининг", icon: "🧹" },
+            { id: "construction", name: "Construction", ru: "Строительные", icon: "🏗️" },
+            { id: "repair", name: "Repair", ru: "Ремонтные", icon: "🔧" },
+            { id: "auto", name: "Auto Services", ru: "Автоуслуги", icon: "🚗" },
+            { id: "general", name: "General Services", ru: "Услуги", icon: "⭐" }
+        ];
+
+        // ===== BRT Diagnostics (от хозяйки сайта) =====
+        const brtDiagnostics = {
+            icon: "🧬",
+            name: "BRT Diagnostics Testing",
+            category: "Medical",
+            categoryRu: "Медицинские",
+            desc: "BRT device diagnostic testing. Fast, accurate, painless. Pay with ADNA.",
+            descRu: "Тестирование на аппарате БРТ диагностики. Быстро, точно, безболезненно. Оплата ADNA.",
+            price: "20 000 ADNA",
+            link: "https://brt-diagnostics.com",
+            platform: "BRT Diagnostics"
+        };
+
+        // ===== РЕАЛЬНЫЕ САЙТЫ ПО КАТЕГОРИЯМ =====
+        const siteData = {
+            "Medical": [
+                "teladoc.com", "amwell.com", "mdlive.com", "doctorondemand.com", "healthline.com",
+                "webmd.com", "mayoclinic.org", "clevelandclinic.org", "hopkinsmedicine.org", "massgeneral.org",
+                "mountsinai.org", "nyp.org", "partners.org", "kelsey-seybold.com", "scripps.org"
+            ],
+            "Consulting": [
                 "mckinsey.com", "bain.com", "bcg.com", "deloitte.com", "pwc.com",
                 "ey.com", "kpmg.com", "accenture.com", "ibm.com", "capgemini.com",
                 "atos.net", "cognizant.com", "hcltech.com", "wipro.com", "infosys.com",
                 "tcs.com", "techmahindra.com", "ltimindtree.com", "mphasis.com", "hexaware.com",
                 "oracle.com", "sap.com", "salesforce.com", "workday.com", "servicenow.com",
                 "adobe.com", "microsoft.com", "google.com", "aws.amazon.com", "azure.com"
-            ];
-
-            consulting.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "💼",
-                    name: `Consulting ${site.split('.')[0]}`,
-                    category: "Консалтинг",
-                    desc: `Консалтинг — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая консалтинговая компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ЮРИДИЧЕСКИЕ (20) =====
-            const legal = [
+            ],
+            "Legal": [
                 "legalzoom.com", "rocketlawyer.com", "avvo.com", "findlaw.com", "nolo.com",
                 "upcounsel.com", "lawyers.com", "legalmatch.com", "justia.com", "martindale.com",
                 "lexisnexis.com", "westlaw.com", "practicallaw.com", "bloomberglaw.com", "law360.com",
                 "jdsupra.com", "law.com", "abajournal.com", "natlawreview.com", "lexology.com"
-            ];
-
-            legal.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "⚖️",
-                    name: `Legal ${site.split('.')[0]}`,
-                    category: "Юридические",
-                    desc: `Юридические услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая юридическая платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== БУХГАЛТЕРСКИЕ (15) =====
-            const accounting = [
+            ],
+            "Accounting": [
                 "quickbooks.com", "xero.com", "freshbooks.com", "waveapps.com", "zoho.com",
                 "sage.com", "intuit.com", "accounting.com", "bookkeeping.com", "taxslayer.com",
                 "hrblock.com", "turbotax.com", "taxact.com", "creditkarma.com", "bench.co"
-            ];
-
-            accounting.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "📊",
-                    name: `Accounting ${site.split('.')[0]}`,
-                    category: "Бухгалтерские",
-                    desc: `Бухгалтерские услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая бухгалтерская платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== IT-УСЛУГИ (25) =====
-            const itServices = [
+            ],
+            "IT Services": [
                 "ibm.com", "accenture.com", "tcs.com", "infosys.com", "wipro.com",
                 "hcltech.com", "techmahindra.com", "cognizant.com", "capgemini.com", "atos.net",
                 "oracle.com", "sap.com", "microsoft.com", "aws.amazon.com", "azure.com",
                 "google.com", "salesforce.com", "workday.com", "servicenow.com", "adobe.com",
                 "cisco.com", "vmware.com", "dell.com", "hp.com", "lenovo.com"
-            ];
-
-            itServices.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "💻",
-                    name: `IT ${site.split('.')[0]}`,
-                    category: "IT-услуги",
-                    desc: `IT-услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая IT-компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== МАРКЕТИНГ (20) =====
-            const marketing = [
+            ],
+            "Marketing": [
                 "hubspot.com", "mailchimp.com", "semrush.com", "ahrefs.com", "moz.com",
                 "searchenginejournal.com", "neilpatel.com", "backlinko.com", "yoast.com", "wordstream.com",
                 "marketingprofs.com", "contentmarketinginstitute.com", "socialmediaexaminer.com", "buffer.com", "hootsuite.com",
                 "sproutsocial.com", "later.com", "canva.com", "piktochart.com", "venngage.com"
-            ];
-
-            marketing.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "📢",
-                    name: `Marketing ${site.split('.')[0]}`,
-                    category: "Маркетинг",
-                    desc: `Маркетинг — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая маркетинговая платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ДИЗАЙН (15) =====
-            const design = [
+            ],
+            "Design": [
                 "99designs.com", "crowdspring.com", "designcrowd.com", "dribbble.com", "behance.net",
                 "creativebloq.com", "smashingmagazine.com", "designmodo.com", "webdesignerdepot.com", "speckyboy.com",
                 "awwwards.com", "siteinspire.com", "graphicriver.net", "envato.com", "creativemarket.com"
-            ];
-
-            design.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🎨",
-                    name: `Design ${site.split('.')[0]}`,
-                    category: "Дизайн",
-                    desc: `Дизайн — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая дизайн-платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ОБРАЗОВАНИЕ (15) =====
-            const education = [
+            ],
+            "Education": [
                 "coursera.org", "udemy.com", "edx.org", "skillshare.com", "pluralsight.com",
                 "lynda.com", "udacity.com", "khanacademy.org", "codecademy.com", "freecodecamp.org",
                 "w3schools.com", "stackoverflow.com", "github.com", "gitlab.com", "bitbucket.org"
-            ];
-
-            education.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "📚",
-                    name: `Education ${site.split('.')[0]}`,
-                    category: "Образование",
-                    desc: `Образование — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая образовательная платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== МЕДИЦИНСКИЕ (15) =====
-            const medical = [
-                "teladoc.com", "amwell.com", "mdlive.com", "doctorondemand.com", "healthline.com",
-                "webmd.com", "mayoclinic.org", "clevelandclinic.org", "hopkinsmedicine.org", "massgeneral.org",
-                "mountsinai.org", "nyp.org", "partners.org", "kelsey-seybold.com", "scripps.org"
-            ];
-
-            medical.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🏥",
-                    name: `Medical ${site.split('.')[0]}`,
-                    category: "Медицинские",
-                    desc: `Медицинские услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая медицинская платформа. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== СТРАХОВАНИЕ (15) =====
-            const insurance = [
+            ],
+            "Insurance": [
                 "geico.com", "progressive.com", "allstate.com", "statefarm.com", "nationwide.com",
                 "libertymutual.com", "travelers.com", "usaa.com", "farmers.com", "aflac.com",
                 "metlife.com", "prudential.com", "aetna.com", "cigna.com", "humana.com"
-            ];
-
-            insurance.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🛡️",
-                    name: `Insurance ${site.split('.')[0]}`,
-                    category: "Страхование",
-                    desc: `Страхование — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая страховая компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ЛОГИСТИКА (15) =====
-            const logistics = [
+            ],
+            "Logistics": [
                 "ups.com", "fedex.com", "dhl.com", "usps.com", "cargill.com",
                 "expeditors.com", "kuehne-nagel.com", "dsv.com", "penske.com", "ryder.com",
                 "xpo.com", "chrobinson.com", "jbhunt.com", "hubgroup.com", "tql.com"
-            ];
-
-            logistics.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🚚",
-                    name: `Logistics ${site.split('.')[0]}`,
-                    category: "Логистика",
-                    desc: `Логистика — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая логистическая компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ОХРАНА (10) =====
-            const security = [
+            ],
+            "Security": [
                 "adt.com", "brinks.com", "guardian.com", "simplisafe.com", "ring.com",
                 "vivint.com", "frontpoint.com", "abode.com", "scoutalarm.com", "cove.com"
-            ];
-
-            security.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🔐",
-                    name: `Security ${site.split('.')[0]}`,
-                    category: "Охрана",
-                    desc: `Охрана — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая охранная компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== КЛИНИНГ (10) =====
-            const cleaning = [
+            ],
+            "Cleaning": [
                 "maidpro.com", "merrymaids.com", "cleaning.com", "servicepro.com", "housekeeper.com",
                 "maids.com", "cleaningservices.com", "sparklingclean.com", "tidy.com", "neat.com"
-            ];
-
-            cleaning.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🧹",
-                    name: `Cleaning ${site.split('.')[0]}`,
-                    category: "Клининг",
-                    desc: `Клининг — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая клининговая компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== СТРОИТЕЛЬНЫЕ (10) =====
-            const construction = [
+            ],
+            "Construction": [
                 "turner.com", "bechtel.com", "fluor.com", "skanska.com", "balfourbeatty.com",
                 "kiewit.com", "whiting-turner.com", "clarkconstruction.com", "gilbane.com", "jec.com"
-            ];
-
-            construction.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🏗️",
-                    name: `Construction ${site.split('.')[0]}`,
-                    category: "Строительные",
-                    desc: `Строительные услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая строительная компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== РЕМОНТНЫЕ (10) =====
-            const repair = [
+            ],
+            "Repair": [
                 "homeadvisor.com", "angi.com", "handy.com", "taskrabbit.com", "porch.com",
                 "fixr.com", "thumbtack.com", "homeguide.com", "networx.com", "mrmoneybags.com"
-            ];
-
-            repair.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🔧",
-                    name: `Repair ${site.split('.')[0]}`,
-                    category: "Ремонтные",
-                    desc: `Ремонтные услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая ремонтная компания. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== АВТОУСЛУГИ (10) =====
-            const autoServices = [
+            ],
+            "Auto Services": [
                 "firestone.com", "pepboys.com", "jiffylube.com", "valvoline.com", "meineke.com",
                 "goodyear.com", "bridgestone.com", "michelin.com", "tiresplus.com", "ntb.com"
-            ];
-
-            autoServices.forEach(site => {
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "🚗",
-                    name: `Auto ${site.split('.')[0]}`,
-                    category: "Автоуслуги",
-                    desc: `Автоуслуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — ведущая компания по автоуслугам. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
-                });
-            });
-
-            // ===== ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ =====
-            const extraServices = [
+            ],
+            "General Services": [
                 "yelp.com", "yellowpages.com", "angieslist.com", "bbb.org", "consumeraffairs.com",
                 "trustpilot.com", "sitejabber.com", "resellerratings.com", "g2.com", "capterra.com"
-            ];
+            ]
+        };
 
-            extraServices.forEach(site => {
-                if (result.length >= 300) return;
-                const link = `https://${site}`;
-                if (used.has(link)) return;
-                used.add(link);
-                result.push({
-                    icon: "⭐",
-                    name: `Service ${site.split('.')[0]}`,
-                    category: "Услуги",
-                    desc: `Услуги — ${site}. Pay with ADNA.`,
-                    fullDesc: `${site} — платформа услуг. Оплата ADNA.`,
-                    price: "0.05% fee",
-                    link: link,
-                    platform: site
+        // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
+        let currentLang = 'en';
+
+        function generateEcosystemFunctions() {
+            const result = [];
+
+            // Добавляем BRT Diagnostics первым
+            result.push(brtDiagnostics);
+
+            // Проходим по категориям
+            categories.forEach(cat => {
+                const sites = siteData[cat.name] || [];
+                sites.forEach(site => {
+                    const link = `https://${site}`;
+                    const name = site.split('.')[0].charAt(0).toUpperCase() + site.split('.')[0].slice(1);
+                    result.push({
+                        icon: cat.icon,
+                        name: name,
+                        category: cat.name,
+                        categoryRu: cat.ru,
+                        desc: `${cat.name} — ${site.split('.')[0]}. Pay with ADNA.`,
+                        descRu: `${cat.ru} — ${site.split('.')[0]}. Оплата ADNA.`,
+                        price: "0.05% fee",
+                        link: link,
+                        platform: site
+                    });
                 });
             });
 
             return result;
         }
 
-        const allFunctions = generateEcosystemServices();
+        const allFunctions = generateEcosystemFunctions();
 
         // ========== РЕНДЕР КАРТОЧЕК ==========
+        function getCategoryDisplay(catName) {
+            const cat = categories.find(c => c.name === catName);
+            if (!cat) return catName;
+            return currentLang === 'en' ? cat.name : cat.ru;
+        }
+
         function renderFunctions(filter = '') {
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
@@ -542,34 +371,38 @@
             if (search) filtered = allFunctions.filter(f =>
                 f.name.toLowerCase().includes(search) ||
                 f.desc.toLowerCase().includes(search) ||
-                f.category.toLowerCase().includes(search) ||
-                (f.fullDesc && f.fullDesc.toLowerCase().includes(search))
+                f.category.toLowerCase().includes(search)
             );
 
             const groups = {};
             filtered.forEach(f => {
-                if (!groups[f.category]) groups[f.category] = [];
-                groups[f.category].push(f);
+                const displayCat = getCategoryDisplay(f.category);
+                if (!groups[displayCat]) groups[displayCat] = [];
+                groups[displayCat].push(f);
             });
 
             let html = '';
             const sortedCategories = [
-                'Медицинские', 'Консалтинг', 'Юридические', 'Бухгалтерские', 'IT-услуги',
-                'Маркетинг', 'Дизайн', 'Образование', 'Страхование', 'Логистика',
-                'Охрана', 'Клининг', 'Строительные', 'Ремонтные', 'Автоуслуги', 'Услуги'
+                'Medical', 'Consulting', 'Legal', 'Accounting', 'IT Services',
+                'Marketing', 'Design', 'Education', 'Insurance', 'Logistics',
+                'Security', 'Cleaning', 'Construction', 'Repair', 'Auto Services', 'General Services'
             ];
 
-            sortedCategories.forEach(cat => {
-                if (groups[cat] && groups[cat].length > 0) {
-                    const items = groups[cat];
-                    html += `<h2>${cat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
+            sortedCategories.forEach(catName => {
+                const displayCat = currentLang === 'en' ? catName : categories.find(c => c.name === catName)?.ru || catName;
+                const items = groups[displayCat];
+                if (items && items.length > 0) {
+                    html += `<h2>${displayCat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
                     items.slice(0, 30).forEach((f, index) => {
                         const globalIndex = allFunctions.indexOf(f);
+                        const desc = currentLang === 'en' ? f.desc : f.descRu;
+                        const price = f.price || '0.05% fee';
                         html += `
                             <div class="card" onclick="openModal(${globalIndex})">
                                 <div class="icon">${f.icon}</div>
                                 <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
-                                <div class="fdesc">${f.desc.substring(0, 60)}${f.desc.length > 60 ? '...' : ''}</div>
+                                <div class="fdesc">${desc.substring(0, 60)}${desc.length > 60 ? '...' : ''}</div>
+                                <button class="btn-pay" onclick="event.stopPropagation(); openPaymentModal('${f.name}', '${price}')">💰 Pay Now</button>
                             </div>
                         `;
                     });
@@ -581,16 +414,19 @@
             document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
-        // ========== МОДАЛЬНОЕ ОКНО ==========
+        // ========== МОДАЛЬНОЕ ОКНО (инфо) ==========
         function openModal(index) {
             const f = allFunctions[index];
             if (!f) return;
 
+            const desc = currentLang === 'en' ? f.desc : f.descRu;
+            const categoryDisplay = currentLang === 'en' ? f.category : f.categoryRu;
+
             document.getElementById('modalIcon').textContent = f.icon;
             document.getElementById('modalTitle').textContent = f.name;
-            document.getElementById('modalCategory').textContent = f.category;
+            document.getElementById('modalCategory').textContent = categoryDisplay;
             document.getElementById('modalPrice').textContent = f.price || '🌿 Pay with ADNA';
-            document.getElementById('modalDescFull').textContent = f.fullDesc || f.desc;
+            document.getElementById('modalDescFull').textContent = desc + '\n\nCategory: ' + categoryDisplay + '\n\n✅ Accepted payment: ADNA token\n\nClick "Visit Website" to learn more.';
             document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
             document.getElementById('modalMeta').textContent = '🌿 Ecosystem · Pay with ADNA';
@@ -608,7 +444,10 @@
             if (e.target === this) closeModal();
         });
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closePaymentModal();
+            }
         });
 
         document.getElementById('searchInput').addEventListener('input', function() {
@@ -635,7 +474,6 @@
             }
         };
 
-        let currentLang = 'en';
         function setLanguage(lang) {
             currentLang = lang;
             const t = translations[lang] || translations.en;
@@ -650,6 +488,7 @@
             });
             document.getElementById('langSwitcher').innerHTML = `🌐 ${lang.toUpperCase()}`;
             localStorage.setItem('adna_lang', lang);
+            renderFunctions(document.getElementById('searchInput').value);
         }
 
         document.getElementById('langSwitcher').onclick = () => document.getElementById('langMenu').classList.toggle('show');
