@@ -52,7 +52,6 @@
         .modal .modal-link:hover { background: #f5e6c8; transform: scale(1.02); }
         .modal .modal-meta { font-size: 0.65rem; opacity: 0.5; margin-top: 0.5rem; border-top: 1px solid rgba(212, 168, 67, 0.1); padding-top: 0.5rem; }
 
-        /* Payment Modal */
         .payment-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; backdrop-filter: blur(8px); }
         .payment-modal-overlay.active { display: flex; }
         .payment-modal { background: #2d1a0f; max-width: 500px; width: 90%; padding: 2rem; border-radius: 24px; border: 2px solid #4caf50; position: relative; max-height: 80vh; overflow-y: auto; text-align: center; }
@@ -184,7 +183,6 @@
                 btn.textContent = '✅ Copied!';
                 setTimeout(() => btn.textContent = '📋 Copy', 2000);
             }).catch(() => {
-                // Fallback
                 const input = document.createElement('input');
                 input.value = wallet;
                 document.body.appendChild(input);
@@ -202,7 +200,10 @@
             if (e.target === this) closePaymentModal();
         });
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closePaymentModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closePaymentModal();
+            }
         });
 
         // ========== КАТЕГОРИИ НА АНГЛИЙСКОМ ==========
@@ -397,12 +398,14 @@
                         const globalIndex = allFunctions.indexOf(f);
                         const desc = currentLang === 'en' ? f.desc : f.descRu;
                         const price = f.price || '0.05% fee';
+                        // Экранируем имя для onclick
+                        const safeName = f.name.replace(/'/g, "\\'");
                         html += `
                             <div class="card" onclick="openModal(${globalIndex})">
                                 <div class="icon">${f.icon}</div>
                                 <div class="fname">${f.name} <span class="pay-badge">ADNA</span></div>
                                 <div class="fdesc">${desc.substring(0, 60)}${desc.length > 60 ? '...' : ''}</div>
-                                <button class="btn-pay" onclick="event.stopPropagation(); openPaymentModal('${f.name}', '${price}')">💰 Pay Now</button>
+                                <button class="btn-pay" onclick="event.stopPropagation(); openPaymentModal('${safeName}', '${price}')">💰 Pay Now</button>
                             </div>
                         `;
                     });
@@ -442,12 +445,6 @@
         document.getElementById('modalClose').addEventListener('click', closeModal);
         document.getElementById('modalOverlay').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
-        });
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-                closePaymentModal();
-            }
         });
 
         document.getElementById('searchInput').addEventListener('input', function() {
