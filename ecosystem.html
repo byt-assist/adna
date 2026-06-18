@@ -129,7 +129,6 @@
         <footer>© 2025 AromaDNA (ADNA) · 300+ Ecosystem Services · Pay with ADNA</footer>
     </div>
 
-    <!-- Payment Modal -->
     <div class="payment-modal-overlay" id="paymentModal">
         <div class="payment-modal">
             <button class="close-payment" id="closePayment">✕</button>
@@ -158,16 +157,14 @@
     </div>
 
     <script>
-        // ===== КОШЕЛЁК ДЛЯ ПРИЁМА ОПЛАТЫ =====
+        // ===== КОШЕЛЁК =====
         const PAYMENT_WALLET = "CVzSC3bBHqxPNd3L2GJFVxFRJAAV6DAa7euFQU5NBAq3";
 
-        // ===== ФУНКЦИЯ ОПЛАТЫ =====
         function openPaymentModal(serviceName, price) {
-            const modal = document.getElementById('paymentModal');
             document.getElementById('paymentService').textContent = serviceName;
             document.getElementById('paymentPrice').textContent = price || 'Varies';
             document.getElementById('paymentWallet').textContent = PAYMENT_WALLET;
-            modal.classList.add('active');
+            document.getElementById('paymentModal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
@@ -206,7 +203,7 @@
             }
         });
 
-        // ========== КАТЕГОРИИ НА АНГЛИЙСКОМ ==========
+        // ========== ДАННЫЕ ==========
         const categories = [
             { id: "medical", name: "Medical", ru: "Медицинские", icon: "🧬" },
             { id: "consulting", name: "Consulting", ru: "Консалтинг", icon: "💼" },
@@ -226,7 +223,6 @@
             { id: "general", name: "General Services", ru: "Услуги", icon: "⭐" }
         ];
 
-        // ===== BRT Diagnostics (от хозяйки сайта) =====
         const brtDiagnostics = {
             icon: "🧬",
             name: "BRT Diagnostics Testing",
@@ -239,105 +235,34 @@
             platform: "BRT Diagnostics"
         };
 
-        // ===== РЕАЛЬНЫЕ САЙТЫ ПО КАТЕГОРИЯМ =====
         const siteData = {
-            "Medical": [
-                "teladoc.com", "amwell.com", "mdlive.com", "doctorondemand.com", "healthline.com",
-                "webmd.com", "mayoclinic.org", "clevelandclinic.org", "hopkinsmedicine.org", "massgeneral.org",
-                "mountsinai.org", "nyp.org", "partners.org", "kelsey-seybold.com", "scripps.org"
-            ],
-            "Consulting": [
-                "mckinsey.com", "bain.com", "bcg.com", "deloitte.com", "pwc.com",
-                "ey.com", "kpmg.com", "accenture.com", "ibm.com", "capgemini.com",
-                "atos.net", "cognizant.com", "hcltech.com", "wipro.com", "infosys.com",
-                "tcs.com", "techmahindra.com", "ltimindtree.com", "mphasis.com", "hexaware.com",
-                "oracle.com", "sap.com", "salesforce.com", "workday.com", "servicenow.com",
-                "adobe.com", "microsoft.com", "google.com", "aws.amazon.com", "azure.com"
-            ],
-            "Legal": [
-                "legalzoom.com", "rocketlawyer.com", "avvo.com", "findlaw.com", "nolo.com",
-                "upcounsel.com", "lawyers.com", "legalmatch.com", "justia.com", "martindale.com",
-                "lexisnexis.com", "westlaw.com", "practicallaw.com", "bloomberglaw.com", "law360.com",
-                "jdsupra.com", "law.com", "abajournal.com", "natlawreview.com", "lexology.com"
-            ],
-            "Accounting": [
-                "quickbooks.com", "xero.com", "freshbooks.com", "waveapps.com", "zoho.com",
-                "sage.com", "intuit.com", "accounting.com", "bookkeeping.com", "taxslayer.com",
-                "hrblock.com", "turbotax.com", "taxact.com", "creditkarma.com", "bench.co"
-            ],
-            "IT Services": [
-                "ibm.com", "accenture.com", "tcs.com", "infosys.com", "wipro.com",
-                "hcltech.com", "techmahindra.com", "cognizant.com", "capgemini.com", "atos.net",
-                "oracle.com", "sap.com", "microsoft.com", "aws.amazon.com", "azure.com",
-                "google.com", "salesforce.com", "workday.com", "servicenow.com", "adobe.com",
-                "cisco.com", "vmware.com", "dell.com", "hp.com", "lenovo.com"
-            ],
-            "Marketing": [
-                "hubspot.com", "mailchimp.com", "semrush.com", "ahrefs.com", "moz.com",
-                "searchenginejournal.com", "neilpatel.com", "backlinko.com", "yoast.com", "wordstream.com",
-                "marketingprofs.com", "contentmarketinginstitute.com", "socialmediaexaminer.com", "buffer.com", "hootsuite.com",
-                "sproutsocial.com", "later.com", "canva.com", "piktochart.com", "venngage.com"
-            ],
-            "Design": [
-                "99designs.com", "crowdspring.com", "designcrowd.com", "dribbble.com", "behance.net",
-                "creativebloq.com", "smashingmagazine.com", "designmodo.com", "webdesignerdepot.com", "speckyboy.com",
-                "awwwards.com", "siteinspire.com", "graphicriver.net", "envato.com", "creativemarket.com"
-            ],
-            "Education": [
-                "coursera.org", "udemy.com", "edx.org", "skillshare.com", "pluralsight.com",
-                "lynda.com", "udacity.com", "khanacademy.org", "codecademy.com", "freecodecamp.org",
-                "w3schools.com", "stackoverflow.com", "github.com", "gitlab.com", "bitbucket.org"
-            ],
-            "Insurance": [
-                "geico.com", "progressive.com", "allstate.com", "statefarm.com", "nationwide.com",
-                "libertymutual.com", "travelers.com", "usaa.com", "farmers.com", "aflac.com",
-                "metlife.com", "prudential.com", "aetna.com", "cigna.com", "humana.com"
-            ],
-            "Logistics": [
-                "ups.com", "fedex.com", "dhl.com", "usps.com", "cargill.com",
-                "expeditors.com", "kuehne-nagel.com", "dsv.com", "penske.com", "ryder.com",
-                "xpo.com", "chrobinson.com", "jbhunt.com", "hubgroup.com", "tql.com"
-            ],
-            "Security": [
-                "adt.com", "brinks.com", "guardian.com", "simplisafe.com", "ring.com",
-                "vivint.com", "frontpoint.com", "abode.com", "scoutalarm.com", "cove.com"
-            ],
-            "Cleaning": [
-                "maidpro.com", "merrymaids.com", "cleaning.com", "servicepro.com", "housekeeper.com",
-                "maids.com", "cleaningservices.com", "sparklingclean.com", "tidy.com", "neat.com"
-            ],
-            "Construction": [
-                "turner.com", "bechtel.com", "fluor.com", "skanska.com", "balfourbeatty.com",
-                "kiewit.com", "whiting-turner.com", "clarkconstruction.com", "gilbane.com", "jec.com"
-            ],
-            "Repair": [
-                "homeadvisor.com", "angi.com", "handy.com", "taskrabbit.com", "porch.com",
-                "fixr.com", "thumbtack.com", "homeguide.com", "networx.com", "mrmoneybags.com"
-            ],
-            "Auto Services": [
-                "firestone.com", "pepboys.com", "jiffylube.com", "valvoline.com", "meineke.com",
-                "goodyear.com", "bridgestone.com", "michelin.com", "tiresplus.com", "ntb.com"
-            ],
-            "General Services": [
-                "yelp.com", "yellowpages.com", "angieslist.com", "bbb.org", "consumeraffairs.com",
-                "trustpilot.com", "sitejabber.com", "resellerratings.com", "g2.com", "capterra.com"
-            ]
+            "Medical": ["teladoc.com", "amwell.com", "mdlive.com", "doctorondemand.com", "healthline.com", "webmd.com", "mayoclinic.org", "clevelandclinic.org", "hopkinsmedicine.org", "massgeneral.org", "mountsinai.org", "nyp.org", "partners.org", "kelsey-seybold.com", "scripps.org"],
+            "Consulting": ["mckinsey.com", "bain.com", "bcg.com", "deloitte.com", "pwc.com", "ey.com", "kpmg.com", "accenture.com", "ibm.com", "capgemini.com", "atos.net", "cognizant.com", "hcltech.com", "wipro.com", "infosys.com", "tcs.com", "techmahindra.com", "ltimindtree.com", "mphasis.com", "hexaware.com", "oracle.com", "sap.com", "salesforce.com", "workday.com", "servicenow.com", "adobe.com", "microsoft.com", "google.com", "aws.amazon.com", "azure.com"],
+            "Legal": ["legalzoom.com", "rocketlawyer.com", "avvo.com", "findlaw.com", "nolo.com", "upcounsel.com", "lawyers.com", "legalmatch.com", "justia.com", "martindale.com", "lexisnexis.com", "westlaw.com", "practicallaw.com", "bloomberglaw.com", "law360.com", "jdsupra.com", "law.com", "abajournal.com", "natlawreview.com", "lexology.com"],
+            "Accounting": ["quickbooks.com", "xero.com", "freshbooks.com", "waveapps.com", "zoho.com", "sage.com", "intuit.com", "accounting.com", "bookkeeping.com", "taxslayer.com", "hrblock.com", "turbotax.com", "taxact.com", "creditkarma.com", "bench.co"],
+            "IT Services": ["ibm.com", "accenture.com", "tcs.com", "infosys.com", "wipro.com", "hcltech.com", "techmahindra.com", "cognizant.com", "capgemini.com", "atos.net", "oracle.com", "sap.com", "microsoft.com", "aws.amazon.com", "azure.com", "google.com", "salesforce.com", "workday.com", "servicenow.com", "adobe.com", "cisco.com", "vmware.com", "dell.com", "hp.com", "lenovo.com"],
+            "Marketing": ["hubspot.com", "mailchimp.com", "semrush.com", "ahrefs.com", "moz.com", "searchenginejournal.com", "neilpatel.com", "backlinko.com", "yoast.com", "wordstream.com", "marketingprofs.com", "contentmarketinginstitute.com", "socialmediaexaminer.com", "buffer.com", "hootsuite.com", "sproutsocial.com", "later.com", "canva.com", "piktochart.com", "venngage.com"],
+            "Design": ["99designs.com", "crowdspring.com", "designcrowd.com", "dribbble.com", "behance.net", "creativebloq.com", "smashingmagazine.com", "designmodo.com", "webdesignerdepot.com", "speckyboy.com", "awwwards.com", "siteinspire.com", "graphicriver.net", "envato.com", "creativemarket.com"],
+            "Education": ["coursera.org", "udemy.com", "edx.org", "skillshare.com", "pluralsight.com", "lynda.com", "udacity.com", "khanacademy.org", "codecademy.com", "freecodecamp.org", "w3schools.com", "stackoverflow.com", "github.com", "gitlab.com", "bitbucket.org"],
+            "Insurance": ["geico.com", "progressive.com", "allstate.com", "statefarm.com", "nationwide.com", "libertymutual.com", "travelers.com", "usaa.com", "farmers.com", "aflac.com", "metlife.com", "prudential.com", "aetna.com", "cigna.com", "humana.com"],
+            "Logistics": ["ups.com", "fedex.com", "dhl.com", "usps.com", "cargill.com", "expeditors.com", "kuehne-nagel.com", "dsv.com", "penske.com", "ryder.com", "xpo.com", "chrobinson.com", "jbhunt.com", "hubgroup.com", "tql.com"],
+            "Security": ["adt.com", "brinks.com", "guardian.com", "simplisafe.com", "ring.com", "vivint.com", "frontpoint.com", "abode.com", "scoutalarm.com", "cove.com"],
+            "Cleaning": ["maidpro.com", "merrymaids.com", "cleaning.com", "servicepro.com", "housekeeper.com", "maids.com", "cleaningservices.com", "sparklingclean.com", "tidy.com", "neat.com"],
+            "Construction": ["turner.com", "bechtel.com", "fluor.com", "skanska.com", "balfourbeatty.com", "kiewit.com", "whiting-turner.com", "clarkconstruction.com", "gilbane.com", "jec.com"],
+            "Repair": ["homeadvisor.com", "angi.com", "handy.com", "taskrabbit.com", "porch.com", "fixr.com", "thumbtack.com", "homeguide.com", "networx.com", "mrmoneybags.com"],
+            "Auto Services": ["firestone.com", "pepboys.com", "jiffylube.com", "valvoline.com", "meineke.com", "goodyear.com", "bridgestone.com", "michelin.com", "tiresplus.com", "ntb.com"],
+            "General Services": ["yelp.com", "yellowpages.com", "angieslist.com", "bbb.org", "consumeraffairs.com", "trustpilot.com", "sitejabber.com", "resellerratings.com", "g2.com", "capterra.com"]
         };
 
-        // ========== ГЕНЕРАЦИЯ ФУНКЦИЙ ==========
+        // ========== ГЕНЕРАЦИЯ ==========
         let currentLang = 'en';
 
-        function generateEcosystemFunctions() {
+        function generateAllFunctions() {
             const result = [];
-
-            // Добавляем BRT Diagnostics первым
             result.push(brtDiagnostics);
-
-            // Проходим по категориям
             categories.forEach(cat => {
                 const sites = siteData[cat.name] || [];
                 sites.forEach(site => {
-                    const link = `https://${site}`;
                     const name = site.split('.')[0].charAt(0).toUpperCase() + site.split('.')[0].slice(1);
                     result.push({
                         icon: cat.icon,
@@ -347,18 +272,16 @@
                         desc: `${cat.name} — ${site.split('.')[0]}. Pay with ADNA.`,
                         descRu: `${cat.ru} — ${site.split('.')[0]}. Оплата ADNA.`,
                         price: "0.05% fee",
-                        link: link,
+                        link: `https://${site}`,
                         platform: site
                     });
                 });
             });
-
             return result;
         }
 
-        const allFunctions = generateEcosystemFunctions();
+        const allFunctions = generateAllFunctions();
 
-        // ========== РЕНДЕР КАРТОЧЕК ==========
         function getCategoryDisplay(catName) {
             const cat = categories.find(c => c.name === catName);
             if (!cat) return catName;
@@ -369,11 +292,7 @@
             const container = document.getElementById('functionsContainer');
             const search = filter.toLowerCase();
             let filtered = allFunctions;
-            if (search) filtered = allFunctions.filter(f =>
-                f.name.toLowerCase().includes(search) ||
-                f.desc.toLowerCase().includes(search) ||
-                f.category.toLowerCase().includes(search)
-            );
+            if (search) filtered = allFunctions.filter(f => f.name.toLowerCase().includes(search) || f.desc.toLowerCase().includes(search) || f.category.toLowerCase().includes(search));
 
             const groups = {};
             filtered.forEach(f => {
@@ -383,22 +302,17 @@
             });
 
             let html = '';
-            const sortedCategories = [
-                'Medical', 'Consulting', 'Legal', 'Accounting', 'IT Services',
-                'Marketing', 'Design', 'Education', 'Insurance', 'Logistics',
-                'Security', 'Cleaning', 'Construction', 'Repair', 'Auto Services', 'General Services'
-            ];
+            const sortedCategories = ['Medical', 'Consulting', 'Legal', 'Accounting', 'IT Services', 'Marketing', 'Design', 'Education', 'Insurance', 'Logistics', 'Security', 'Cleaning', 'Construction', 'Repair', 'Auto Services', 'General Services'];
 
             sortedCategories.forEach(catName => {
                 const displayCat = currentLang === 'en' ? catName : categories.find(c => c.name === catName)?.ru || catName;
                 const items = groups[displayCat];
                 if (items && items.length > 0) {
-                    html += `<h2>${displayCat} <span style="font-size:0.8rem;opacity:0.6;">(${items.length})</span></h2><div class="grid-4">`;
+                    html += `<h2>${displayCat} (${items.length})</h2><div class="grid-4">`;
                     items.slice(0, 30).forEach((f, index) => {
                         const globalIndex = allFunctions.indexOf(f);
                         const desc = currentLang === 'en' ? f.desc : f.descRu;
                         const price = f.price || '0.05% fee';
-                        // Экранируем имя для onclick
                         const safeName = f.name.replace(/'/g, "\\'");
                         html += `
                             <div class="card" onclick="openModal(${globalIndex})">
@@ -417,19 +331,16 @@
             document.getElementById('funcCount').textContent = `Showing: ${filtered.length} / ${allFunctions.length}+`;
         }
 
-        // ========== МОДАЛЬНОЕ ОКНО (инфо) ==========
         function openModal(index) {
             const f = allFunctions[index];
             if (!f) return;
-
             const desc = currentLang === 'en' ? f.desc : f.descRu;
             const categoryDisplay = currentLang === 'en' ? f.category : f.categoryRu;
-
             document.getElementById('modalIcon').textContent = f.icon;
             document.getElementById('modalTitle').textContent = f.name;
             document.getElementById('modalCategory').textContent = categoryDisplay;
             document.getElementById('modalPrice').textContent = f.price || '🌿 Pay with ADNA';
-            document.getElementById('modalDescFull').textContent = desc + '\n\nCategory: ' + categoryDisplay + '\n\n✅ Accepted payment: ADNA token\n\nClick "Visit Website" to learn more.';
+            document.getElementById('modalDescFull').textContent = desc + '\n\nCategory: ' + categoryDisplay + '\n\n✅ Accepted payment: ADNA token';
             document.getElementById('modalPlatform').textContent = '🌐 ' + f.platform;
             document.getElementById('modalLink').href = f.link;
             document.getElementById('modalMeta').textContent = '🌿 Ecosystem · Pay with ADNA';
